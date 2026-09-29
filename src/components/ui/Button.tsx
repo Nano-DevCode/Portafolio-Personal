@@ -14,11 +14,11 @@ const variantStyles = {
   primary:
     'bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-medium shadow-lg shadow-cyan-500/20 active:scale-[0.98]',
   secondary:
-    'bg-zinc-800 hover:bg-zinc-700 text-zinc-100 border border-zinc-700 active:scale-[0.98]',
+    'bg-zinc-100 hover:bg-zinc-200 text-zinc-900 border border-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-zinc-100 dark:border-zinc-700 active:scale-[0.98]',
   outline:
-    'bg-transparent hover:bg-zinc-800/80 text-zinc-200 border border-zinc-700 hover:border-zinc-600 active:scale-[0.98]',
+    'bg-transparent hover:bg-zinc-100 text-zinc-800 border border-zinc-300 dark:hover:bg-zinc-800/80 dark:text-zinc-200 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-600 active:scale-[0.98]',
   ghost:
-    'bg-transparent hover:bg-zinc-800/50 text-zinc-400 hover:text-zinc-100',
+    'bg-transparent hover:bg-zinc-100 text-zinc-600 hover:text-zinc-900 dark:hover:bg-zinc-800/50 dark:text-zinc-400 dark:hover:text-zinc-100',
 };
 
 const sizeStyles = {

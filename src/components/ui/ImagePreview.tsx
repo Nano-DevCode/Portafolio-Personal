@@ -5,7 +5,9 @@ interface ImagePreviewProps {
   src: string;
   alt: string;
   className?: string;
+  imageClassName?: string;
   aspectRatio?: 'video' | 'square' | 'portrait' | 'auto';
+  fit?: 'contain' | 'cover';
   allowZoom?: boolean;
   priority?: boolean;
   fallbackText?: string;
@@ -23,7 +25,9 @@ export const ImagePreview: React.FC<ImagePreviewProps> = ({
   src,
   alt,
   className = '',
-  aspectRatio = 'video',
+  imageClassName = '',
+  aspectRatio = 'auto',
+  fit = 'contain',
   allowZoom = false,
   priority = false,
   fallbackText = 'Captura no disponible',
@@ -31,6 +35,8 @@ export const ImagePreview: React.FC<ImagePreviewProps> = ({
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+
+  const fitClass = fit === 'contain' ? 'object-contain' : 'object-cover';
 
   return (
     <div
@@ -43,7 +49,7 @@ export const ImagePreview: React.FC<ImagePreviewProps> = ({
       {isLoading && !hasError && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-zinc-950/80 z-10 text-zinc-500 gap-2">
           <Loader2 className="w-6 h-6 animate-spin text-cyan-400" />
-          <span className="text-xs text-zinc-400 font-mono">Cargando preview...</span>
+          <span className="text-xs text-zinc-400 font-mono">Cargando captura...</span>
         </div>
       )}
 
@@ -63,9 +69,9 @@ export const ImagePreview: React.FC<ImagePreviewProps> = ({
             setIsLoading(false);
             setHasError(true);
           }}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
+          className={`max-w-full max-h-full ${fitClass} transition-opacity duration-300 ${
             isLoading ? 'opacity-0' : 'opacity-100'
-          }`}
+          } ${imageClassName}`}
         />
       )}
 

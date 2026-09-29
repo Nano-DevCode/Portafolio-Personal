@@ -1,0 +1,25 @@
+# Robots.txt - Políticas de rastreo y seguridad
+User-agent: *
+Allow: /
+
+# Desacelerar bots de rastreo agresivo
+Crawl-delay: 5
+
+# Bloquear bots de scraping y recolectores de spam conocidos
+User-agent: EmailCollector
+Disallow: /
+
+User-agent: EmailSiphon
+Disallow: /
+
+User-agent: EmailWolf
+Disallow: /
+
+User-agent: Spambot
+Disallow: /
+
+User-agent: ExtractorPro
+Disallow: /
+
+User-agent: CherryPicker
+Disallow: /

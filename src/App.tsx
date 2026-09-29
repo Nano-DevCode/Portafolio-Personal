@@ -1,32 +1,43 @@
 import React from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/sections/Navbar';
 import { Hero } from './components/sections/Hero';
+import { SkillsSection } from './components/sections/SkillsSection';
 import { ProjectsSection } from './components/sections/ProjectsSection';
+import { CertificationsSection } from './components/sections/CertificationsSection';
 import { ContactSection } from './components/sections/ContactSection';
 import { Footer } from './components/layout/Footer';
 import { projects } from './data/projects';
 
 export const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-sans selection:bg-cyan-500/20 selection:text-cyan-300">
-      {/* Sticky Navigation Header */}
-      <Navbar />
+    <ThemeProvider>
+      <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 flex flex-col font-sans selection:bg-cyan-500/20 selection:text-cyan-600 dark:selection:text-cyan-300 transition-colors duration-200">
+        {/* Sticky Navigation Header */}
+        <Navbar />
 
-      {/* Main Content */}
-      <main className="flex-1">
-        {/* Hero Section */}
-        <Hero />
+        {/* Main Content */}
+        <main className="flex-1">
+          {/* Hero Section */}
+          <Hero />
 
-        {/* Projects Showcase & Deep-Dive Section */}
-        <ProjectsSection projects={projects} />
+          {/* Ecosistema Técnico, Cloud, Redes & Habilidades */}
+          <SkillsSection />
 
-        {/* Contact & Collaboration Section */}
-        <ContactSection />
-      </main>
+          {/* Projects Showcase & Deep-Dive Section */}
+          <ProjectsSection projects={projects} />
 
-      {/* Footer */}
-      <Footer />
-    </div>
+          {/* Certificaciones Oficiales & Credenciales */}
+          <CertificationsSection />
+
+          {/* Contact & Collaboration Section */}
+          <ContactSection />
+        </main>
+
+        {/* Footer */}
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 };
 
