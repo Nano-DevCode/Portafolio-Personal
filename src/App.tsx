@@ -2,11 +2,13 @@ import React from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/sections/Navbar';
 import { Hero } from './components/sections/Hero';
+import { AboutSection } from './components/sections/AboutSection';
 import { SkillsSection } from './components/sections/SkillsSection';
 import { ProjectsSection } from './components/sections/ProjectsSection';
 import { CertificationsSection } from './components/sections/CertificationsSection';
 import { ContactSection } from './components/sections/ContactSection';
 import { Footer } from './components/layout/Footer';
+import { ScrollToTop } from './components/ui/ScrollToTop';
 import { projects } from './data/projects';
 
 export const App: React.FC = () => {
@@ -21,7 +23,10 @@ export const App: React.FC = () => {
           {/* Hero Section */}
           <Hero />
 
-          {/* Ecosistema Técnico, Cloud, Redes & Habilidades */}
+          {/* Sobre Mí — Perfil, Formación TecNM & Trayectoria */}
+          <AboutSection />
+
+          {/* Ecosistema Técnico, Cloudflare, Cloud, Redes & Habilidades */}
           <SkillsSection />
 
           {/* Projects Showcase & Deep-Dive Section */}
@@ -36,6 +41,9 @@ export const App: React.FC = () => {
 
         {/* Footer */}
         <Footer />
+
+        {/* Floating Scroll to Top button */}
+        <ScrollToTop />
       </div>
     </ThemeProvider>
   );

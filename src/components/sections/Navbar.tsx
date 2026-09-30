@@ -1,16 +1,30 @@
-import React from 'react';
-import { Terminal, Sun, Moon } from 'lucide-react';
+import React, { useState } from 'react';
+import { Terminal, Sun, Moon, Menu, X, FileText } from 'lucide-react';
 import { Github } from '../ui/icons/GithubIcon';
 import { useTheme } from '../../context/theme-context';
 
 export const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: '#inicio', label: 'Inicio' },
+    { href: '#sobre-mi', label: 'Sobre Mí' },
+    { href: '#habilidades', label: 'Habilidades & Redes' },
+    { href: '#proyectos', label: 'Proyectos' },
+    { href: '#certificaciones', label: 'Certificaciones' },
+    { href: '#contacto', label: 'Contacto' }
+  ];
+
+  const handleLinkClick = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand / Logo */}
-        <a href="#" className="flex items-center gap-2.5 group">
+        <a href="#inicio" className="flex items-center gap-2.5 group">
           <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
             <Terminal className="w-5 h-5" />
           </div>
@@ -24,31 +38,38 @@ export const Navbar: React.FC = () => {
           </div>
         </a>
 
-        {/* Navigation */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-600 dark:text-zinc-400">
-          <a href="#inicio" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-            Inicio
-          </a>
-          <a href="#habilidades" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-            Habilidades & Redes
-          </a>
-          <a href="#proyectos" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-            Proyectos
-          </a>
-          <a href="#certificaciones" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-            Certificaciones
-          </a>
-          <a href="#contacto" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-            Contacto
-          </a>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
 
-        {/* Right CTA, Theme Toggle & GitHub */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          <div className="hidden sm:inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+        {/* Right CTA, Theme Toggle, CV & GitHub */}
+        <div className="flex items-center gap-2 sm:gap-2.5">
+          {/* Badge Disponible */}
+          <div className="hidden lg:inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
             <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
             Disponible
           </div>
+
+          {/* Botón Descargar CV */}
+          <a
+            href="/cv.pdf"
+            target="_blank"
+            download="CV_Manuel_Santiago.pdf"
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30 transition-colors shadow-xs"
+            title="Descargar Curriculum Vitae en PDF"
+          >
+            <FileText className="w-3.5 h-3.5" />
+            <span>CV</span>
+          </a>
 
           {/* Theme Toggle Button */}
           <button
@@ -64,6 +85,7 @@ export const Navbar: React.FC = () => {
             )}
           </button>
 
+          {/* GitHub link */}
           <a
             href="https://github.com/Nano-DevCode"
             target="_blank"
@@ -73,8 +95,57 @@ export const Navbar: React.FC = () => {
           >
             <Github className="w-5 h-5" />
           </a>
+
+          {/* Mobile Menu Hamburger Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+            className="md:hidden p-2 rounded-xl text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-colors cursor-pointer"
+          >
+            {mobileMenuOpen ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Drawer Dropdown */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-b border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-4 shadow-xl">
+          <nav className="flex flex-col space-y-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={handleLinkClick}
+                className="px-3 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="pt-3 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between gap-3">
+            <div className="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
+              Disponible para proyectos
+            </div>
+
+            <a
+              href="/cv.pdf"
+              target="_blank"
+              download="CV_Manuel_Santiago.pdf"
+              onClick={handleLinkClick}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-xl bg-cyan-500 text-zinc-950 hover:bg-cyan-400 transition-colors shadow-sm"
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span>Descargar CV</span>
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

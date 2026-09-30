@@ -66,18 +66,20 @@ const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    title: 'DevOps & Cloud',
-    badge: 'Contenedores & Nube',
+    title: 'DevOps, Cloud & Edge',
+    badge: 'Contenedores, Nube & CDN',
     icon: <Cloud className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
     accentColor: 'from-indigo-500/10 via-transparent to-transparent',
     borderColor: 'border-indigo-200 dark:border-indigo-500/20 hover:border-indigo-400 dark:hover:border-indigo-500/40',
     description:
-      'Contenerización, servidores proxy reversos y despliegues optimizados en infraestructura moderna.',
+      'Contenerización, servidores proxy reversos, mitigación perimetral y despliegues optimizados en infraestructura moderna.',
     skills: [
+      { name: 'Cloudflare (WAF, DNS & CDN)', highlight: true },
       { name: 'Docker', highlight: true },
       { name: 'Nginx (Reverse Proxy & SSL)', highlight: true },
       { name: 'Google Cloud Platform (GCP)', highlight: true },
       { name: 'Cursos & Formación Google Cloud', highlight: true },
+      { name: 'Protección Anti-DDoS & Caching Edge' },
       { name: 'CI / CD Pipelines' },
       { name: 'Gestión de Servidores Linux' }
     ]
@@ -182,14 +184,14 @@ export const SkillsSection: React.FC = () => {
               </h4>
               <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed max-w-3xl">
                 A diferencia de perfiles exclusivamente frontend, entiendo el ciclo de vida completo: 
-                desde la experiencia de usuario y arquitectura en el cliente, hasta el enrutamiento con Nginx, 
+                desde la experiencia de usuario y arquitectura en el cliente, hasta la mitigación y aceleración perimetral con <strong className="text-zinc-900 dark:text-zinc-200 font-semibold">Cloudflare (WAF, DNS & CDN)</strong>, el enrutamiento con Nginx, 
                 la contenerización en Docker, las mejores prácticas aprendidas en Google Cloud y la seguridad en capas con VLANs y Firewalls.
               </p>
             </div>
           </div>
           <div className="flex items-center gap-2 shrink-0">
             <span className="text-xs font-mono px-3 py-1.5 rounded-xl bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30">
-              GCP Trained • Docker & Nginx • NetSec
+              GCP & Cloudflare • Docker & Nginx • NetSec
             </span>
           </div>
         </div>

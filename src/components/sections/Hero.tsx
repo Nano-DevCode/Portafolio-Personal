@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Layers, Zap, Container, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Layers, Zap, Container, ShieldCheck, FileText } from 'lucide-react';
 import { Github } from '../ui/icons/GithubIcon';
 import { Button } from '../ui/Button';
 
@@ -12,6 +12,7 @@ const coreTechBadges = [
   'NestJS',
   'Laravel',
   'Python (IA / YOLO)',
+  'Cloudflare (WAF/CDN)',
   'Docker',
   'Nginx',
   'Google Cloud (GCP)',
@@ -47,7 +48,7 @@ export const Hero: React.FC = () => {
             Ingeniero de software con visión de extremo a extremo: desarrollo de aplicaciones frontend y móviles con{' '}
             <span className="text-zinc-900 dark:text-zinc-200 font-semibold">React, Vite, React Native, Angular y Vue</span>, 
             arquitectura backend e IA con <span className="text-zinc-900 dark:text-zinc-200 font-semibold">NestJS, Laravel y Python (Computer Vision)</span>, 
-            e infraestructura robusta con <span className="text-zinc-900 dark:text-zinc-200 font-semibold">Docker, Nginx, Google Cloud, VLANs y Firewalls</span>.
+            e infraestructura robusta con <span className="text-zinc-900 dark:text-zinc-200 font-semibold">Cloudflare, Docker, Nginx, Google Cloud, VLANs y Firewalls</span>.
           </p>
 
           {/* Core Tech Quick Pills Bar in Hero */}
@@ -63,7 +64,7 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <div className="flex flex-wrap items-center justify-center gap-3.5 pt-4">
             <Button
               asAnchor
               href="#proyectos"
@@ -75,11 +76,22 @@ export const Hero: React.FC = () => {
             </Button>
             <Button
               asAnchor
-              href="#habilidades"
+              href="/cv.pdf"
+              target="_blank"
+              download="CV_Manuel_Santiago.pdf"
               variant="secondary"
               size="lg"
+              icon={<FileText className="w-4 h-4 text-cyan-500" />}
             >
-              Ver Stack & Infraestructura
+              Descargar CV
+            </Button>
+            <Button
+              asAnchor
+              href="#sobre-mi"
+              variant="outline"
+              size="lg"
+            >
+              Sobre Mí
             </Button>
             <Button
               asAnchor

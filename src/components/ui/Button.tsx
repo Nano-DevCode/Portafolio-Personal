@@ -8,6 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
   target?: string;
   rel?: string;
+  download?: string | boolean;
 }
 
 const variantStyles = {
@@ -37,6 +38,7 @@ export const Button: React.FC<ButtonProps> = ({
   href,
   target,
   rel,
+  download,
   ...props
 }) => {
   const combinedClasses = `inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
@@ -47,6 +49,7 @@ export const Button: React.FC<ButtonProps> = ({
         href={href}
         target={target}
         rel={rel}
+        download={download}
         className={combinedClasses}
         aria-label={typeof children === 'string' ? children : undefined}
       >
