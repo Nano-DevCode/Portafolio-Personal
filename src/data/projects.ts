@@ -3,6 +3,7 @@ import type { Project } from '../types/project';
 // Base raw de los repositorios públicos en GitHub
 const MOVIE_APP_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/movie-app-react-native/main/assets/readme-images';
 const VUE_ECOMMERCE_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/vue-3-ecommerce/main/assets/readme-images';
+const LARAVEL_BLOG_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Laravel12Blog/main/docs/screenshots';
 
 export const projects: Project[] = [
   {
@@ -115,6 +116,69 @@ export const projects: Project[] = [
         'Uso de Expo Router para una navegación basada en archivos tipo SPA/Next.js con transiciones nativas suaves.',
         'Configuración estricta de TypeScript para tipado exhaustivo de los payloads de respuesta de TMDB.',
         'Implementación de componentes de fallback para imágenes con carga asíncrona y estados de error controlados.'
+      ]
+    }
+  },
+  {
+    id: 'laravel-12-blog-cms',
+    title: 'Laravel 12 CMS & Reactive Blog',
+    tagline: 'Plataforma de gestión de contenidos y blog con Livewire 3 Volt, Spatie RBAC y Pest Tests',
+    description:
+      'Plataforma Enterprise-Grade Full-Stack construida con Laravel 12 y PHP 8.3 con tipado estricto. Implementa componentes reactivos en tiempo real con Livewire 3 Volt y Alpine.js (búsqueda instantánea, likes, guardados y comentarios), control de acceso granular por roles y permisos (RBAC) con Spatie, analíticas visuales en dashboard con soporte nativo de tema Claro/Oscuro, exportación de reportes a CSV compatibles con Excel (UTF-8 BOM), y una suite exhaustiva de 44 pruebas automatizadas con Pest PHP (116 aserciones aprobadas).',
+    highlights: [
+      'Arquitectura empresarial con Laravel 12.x, PHP 8.3 con tipos estrictos y MySQL 8.4',
+      'Interactividad reactiva en tiempo real con Livewire 3 Volt y Alpine.js sin necesidad de SPAs separadas',
+      'Control de acceso granular (RBAC) con Spatie Laravel Permission (Roles: Admin, Blogger, User) y directivas @can',
+      'Dashboard administrativo con métricas KPI, monitor de seguridad, modo Claro/Oscuro y exportación de datos a CSV',
+      'Experiencia de usuario completa: Búsqueda debounced, lista de lectura privada (/guardados), likes animados y newsletter',
+      'Alta confiabilidad con suite de pruebas automatizadas en Pest PHP v3 (44 tests y 116 aserciones exitosas)'
+    ],
+    tags: [
+      { name: 'Laravel 12', category: 'backend' },
+      { name: 'PHP 8.3', category: 'backend' },
+      { name: 'Livewire 3 Volt', category: 'frontend' },
+      { name: 'MySQL 8.4', category: 'database' },
+      { name: 'Tailwind CSS v4', category: 'frontend' },
+      { name: 'Pest PHP', category: 'backend' },
+      { name: 'Spatie RBAC', category: 'backend' },
+      { name: 'Alpine.js', category: 'frontend' }
+    ],
+    githubUrl: 'https://github.com/Nano-DevCode/Laravel12Blog',
+    liveUrl: undefined,
+    images: {
+      thumbnail: `${LARAVEL_BLOG_RAW}/01-home-hero.png`,
+      gallery: [
+        `${LARAVEL_BLOG_RAW}/01-home-hero.png`,
+        `${LARAVEL_BLOG_RAW}/01-home-grid.png`,
+        `${LARAVEL_BLOG_RAW}/02-search-filter.png`,
+        `${LARAVEL_BLOG_RAW}/03-post-detail-header.png`,
+        `${LARAVEL_BLOG_RAW}/03-post-detail-content.png`,
+        `${LARAVEL_BLOG_RAW}/04-post-comments-discussion.png`,
+        `${LARAVEL_BLOG_RAW}/05-reading-list-bookmarks.png`,
+        `${LARAVEL_BLOG_RAW}/06-newsletter-box.png`,
+        `${LARAVEL_BLOG_RAW}/07-admin-dashboard-light.png`,
+        `${LARAVEL_BLOG_RAW}/08-admin-dashboard-dark.png`,
+        `${LARAVEL_BLOG_RAW}/09-admin-posts-table.png`,
+        `${LARAVEL_BLOG_RAW}/10-admin-users-table.png`,
+        `${LARAVEL_BLOG_RAW}/11-admin-roles-permissions.png`,
+        `${LARAVEL_BLOG_RAW}/12-admin-categories-table.png`
+      ]
+    },
+    featured: true,
+    technicalDetails: {
+      architecturePattern:
+        'Arquitectura MVC enriquecida con componentes reactivos funcionales Livewire 3 Volt. Desacoplamiento estricto de controladores administrativos en app/Http/Controllers/Admin, modelos de dominio Eloquent con integridad referencial, componentes Volt aislados para interacciones públicas y middleware de autorización tipada.',
+      stateAndDataManagement:
+        'Persistencia relacional en MySQL 8.4 estructurada con migraciones atómicas y seeders completos; reactividad en el cliente orquestada mediante Livewire y Alpine.js con sincronización en tiempo real cliente-servidor; soporte de base de datos SQLite en memoria para ejecución veloz de pruebas automatizadas.',
+      keyChallenges: [
+        'Filtrado y búsqueda debounced en tiempo real en Livewire 3 Volt asegurando consultas indexadas eficientes sin sobrecarga de base de datos.',
+        'Aislamiento estricto de seguridad con Spatie Permission y políticas de Laravel para garantizar que redactores y usuarios únicamente puedan manipular sus propios recursos.',
+        'Generación y streaming de reportes CSV con codificación UTF-8 BOM para apertura nativa y visualización perfecta en Microsoft Excel.'
+      ],
+      engineeringDecisions: [
+        'Adopción de Pest PHP v3 para una suite exhaustiva de 44 pruebas funcionales y de características (Autenticación, 2FA, CRUD, Livewire y Exportaciones) asegurando robustez ante regresiones.',
+        'Implementación de componentes Volt de un solo archivo (Single-File Components) con Flux UI y Tailwind CSS v4 para acelerar el desarrollo sin sacrificar modularidad.',
+        'Inclusión de sistema 1-Click Demo Login para que evaluadores técnicos y reclutadores interactúen al instante con cuentas de Administrador, Redactor o Lector sin barreras de registro.'
       ]
     }
   }
