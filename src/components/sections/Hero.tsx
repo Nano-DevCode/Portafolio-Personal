@@ -11,6 +11,7 @@ const coreTechBadges = [
   'Vue',
   'NestJS',
   'Laravel',
+  'Python (IA / YOLO)',
   'Docker',
   'Nginx',
   'Google Cloud (GCP)',
@@ -45,7 +46,7 @@ export const Hero: React.FC = () => {
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed">
             Ingeniero de software con visión de extremo a extremo: desarrollo de aplicaciones frontend y móviles con{' '}
             <span className="text-zinc-900 dark:text-zinc-200 font-semibold">React, Vite, React Native, Angular y Vue</span>, 
-            arquitectura backend con <span className="text-zinc-900 dark:text-zinc-200 font-semibold">NestJS y Laravel</span>, 
+            arquitectura backend e IA con <span className="text-zinc-900 dark:text-zinc-200 font-semibold">NestJS, Laravel y Python (Computer Vision)</span>, 
             e infraestructura robusta con <span className="text-zinc-900 dark:text-zinc-200 font-semibold">Docker, Nginx, Google Cloud, VLANs y Firewalls</span>.
           </p>
 

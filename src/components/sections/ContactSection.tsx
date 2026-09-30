@@ -87,7 +87,7 @@ export const ContactSection: React.FC = () => {
             {/* Descripción */}
             <p className="mt-4 text-zinc-600 dark:text-zinc-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
               Abierto a discutir arquitectura frontend/mobile (<strong className="text-zinc-900 dark:text-white font-medium">React, React Native, Vue, Angular</strong>), 
-              servicios backend (<strong className="text-zinc-900 dark:text-white font-medium">NestJS, Laravel</strong>), 
+              servicios backend e IA (<strong className="text-zinc-900 dark:text-white font-medium">NestJS, Laravel, Python / Computer Vision</strong>), 
               despliegues cloud en <strong className="text-zinc-900 dark:text-white font-medium">GCP</strong> o redes corporativas seguras.
             </p>
           </div>

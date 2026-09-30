@@ -6,6 +6,7 @@ const categoryStyles: Record<TechTag['category'], string> = {
   backend: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/20',
   database: 'bg-amber-500/10 text-amber-400 border-amber-500/30 hover:bg-amber-500/20',
   devops: 'bg-rose-500/10 text-rose-400 border-rose-500/30 hover:bg-rose-500/20',
+  ai: 'bg-purple-500/10 text-purple-400 border-purple-500/30 hover:bg-purple-500/20',
 };
 
 interface TechBadgeProps {

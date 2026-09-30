@@ -1,4 +1,4 @@
-export type TechCategory = 'mobile' | 'frontend' | 'backend' | 'devops' | 'database';
+export type TechCategory = 'mobile' | 'frontend' | 'backend' | 'devops' | 'database' | 'ai';
 
 export interface TechTag {
   name: string;

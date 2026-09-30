@@ -17,6 +17,7 @@ const categoryLabels: Record<FilterCategory, string> = {
   backend: 'Backend & APIs',
   database: 'Bases de Datos & Caché',
   devops: 'DevOps & Cloud',
+  ai: 'IA & Computer Vision',
 };
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {

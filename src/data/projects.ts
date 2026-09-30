@@ -4,6 +4,7 @@ import type { Project } from '../types/project';
 const MOVIE_APP_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/movie-app-react-native/main/assets/readme-images';
 const VUE_ECOMMERCE_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/vue-3-ecommerce/main/assets/readme-images';
 const LARAVEL_BLOG_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Laravel12Blog/main/docs/screenshots';
+const TIENDITA_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Tiendita/main/docs';
 
 export const projects: Project[] = [
   {
@@ -179,6 +180,66 @@ export const projects: Project[] = [
         'Adopción de Pest PHP v3 para una suite exhaustiva de 44 pruebas funcionales y de características (Autenticación, 2FA, CRUD, Livewire y Exportaciones) asegurando robustez ante regresiones.',
         'Implementación de componentes Volt de un solo archivo (Single-File Components) con Flux UI y Tailwind CSS v4 para acelerar el desarrollo sin sacrificar modularidad.',
         'Inclusión de sistema 1-Click Demo Login para que evaluadores técnicos y reclutadores interactúen al instante con cuentas de Administrador, Redactor o Lector sin barreras de registro.'
+      ]
+    }
+  },
+  {
+    id: 'tiendita-ia-pos',
+    title: 'Tiendita Inteligente IA — Smart POS',
+    tagline: 'Punto de venta y control de inventario en tiempo real con YOLOv8, ONNX DirectML y ByteTrack',
+    description:
+      'Sistema autónomo de Punto de Venta (POS) y Gestión de Inventario en Tiempo Real impulsado por Visión por Computadora e Inteligencia Artificial (Edge AI). Implementa inferencia acelerada por hardware con ONNX Runtime y DirectML en GPUs AMD Radeon / Nvidia (~21 FPS), seguimiento multi-objeto continuo mediante ByteTrack, estándar triple de identificación en cascada (Deep Learning >=80% + validación geométrica + persistencia temporal), control estricto de existencias con alertas acústicas asíncronas y emisión automática de recibos fiscales detallados con cálculo de IVA y código de barras.',
+    highlights: [
+      'Inferencia en tiempo real acelerada por hardware (DirectML GPU) alcanzando ~21 FPS nativos en AMD Radeon RX / Nvidia con fallback a CPU',
+      'Detección y clasificación personalizada de productos mediante modelo YOLOv8 entrenado en Google Colab T4 con 98.7% mAP',
+      'Seguimiento multi-objeto robusto con ByteTrack, asignando IDs únicos para evitar cobros duplicados u oclusiones',
+      'Estándar comercial triple de identificación: Umbral Deep Learning >=80% + validación geométrica + confirmación temporal',
+      'Control dinámico de almacén en tiempo real (stock.json), bloqueo visual [SIN STOCK] y modo interactivo de inventario [M]',
+      'Interfaz de terminal comercial High-DPI con estética Glassmorphism Dark UI, Picture-in-Picture (PiP) y emisión de tickets fiscales TXT'
+    ],
+    tags: [
+      { name: 'YOLOv8', category: 'ai' },
+      { name: 'Computer Vision', category: 'ai' },
+      { name: 'ONNX DirectML', category: 'ai' },
+      { name: 'Python 3.12', category: 'backend' },
+      { name: 'OpenCV', category: 'ai' },
+      { name: 'ByteTrack', category: 'ai' },
+      { name: 'JSON Storage', category: 'database' },
+      { name: 'Clean Architecture', category: 'backend' }
+    ],
+    githubUrl: 'https://github.com/Nano-DevCode/Tiendita',
+    liveUrl: undefined,
+    images: {
+      thumbnail: `${TIENDITA_RAW}/screenshot_pos.png`,
+      gallery: [
+        `${TIENDITA_RAW}/screenshot_pos.png`,
+        `${TIENDITA_RAW}/setup_hardware.jpg`,
+        `${TIENDITA_RAW}/productos_catalogo.jpg`,
+        `${TIENDITA_RAW}/screenshot_inventario.png`,
+        `${TIENDITA_RAW}/screenshot_borrado.png`,
+        `${TIENDITA_RAW}/screenshot_ticket.png`,
+        `${TIENDITA_RAW}/screenshot_recibo.png`,
+        `${TIENDITA_RAW}/metricas_entrenamiento.png`,
+        `${TIENDITA_RAW}/matriz_confusion.png`,
+        `${TIENDITA_RAW}/curva_precision_recall.png`,
+        `${TIENDITA_RAW}/predicciones_validacion.jpg`
+      ]
+    },
+    featured: true,
+    technicalDetails: {
+      architecturePattern:
+        'Arquitectura modular desacoplada por subsistemas independientes: Capa de Presentación (ResponsiveLayout con escalado bicúbico, UIRenderer con Segoe UI anti-aliasing y Theme obsidian), Capa de Negocio (EstadoSesion, ByteTrack multi-tracker, almacén de stock.json y AudioService asíncrono) y Capa de Inferencia (MotorONNX con DirectML Execution Provider y fallback dinámico).',
+      stateAndDataManagement:
+        'Gestión atómica de inventario y sesión: sincronización transaccional de stock.json para decrementar existencias al cobrar o bloquear re-escaneos al agotar existencias; cola de audio asíncrona en subprocesos para no bloquear el bucle de renderizado de video; pipeline de post-procesamiento 100% vectorizado en NumPy (letterboxing, IoU y NMS).',
+      keyChallenges: [
+        'Eliminación total de falsos positivos en entornos con iluminación variable, sombras y objetos de oficina mediante filtrado triple en cascada (confianza >=80%, relación de aspecto y persistencia de 3-4 fotogramas).',
+        'Inferencia fluida en tiempo real sobre hardware de consumo con DirectML alcanzando ~48 ms por fotograma (~21 FPS) con preservación estricta de letterboxing sin deformar tensores.',
+        'Prevención de cobros duplicados en tiempo real ante oclusiones parciales del usuario asignando IDs temporales con ByteTrack y marcas de estado [COBRADO] / [SIN STOCK].'
+      ],
+      engineeringDecisions: [
+        'Entrenamiento de modelo ligero y preciso YOLOv8 en Google Colab con GPU T4 y conversión a formato ONNX optimizado para distribución sin dependencias pesadas de PyTorch.',
+        'Diseño de interface High-DPI con fuentes vectorizadas Segoe UI y esquema obsidian glassmorphism para ergonomía comercial y lectura rápida del cajero.',
+        'Desacoplamiento de alertas acústicas (pitido de escaneo, sonido de caja registradora y advertencia de falta de stock) en hilos independientes para asegurar latencia cero en el video.'
       ]
     }
   }

@@ -56,9 +56,11 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: 'NestJS', highlight: true },
       { name: 'Laravel (PHP)', highlight: true },
-      { name: 'Node.js / Express' },
+      { name: 'Python (IA & Computer Vision)', highlight: true },
+      { name: 'YOLOv8 & ONNX Runtime' },
+      { name: 'OpenCV' },
       { name: 'APIs RESTful', highlight: true },
-      { name: 'Autenticación (JWT / OAuth)' },
+      { name: 'Autenticación (JWT / Fortify)' },
       { name: 'Arquitectura Limpia / Hexagonal' },
       { name: 'ORM (Prisma / Eloquent)' }
     ]
