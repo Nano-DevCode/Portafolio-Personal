@@ -25,7 +25,7 @@ export const projects: Project[] = [
       { name: 'TypeScript', category: 'frontend' },
       { name: 'Pinia 3.0', category: 'frontend' },
       { name: 'Vuetify 3', category: 'frontend' },
-      { name: 'Vite 7', category: 'devops' },
+      { name: 'Vite 7', category: 'frontend' },
       { name: 'Vue Router', category: 'frontend' },
       { name: 'VueUse', category: 'frontend' },
       { name: 'LocalStorage', category: 'database' }
