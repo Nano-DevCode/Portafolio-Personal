@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { ExternalLink, Cpu, AlertTriangle, Lightbulb, CheckCircle2, ChevronRight, X, Image as ImageIcon } from 'lucide-react';
+import { ExternalLink, Cpu, AlertTriangle, Lightbulb, CheckCircle2, ChevronRight, X, Image as ImageIcon, ZoomIn } from 'lucide-react';
 import { Github } from './icons/GithubIcon';
 import type { Project } from '../../types/project';
 import { TechBadge } from './TechBadge';
 import { ImagePreview } from './ImagePreview';
+import { ImageLightbox } from './ImageLightbox';
 import { Button } from './Button';
 
 interface ProjectModalProps {
@@ -14,6 +15,7 @@ interface ProjectModalProps {
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose }) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   if (!isOpen || !project) return null;
 
@@ -106,15 +108,33 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
               </span>
             </div>
 
-            {/* Main Preview with Defensive Loader - Vista Completa sin Zoom */}
-            <div className="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950/90 h-[420px] sm:h-[480px] w-full flex items-center justify-center p-3 sm:p-4">
-              <ImagePreview
-                src={currentImage}
-                alt={`${project.title} captura grande ${selectedImageIndex + 1}`}
-                fit="contain"
-                className="w-full h-full"
-                fallbackText="Error al cargar captura desde GitHub Raw"
-              />
+            {/* Main Preview with Defensive Loader - Vista Completa con Zoom Interactivo */}
+            <div className="relative group rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950/90 h-[420px] sm:h-[480px] w-full flex items-center justify-center p-3 sm:p-4">
+              <div
+                className="w-full h-full flex items-center justify-center cursor-zoom-in"
+                onClick={() => setIsLightboxOpen(true)}
+                title="Haz clic para ampliar la imagen y hacer zoom interactivo"
+              >
+                <ImagePreview
+                  src={currentImage}
+                  alt={`${project.title} captura grande ${selectedImageIndex + 1}`}
+                  fit="contain"
+                  className="w-full h-full"
+                  fallbackText="Error al cargar captura desde GitHub Raw"
+                />
+              </div>
+
+              {/* Botón flotante para abrir el visor con zoom */}
+              <button
+                type="button"
+                onClick={() => setIsLightboxOpen(true)}
+                className="absolute bottom-4 right-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900/85 hover:bg-cyan-500 hover:text-zinc-950 text-white text-xs font-semibold border border-zinc-700/80 shadow-lg backdrop-blur-md transition-all cursor-pointer hover:scale-105"
+                title="Ampliar captura y hacer zoom"
+                aria-label="Ampliar captura y hacer zoom"
+              >
+                <ZoomIn className="w-3.5 h-3.5" />
+                <span>Hacer Zoom</span>
+              </button>
             </div>
 
             {/* Gallery Thumbnails Strip */}
@@ -254,6 +274,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
           </Button>
         </div>
       </div>
+
+      {/* Visor con Zoom Interactivo y Pantalla Completa */}
+      <ImageLightbox
+        isOpen={isLightboxOpen}
+        onClose={() => setIsLightboxOpen(false)}
+        images={project.images.gallery}
+        currentIndex={selectedImageIndex}
+        onNavigate={(idx) => setSelectedImageIndex(idx)}
+        title={project.title}
+      />
     </div>
   );
 };

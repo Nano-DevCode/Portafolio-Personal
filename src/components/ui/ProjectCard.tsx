@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, ImageOff, Layers, Loader2 } from 'lucide-react';
+import { ExternalLink, ImageOff, Layers, Loader2, ZoomIn } from 'lucide-react';
 import { Github } from './icons/GithubIcon';
 import type { Project } from '../../types/project';
 import { TechBadge } from './TechBadge';
@@ -65,6 +65,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
             </span>
           </div>
         )}
+
+        {/* Zoom & View Hint on hover */}
+        <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+          <span className="inline-flex items-center gap-1 text-[11px] font-medium px-2 py-1 rounded-md bg-zinc-900/85 text-white border border-zinc-700/80 shadow-md backdrop-blur-sm">
+            <ZoomIn className="w-3 h-3 text-cyan-400" />
+            <span>Ver con Zoom</span>
+          </span>
+        </div>
       </div>
 
       {/* Contenido */}
