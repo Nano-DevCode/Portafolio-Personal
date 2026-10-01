@@ -5,6 +5,8 @@ const MOVIE_APP_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/movie-app-
 const VUE_ECOMMERCE_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/vue-3-ecommerce/main/assets/readme-images';
 const LARAVEL_BLOG_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Laravel12Blog/main/docs/screenshots';
 const TIENDITA_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Tiendita/main/docs';
+const TIENDITA_ASSETS_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Tiendita/main/assets/readme-images';
+const TIENDITA_INFO_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Tiendita/main/info';
 
 export const projects: Project[] = [
   {
@@ -213,8 +215,7 @@ export const projects: Project[] = [
       thumbnail: `${TIENDITA_RAW}/screenshot_pos.png`,
       gallery: [
         `${TIENDITA_RAW}/screenshot_pos.png`,
-        `${TIENDITA_RAW}/setup_hardware.jpg`,
-        `${TIENDITA_RAW}/productos_catalogo.jpg`,
+        `${TIENDITA_ASSETS_RAW}/screenshot_deteccion_doble.png`,
         `${TIENDITA_RAW}/screenshot_inventario.png`,
         `${TIENDITA_RAW}/screenshot_borrado.png`,
         `${TIENDITA_RAW}/screenshot_ticket.png`,
@@ -222,7 +223,9 @@ export const projects: Project[] = [
         `${TIENDITA_RAW}/metricas_entrenamiento.png`,
         `${TIENDITA_RAW}/matriz_confusion.png`,
         `${TIENDITA_RAW}/curva_precision_recall.png`,
-        `${TIENDITA_RAW}/predicciones_validacion.jpg`
+        `${TIENDITA_RAW}/predicciones_validacion.jpg`,
+        `${TIENDITA_INFO_RAW}/results.png`,
+        `${TIENDITA_INFO_RAW}/labels.jpg`
       ]
     },
     featured: true,

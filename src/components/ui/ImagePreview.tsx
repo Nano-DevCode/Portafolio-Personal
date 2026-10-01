@@ -35,6 +35,13 @@ export const ImagePreview: React.FC<ImagePreviewProps> = ({
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const [prevSrc, setPrevSrc] = useState(src);
+
+  if (src !== prevSrc) {
+    setPrevSrc(src);
+    setIsLoading(true);
+    setHasError(false);
+  }
 
   const fitClass = fit === 'contain' ? 'object-contain' : 'object-cover';
 
