@@ -8,8 +8,71 @@ const TIENDITA_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Tiendita/ma
 const TIENDITA_ASSETS_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Tiendita/main/assets/readme-images';
 const TIENDITA_INFO_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Tiendita/main/info';
 const SOPORTE_BACKEND_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/soporte-tecnico-backend/master/docs/images';
+const SOPORTE_FRONTEND_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/soporte-tecnico-frontend/main/docs/screenshots';
 
 export const projects: Project[] = [
+  {
+    id: 'soporte-tecnico-frontend',
+    title: 'Soporte Técnico — Service Desk & ITSM Frontend',
+    tagline: 'Plataforma empresarial de Service Desk, monitoreo de SLA en tiempo real y trazabilidad con React 19, TypeScript, TanStack Query 5 y Tailwind CSS v4',
+    description:
+      'Aplicación Single Page Application (SPA) de grado empresarial diseñada bajo estándares ITIL / ITSM para la administración integral del ciclo de vida de incidencias técnicas, monitoreo proactivo de acuerdos de nivel de servicio (SLA), auditoría inmutable de cambios (Change Data Capture) y control de activos TI para el Instituto Tecnológico de Oaxaca (ITO / TecNM). Implementa arquitectura modular orientada al dominio con React 19, TypeScript 5 y Vite 8; comunicación bidireccional en tiempo real con Socket.io acoplada a invalidación reactiva de caché en TanStack Query v5 (zero-polling); control de acceso por roles (RBAC) con 9 perfiles institucionales; visor de diferencias (Diff Viewer) para auditoría; paleta de comandos asistida por teclado (cmdk); soporte multilenguaje completo con i18next (Español / Inglés) y modo dual Claro/Oscuro.',
+    highlights: [
+      'Arquitectura moderna con React 19, TypeScript 5.x y empaquetado optimizado con Vite 8 (SWC)',
+      'Tiempo real bidireccional con Socket.io acoplado a invalidación reactiva de caché en TanStack Query v5',
+      'Monitoreo proactivo de SLA con alertas tempranas, barras de progreso y cálculo dinámico de tiempos críticos',
+      'Visor diferencial de auditoría (Diff Viewer) para trazabilidad inmutable (CDC) con Request-ID e IP',
+      'Control de acceso granular por roles (RBAC) con 9 perfiles institucionales y rotación silenciosa de tokens',
+      'Soporte internacional con i18next (Español / Inglés) y navegación asistida por comandos (cmdk)',
+      'Sistema de diseño responsivo de alta densidad visual con Tailwind CSS v4 y soporte dual de temas'
+    ],
+    tags: [
+      { name: 'React 19', category: 'frontend' },
+      { name: 'TypeScript', category: 'frontend' },
+      { name: 'TanStack Query v5', category: 'frontend' },
+      { name: 'Tailwind CSS v4', category: 'frontend' },
+      { name: 'Zustand 5', category: 'frontend' },
+      { name: 'Socket.io', category: 'frontend' },
+      { name: 'Vite 8', category: 'frontend' },
+      { name: 'i18next', category: 'frontend' },
+      { name: 'Docker', category: 'devops' }
+    ],
+    githubUrl: 'https://github.com/Nano-DevCode/soporte-tecnico-frontend',
+    liveUrl: undefined,
+    images: {
+      thumbnail: `${SOPORTE_FRONTEND_RAW}/02-dashboard/01-dashboard-overview.png`,
+      gallery: [
+        `${SOPORTE_FRONTEND_RAW}/02-dashboard/01-dashboard-overview.png`,
+        `${SOPORTE_FRONTEND_RAW}/03-tickets/01-current-tickets-list.png`,
+        `${SOPORTE_FRONTEND_RAW}/03-tickets/06-ticket-detail-view.png`,
+        `${SOPORTE_FRONTEND_RAW}/03-tickets/07-ticket-stepper-timeline.png`,
+        `${SOPORTE_FRONTEND_RAW}/04-sla/01-sla-dashboard-view.png`,
+        `${SOPORTE_FRONTEND_RAW}/05-audit/02-audit-diff-dialog.png`,
+        `${SOPORTE_FRONTEND_RAW}/06-equipments/01-equipments-catalog.png`,
+        `${SOPORTE_FRONTEND_RAW}/07-consumables/01-consumables-stock-list.png`,
+        `${SOPORTE_FRONTEND_RAW}/09-reports-folios/01-technical-reports-list.png`,
+        `${SOPORTE_FRONTEND_RAW}/11-ui-features/01-dark-mode-theme.png`,
+        `${SOPORTE_FRONTEND_RAW}/11-ui-features/02-language-switcher.png`
+      ]
+    },
+    featured: true,
+    technicalDetails: {
+      architecturePattern:
+        'Arquitectura modular orientada a dominios (Domain-Driven UI) con separación estricta entre Capa de Presentación (componentes atómicos y vistas de layout), Capa de Acceso a Datos (Hooks de consumo TanStack Query con stale-while-revalidate e interceptores Axios) y Capa de Estado Global del Cliente (Zustand para autenticación, RBAC y preferencias de interfaz).',
+      stateAndDataManagement:
+        'Estrategia de dos niveles: estado del servidor orquestado mediante TanStack React Query v5 con sincronización por WebSockets (invalidación de queries en tiempo real ante eventos de Socket.io sin sondeo continuo); estado del cliente en Zustand con persistencia en localStorage para tokens JWT y perfil de usuario; control estricto de expiración de sesión por inactividad con verificación de ciclo de vida en ventana (visibilityState).',
+      keyChallenges: [
+        'Sincronización multi-cliente en tiempo real de estados de tickets de alta prioridad evitando condiciones de carrera en la UI mediante invalidación dirigida de caché en React Query.',
+        'Implementación de un comparador visual de diferencias (Diff Viewer) para auditoría Change Data Capture (CDC) capaz de procesar y colorear diferencias entre objetos JSON anidados con latencia cero.',
+        'Garantía de rendimiento y 60 FPS en tablas densas con miles de registros de activos e inventario utilizando filtrado memoizado y diseño de alta densidad con Tailwind CSS v4.'
+      ],
+      engineeringDecisions: [
+        'Adopción de React 19 con Vite 8 (SWC) para compilaciones ultrarrápidas y optimización moderna de hooks sin sobrecarga de runtime.',
+        'Integración de i18next para internacionalización integral y paleta de comandos cmdk para acceso rápido accesible mediante atajos de teclado (Ctrl+K / Cmd+K).',
+        'Implementación de interceptor Axios para rotación silenciosa de refresh tokens ante respuestas 401, reintentando automáticamente peticiones concurrentes encoladas sin interrupción para el usuario.'
+      ]
+    }
+  },
   {
     id: 'soporte-tecnico-backend',
     title: 'ITSM & Service Desk Backend — Enterprise API',
