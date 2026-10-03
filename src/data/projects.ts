@@ -14,17 +14,17 @@ export const projects: Project[] = [
   {
     id: 'soporte-tecnico-frontend',
     title: 'Soporte Técnico — Service Desk & ITSM Frontend',
-    tagline: 'Plataforma empresarial de Service Desk, monitoreo de SLA en tiempo real y trazabilidad con React 19, TypeScript, TanStack Query 5 y Tailwind CSS v4',
+    tagline: 'Plataforma web de Service Desk, seguimiento de SLA en tiempo real e inventario con React 19, TypeScript y TanStack Query',
     description:
-      'Aplicación Single Page Application (SPA) de grado empresarial diseñada bajo estándares ITIL / ITSM para la administración integral del ciclo de vida de incidencias técnicas, monitoreo proactivo de acuerdos de nivel de servicio (SLA), auditoría inmutable de cambios (Change Data Capture) y control de activos TI para el Instituto Tecnológico de Oaxaca (ITO / TecNM). Implementa arquitectura modular orientada al dominio con React 19, TypeScript 5 y Vite 8; comunicación bidireccional en tiempo real con Socket.io acoplada a invalidación reactiva de caché en TanStack Query v5 (zero-polling); control de acceso por roles (RBAC) con 9 perfiles institucionales; visor de diferencias (Diff Viewer) para auditoría; paleta de comandos asistida por teclado (cmdk); soporte multilenguaje completo con i18next (Español / Inglés) y modo dual Claro/Oscuro.',
+      'Plataforma web de Service Desk y gestión de activos TI desarrollada para el Instituto Tecnológico de Oaxaca (ITO). Permite administrar el ciclo de vida de incidencias técnicas, dar seguimiento a acuerdos de nivel de servicio (SLA) con alertas en tiempo real, auditar cambios en el sistema y gestionar el inventario de equipo de cómputo. Desarrollada con React 19 y TypeScript, integra WebSockets mediante Socket.io para actualización instantánea de tickets sin sondeo periódico, control de acceso basado en roles (RBAC) con 9 perfiles, visor interactivo de diferencias para auditorías, paleta de comandos por teclado (cmdk) y soporte para temas claro/oscuro e internacionalización (Español/Inglés).',
     highlights: [
-      'Arquitectura moderna con React 19, TypeScript 5.x y empaquetado optimizado con Vite 8 (SWC)',
-      'Tiempo real bidireccional con Socket.io acoplado a invalidación reactiva de caché en TanStack Query v5',
-      'Monitoreo proactivo de SLA con alertas tempranas, barras de progreso y cálculo dinámico de tiempos críticos',
-      'Visor diferencial de auditoría (Diff Viewer) para trazabilidad inmutable (CDC) con Request-ID e IP',
-      'Control de acceso granular por roles (RBAC) con 9 perfiles institucionales y rotación silenciosa de tokens',
-      'Soporte internacional con i18next (Español / Inglés) y navegación asistida por comandos (cmdk)',
-      'Sistema de diseño responsivo de alta densidad visual con Tailwind CSS v4 y soporte dual de temas'
+      'Desarrollo con React 19, TypeScript y empaquetado optimizado con Vite',
+      'Actualización en tiempo real con Socket.io e invalidación automática de caché con TanStack Query v5',
+      'Monitoreo de SLAs con indicadores visuales de tiempo restante y alertas tempranas',
+      'Visor de diferencias (Diff Viewer) para auditar cambios realizados en tickets y activos',
+      'Control de acceso granular por roles (RBAC) para 9 tipos de usuarios institucionales',
+      'Navegación rápida con paleta de comandos (Ctrl+K) y soporte bilingüe con i18next',
+      'Diseño responsivo con Tailwind CSS y soporte para modo claro y oscuro'
     ],
     tags: [
       { name: 'React 19', category: 'frontend' },
@@ -58,35 +58,36 @@ export const projects: Project[] = [
     featured: true,
     technicalDetails: {
       architecturePattern:
-        'Arquitectura modular orientada a dominios (Domain-Driven UI) con separación estricta entre Capa de Presentación (componentes atómicos y vistas de layout), Capa de Acceso a Datos (Hooks de consumo TanStack Query con stale-while-revalidate e interceptores Axios) y Capa de Estado Global del Cliente (Zustand para autenticación, RBAC y preferencias de interfaz).',
+        'Estructura modular orientada a dominios (tickets, activos, usuarios, auditoría). Separación clara entre componentes de presentación, hooks para consumo de datos con TanStack Query y estado global de sesión con Zustand.',
       stateAndDataManagement:
-        'Estrategia de dos niveles: estado del servidor orquestado mediante TanStack React Query v5 con sincronización por WebSockets (invalidación de queries en tiempo real ante eventos de Socket.io sin sondeo continuo); estado del cliente en Zustand con persistencia en localStorage para tokens JWT y perfil de usuario; control estricto de expiración de sesión por inactividad con verificación de ciclo de vida en ventana (visibilityState).',
+        'TanStack Query para la sincronización y almacenamiento en caché de datos del servidor, invalidando consultas automáticamente ante eventos de Socket.io. Zustand para el estado de autenticación, perfil del usuario y preferencias de tema.',
       keyChallenges: [
-        'Sincronización multi-cliente en tiempo real de estados de tickets de alta prioridad evitando condiciones de carrera en la UI mediante invalidación dirigida de caché en React Query.',
-        'Implementación de un comparador visual de diferencias (Diff Viewer) para auditoría Change Data Capture (CDC) capaz de procesar y colorear diferencias entre objetos JSON anidados con latencia cero.',
-        'Garantía de rendimiento y 60 FPS en tablas densas con miles de registros de activos e inventario utilizando filtrado memoizado y diseño de alta densidad con Tailwind CSS v4.'
+        'Sincronizar en tiempo real el estado de los tickets entre múltiples usuarios concurrentes sin sobrecargar la red ni provocar parpadeos en la interfaz.',
+        'Construir un visor visual de diferencias (Diff Viewer) capaz de comparar estructuras JSON anidadas para el historial de auditoría de forma rápida y legible.',
+        'Mantener un renderizado fluido en tablas y listas con cientos de activos tecnológicos mediante filtrado memoizado.'
       ],
       engineeringDecisions: [
-        'Adopción de React 19 con Vite 8 (SWC) para compilaciones ultrarrápidas y optimización moderna de hooks sin sobrecarga de runtime.',
-        'Integración de i18next para internacionalización integral y paleta de comandos cmdk para acceso rápido accesible mediante atajos de teclado (Ctrl+K / Cmd+K).',
-        'Implementación de interceptor Axios para rotación silenciosa de refresh tokens ante respuestas 401, reintentando automáticamente peticiones concurrentes encoladas sin interrupción para el usuario.'
+        'Uso de React 19 y Vite para obtener tiempos de recarga rápidos en desarrollo y optimizar el empaquetado final.',
+        'Implementación de interceptores en Axios para gestionar la renovación automática de tokens JWT cuando expira la sesión.',
+        'Integración de la paleta de comandos cmdk para permitir a los técnicos navegar y buscar tickets rápidamente mediante atajos de teclado.'
       ]
     }
   },
   {
     id: 'soporte-tecnico-backend',
     title: 'ITSM & Service Desk Backend — Enterprise API',
-    tagline: 'Backend empresarial de Mesa de Ayuda y Gestión de Activos TI con NestJS 11, PostgreSQL 17, Redis 8, MinIO S3 y Docker Distroless',
+    tagline: 'API para Mesa de Ayuda y Gestión de Activos TI con NestJS 11, PostgreSQL 17, Redis 8, MinIO y Docker',
     description:
-      'Plataforma de alta concurrencia y grado corporativo para la gestión de tickets de soporte técnico, control de ciclo de vida de activos TI e inventario desarrollada para el Instituto Tecnológico de Oaxaca (ITO / TecNM). Implementa Clean Architecture con NestJS 11 y TypeScript 5.7+ sin shims ni barrels para evitar referencias circulares; control de concurrencia optimista (@VersionColumn), transacciones atómicas ACID mediante QueryRunner, búsqueda full-text optimizada con índices GIN y tsvector en PostgreSQL 17, capa de caching y rate-limiting en Redis 8, almacenamiento de evidencias compatible con AWS S3 en MinIO, WebSockets en tiempo real (Socket.IO + Redis Adapter), integración con Telegram Bot y una suite exhaustiva de 998 pruebas unitarias en 143 suites de Jest.',
+      'API RESTful y servicio en tiempo real para el sistema de Mesa de Ayuda y Control de Inventario TI del Instituto Tecnológico de Oaxaca (ITO). Diseñado con NestJS y TypeScript bajo una arquitectura modular desacoplada. Maneja concurrencia optimista y transacciones atómicas con TypeORM en PostgreSQL 17, búsquedas rápidas con índices de texto completo (tsvector), caché y limitación de tasa con Redis 8, almacenamiento de archivos en MinIO (compatible con S3) y notificaciones bidireccionales mediante WebSockets y bot de Telegram. Incluye una suite completa de más de 900 pruebas unitarias con Jest y despliegue en contenedores Docker.',
     highlights: [
-      'Arquitectura limpia empresarial con NestJS 11, TypeScript 5.7+ y principios SOLID sin atajos de tipado',
-      'Control de concurrencia optimista con @VersionColumn y transacciones ACID atómicas con QueryRunner en TypeORM',
-      'Base de datos PostgreSQL 17 con búsqueda Full-Text rápida (tsvector + GIN) y contenedor migrator desacoplado sin downtime',
-      'Capa de rendimiento y seguridad con Redis 8 (caching reactivo y rate-limiting) y almacenamiento de evidencias en MinIO S3',
-      'Eventos y telemetría en tiempo real mediante WebSockets (Socket.IO + Redis) y bot bidireccional de Telegram',
-      'Infraestructura robusta en Docker multi-stage con runner ultra-seguro Google Distroless (nonroot) y proxy Nginx',
-      'Calidad certificada con suite de 998 pruebas unitarias en 143 test suites en Jest con mocks aislados'
+      'Arquitectura modular con NestJS 11, TypeScript y principios SOLID',
+      'Control de concurrencia optimista y transacciones atómicas para movimientos de inventario con TypeORM',
+      'Base de datos PostgreSQL 17 con búsqueda de texto completo (Full-Text Search con índices GIN)',
+      'Caché en memoria y control de peticiones (rate limiting) con Redis 8',
+      'Almacenamiento de evidencias y archivos adjuntos con MinIO S3',
+      'Comunicación en tiempo real con WebSockets (Socket.io) y notificaciones a través de Telegram Bot',
+      'Contenedores Docker multi-stage con imágenes Google Distroless (usuario nonroot) y proxy Nginx',
+      'Suite de 998 pruebas unitarias con Jest para asegurar estabilidad y prevenir regresiones'
     ],
     tags: [
       { name: 'NestJS 11', category: 'backend' },
@@ -124,34 +125,34 @@ export const projects: Project[] = [
     featured: true,
     technicalDetails: {
       architecturePattern:
-        'Clean Architecture modular desacoplada por dominios de negocio (Tickets, Activos TI, Movimientos, Usuarios/Staff, Catálogos y Auditoría). Eliminación estricta de barrel files (index.ts) para evitar dependencias circulares y optimizar el tree-shaking; controladores delgados, servicios de aplicación aislados con inyección de dependencias y suscriptores de eventos asíncronos.',
+        'Arquitectura modular por dominios de negocio (Tickets, Activos TI, Inventario, Usuarios, Auditoría). Controladores delgados, servicios de aplicación con inyección de dependencias e interfaces desacopladas.',
       stateAndDataManagement:
-        'Persistencia relacional en PostgreSQL 17 con TypeORM: control de concurrencia optimista mediante @VersionColumn para mitigar condiciones de carrera concurrentes en la asignación de tickets; transacciones atómicas manuales con QueryRunner para movimientos de almacén e inventario multietapa; índices GIN con vectores tsvector en español para búsqueda textual sub-milisegundo; almacenamiento de evidencias digitales en MinIO S3 y caché distribuida con Redis 8.',
+        'Persistencia en PostgreSQL 17 con TypeORM. Uso de control de concurrencia optimista (@VersionColumn) para evitar sobreescritura simultánea en la asignación de tickets, y transacciones con QueryRunner para movimientos de inventario. Redis 8 para caché de catálogos frecuentes y MinIO para archivos multimedia.',
       keyChallenges: [
-        'Garantizar consistencia atómica y trazabilidad estricta en las transferencias de activos tecnológicos entre departamentos universitarios sin bloqueos de tabla prolongados.',
-        'Orquestación de WebSocket gateways con Socket.IO y Redis Adapter para propagación instantánea de eventos de tickets hacia múltiples clientes administrativos sin pérdida de paquetes.',
-        'Aseguramiento del despliegue en contenedores Docker mediante imágenes Google Distroless (Node.js 22 LTS sobre Debian 12) ejecutándose bajo usuario "nonroot" sin shell ni utilitarios de compilación para máxima seguridad en producción.'
+        'Evitar inconsistencias en transferencias de equipo entre departamentos mediante transacciones atómicas que aseguren que todo el movimiento se registre o se revierta por completo.',
+        'Gestionar la comunicación WebSocket en tiempo real entre múltiples clientes administrativos mediante un adaptador de Redis para distribuir los eventos.',
+        'Empaquetar la aplicación en imágenes Docker seguras y reducidas utilizando Google Distroless, ejecutando el proceso sin privilegios de root ni herramientas de shell innecesarias.'
       ],
       engineeringDecisions: [
-        'Adopción de un contenedor "migrator" desacoplado que ejecuta las migraciones de TypeORM previo al encendido del backend, erradicando synchronize:true en producción.',
-        'Desarrollo de una suite exhaustiva de 998 pruebas unitarias en Jest (143 suites) con mocks rigurosos de Repositorios, DataSource y servicios de configuración, alcanzando alta resiliencia y tipado estricto sin "any".',
-        'Configuración modular de variables de entorno mediante ConfigModule tipado y validado en tiempo de arranque con esquema de validación estricto Joi.'
+        'Separación de las migraciones de base de datos en un contenedor previo al inicio de la aplicación, evitando ejecutar synchronize en entornos productivos.',
+        'Cobertura exhaustiva mediante pruebas unitarias en Jest (998 pruebas en 143 suites) aislando dependencias con mocks estructurados.',
+        'Validación rigurosa de variables de entorno al arranque de la aplicación usando Joi en NestJS ConfigModule.'
       ]
     }
   },
   {
     id: 'vue-3-ecommerce',
     title: 'TechStore — Vue 3 E-Commerce',
-    tagline: 'Plataforma de comercio electrónico con Vue 3.5, TypeScript, Pinia y Vuetify 3',
+    tagline: 'Tienda en línea interactiva con Vue 3.5, TypeScript, Pinia y Vuetify 3',
     description:
-      'Plataforma Single Page Application (SPA) de alto rendimiento para comercialización de periféricos y mobiliario ergonómico. Implementa arquitectura limpia y modular con Composition API (<script setup lang="ts">), gestión de estado global centralizada mediante Pinia con persistencia automática en LocalStorage, pasarela de pago simulada multicanal (Tarjeta de crédito 3D interactiva, SPEI, OXXO Pay) y generación de comprobantes digitales de compra.',
+      'Tienda en línea desarrollada con Vue 3 y TypeScript enfocada en la venta de periféricos y accesorios de tecnología. Cuenta con un catálogo interactivo con filtros combinados por categoría y rango de precio, carrito de compras persistente con cálculo automático de impuestos y cupones, lista de deseos y una pasarela de pago simulada (tarjeta interactiva, transferencia bancaria y pago en tienda) con generación de comprobantes de compra descargables.',
     highlights: [
-      'Arquitectura modular con Vue 3.5 Composition API y empaquetado ultrarrápido con Vite 7',
-      'Estado global centralizado con Pinia y persistencia reactiva en LocalStorage mediante @vueuse/core',
-      'Sistema de diseño UI basado en Material Design 3 con Vuetify 3 y soporte dual de temas (Claro / Oscuro)',
-      'Catálogo interactivo con filtros multicriterio en tiempo real: slider de precio, categorías y ordenamiento lexicográfico',
-      'Pasarela de pago multicanal en 3 pasos con validación estricta de formularios y tarjeta bancaria interactiva',
-      'Cajón interactivo de lista de deseos (Wishlist Drawer) y motor de cupones de descuento con cálculo dinámico'
+      'Desarrollo con Vue 3.5 Composition API (<script setup>) y Vite',
+      'Gestión de estado global con Pinia y persistencia en LocalStorage',
+      'Diseño responsivo con Vuetify 3 y soporte para modo claro y oscuro',
+      'Filtros en tiempo real por precio, categorías y ordenamiento',
+      'Proceso de checkout en pasos con validación de formularios y tarjeta interactiva',
+      'Cálculo dinámico de cupones de descuento, impuestos y generación de comprobantes'
     ],
     tags: [
       { name: 'Vue 3.5', category: 'frontend' },
@@ -186,18 +187,18 @@ export const projects: Project[] = [
     featured: true,
     technicalDetails: {
       architecturePattern:
-        'Flujo unidireccional de datos con separación estricta entre Capa de Presentación (Vistas y Componentes modulares Vuetify), Capa de Estado Global (Stores de Pinia: Products, Cart, Wishlist) y Capa de Persistencia Local (@vueuse/core).',
+        'Arquitectura basada en componentes reutilizables con Composition API, separando vistas de catálogo y checkout de los stores de negocio en Pinia.',
       stateAndDataManagement:
-        'Manejo de estado reactivo y desacoplado en Pinia: sincronización atómica bidireccional con localStorage para carrito, cupones y lista de deseos; cálculo reactivo de subtotales, descuentos de cupones e impuestos mediante getters memoizados.',
+        'Estado global en Pinia dividido por módulos (catálogo, carrito, favoritos). Persistencia sincronizada con LocalStorage mediante VueUse para conservar el estado de compra tras recargas.',
       keyChallenges: [
-        'Sincronización reactiva y consistente entre el catálogo de productos, el cálculo dinámico de impuestos/cupones y la persistencia local sin efectos colaterales en el ciclo de vida de los componentes.',
-        'Validación robusta de formularios en dos fases (expresiones regulares, validación de fecha de caducidad y máscara de tarjeta en tiempo real con detección dinámica de entidad bancaria).',
-        'Optimización de rendimiento en el filtrado de catálogo multicriterio (categorías, slider de rango de precios y orden alfabético) manteniendo 60 FPS sin bloqueos en el hilo principal.'
+        'Sincronizar de forma reactiva los cálculos de subtotales, descuentos promocionales e impuestos en el carrito sin inconsistencias numéricas.',
+        'Implementar validaciones en tiempo real para números de tarjeta bancaria, formato de fecha de vencimiento y códigos de seguridad con detección automática de emisor.',
+        'Mantener filtros fluidos en el catálogo de productos combinando búsqueda textual, slider de precios y categorías.'
       ],
       engineeringDecisions: [
-        'Adopción de Composition API con <script setup lang="ts"> y tipado estricto sin "any" para garantizar contratos de datos sólidos y código altamente reutilizable.',
-        'Uso de @vueuse/core (useLocalStorage) para abstraer la persistencia en el navegador de manera declarativa y reactiva sin manipulación imperativa del storage.',
-        'Diseño de arquitectura con pasarela simulada y módulo de privacidad (NoEmailModal) para presentación técnica comercial sin exponer credenciales ni requerir dependencias de pago de terceros.'
+        'Uso de TypeScript en modo estricto en todos los componentes y stores para evitar errores de tipo en tiempo de ejecución.',
+        'Uso de useLocalStorage de VueUse para gestionar el almacenamiento local de forma declarativa sin código repetitivo.',
+        'Diseño de un flujo de compra interactivo sin requerir cuentas de pago reales, ideal para demostraciones técnicas completas.'
       ]
     }
   },
@@ -206,12 +207,14 @@ export const projects: Project[] = [
     title: 'Movie App',
     tagline: 'Explorador de películas y series multiplataforma con Expo & NativeWind',
     description:
-      'Aplicación móvil moderna de alto rendimiento orientada a la exploración fluida de producciones cinematográficas en cartelera, tendencias y próximos estrenos, consumiendo la API de The Movie Database (TMDB). Implementa arquitectura limpia, soporte responsivo de orientación (portrait/landscape) y sincronización con el tema del sistema.',
+      'Aplicación móvil multiplataforma desarrollada con React Native y Expo para consultar estrenos, tendencias cinematográficas y detalles de películas consumiendo la API de The Movie Database (TMDB). Ofrece navegación fluida entre categorías, visualización de fichas técnicas y reparto, guardado de favoritos en el dispositivo, soporte para orientación horizontal/vertical y adaptación automática al tema claro u oscuro del sistema.',
     highlights: [
-      'Integración con The Movie Database (TMDB) API y sistema de caché de peticiones',
-      'Manejo de estado reactivo y optimización de listas infinitas con lazy-loading',
-      'Diseño moderno adaptable a iOS/Android con soporte dinámico de orientación horizontal y vertical',
-      'Tema Claro/Oscuro dinámico sincronizado con tokens del sistema operativo mediante NativeWind v4'
+      'Consumo de la API de The Movie Database (TMDB) con manejo de estados de carga y error',
+      'Navegación fluida y estructurada con Expo Router',
+      'Listas optimizadas para scroll fluido con carga diferida de imágenes',
+      'Diseño responsivo adaptable a orientación vertical y horizontal (landscape)',
+      'Soporte para tema claro y oscuro sincronizado con el sistema mediante NativeWind',
+      'Almacenamiento local para lista de favoritos del usuario'
     ],
     tags: [
       { name: 'React Native', category: 'mobile' },
@@ -238,33 +241,36 @@ export const projects: Project[] = [
     },
     featured: true,
     technicalDetails: {
-      architecturePattern: 'Modular Feature-First con separación clara entre UI Components, Hooks de consumo API, Servicios y Repositorio de Estado.',
-      stateAndDataManagement: 'Consumo desacoplado mediante servicios HTTP, almacenamiento persistente local para la colección de favoritos y gestión de UI Theme dinámico.',
+      architecturePattern:
+        'Estructura modular orientada a pantallas y componentes reutilizables, separando el consumo de la API REST mediante servicios auxiliares.',
+      stateAndDataManagement:
+        'Manejo de estado de peticiones y respuestas mediante hooks personalizados, y persistencia local para la lista de películas favoritas.',
       keyChallenges: [
-        'Renderizado sin caídas de framerate (60fps) en listas extensas y carruseles anidados de posters de alta resolución.',
-        'Prevención de advertencias síncronas de Reanimated al realizar transiciones de tema claro a oscuro dinámicamente.',
-        'Adaptabilidad sin desbordamientos de layout en modo horizontal (landscape) en tablets y smartphones.'
+        'Optimizar el rendimiento en listas extensas y carruseles de imágenes de alta resolución evitando tirones en el scroll.',
+        'Adaptar el diseño de la interfaz cuando el usuario gira el dispositivo a modo horizontal sin desbordamientos de pantalla.',
+        'Manejar estados de desconexión o fallas en la API mostrando vistas de reserva (fallbacks) claras.'
       ],
       engineeringDecisions: [
-        'Uso de Expo Router para una navegación basada en archivos tipo SPA/Next.js con transiciones nativas suaves.',
-        'Configuración estricta de TypeScript para tipado exhaustivo de los payloads de respuesta de TMDB.',
-        'Implementación de componentes de fallback para imágenes con carga asíncrona y estados de error controlados.'
+        'Uso de Expo Router para una navegación declarativa y mantenible basada en estructura de archivos.',
+        'Tipado completo con TypeScript para todos los modelos de datos provenientes de la API de TMDB.',
+        'Estilos utilitarios con NativeWind para mantener coherencia de diseño y facilitar el soporte de temas.'
       ]
     }
   },
   {
     id: 'laravel-12-blog-cms',
     title: 'Laravel 12 CMS & Reactive Blog',
-    tagline: 'Plataforma de gestión de contenidos y blog con Livewire 3 Volt, Spatie RBAC y Pest Tests',
+    tagline: 'Sistema de gestión de contenidos y blog interactivo con Livewire 3 Volt y Pest Tests',
     description:
-      'Plataforma Enterprise-Grade Full-Stack construida con Laravel 12 y PHP 8.3 con tipado estricto. Implementa componentes reactivos en tiempo real con Livewire 3 Volt y Alpine.js (búsqueda instantánea, likes, guardados y comentarios), control de acceso granular por roles y permisos (RBAC) con Spatie, analíticas visuales en dashboard con soporte nativo de tema Claro/Oscuro, exportación de reportes a CSV compatibles con Excel (UTF-8 BOM), y una suite exhaustiva de 44 pruebas automatizadas con Pest PHP (116 aserciones aprobadas).',
+      'Sistema de gestión de contenidos (CMS) y blog interactivo construido con Laravel 12 y PHP 8.3. Incorpora reactividad en el servidor sin necesidad de un framework SPA independiente gracias a Livewire 3 Volt y Alpine.js: búsqueda instantánea con debounce, sistema de comentarios, me gusta y guardado de artículos. Incluye panel de administración con control de acceso por roles y permisos (Spatie RBAC), estadísticas de publicaciones, exportación de reportes a CSV y una suite de 44 pruebas automatizadas con Pest PHP.',
     highlights: [
-      'Arquitectura empresarial con Laravel 12.x, PHP 8.3 con tipos estrictos y MySQL 8.4',
-      'Interactividad reactiva en tiempo real con Livewire 3 Volt y Alpine.js sin necesidad de SPAs separadas',
-      'Control de acceso granular (RBAC) con Spatie Laravel Permission (Roles: Admin, Blogger, User) y directivas @can',
-      'Dashboard administrativo con métricas KPI, monitor de seguridad, modo Claro/Oscuro y exportación de datos a CSV',
-      'Experiencia de usuario completa: Búsqueda debounced, lista de lectura privada (/guardados), likes animados y newsletter',
-      'Alta confiabilidad con suite de pruebas automatizadas en Pest PHP v3 (44 tests y 116 aserciones exitosas)'
+      'Desarrollo con Laravel 12, PHP 8.3 con tipado estricto y base de datos MySQL 8.4',
+      'Reactividad en el servidor con Livewire 3 Volt y Alpine.js para interacciones fluidas',
+      'Control de acceso por roles y permisos con Spatie Permission (Administrador, Redactor y Lector)',
+      'Panel de administración con métricas, gestión de artículos, usuarios y categorías',
+      'Búsqueda en tiempo real, guardado de artículos en lectura privada y sistema de comentarios',
+      'Exportación de reportes a CSV compatibles con Excel (UTF-8 con BOM)',
+      'Suite de 44 pruebas automatizadas con Pest PHP (116 aserciones aprobadas)'
     ],
     tags: [
       { name: 'Laravel 12', category: 'backend' },
@@ -300,34 +306,34 @@ export const projects: Project[] = [
     featured: true,
     technicalDetails: {
       architecturePattern:
-        'Arquitectura MVC enriquecida con componentes reactivos funcionales Livewire 3 Volt. Desacoplamiento estricto de controladores administrativos en app/Http/Controllers/Admin, modelos de dominio Eloquent con integridad referencial, componentes Volt aislados para interacciones públicas y middleware de autorización tipada.',
+        'Arquitectura MVC de Laravel complementada con componentes Livewire Volt. Controladores administrativos independientes para el panel de gestión y modelos Eloquent con relaciones bien definidas.',
       stateAndDataManagement:
-        'Persistencia relacional en MySQL 8.4 estructurada con migraciones atómicas y seeders completos; reactividad en el cliente orquestada mediante Livewire y Alpine.js con sincronización en tiempo real cliente-servidor; soporte de base de datos SQLite en memoria para ejecución veloz de pruebas automatizadas.',
+        'Base de datos relacional MySQL 8.4 con migraciones y seeders estructurados. Livewire gestiona el estado reactivo entre cliente y servidor, con SQLite en memoria para la ejecución rápida de pruebas unitarias.',
       keyChallenges: [
-        'Filtrado y búsqueda debounced en tiempo real en Livewire 3 Volt asegurando consultas indexadas eficientes sin sobrecarga de base de datos.',
-        'Aislamiento estricto de seguridad con Spatie Permission y políticas de Laravel para garantizar que redactores y usuarios únicamente puedan manipular sus propios recursos.',
-        'Generación y streaming de reportes CSV con codificación UTF-8 BOM para apertura nativa y visualización perfecta en Microsoft Excel.'
+        'Implementar búsqueda y filtros reactivos con debounce para evitar consultas excesivas a la base de datos mientras el usuario escribe.',
+        'Garantizar el aislamiento de permisos para que los redactores únicamente puedan editar y publicar sus propios contenidos sin acceder a la administración global.',
+        'Generar descargas de reportes CSV con codificación UTF-8 BOM para evitar problemas de caracteres especiales en hojas de cálculo.'
       ],
       engineeringDecisions: [
-        'Adopción de Pest PHP v3 para una suite exhaustiva de 44 pruebas funcionales y de características (Autenticación, 2FA, CRUD, Livewire y Exportaciones) asegurando robustez ante regresiones.',
-        'Implementación de componentes Volt de un solo archivo (Single-File Components) con Flux UI y Tailwind CSS v4 para acelerar el desarrollo sin sacrificar modularidad.',
-        'Inclusión de sistema 1-Click Demo Login para que evaluadores técnicos y reclutadores interactúen al instante con cuentas de Administrador, Redactor o Lector sin barreras de registro.'
+        'Elección de Pest PHP para crear una suite de pruebas clara, legible y rápida que cubre flujos de autenticación, permisos y componentes reactivos.',
+        'Uso de Livewire Volt (Single-File Components) con Tailwind CSS para reducir la duplicación de código y simplificar el mantenimiento.',
+        'Inclusión de acceso demo con un clic para facilitar la revisión técnica de los distintos roles sin necesidad de registrarse manualmente.'
       ]
     }
   },
   {
     id: 'tiendita-ia-pos',
     title: 'Tiendita Inteligente IA — Smart POS',
-    tagline: 'Punto de venta y control de inventario en tiempo real con YOLOv8, ONNX DirectML y ByteTrack',
+    tagline: 'Punto de venta y control de inventario con YOLOv8, ONNX DirectML y ByteTrack',
     description:
-      'Sistema autónomo de Punto de Venta (POS) y Gestión de Inventario en Tiempo Real impulsado por Visión por Computadora e Inteligencia Artificial (Edge AI). Implementa inferencia acelerada por hardware con ONNX Runtime y DirectML en GPUs AMD Radeon / Nvidia (~21 FPS), seguimiento multi-objeto continuo mediante ByteTrack, estándar triple de identificación en cascada (Deep Learning >=80% + validación geométrica + persistencia temporal), control estricto de existencias con alertas acústicas asíncronas y emisión automática de recibos fiscales detallados con cálculo de IVA y código de barras.',
+      'Sistema de punto de venta y control de inventario que utiliza visión por computadora para identificar productos automáticamente a través de una cámara web. Emplea un modelo YOLOv8 exportado a ONNX y acelerado por hardware mediante DirectML (~21 FPS en GPU), combinando seguimiento de objetos con ByteTrack para rastrear productos en movimiento y evitar cobros duplicados. Dispone de control de existencias en tiempo real, alertas sonoras asíncronas, interfaz para el cajero y generación de tickets de venta detallados.',
     highlights: [
-      'Inferencia en tiempo real acelerada por hardware (DirectML GPU) alcanzando ~21 FPS nativos en AMD Radeon RX / Nvidia con fallback a CPU',
-      'Detección y clasificación personalizada de productos mediante modelo YOLOv8 entrenado en Google Colab T4 con 98.7% mAP',
-      'Seguimiento multi-objeto robusto con ByteTrack, asignando IDs únicos para evitar cobros duplicados u oclusiones',
-      'Estándar comercial triple de identificación: Umbral Deep Learning >=80% + validación geométrica + confirmación temporal',
-      'Control dinámico de almacén en tiempo real (stock.json), bloqueo visual [SIN STOCK] y modo interactivo de inventario [M]',
-      'Interfaz de terminal comercial High-DPI con estética Glassmorphism Dark UI, Picture-in-Picture (PiP) y emisión de tickets fiscales TXT'
+      'Inferencia de visión artificial acelerada por GPU mediante ONNX Runtime y DirectML (~21 FPS)',
+      'Modelo YOLOv8 entrenado específicamente para reconocer productos de tienda de abarrotes',
+      'Rastreo visual multi-objeto con ByteTrack para evitar duplicación de cobros en pantalla',
+      'Filtrado por nivel de confianza y persistencia temporal para minimizar falsos positivos',
+      'Actualización inmediata de inventario con bloqueo de productos agotados',
+      'Interfaz visual clara para el operador de caja con emisión de tickets de compra'
     ],
     tags: [
       { name: 'YOLOv8', category: 'ai' },
@@ -361,18 +367,18 @@ export const projects: Project[] = [
     featured: true,
     technicalDetails: {
       architecturePattern:
-        'Arquitectura modular desacoplada por subsistemas independientes: Capa de Presentación (ResponsiveLayout con escalado bicúbico, UIRenderer con Segoe UI anti-aliasing y Theme obsidian), Capa de Negocio (EstadoSesion, ByteTrack multi-tracker, almacén de stock.json y AudioService asíncrono) y Capa de Inferencia (MotorONNX con DirectML Execution Provider y fallback dinámico).',
+        'Arquitectura modular dividida en subsistema de inferencia (ONNX con DirectML), motor de seguimiento visual (ByteTrack), gestión de inventario y renderizado de la interfaz gráfica sobre el stream de video.',
       stateAndDataManagement:
-        'Gestión atómica de inventario y sesión: sincronización transaccional de stock.json para decrementar existencias al cobrar o bloquear re-escaneos al agotar existencias; cola de audio asíncrona en subprocesos para no bloquear el bucle de renderizado de video; pipeline de post-procesamiento 100% vectorizado en NumPy (letterboxing, IoU y NMS).',
+        'Control de inventario en archivo estructurado JSON con actualización inmediata al registrar cobros. Cola de alertas de audio en hilos secundarios para no interrumpir el bucle de procesamiento de video.',
       keyChallenges: [
-        'Eliminación total de falsos positivos en entornos con iluminación variable, sombras y objetos de oficina mediante filtrado triple en cascada (confianza >=80%, relación de aspecto y persistencia de 3-4 fotogramas).',
-        'Inferencia fluida en tiempo real sobre hardware de consumo con DirectML alcanzando ~48 ms por fotograma (~21 FPS) con preservación estricta de letterboxing sin deformar tensores.',
-        'Prevención de cobros duplicados en tiempo real ante oclusiones parciales del usuario asignando IDs temporales con ByteTrack y marcas de estado [COBRADO] / [SIN STOCK].'
+        'Reducir detecciones erróneas ocasionadas por sombras o iluminación variable combinando umbrales de confianza con validación durante varios fotogramas consecutivos.',
+        'Lograr una tasa de fotogramas fluida (~21 FPS) en computadoras con tarjetas gráficas comerciales sin depender de instalaciones pesadas de CUDA o PyTorch en producción.',
+        'Manejar oclusiones momentáneas cuando la mano del cliente o cajero cubre parcialmente el producto mediante el seguimiento continuo de IDs con ByteTrack.'
       ],
       engineeringDecisions: [
-        'Entrenamiento de modelo ligero y preciso YOLOv8 en Google Colab con GPU T4 y conversión a formato ONNX optimizado para distribución sin dependencias pesadas de PyTorch.',
-        'Diseño de interface High-DPI con fuentes vectorizadas Segoe UI y esquema obsidian glassmorphism para ergonomía comercial y lectura rápida del cajero.',
-        'Desacoplamiento de alertas acústicas (pitido de escaneo, sonido de caja registradora y advertencia de falta de stock) en hilos independientes para asegurar latencia cero en el video.'
+        'Exportar el modelo entrenado a formato ONNX para ejecutarlo de manera ligera y portable en diferentes plataformas con DirectML.',
+        'Manejar la reproducción de sonidos y alertas en un hilo independiente para evitar retrasos en el procesamiento del video en vivo.',
+        'Diseñar una vista clara en pantalla con indicadores de estado de escaneo, existencias y total acumulado para facilitar la lectura del usuario.'
       ]
     }
   }

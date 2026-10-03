@@ -43,12 +43,12 @@ export const Hero: React.FC = () => {
             y redes seguras.
           </h1>
 
-          {/* Subtitle with key keywords for recruiters */}
+          {/* Subtitle */}
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-            Ingeniero de software con visión de extremo a extremo: desarrollo de aplicaciones frontend y móviles con{' '}
-            <span className="text-zinc-900 dark:text-zinc-200 font-semibold">React, Vite, React Native, Angular y Vue</span>, 
-            arquitectura backend e IA con <span className="text-zinc-900 dark:text-zinc-200 font-semibold">NestJS, Laravel y Python (Computer Vision)</span>, 
-            e infraestructura robusta con <span className="text-zinc-900 dark:text-zinc-200 font-semibold">Cloudflare, Docker, Nginx, Google Cloud, VLANs y Firewalls</span>.
+            Desarrollo aplicaciones web y móviles (<span className="text-zinc-900 dark:text-zinc-200 font-semibold">React, Vue, React Native</span>), 
+            diseño servicios backend (<span className="text-zinc-900 dark:text-zinc-200 font-semibold">NestJS, Laravel, Python</span>) 
+            y configuro infraestructura con <span className="text-zinc-900 dark:text-zinc-200 font-semibold">Docker, Cloudflare y Google Cloud</span>. 
+            Enfocado en código limpio, arquitectura sólida y soluciones mantenibles.
           </p>
 
           {/* Core Tech Quick Pills Bar in Hero */}
@@ -106,21 +106,21 @@ export const Hero: React.FC = () => {
             </Button>
           </div>
 
-          {/* Engineering Standards & Methodology Grid (eliminates contradiction with SkillsSection) */}
+          {/* Engineering Standards & Methodology Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-16 text-left">
             <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-sm hover:border-cyan-500/30 transition-all shadow-xs">
               <Layers className="w-5 h-5 text-cyan-500 dark:text-cyan-400 mb-2" />
               <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Arquitectura Modular</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                Separación estricta entre modelos de dominio, servicios de red e interfaz de usuario.
+                Separación clara entre lógica de negocio, servicios de red e interfaz de usuario.
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-sm hover:border-emerald-500/30 transition-all shadow-xs">
               <Zap className="w-5 h-5 text-emerald-500 dark:text-emerald-400 mb-2" />
-              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Rendimiento & 60 FPS</h2>
+              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Rendimiento & UX</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                Caching reactivo, virtualización de listas extensas y tiempos de carga mínimos.
+                Optimización de renderizado, consumo eficiente de APIs y tiempos de carga rápidos.
               </p>
             </div>
 
@@ -128,7 +128,7 @@ export const Hero: React.FC = () => {
               <Container className="w-5 h-5 text-indigo-500 dark:text-indigo-400 mb-2" />
               <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Cloud & Contenedores</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                Dockerización multi-stage, proxies inversos Nginx y estándares Google Cloud.
+                Contenedores Docker multi-stage, proxies inversos con Nginx y despliegues en la nube.
               </p>
             </div>
 
@@ -136,7 +136,7 @@ export const Hero: React.FC = () => {
               <ShieldCheck className="w-5 h-5 text-amber-500 dark:text-amber-400 mb-2" />
               <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Seguridad & Redes</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                Tipado sin <code className="text-cyan-600 dark:text-cyan-400">any</code>, segmentación con VLANs y políticas de Firewall.
+                Tipado estricto con TypeScript, segmentación de redes con VLANs y reglas de firewall.
               </p>
             </div>
           </div>

@@ -77,18 +77,16 @@ export const ContactSection: React.FC = () => {
 
             {/* Título Principal */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-900 dark:text-white tracking-tight leading-[1.15]">
-              ¿Construimos el{' '}
+              ¿Tienes algún proyecto o{' '}
               <span className="bg-gradient-to-r from-cyan-600 via-teal-500 to-blue-600 dark:from-cyan-400 dark:via-teal-300 dark:to-blue-400 bg-clip-text text-transparent">
-                siguiente gran proyecto
+                oportunidad en mente
               </span>
               ?
             </h2>
 
             {/* Descripción */}
             <p className="mt-4 text-zinc-600 dark:text-zinc-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-              Abierto a discutir arquitectura frontend/mobile (<strong className="text-zinc-900 dark:text-white font-medium">React, React Native, Vue, Angular</strong>), 
-              servicios backend e IA (<strong className="text-zinc-900 dark:text-white font-medium">NestJS, Laravel, Python / Computer Vision</strong>), 
-              despliegues cloud en <strong className="text-zinc-900 dark:text-white font-medium">GCP</strong> o redes corporativas seguras.
+              Estoy disponible para incorporarme a equipos de tecnología o colaborar en el desarrollo de aplicaciones web, móviles, servicios backend o configuración de infraestructura en la nube.
             </p>
           </div>
 
@@ -237,26 +235,26 @@ export const ContactSection: React.FC = () => {
             </Button>
           </div>
 
-          {/* Barra de Metadatos & Certificación de Seguridad */}
+          {/* Barra de Metadatos */}
           <div className="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800/80 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs text-zinc-600 dark:text-zinc-400">
             <div className="inline-flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
-              <span>México (CST / UTC-6) • Trabajo Remoto o Presencial</span>
+              <span>México (CST / UTC-6) • Remoto o Presencial</span>
             </div>
 
             <div className="inline-flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-              <span>Respuesta garantizada en menos de 24 horas</span>
+              <span>Respuesta habitual en menos de 24 horas</span>
             </div>
 
             <div className="inline-flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400 font-medium">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Protección activa contra scrapers y bots</span>
+              <span>Contacto directo vía correo o LinkedIn</span>
             </div>
 
             <div className="inline-flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-              <span>Clean Code, SOLID & Cloud Native</span>
+              <span>Código limpio, pruebas y buenas prácticas</span>
             </div>
           </div>
         </div>

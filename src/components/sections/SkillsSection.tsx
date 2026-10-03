@@ -33,7 +33,7 @@ const skillCategories: SkillCategory[] = [
     accentColor: 'from-cyan-500/10 via-transparent to-transparent',
     borderColor: 'border-cyan-200 dark:border-cyan-500/20 hover:border-cyan-400 dark:hover:border-cyan-500/40',
     description:
-      'Construcción de interfaces reactivas, accesibles y aplicaciones móviles nativas de alto rendimiento.',
+      'Construcción de interfaces reactivas, accesibles y aplicaciones móviles de alto rendimiento.',
     skills: [
       { name: 'React', highlight: true },
       { name: 'React Native', highlight: true },
@@ -52,7 +52,7 @@ const skillCategories: SkillCategory[] = [
     accentColor: 'from-emerald-500/10 via-transparent to-transparent',
     borderColor: 'border-emerald-200 dark:border-emerald-500/20 hover:border-emerald-400 dark:hover:border-emerald-500/40',
     description:
-      'Desarrollo de servicios escalables, patrones modulares y APIs RESTful seguras y tipadas.',
+      'Desarrollo de servicios escalables, APIs RESTful seguras y lógica de negocio con tipado estricto.',
     skills: [
       { name: 'NestJS', highlight: true },
       { name: 'Laravel (PHP)', highlight: true },
@@ -67,12 +67,12 @@ const skillCategories: SkillCategory[] = [
   },
   {
     title: 'DevOps, Cloud & Edge',
-    badge: 'Contenedores, Nube & CDN',
+    badge: 'Contenedores & Nube',
     icon: <Cloud className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
     accentColor: 'from-indigo-500/10 via-transparent to-transparent',
     borderColor: 'border-indigo-200 dark:border-indigo-500/20 hover:border-indigo-400 dark:hover:border-indigo-500/40',
     description:
-      'Contenerización, servidores proxy reversos, mitigación perimetral y despliegues optimizados en infraestructura moderna.',
+      'Contenedores Docker, configuración de proxies inversos, gestión DNS/CDN y despliegues en la nube.',
     skills: [
       { name: 'Cloudflare (WAF, DNS & CDN)', highlight: true },
       { name: 'Docker', highlight: true },
@@ -91,7 +91,7 @@ const skillCategories: SkillCategory[] = [
     accentColor: 'from-amber-500/10 via-transparent to-transparent',
     borderColor: 'border-amber-200 dark:border-amber-500/20 hover:border-amber-400 dark:hover:border-amber-500/40',
     description:
-      'Segmentación de tráfico, protección perimetral y administración sólida de topologías de red.',
+      'Segmentación de tráfico con VLANs, reglas de firewall y administración básica de redes corporativas.',
     skills: [
       { name: 'VLANs (Segmentación 802.1Q)', highlight: true },
       { name: 'Firewalls (Políticas & Reglas)', highlight: true },
@@ -111,14 +111,13 @@ export const SkillsSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 text-xs font-medium mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Versatilidad Full-Stack & Sistemas</span>
+            <span>Stack Técnico</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-            Ecosistema Técnico & Habilidades
+            Habilidades Técnicas
           </h2>
           <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
-            Una combinación integral que conecta el desarrollo de producto digital (Web y Móvil) 
-            con una sólida base en backends empresariales, infraestructura en la nube y redes corporativas.
+            Herramientas y tecnologías que utilizo para desarrollar aplicaciones web, móviles, servicios backend e infraestructura.
           </p>
         </div>
 
@@ -180,18 +179,16 @@ export const SkillsSection: React.FC = () => {
             </div>
             <div>
               <h4 className="text-base font-bold text-zinc-900 dark:text-white">
-                Diferencial Competitivo: Criterio Integral de Infraestructura
+                Criterio Técnico: De la Aplicación a la Infraestructura
               </h4>
               <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed max-w-3xl">
-                A diferencia de perfiles exclusivamente frontend, entiendo el ciclo de vida completo: 
-                desde la experiencia de usuario y arquitectura en el cliente, hasta la mitigación y aceleración perimetral con <strong className="text-zinc-900 dark:text-zinc-200 font-semibold">Cloudflare (WAF, DNS & CDN)</strong>, el enrutamiento con Nginx, 
-                la contenerización en Docker, las mejores prácticas aprendidas en Google Cloud y la seguridad en capas con VLANs y Firewalls.
+                Trabajo conectando todas las partes del sistema: diseño interfaces fluidas en el cliente, estructuro la lógica de negocio y persistencia en el backend, y gestiono la puesta en producción con <strong className="text-zinc-900 dark:text-zinc-200 font-semibold">Docker, Nginx, Cloudflare</strong> y fundamentos sólidos de redes y seguridad.
               </p>
             </div>
           </div>
           <div className="flex items-center gap-2 shrink-0">
             <span className="text-xs font-mono px-3 py-1.5 rounded-xl bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30">
-              GCP & Cloudflare • Docker & Nginx • NetSec
+              Desarrollo • Nube • Redes
             </span>
           </div>
         </div>

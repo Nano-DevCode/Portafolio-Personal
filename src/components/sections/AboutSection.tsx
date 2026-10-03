@@ -28,15 +28,15 @@ const milestones: TimelineMilestone[] = [
     title: 'Lead Backend Developer & Arquitectura de Software',
     institution: 'Instituto Tecnológico de Oaxaca (ITO / TecNM)',
     description:
-      'Liderazgo técnico y arquitectura del backend de Service Desk y Gestión de Activos TI para el ITO: desarrollo con NestJS 11, PostgreSQL 17, Redis 8, MinIO S3, Docker Distroless y una suite de 998 pruebas unitarias en Jest (152 commits como Lead Developer).',
-    tags: ['NestJS 11', 'PostgreSQL 17', 'Redis 8', 'Docker Distroless', 'Jest (998 Tests)']
+      'Diseño y desarrollo de la arquitectura del backend para el sistema institucional de Service Desk y Control de Activos TI del ITO. Implementado con NestJS 11, PostgreSQL 17, Redis 8, almacenamiento en MinIO S3, contenedores Docker y más de 900 pruebas unitarias con Jest.',
+    tags: ['NestJS 11', 'PostgreSQL 17', 'Redis 8', 'Docker', 'Jest']
   },
   {
     period: '2025',
     title: 'Desarrollo Full-Stack, Edge AI & Soluciones Digitales',
-    institution: 'Nano-DevCode • Proyectos & Soluciones Digitales',
+    institution: 'Nano-DevCode • Proyectos Independientes',
     description:
-      'Diseño e implementación de sistemas integrales: terminales POS de Visión por Computadora (YOLOv8 + ONNX DirectML ~21 FPS), plataformas CMS reactivas con Laravel 12 y Pest PHP (44 pruebas automatizadas), SPAs comerciales en Vue 3 y aplicaciones móviles con React Native.',
+      'Desarrollo de proyectos completos de software: terminal de punto de venta con detección de productos mediante visión artificial (YOLOv8 + ONNX), sistema CMS reactivo en Laravel 12 con pruebas automatizadas (Pest PHP), tienda web en Vue 3 y aplicación móvil con React Native.',
     tags: ['Edge AI', 'Vue 3', 'Laravel 12', 'React Native', 'Clean Code']
   },
   {
@@ -44,7 +44,7 @@ const milestones: TimelineMilestone[] = [
     title: 'Especialización en Nube, Cloudflare & Ciberseguridad de Redes',
     institution: 'Google Cloud (Credly) • Udemy • INFOTEC',
     description:
-      'Acreditación en fundamentos de arquitectura Cloud, datos e IA en Google Cloud Platform. Dominio práctico en mitigación perimetral con Cloudflare (WAF, DNS, CDN y Anti-DDoS), proxies Nginx, contenedores Docker y segmentación de redes corporativas (VLANs 802.1Q y Firewalls).',
+      'Certificaciones en fundamentos de nube, seguridad e IA en Google Cloud Platform. Práctica continua en configuración de Cloudflare (WAF, DNS y CDN), servidores con Nginx, contenedores Docker y segmentación de redes locales con VLANs y políticas de firewall.',
     tags: ['Google Cloud', 'Cloudflare WAF', 'Docker', 'VLANs', 'NetSec']
   },
   {
@@ -52,7 +52,7 @@ const milestones: TimelineMilestone[] = [
     title: 'Ingeniería en Sistemas Computacionales',
     institution: 'Tecnológico Nacional de México (TecNM)',
     description:
-      'Formación académica universitaria con bases rigurosas en estructuras de datos, algoritmia avanzada, arquitectura de computadoras, redes de telecomunicaciones, diseño de bases de datos relacionales y metodologías ágiles de ingeniería de software.',
+      'Formación universitaria con bases sólidas en estructuras de datos, diseño de algoritmos, redes de computadoras, bases de datos relacionales y principios de ingeniería de software.',
     tags: ['Ingeniería de Software', 'Bases de Datos', 'Redes', 'Sistemas Distribuidos']
   }
 ];
@@ -62,25 +62,25 @@ const coreStrengths = [
     icon: <Code2 className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
     title: 'Arquitectura & Tipado Estricto',
     description:
-      'Código mantenible y escalable. Cero atajos con "any" en TypeScript, contratos de datos sólidos y separación estricta entre dominio, servicios e interfaces.'
+      'Código estructurado y mantenible. Tipado riguroso con TypeScript sin recurrir a "any", interfaces bien definidas y separación clara de responsabilidades.'
   },
   {
     icon: <Cloud className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
-    title: 'Edge, Cloud & Seguridad Perimetral',
+    title: 'Nube, Edge & Servidores',
     description:
-      'Configuración avanzada en Cloudflare (WAF, CDN, SSL, DNS), servidores Dockerizados multi-stage y políticas de firewall para entornos productivos confiables.'
+      'Despliegues en contenedores Docker multi-stage, configuración de DNS, CDN y reglas de WAF en Cloudflare, y servidores web seguros con Nginx.'
   },
   {
     icon: <Cpu className="w-5 h-5 text-purple-600 dark:text-purple-400" />,
-    title: 'Innovación con IA Aplicada',
+    title: 'Visión Artificial Aplicada',
     description:
-      'Entrenamiento e inferencia acelerada por GPU para visión artificial en el Edge (YOLOv8 + ONNX), llevando la inteligencia artificial a aplicaciones prácticas comerciales.'
+      'Integración de modelos de visión por computadora (YOLOv8 + ONNX) acelerados por GPU para tareas prácticas como identificación de productos y conteo en tiempo real.'
   },
   {
     icon: <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
-    title: 'Mentalidad de Calidad & Resiliencia',
+    title: 'Calidad & Pruebas Automatizadas',
     description:
-      'Suite de pruebas automatizadas (Pest PHP), validaciones defensivas en formularios y protección activa contra abusos, scrapers y bots.'
+      'Pruebas automatizadas (Jest, Pest PHP), validación exhaustiva de datos de entrada en frontend y backend, y control de errores resiliente.'
   }
 ];
 
@@ -99,13 +99,13 @@ export const AboutSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 text-xs font-medium mb-3">
             <User className="w-3.5 h-3.5" />
-            <span>Perfil & Filosofía de Ingeniería</span>
+            <span>Perfil Profesional</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
             Sobre Mí
           </h2>
           <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
-            Ingeniero de software con pasión por el código limpio, la seguridad perimetral y la convergencia entre desarrollo de producto, infraestructura en la nube e inteligencia artificial.
+            Ingeniero de software enfocado en construir sistemas confiables, desde la interfaz de usuario hasta la infraestructura y bases de datos que los respaldan.
           </p>
         </div>
 
@@ -130,21 +130,21 @@ export const AboutSection: React.FC = () => {
 
               <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
                 <p>
-                  Soy un apasionado de la ingeniería de software con formación en el{' '}
+                  Estudié Ingeniería en Sistemas Computacionales en el{' '}
                   <strong className="text-zinc-900 dark:text-white font-semibold">
                     Tecnológico Nacional de México (TecNM)
                   </strong>
-                  . Mi enfoque trasciende la simple escritura de código: me enfoco en diseñar sistemas confiables, elegantes y seguros que generen valor real.
+                  . Me enfoco en diseñar software bien estructurado, mantenible y seguro, cuidando tanto la experiencia del usuario como la estabilidad del servidor.
                 </p>
                 <p>
-                  A lo largo de mi trayectoria he construido desde aplicaciones web reactivas y móviles multiplataforma, hasta microservicios backend, sistemas Edge con Visión por Computadora y redes perimetrales protegidas con{' '}
+                  He desarrollado proyectos que abarcan aplicaciones web y móviles interactivas, backends para gestión institucional, modelos de visión artificial para puntos de venta y configuraciones de infraestructura con{' '}
                   <strong className="text-zinc-900 dark:text-white font-semibold">
-                    Cloudflare, Docker, Nginx y Google Cloud
+                    Docker, Nginx, Cloudflare y Google Cloud
                   </strong>
                   .
                 </p>
                 <p>
-                  Creo firmemente en la <strong className="text-zinc-900 dark:text-white font-semibold">calidad de código sin atajos</strong>: tipado estricto, pruebas automatizadas, interfaces accesibles con 60 FPS y una arquitectura modular fácil de escalar.
+                  Priorizo las buenas prácticas de ingeniería: tipado estricto con TypeScript, pruebas automatizadas para prevenir regresiones, arquitectura modular y atención al rendimiento en cada capa del sistema.
                 </p>
               </div>
 
