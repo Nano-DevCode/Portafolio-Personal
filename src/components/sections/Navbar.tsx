@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Terminal, Sun, Moon, Menu, X, FileText } from 'lucide-react';
 import { Github } from '../ui/icons/GithubIcon';
 import { useTheme } from '../../context/theme-context';
+import { CvDownloadDropdown } from '../ui/CvDownloadDropdown';
 
 export const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
@@ -59,17 +60,14 @@ export const Navbar: React.FC = () => {
             Disponible
           </div>
 
-          {/* Botón Descargar CV */}
-          <a
-            href="/cv.pdf"
-            target="_blank"
-            download="CV_Manuel_Santiago.pdf"
-            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30 transition-colors shadow-xs"
-            title="Descargar Curriculum Vitae en PDF"
-          >
-            <FileText className="w-3.5 h-3.5" />
-            <span>CV</span>
-          </a>
+          {/* Botón Descargar CV con Dropdown (1 Pág vs 2 Págs) */}
+          <div className="hidden sm:block">
+            <CvDownloadDropdown
+              size="sm"
+              variant="outline"
+              label="CV"
+            />
+          </div>
 
           {/* Theme Toggle Button */}
           <button
@@ -133,16 +131,28 @@ export const Navbar: React.FC = () => {
               Disponible para proyectos
             </div>
 
-            <a
-              href="/cv.pdf"
-              target="_blank"
-              download="CV_Manuel_Santiago.pdf"
-              onClick={handleLinkClick}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-xl bg-cyan-500 text-zinc-950 hover:bg-cyan-400 transition-colors shadow-sm"
-            >
-              <FileText className="w-3.5 h-3.5" />
-              <span>Descargar CV</span>
-            </a>
+            <div className="flex items-center gap-2">
+              <a
+                href="/cv-corto.pdf"
+                target="_blank"
+                download="CV_Manuel_Santiago_1Pag.pdf"
+                onClick={handleLinkClick}
+                className="inline-flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-200 transition-colors shadow-xs"
+              >
+                <FileText className="w-3 h-3 text-cyan-500" />
+                <span>CV (1 Pág)</span>
+              </a>
+              <a
+                href="/cv-extendido.pdf"
+                target="_blank"
+                download="CV_Manuel_Santiago_Completo.pdf"
+                onClick={handleLinkClick}
+                className="inline-flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1.5 rounded-xl bg-cyan-500 text-zinc-950 hover:bg-cyan-400 transition-colors shadow-xs"
+              >
+                <FileText className="w-3 h-3" />
+                <span>CV (2 Págs)</span>
+              </a>
+            </div>
           </div>
         </div>
       )}

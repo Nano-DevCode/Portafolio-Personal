@@ -1,7 +1,8 @@
 import React from 'react';
-import { ArrowRight, Layers, Zap, Container, ShieldCheck, FileText } from 'lucide-react';
+import { ArrowRight, Layers, Zap, Container, ShieldCheck } from 'lucide-react';
 import { Github } from '../ui/icons/GithubIcon';
 import { Button } from '../ui/Button';
+import { CvDownloadDropdown } from '../ui/CvDownloadDropdown';
 
 const coreTechBadges = [
   'React',
@@ -74,17 +75,11 @@ export const Hero: React.FC = () => {
             >
               Explorar Proyectos
             </Button>
-            <Button
-              asAnchor
-              href="/cv.pdf"
-              target="_blank"
-              download="CV_Manuel_Santiago.pdf"
-              variant="secondary"
+            <CvDownloadDropdown
               size="lg"
-              icon={<FileText className="w-4 h-4 text-cyan-500" />}
-            >
-              Descargar CV
-            </Button>
+              variant="secondary"
+              label="Descargar CV"
+            />
             <Button
               asAnchor
               href="#sobre-mi"

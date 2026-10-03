@@ -6,13 +6,13 @@ import {
   ShieldCheck,
   Cpu,
   Terminal,
-  FileText,
   ExternalLink,
   Code2,
   CheckCircle2,
   Cloud
 } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { CvDownloadDropdown } from '../ui/CvDownloadDropdown';
 
 interface TimelineMilestone {
   period: string;
@@ -150,17 +150,11 @@ export const AboutSection: React.FC = () => {
 
               {/* Botón de CV y Enlaces Rápidos */}
               <div className="pt-6 mt-6 border-t border-zinc-200 dark:border-zinc-800 flex flex-wrap items-center gap-3">
-                <Button
-                  asAnchor
-                  href="/cv.pdf"
-                  target="_blank"
-                  download="CV_Manuel_Santiago.pdf"
+                <CvDownloadDropdown
                   variant="primary"
                   size="md"
-                  icon={<FileText className="w-4 h-4" />}
-                >
-                  Descargar CV (PDF)
-                </Button>
+                  label="Descargar CV (PDF)"
+                />
                 <Button
                   asAnchor
                   href="https://www.linkedin.com/in/manuel-eduardo-santiago-feria-a04b5a332/"
