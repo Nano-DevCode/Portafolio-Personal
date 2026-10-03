@@ -7,8 +7,75 @@ const LARAVEL_BLOG_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Laravel
 const TIENDITA_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Tiendita/main/docs';
 const TIENDITA_ASSETS_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Tiendita/main/assets/readme-images';
 const TIENDITA_INFO_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Tiendita/main/info';
+const SOPORTE_BACKEND_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/soporte-tecnico-backend/master/docs/images';
 
 export const projects: Project[] = [
+  {
+    id: 'soporte-tecnico-backend',
+    title: 'ITSM & Service Desk Backend — Enterprise API',
+    tagline: 'Backend empresarial de Mesa de Ayuda y Gestión de Activos TI con NestJS 11, PostgreSQL 17, Redis 8, MinIO S3 y Docker Distroless',
+    description:
+      'Plataforma de alta concurrencia y grado corporativo para la gestión de tickets de soporte técnico, control de ciclo de vida de activos TI e inventario desarrollada para el Instituto Tecnológico de Oaxaca (ITO / TecNM). Implementa Clean Architecture con NestJS 11 y TypeScript 5.7+ sin shims ni barrels para evitar referencias circulares; control de concurrencia optimista (@VersionColumn), transacciones atómicas ACID mediante QueryRunner, búsqueda full-text optimizada con índices GIN y tsvector en PostgreSQL 17, capa de caching y rate-limiting en Redis 8, almacenamiento de evidencias compatible con AWS S3 en MinIO, WebSockets en tiempo real (Socket.IO + Redis Adapter), integración con Telegram Bot y una suite exhaustiva de 998 pruebas unitarias en 143 suites de Jest.',
+    highlights: [
+      'Arquitectura limpia empresarial con NestJS 11, TypeScript 5.7+ y principios SOLID sin atajos de tipado',
+      'Control de concurrencia optimista con @VersionColumn y transacciones ACID atómicas con QueryRunner en TypeORM',
+      'Base de datos PostgreSQL 17 con búsqueda Full-Text rápida (tsvector + GIN) y contenedor migrator desacoplado sin downtime',
+      'Capa de rendimiento y seguridad con Redis 8 (caching reactivo y rate-limiting) y almacenamiento de evidencias en MinIO S3',
+      'Eventos y telemetría en tiempo real mediante WebSockets (Socket.IO + Redis) y bot bidireccional de Telegram',
+      'Infraestructura robusta en Docker multi-stage con runner ultra-seguro Google Distroless (nonroot) y proxy Nginx',
+      'Calidad certificada con suite de 998 pruebas unitarias en 143 test suites en Jest con mocks aislados'
+    ],
+    tags: [
+      { name: 'NestJS 11', category: 'backend' },
+      { name: 'TypeScript', category: 'backend' },
+      { name: 'PostgreSQL 17', category: 'database' },
+      { name: 'Redis 8', category: 'database' },
+      { name: 'Docker Distroless', category: 'devops' },
+      { name: 'TypeORM (ACID)', category: 'backend' },
+      { name: 'MinIO S3', category: 'devops' },
+      { name: 'WebSockets', category: 'backend' },
+      { name: 'Nginx', category: 'devops' },
+      { name: 'Jest (998 Tests)', category: 'backend' }
+    ],
+    githubUrl: 'https://github.com/Nano-DevCode/soporte-tecnico-backend',
+    liveUrl: undefined,
+    images: {
+      thumbnail: `${SOPORTE_BACKEND_RAW}/00-system-architecture-overview.png`,
+      gallery: [
+        `${SOPORTE_BACKEND_RAW}/00-system-architecture-overview.png`,
+        `${SOPORTE_BACKEND_RAW}/03-database-erd.png`,
+        `${SOPORTE_BACKEND_RAW}/08-data-storage-concurrency.png`,
+        `${SOPORTE_BACKEND_RAW}/07-async-queues-workers.png`,
+        `${SOPORTE_BACKEND_RAW}/06-telegram-bot.png`,
+        `${SOPORTE_BACKEND_RAW}/1.1.png`,
+        `${SOPORTE_BACKEND_RAW}/1.2.png`,
+        `${SOPORTE_BACKEND_RAW}/1.3.png`,
+        `${SOPORTE_BACKEND_RAW}/1.4.png`,
+        `${SOPORTE_BACKEND_RAW}/2.1.png`,
+        `${SOPORTE_BACKEND_RAW}/2.2.png`,
+        `${SOPORTE_BACKEND_RAW}/2.3.png`,
+        `${SOPORTE_BACKEND_RAW}/4.1.png`,
+        `${SOPORTE_BACKEND_RAW}/5.1.png`
+      ]
+    },
+    featured: true,
+    technicalDetails: {
+      architecturePattern:
+        'Clean Architecture modular desacoplada por dominios de negocio (Tickets, Activos TI, Movimientos, Usuarios/Staff, Catálogos y Auditoría). Eliminación estricta de barrel files (index.ts) para evitar dependencias circulares y optimizar el tree-shaking; controladores delgados, servicios de aplicación aislados con inyección de dependencias y suscriptores de eventos asíncronos.',
+      stateAndDataManagement:
+        'Persistencia relacional en PostgreSQL 17 con TypeORM: control de concurrencia optimista mediante @VersionColumn para mitigar condiciones de carrera concurrentes en la asignación de tickets; transacciones atómicas manuales con QueryRunner para movimientos de almacén e inventario multietapa; índices GIN con vectores tsvector en español para búsqueda textual sub-milisegundo; almacenamiento de evidencias digitales en MinIO S3 y caché distribuida con Redis 8.',
+      keyChallenges: [
+        'Garantizar consistencia atómica y trazabilidad estricta en las transferencias de activos tecnológicos entre departamentos universitarios sin bloqueos de tabla prolongados.',
+        'Orquestación de WebSocket gateways con Socket.IO y Redis Adapter para propagación instantánea de eventos de tickets hacia múltiples clientes administrativos sin pérdida de paquetes.',
+        'Aseguramiento del despliegue en contenedores Docker mediante imágenes Google Distroless (Node.js 22 LTS sobre Debian 12) ejecutándose bajo usuario "nonroot" sin shell ni utilitarios de compilación para máxima seguridad en producción.'
+      ],
+      engineeringDecisions: [
+        'Adopción de un contenedor "migrator" desacoplado que ejecuta las migraciones de TypeORM previo al encendido del backend, erradicando synchronize:true en producción.',
+        'Desarrollo de una suite exhaustiva de 998 pruebas unitarias en Jest (143 suites) con mocks rigurosos de Repositorios, DataSource y servicios de configuración, alcanzando alta resiliencia y tipado estricto sin "any".',
+        'Configuración modular de variables de entorno mediante ConfigModule tipado y validado en tiempo de arranque con esquema de validación estricto Joi.'
+      ]
+    }
+  },
   {
     id: 'vue-3-ecommerce',
     title: 'TechStore — Vue 3 E-Commerce',

@@ -25,7 +25,15 @@ interface TimelineMilestone {
 const milestones: TimelineMilestone[] = [
   {
     period: '2025 — Presente',
-    title: 'Desarrollo Full-Stack, Edge AI & Arquitectura de Software',
+    title: 'Lead Backend Developer & Arquitectura de Software',
+    institution: 'Instituto Tecnológico de Oaxaca (ITO / TecNM)',
+    description:
+      'Liderazgo técnico y arquitectura del backend de Service Desk y Gestión de Activos TI para el ITO: desarrollo con NestJS 11, PostgreSQL 17, Redis 8, MinIO S3, Docker Distroless y una suite de 998 pruebas unitarias en Jest (152 commits como Lead Developer).',
+    tags: ['NestJS 11', 'PostgreSQL 17', 'Redis 8', 'Docker Distroless', 'Jest (998 Tests)']
+  },
+  {
+    period: '2025',
+    title: 'Desarrollo Full-Stack, Edge AI & Soluciones Digitales',
     institution: 'Nano-DevCode • Proyectos & Soluciones Digitales',
     description:
       'Diseño e implementación de sistemas integrales: terminales POS de Visión por Computadora (YOLOv8 + ONNX DirectML ~21 FPS), plataformas CMS reactivas con Laravel 12 y Pest PHP (44 pruebas automatizadas), SPAs comerciales en Vue 3 y aplicaciones móviles con React Native.',
