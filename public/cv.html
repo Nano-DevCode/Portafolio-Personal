@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - Manuel Eduardo Santiago Feria | Software & Cloud Infrastructure Engineer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    @page {
+      size: letter;
+      margin: 8mm 11mm 8mm 11mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      font-size: 8.2pt;
+      line-height: 1.28;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    .page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+
+    /* HEADER */
+    .header {
+      padding-bottom: 6px;
+      border-bottom: 2.5px solid #0284c7;
+      margin-bottom: 7px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .name {
+      font-size: 19pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    .location {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #64748b;
+    }
+
+    .title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #0284c7;
+      margin-top: 1px;
+      margin-bottom: 4px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 7.8pt;
+      color: #475569;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .contact-item strong {
+      color: #0f172a;
+    }
+
+    .contact-item a {
+      color: #0284c7;
+      text-decoration: none;
+    }
+
+    /* PAGE 2 MINI HEADER */
+    .page-header-mini {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 4px;
+      border-bottom: 1.5px solid #e2e8f0;
+      margin-bottom: 7px;
+      font-size: 7.5pt;
+      color: #64748b;
+    }
+
+    .page-header-mini strong {
+      color: #0f172a;
+    }
+
+    /* SECTION STYLES */
+    .section {
+      margin-bottom: 7px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 4px;
+    }
+
+    .section-icon {
+      display: inline-block;
+      width: 7.5px;
+      height: 7.5px;
+      background-color: #0284c7;
+      border-radius: 1.5px;
+      vertical-align: middle;
+    }
+
+    .section-title {
+      font-size: 8.8pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .summary-text {
+      font-size: 8pt;
+      color: #334155;
+      text-align: justify;
+      line-height: 1.3;
+    }
+
+    /* SKILLS GRID */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+
+    .skill-card {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 4px 7px;
+      font-size: 7.6pt;
+      line-height: 1.25;
+    }
+
+    .skill-title {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .skill-content {
+      color: #334155;
+    }
+
+    /* EXPERIENCE & PROJECTS */
+    .item {
+      margin-bottom: 6px;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .item-title {
+      font-size: 8.8pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .item-date {
+      font-size: 7.6pt;
+      font-weight: 600;
+      color: #64748b;
+      white-space: nowrap;
+    }
+
+    .item-subtitle {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #0284c7;
+      margin-top: 1px;
+    }
+
+    .tech-badges {
+      font-size: 7.2pt;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: #475569;
+      margin-top: 1px;
+      margin-bottom: 3px;
+    }
+
+    .tech-badges .dot {
+      color: #0284c7;
+      font-weight: bold;
+      margin: 0 3px;
+    }
+
+    .bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .bullet-item {
+      position: relative;
+      padding-left: 10px;
+      margin-bottom: 2.5px;
+      font-size: 7.8pt;
+      color: #334155;
+      text-align: justify;
+      line-height: 1.26;
+    }
+
+    .bullet-item::before {
+      content: "•";
+      position: absolute;
+      left: 1px;
+      top: -1px;
+      color: #0284c7;
+      font-weight: bold;
+      font-size: 8.5pt;
+    }
+
+    .bullet-item strong {
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    /* 2 COLUMNS BOTTOM LAYOUT */
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .edu-item, .cert-item {
+      margin-bottom: 4px;
+    }
+
+    .edu-degree {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .edu-school {
+      font-size: 7.8pt;
+      color: #0284c7;
+      font-weight: 600;
+    }
+
+    .edu-details {
+      font-size: 7.4pt;
+      color: #475569;
+      margin-top: 1px;
+      line-height: 1.25;
+    }
+
+    .cert-title {
+      font-size: 7.8pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .cert-issuer {
+      font-size: 7.2pt;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PÁGINA 1 ==================== -->
+  <div class="page page-break">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-top">
+        <h1 class="name">Manuel Eduardo Santiago Feria</h1>
+        <span class="location">Oaxaca, México • Disponible Remoto / Híbrido</span>
+      </div>
+      <div class="title">Software & Cloud Infrastructure Engineer | Full-Stack Developer</div>
+      <div class="contact-row">
+        <span class="contact-item"><strong>Email:</strong> <a href="mailto:mayka708.ms@gmail.com">mayka708.ms@gmail.com</a></span>
+        <span class="contact-item"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/manuel-eduardo-santiago-feria-a04b5a332/">in/manuel-eduardo-santiago-feria</a></span>
+        <span class="contact-item"><strong>GitHub:</strong> <a href="https://github.com/Nano-DevCode">github.com/Nano-DevCode</a></span>
+        <span class="contact-item"><strong>Portafolio:</strong> <a href="https://nano-devcode.github.io/Portafolio-Personal/">nano-devcode.github.io</a></span>
+      </div>
+    </header>
+
+    <!-- PERFIL PROFESIONAL -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon"></span>
+        <h2 class="section-title">Perfil Profesional</h2>
+      </div>
+      <p class="summary-text">
+        Ingeniero en Sistemas Computacionales enfocado en el diseño y desarrollo de arquitecturas backend de alta concurrencia, aplicaciones web y móviles reactivas, y despliegue seguro de infraestructura en la nube. Experiencia implementando microservicios y APIs RESTful con <strong>NestJS</strong> y <strong>Laravel</strong>, persistencia relacional avanzada en <strong>PostgreSQL 17</strong> y <strong>MySQL 8.4</strong> con transacciones ACID, control de concurrencia optimista y capas de caché distribuida en <strong>Redis 8</strong>. Especializado en almacenamiento de objetos compatible con la API S3 (<strong>Cloudflare R2</strong> sin costo de salida y <strong>MinIO S3</strong> on-premises), mitigación perimetral y CDN con <strong>Cloudflare</strong> (WAF, DNS, Anti-DDoS, Zero Trust), contenedores Docker multi-stage con <strong>Google Distroless</strong>, proxies inversos <strong>Nginx</strong> y visión artificial (<strong>YOLOv8/ONNX DirectML</strong>). Comprometido con el código limpio, tipado estricto con TypeScript, pruebas automatizadas y arquitectura limpia (SOLID).
+      </p>
+    </section>
+
+    <!-- HABILIDADES TÉCNICAS CLAVE -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon"></span>
+        <h2 class="section-title">Habilidades Técnicas Clave</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <span class="skill-title">Backend & APIs:</span>
+          <span class="skill-content"> NestJS 11, Laravel 12, Node.js, Express, Python 3, RESTful APIs, WebSockets (Socket.io), TypeORM, Eloquent, JWT, Microservicios.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-title">Bases de Datos & Caching:</span>
+          <span class="skill-content"> PostgreSQL 17 (Full-Text Search / tsvector / índices GIN), MySQL 8.4, Redis 8 (caching reactivo y rate limiting), SQLite.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-title">Cloudflare & Almacenamiento S3:</span>
+          <span class="skill-content"> Cloudflare R2 (Object Storage S3 sin costo de egreso), MinIO S3 (On-Premises), Cloudflare WAF, CDN Edge, DNS, Zero Trust Tunnels, Anti-DDoS.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-title">Cloud, DevOps & Servidores:</span>
+          <span class="skill-content"> Docker (Multi-stage / Google Distroless nonroot), Google Cloud Platform (GCP Compute Engine, VPC, IAM), Nginx (Reverse Proxy, SSL/TLS, Caching), Linux.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-title">Frontend & Mobile:</span>
+          <span class="skill-content"> React 19, TypeScript, React Native, Vite 8, Vue 3.5 (Composition API / Pinia), Livewire 3 Volt, TanStack Query v5, Zustand, Tailwind CSS v4, Vuetify 3.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-title">Redes, Edge IA & Calidad:</span>
+          <span class="skill-content"> VLANs (802.1Q), Firewalls, YOLOv8, ONNX DirectML (~21 FPS GPU), ByteTrack, OpenCV, Pruebas con Jest (998 tests) y Pest PHP (44 tests).</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA LABORAL & LIDERAZGO -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon"></span>
+        <h2 class="section-title">Experiencia Laboral & Liderazgo Técnico</h2>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Lead Backend Developer — Sistema de Mesa de Ayuda y Control de Activos TI</span>
+          <span class="item-date">2025 — Presente</span>
+        </div>
+        <div class="item-subtitle">Instituto Tecnológico de Oaxaca (ITO / TecNM)</div>
+        <div class="tech-badges">
+          NestJS 11 <span class="dot">•</span> PostgreSQL 17 <span class="dot">•</span> Redis 8 <span class="dot">•</span> MinIO S3 <span class="dot">•</span> Cloudflare R2 <span class="dot">•</span> TypeORM <span class="dot">•</span> Docker Distroless <span class="dot">•</span> Nginx <span class="dot">•</span> Jest
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Arquitectura & Modelo de Datos:</strong> Lideré el diseño y desarrollo de la arquitectura backend para el sistema institucional de Service Desk y control de inventario de equipos y consumibles, implementando Clean Architecture modular desacoplada por dominios de negocio y RBAC con 9 perfiles institucionales.
+          </li>
+          <li class="bullet-item">
+            <strong>Transaccionalidad ACID & Concurrencia Optimista:</strong> Diseñé transferencias de inventario multietapa protegidas con transacciones atómicas manuales mediante <code>QueryRunner</code> en TypeORM, e implementé control de concurrencia optimista con <code>@VersionColumn</code> para erradicar condiciones de carrera en la asignación simultánea de tickets.
+          </li>
+          <li class="bullet-item">
+            <strong>Búsqueda Full-Text & Rendimiento con Redis:</strong> Optimicé el motor de búsqueda sobre miles de registros mediante índices GIN y vectores <code>tsvector</code> nativos en PostgreSQL 17 (respuestas sub-milisegundo), acoplado a una capa de caché en memoria y control de tráfico (rate-limiting) en Redis 8.
+          </li>
+          <li class="bullet-item">
+            <strong>Almacenamiento de Evidencias S3 & WebSockets:</strong> Integré almacenamiento de archivos y evidencias digitales compatible con S3 utilizando <strong>MinIO</strong> y <strong>Cloudflare R2</strong> con URLs prefirmadas seguras. Conecté eventos en tiempo real con WebSockets (Socket.IO + Redis Adapter) y alertas automáticas vía Telegram Bot.
+          </li>
+          <li class="bullet-item">
+            <strong>Seguridad Distroless & Calidad Certificada:</strong> Creé una suite exhaustiva de <strong>998 pruebas unitarias en 143 test suites en Jest</strong> con mocks aislados. Contenericé la solución con Docker multi-stage sobre imágenes <strong>Google Distroless (nonroot)</strong> sin shell ni dependencias de compilación para despliegue en servidor físico institucional tras proxy Nginx.
+          </li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Full-Stack & Cloud Infrastructure Engineer</span>
+          <span class="item-date">2024 — Presente</span>
+        </div>
+        <div class="item-subtitle">Nano-DevCode — Proyectos & Soluciones Digitales Independientes</div>
+        <div class="tech-badges">
+          Cloudflare (WAF/CDN/R2/DNS) <span class="dot">•</span> Docker <span class="dot">•</span> Google Cloud (GCP) <span class="dot">•</span> Nginx <span class="dot">•</span> React <span class="dot">•</span> Vue 3 <span class="dot">•</span> Laravel 12 <span class="dot">•</span> Redes
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Infraestructura Cloudflare & Almacenamiento R2:</strong> Configuración integral de zonas perimetrales en Cloudflare: mitigación DDoS, reglas WAF para bloqueo de bots maliciosos, caching perimetral Edge con políticas personalizadas y almacenamiento en buckets <strong>Cloudflare R2</strong> para distribución de multimedia a coste cero de egreso.
+          </li>
+          <li class="bullet-item">
+            <strong>Despliegue de Servidores & Redes Seguras:</strong> Aprovisionamiento de instancias Linux (Debian/Ubuntu) en Google Cloud Platform y servidores on-premises con Docker Compose, certificados SSL automáticos (Let's Encrypt / Cloudflare Origin CA), proxies Nginx y segmentación de tráfico con VLANs (802.1Q).
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROYECTO DESTACADO 1 (BACKEND) -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon"></span>
+        <h2 class="section-title">Proyecto Destacado: Backend Enterprise Service Desk</h2>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">ITSM & Service Desk Backend — Enterprise API</span>
+          <span class="item-date">TecNM / ITO • 2025</span>
+        </div>
+        <div class="tech-badges">
+          NestJS 11 <span class="dot">•</span> TypeScript 5.7+ <span class="dot">•</span> PostgreSQL 17 <span class="dot">•</span> Redis 8 <span class="dot">•</span> MinIO / R2 S3 <span class="dot">•</span> Docker Distroless <span class="dot">•</span> Jest (998 Tests)
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Desacoplamiento Estricto & Migraciones Seguras:</strong> Eliminación total de barrel files para optimizar el arranque y prevenir dependencias circulares. Implementación de contenedor desacoplado <code>migrator</code> que aplica esquemas de base de datos antes del inicio del API, erradicando <code>synchronize: true</code> en producción.
+          </li>
+          <li class="bullet-item">
+            <strong>Auditoría & Trazabilidad Inmutable:</strong> Sistema de captura de cambios (Change Data Capture) que registra el estado anterior y posterior de cada ticket y activo tecnológico, guardando metadatos de IP, agente de usuario y sello temporal.
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== PÁGINA 2 ==================== -->
+  <div class="page">
+    <div class="page-header-mini">
+      <span><strong>Manuel Eduardo Santiago Feria</strong> — CV Profesional</span>
+      <span>mayka708.ms@gmail.com • nano-devcode.github.io</span>
+    </div>
+
+    <!-- CONTINUACIÓN DE PROYECTOS PRINCIPALES DE INGENIERÍA -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon"></span>
+        <h2 class="section-title">Proyectos Principales de Ingeniería de Software</h2>
+      </div>
+
+      <!-- PROYECTO 2: FRONTEND SERVICE DESK -->
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Service Desk & ITSM Frontend — Monitoreo en Tiempo Real y Auditoría</span>
+          <span class="item-date">2025</span>
+        </div>
+        <div class="item-subtitle">Plataforma Institucional para Gestión de Incidencias Técnicas e Inventario TI</div>
+        <div class="tech-badges">
+          React 19 <span class="dot">•</span> TypeScript 5 <span class="dot">•</span> TanStack Query v5 <span class="dot">•</span> Socket.io <span class="dot">•</span> Tailwind CSS v4 <span class="dot">•</span> Zustand <span class="dot">•</span> Vite 8 <span class="dot">•</span> i18next
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Invalidación Reactiva de Caché (Zero-Polling):</strong> Arquitectura cliente orquestada con TanStack Query v5 sincronizada por WebSockets con Socket.io. Las actualizaciones de estado y nuevos folios invalidan selectivamente las queries activas, reflejando cambios en milisegundos sin sobrecarga de peticiones continuas.
+          </li>
+          <li class="bullet-item">
+            <strong>Visor Interactivo de Auditoría (Diff Viewer):</strong> Diseñé un visor de diferencias visuales para auditoría (CDC), procesando y coloreando diferencias estructurales entre objetos JSON anidados con latencia cero en el hilo principal de renderizado.
+          </li>
+          <li class="bullet-item">
+            <strong>Seguridad de Sesión & Rotación Silenciosa:</strong> Interceptores personalizados en Axios con encolamiento de peticiones concurrentes y rotación automática de refresh tokens ante respuestas 401; control de expiración de sesión por inactividad validando <code>visibilityState</code>.
+          </li>
+          <li class="bullet-item">
+            <strong>Accesibilidad & Productividad:</strong> Paleta de comandos con atajos de teclado (<code>cmdk</code> / Ctrl+K), soporte de internacionalización con <code>i18next</code> (Español / Inglés) y panel de SLAs con alertas tempranas dinámicas.
+          </li>
+        </ul>
+      </div>
+
+      <!-- PROYECTO 3: LARAVEL 12 BLOG CMS -->
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Laravel 12 CMS & Blog Reactivo — Plataforma Web Full-Stack</span>
+          <span class="item-date">2024</span>
+        </div>
+        <div class="item-subtitle">Gestor de Contenidos con Reactividad en Servidor, Spatie RBAC y Pest Tests</div>
+        <div class="tech-badges">
+          Laravel 12 <span class="dot">•</span> PHP 8.3 Strict Types <span class="dot">•</span> Livewire 3 Volt <span class="dot">•</span> Alpine.js <span class="dot">•</span> Spatie RBAC <span class="dot">•</span> MySQL 8.4 <span class="dot">•</span> Pest PHP v3
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Reactividad en Servidor sin Sobrecarga SPA:</strong> Componentes Livewire 3 Volt de archivo único (*Single-File Components*) combinados con Alpine.js para búsqueda en tiempo real con *debounce*, sistema de me gusta, lectura privada (/guardados) y comentarios instantáneos.
+          </li>
+          <li class="bullet-item">
+            <strong>Seguridad Granular & Exportaciones:</strong> Control de acceso por roles y permisos (Admin, Blogger, User) con Spatie Laravel Permission y directivas <code>@can</code>. Panel de administración con métricas y generador de reportes CSV optimizados con codificación UTF-8 BOM para apertura nativa en Microsoft Excel.
+          </li>
+          <li class="bullet-item">
+            <strong>Suite de Pruebas Automatizadas con Pest PHP:</strong> Desarrollo validado con <strong>44 pruebas funcionales y 116 aserciones exitosas</strong>, cubriendo flujos de autenticación, 2FA, CRUD y componentes reactivos con base de datos SQLite en memoria.
+          </li>
+        </ul>
+      </div>
+
+      <!-- PROYECTO 4: TIENDITA IA POS -->
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Tiendita Inteligente IA — Punto de Venta Autónomo con Visión Artificial</span>
+          <span class="item-date">2024 — 2025</span>
+        </div>
+        <div class="item-subtitle">Edge AI POS acelerado por GPU con ONNX Runtime, YOLOv8 y ByteTrack</div>
+        <div class="tech-badges">
+          Python 3.12 <span class="dot">•</span> YOLOv8 (98.7% mAP) <span class="dot">•</span> ONNX DirectML <span class="dot">•</span> ByteTrack <span class="dot">•</span> OpenCV <span class="dot">•</span> NumPy <span class="dot">•</span> Subprocessing
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Inferencia Acelerada por Hardware (DirectML):</strong> Ejecución en tiempo real a <strong>~21 FPS estables</strong> sobre GPUs comerciales (AMD Radeon RX / Nvidia) mediante ONNX Runtime DirectML, preservando letterboxing estricto y reduciendo el consumo de RAM sin dependencias de PyTorch.
+          </li>
+          <li class="bullet-item">
+            <strong>Seguimiento Multiobjeto & Filtro Antirruido:</strong> Algoritmo ByteTrack para asignar identificadores temporales únicos que previenen cobros duplicados u oclusiones del cajero. Filtro de confirmación temporal (confianza &ge;80% y persistencia de 4 fotogramas) para erradicar falsos positivos.
+          </li>
+          <li class="bullet-item">
+            <strong>Inventario en Tiempo Real & Audio Asíncrono:</strong> Sincronización transaccional de stock con bloqueo de productos agotados, alertas acústicas en hilos de subproceso desacoplados del bucle de video y emisión automática de tickets de compra.
+          </li>
+        </ul>
+      </div>
+
+      <!-- PROYECTO 5: VUE 3 ECOMMERCE -->
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">TechStore — E-Commerce SPA con Vue 3.5 & Pinia</span>
+          <span class="item-date">2025</span>
+        </div>
+        <div class="item-subtitle">Plataforma Comercial de Periféricos y Ergonomía</div>
+        <div class="tech-badges">
+          Vue 3.5 <span class="dot">•</span> TypeScript <span class="dot">•</span> Pinia 3.0 <span class="dot">•</span> Vuetify 3 (Material Design) <span class="dot">•</span> Vite 7 <span class="dot">•</span> VueUse
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Estado Global & Persistencia Declarativa:</strong> Stores modulares de Pinia sincronizados automáticamente con LocalStorage mediante <code>@vueuse/core</code>. Cálculo memoizado de impuestos, subtotales y cupones de descuento.
+          </li>
+          <li class="bullet-item">
+            <strong>Checkout Multicanal & Formularios Reactivos:</strong> Pasarela de pago simulada en 3 pasos con validación estricta de tarjeta de crédito (máscara interactiva y detección dinámica de banco), SPEI y emisión de comprobantes descargables.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- GRID INFERIOR: EDUCACIÓN & CERTIFICACIONES -->
+    <div class="two-cols">
+      <!-- EDUCACIÓN -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-icon"></span>
+          <h2 class="section-title">Educación</h2>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Ingeniería en Sistemas Computacionales</div>
+          <div class="edu-school">Instituto Tecnológico de Oaxaca (ITO / TecNM)</div>
+          <div class="item-date">2021 — 2026 • Formación Oficial Completa</div>
+          <p class="edu-details">
+            Bases rigurosas en ingeniería de software, arquitectura de sistemas distribuidos, bases de datos relacionales, estructuras de datos y redes de telecomunicaciones.
+          </p>
+        </div>
+        <div class="edu-details" style="margin-top: 4px; padding-top: 4px; border-top: 1px solid #e2e8f0;">
+          <strong>Idiomas:</strong> Español (Nativo) <span class="dot" style="color:#0284c7;">•</span> Inglés (Técnico / Profesional B1-B2, lectura y documentación técnica fluida).
+        </div>
+      </section>
+
+      <!-- CERTIFICACIONES DESTACADAS -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-icon"></span>
+          <h2 class="section-title">Certificaciones Verificables</h2>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Google Cloud Computing Foundations Certificate</div>
+          <div class="cert-issuer">Google Cloud (Credly: afaf62b7-8fc9-4cda-9aad-3985f43ceedf) • 2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Google Cloud: Cloud Security & Operations</div>
+          <div class="cert-issuer">Google Cloud (Credly: 88ab965e-b827-4dca-8677-2348e83fc7a3) • 2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Google Cloud: Infrastructure & Data/ML/AI</div>
+          <div class="cert-issuer">Google Cloud (Credly: 57991d00 / 27ff4f8b) • 2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Curso Propedéutico de Inteligencia Artificial</div>
+          <div class="cert-issuer">INFOTEC / TecNM (Gobierno de México) • 2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Especializaciones Técnicas en Desarrollo</div>
+          <div class="cert-issuer">Udemy: NestJS Escalable, React Pro, Laravel 12, Vue 3 & Pinia</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>
