@@ -48,7 +48,7 @@ const milestones: TimelineMilestone[] = [
     tags: ['Google Cloud', 'Cloudflare WAF', 'Docker', 'VLANs', 'NetSec']
   },
   {
-    period: '2021 — 2025',
+    period: '2021 — 2026',
     title: 'Ingeniería en Sistemas Computacionales',
     institution: 'Tecnológico Nacional de México (TecNM)',
     description:
