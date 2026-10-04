@@ -183,7 +183,7 @@ export const AboutSection: React.FC = () => {
                     Ingeniería en Sistemas Computacionales • TecNM
                   </p>
                   <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium mt-1 inline-flex items-center gap-1">
-                    <CheckCircle2 className="w-3 h-3" /> Formación Oficial Completa
+                    <CheckCircle2 className="w-3 h-3" /> Residencia Concluida • Titulación en Trámite
                   </p>
                 </div>
               </div>
