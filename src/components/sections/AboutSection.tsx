@@ -1,15 +1,14 @@
-import React from 'react';
 import {
   User,
   GraduationCap,
   Sparkles,
   ShieldCheck,
-  Cpu,
   Terminal,
   ExternalLink,
   Code2,
   CheckCircle2,
-  Cloud
+  Cloud,
+  Users
 } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { CvDownloadDropdown } from '../ui/CvDownloadDropdown';
@@ -60,27 +59,27 @@ const milestones: TimelineMilestone[] = [
 const coreStrengths = [
   {
     icon: <Code2 className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
-    title: 'Arquitectura & Tipado Estricto',
+    title: 'Arquitectura & Full-Stack',
     description:
-      'Código estructurado y mantenible. Tipado riguroso con TypeScript sin recurrir a "any", interfaces bien definidas y separación clara de responsabilidades.'
+      'Diseño de aplicaciones web escalables con TypeScript, React, NestJS y Laravel. Código modular, mantenible y desacoplado enfocado en el producto final.'
   },
   {
     icon: <Cloud className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
-    title: 'Nube, Edge & Servidores',
+    title: 'Nube, Edge & Servidores Seguros',
     description:
-      'Despliegues en contenedores Docker multi-stage, configuración de DNS, CDN y reglas de WAF en Cloudflare, y servidores web seguros con Nginx.'
+      'Despliegue en contenedores Docker de alta seguridad, protección perimetral con Cloudflare (WAF, CDN y R2) y servidores web optimizados con Nginx.'
   },
   {
-    icon: <Cpu className="w-5 h-5 text-purple-600 dark:text-purple-400" />,
-    title: 'Visión Artificial Aplicada',
+    icon: <Users className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
+    title: 'Comunicación & Trabajo en Equipo',
     description:
-      'Integración de modelos de visión por computadora (YOLOv8 + ONNX) acelerados por GPU para tareas prácticas como identificación de productos y conteo en tiempo real.'
+      'Comunicación asertiva con perfiles técnicos y no técnicos, trabajo colaborativo en dinámicas ágiles, resolución proactiva de problemas y escucha activa.'
   },
   {
     icon: <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
-    title: 'Calidad & Pruebas Automatizadas',
+    title: 'Calidad & Orientación a Resultados',
     description:
-      'Pruebas automatizadas (Jest, Pest PHP), validación exhaustiva de datos de entrada en frontend y backend, y control de errores resiliente.'
+      'Pruebas automatizadas (Jest, Pest PHP) para garantizar estabilidad sin errores, cumplimiento riguroso de plazos y diseño centrado en la experiencia de usuario.'
   }
 ];
 
@@ -105,7 +104,7 @@ export const AboutSection: React.FC = () => {
             Sobre Mí
           </h2>
           <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
-            Ingeniero de software enfocado en construir sistemas confiables, desde la interfaz de usuario hasta la infraestructura y bases de datos que los respaldan.
+            Ingeniero de software enfocado en construir plataformas digitales confiables, combinando desarrollo técnico sólido con comunicación asertiva y visión de negocio.
           </p>
         </div>
 
@@ -134,17 +133,21 @@ export const AboutSection: React.FC = () => {
                   <strong className="text-zinc-900 dark:text-white font-semibold">
                     Tecnológico Nacional de México (TecNM)
                   </strong>
-                  . Me enfoco en diseñar software bien estructurado, mantenible y seguro, cuidando tanto la experiencia del usuario como la estabilidad del servidor.
+                  . Me apasiona transformar requerimientos y necesidades de negocio en software ágil, robusto e intuitivo.
                 </p>
                 <p>
-                  He desarrollado proyectos que abarcan aplicaciones web y móviles interactivas, backends para gestión institucional, modelos de visión artificial para puntos de venta y configuraciones de infraestructura con{' '}
+                  Cuento con experiencia en desarrollo Full-Stack creando sistemas de soporte institucional, gestión de inventarios, comercio digital y despliegues en la nube con{' '}
                   <strong className="text-zinc-900 dark:text-white font-semibold">
-                    Docker, Nginx, Cloudflare y Google Cloud
+                    TypeScript, React, NestJS, Laravel, PostgreSQL, Docker y Cloudflare
                   </strong>
                   .
                 </p>
                 <p>
-                  Priorizo las buenas prácticas de ingeniería: tipado estricto con TypeScript, pruebas automatizadas para prevenir regresiones, arquitectura modular y atención al rendimiento en cada capa del sistema.
+                  Más allá de las herramientas técnicas, valoro la{' '}
+                  <strong className="text-zinc-900 dark:text-white font-semibold">
+                    comunicación asertiva, la empatía y la adaptabilidad
+                  </strong>
+                  : tengo facilidad para colaborar con áreas multidisciplinarias, aprender nuevas tecnologías con rapidez y asegurar que cada solución entregue valor real a los usuarios.
                 </p>
               </div>
 
