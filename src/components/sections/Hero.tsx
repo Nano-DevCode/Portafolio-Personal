@@ -5,20 +5,19 @@ import { Button } from '../ui/Button';
 import { CvDownloadDropdown } from '../ui/CvDownloadDropdown';
 
 const coreTechBadges = [
-  'React',
-  'React Native',
-  'Vite',
-  'Angular',
-  'Vue',
-  'NestJS',
-  'Laravel',
-  'Python (IA / YOLO)',
-  'Cloudflare (WAF/CDN)',
+  'NestJS 11',
+  'Laravel 12',
+  'TypeScript',
+  'Node.js',
+  'PostgreSQL',
+  'Redis',
+  'React 19',
+  'Vue 3.5',
   'Docker',
+  'Python (YOLOv8)',
+  'Jest & Pest',
   'Nginx',
-  'Google Cloud (GCP)',
-  'VLANs',
-  'Firewalls'
+  'Git'
 ];
 
 export const Hero: React.FC = () => {
@@ -32,24 +31,25 @@ export const Hero: React.FC = () => {
           {/* Top pill badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-700 dark:text-zinc-300 font-mono shadow-sm">
             <span className="w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 animate-pulse" />
-            Full-Stack Software & Cloud Infrastructure Engineer
+            Software Engineer | Backend & Full-Stack Developer
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-zinc-900 dark:text-white tracking-tight leading-[1.1]">
-            Software moderno,{' '}
+            Desarrollo backend robusto,{' '}
             <span className="bg-gradient-to-r from-cyan-500 via-teal-400 to-blue-600 dark:from-cyan-400 dark:via-teal-300 dark:to-blue-500 bg-clip-text text-transparent">
-              cloud escalable
+              soluciones full-stack
             </span>{' '}
-            y redes seguras.
+            y código mantenible.
           </h1>
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-            Desarrollo aplicaciones web y móviles (<span className="text-zinc-900 dark:text-zinc-200 font-semibold">React, Vue, React Native</span>), 
-            diseño servicios backend (<span className="text-zinc-900 dark:text-zinc-200 font-semibold">NestJS, Laravel, Python</span>) 
-            y configuro infraestructura con <span className="text-zinc-900 dark:text-zinc-200 font-semibold">Docker, Cloudflare y Google Cloud</span>. 
-            Enfocado en código limpio, arquitectura sólida y soluciones mantenibles.
+            Egresado de Ingeniería en Sistemas Computacionales. Especializado en diseño de APIs REST modulares con{' '}
+            <span className="text-zinc-900 dark:text-zinc-200 font-semibold">NestJS y Laravel</span>, 
+            modelado de datos en <span className="text-zinc-900 dark:text-zinc-200 font-semibold">PostgreSQL y MySQL</span> con transacciones ACID y caché con Redis, 
+            interfaces reactivas con <span className="text-zinc-900 dark:text-zinc-200 font-semibold">React y Vue</span>, 
+            y despliegues contenerizados con <span className="text-zinc-900 dark:text-zinc-200 font-semibold">Docker</span> sobre Linux.
           </p>
 
           {/* Core Tech Quick Pills Bar in Hero */}
@@ -105,33 +105,33 @@ export const Hero: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-16 text-left">
             <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-sm hover:border-cyan-500/30 transition-all shadow-xs">
               <Layers className="w-5 h-5 text-cyan-500 dark:text-cyan-400 mb-2" />
-              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Arquitectura Modular</h2>
+              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Arquitectura Backend Modular</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                Separación clara entre lógica de negocio, servicios de red e interfaz de usuario.
+                APIs REST desacopladas por dominios con NestJS y Laravel, controladores concisos y tipado estricto.
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-sm hover:border-emerald-500/30 transition-all shadow-xs">
               <Zap className="w-5 h-5 text-emerald-500 dark:text-emerald-400 mb-2" />
-              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Rendimiento & UX</h2>
+              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Bases de Datos & Caché</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                Optimización de renderizado, consumo eficiente de APIs y tiempos de carga rápidos.
+                Transacciones atómicas ACID en PostgreSQL, búsqueda optimizada con vectores tsvector y caché con Redis.
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-sm hover:border-indigo-500/30 transition-all shadow-xs">
               <Container className="w-5 h-5 text-indigo-500 dark:text-indigo-400 mb-2" />
-              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Cloud & Contenedores</h2>
+              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Contenedores & Despliegue</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                Contenedores Docker multi-stage, proxies inversos con Nginx y despliegues en la nube.
+                Empaquetado Docker multi-stage con imágenes Google Distroless non-root, proxy Nginx y servidores Linux.
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-sm hover:border-amber-500/30 transition-all shadow-xs">
               <ShieldCheck className="w-5 h-5 text-amber-500 dark:text-amber-400 mb-2" />
-              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Seguridad & Redes</h2>
+              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Testing & Concurrencia</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                Tipado estricto con TypeScript, segmentación de redes con VLANs y reglas de firewall.
+                Suites de pruebas exhaustivas (998 en Jest, 44 en Pest) y control de concurrencia optimista contra carreras.
               </p>
             </div>
           </div>

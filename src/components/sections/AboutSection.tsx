@@ -4,12 +4,12 @@ import {
   GraduationCap,
   Sparkles,
   ShieldCheck,
-  Cpu,
   Terminal,
   ExternalLink,
   Code2,
   CheckCircle2,
-  Cloud
+  Database,
+  Container
 } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { CvDownloadDropdown } from '../ui/CvDownloadDropdown';
@@ -25,62 +25,62 @@ interface TimelineMilestone {
 const milestones: TimelineMilestone[] = [
   {
     period: '2025 — Presente',
-    title: 'Lead Backend Developer & Arquitectura de Software',
-    institution: 'Instituto Tecnológico de Oaxaca (ITO / TecNM)',
+    title: 'Backend Developer — Residencia Profesional',
+    institution: 'Instituto Tecnológico de Oaxaca (TecNM / ITO)',
     description:
-      'Diseño y desarrollo de la arquitectura del backend para el sistema institucional de Service Desk y Control de Activos TI del ITO. Implementado con NestJS 11, PostgreSQL 17, Redis 8, almacenamiento en MinIO S3, contenedores Docker y más de 900 pruebas unitarias con Jest.',
-    tags: ['NestJS 11', 'PostgreSQL 17', 'Redis 8', 'Docker', 'Jest']
+      'Diseño y desarrollo de la arquitectura backend para el sistema institucional de Service Desk y Control de Activos TI del ITO. Implementado con NestJS 11, PostgreSQL 17, Redis 8, MinIO S3, contenedores Docker Distroless y una suite exhaustiva de 998 pruebas unitarias con Jest.',
+    tags: ['NestJS 11', 'PostgreSQL 17', 'Redis 8', 'Docker Distroless', 'Jest (998 Tests)']
   },
   {
-    period: '2025',
-    title: 'Desarrollo Full-Stack, Edge AI & Soluciones Digitales',
+    period: '2024 — Presente',
+    title: 'Desarrollo Web Full-Stack & Edge AI',
     institution: 'Nano-DevCode • Proyectos Independientes',
     description:
-      'Desarrollo de proyectos completos de software: terminal de punto de venta con detección de productos mediante visión artificial (YOLOv8 + ONNX), sistema CMS reactivo en Laravel 12 con pruebas automatizadas (Pest PHP), tienda web en Vue 3 y aplicación móvil con React Native.',
-    tags: ['Edge AI', 'Vue 3', 'Laravel 12', 'React Native', 'Clean Code']
+      'Desarrollo de proyectos completos de software: punto de venta inteligente con detección de productos mediante visión artificial (YOLOv8 + ONNX DirectML a 97.1% mAP@50), gestor de contenidos reactivo en Laravel 12 con suite de 44 pruebas automatizadas en Pest PHP, catálogo interactivo en Vue 3 y app móvil en React Native.',
+    tags: ['Edge AI / YOLOv8', 'Laravel 12', 'Vue 3', 'React Native', 'Pest PHP']
   },
   {
-    period: '2024 — 2025',
-    title: 'Especialización en Nube, Cloudflare & Ciberseguridad de Redes',
+    period: '2024 — 2026',
+    title: 'Especialización en Nube, Seguridad & Buenas Prácticas',
     institution: 'Google Cloud (Credly) • Udemy • INFOTEC',
     description:
-      'Certificaciones en fundamentos de nube, seguridad e IA en Google Cloud Platform. Práctica continua en configuración de Cloudflare (WAF, DNS y CDN), servidores con Nginx, contenedores Docker y segmentación de redes locales con VLANs y políticas de firewall.',
-    tags: ['Google Cloud', 'Cloudflare WAF', 'Docker', 'VLANs', 'NetSec']
+      'Certificaciones verificables de Google Cloud en fundamentos de computación en la nube, infraestructura, seguridad y operaciones. Formación continua en diseño de APIs backend escalables, tipado estricto con TypeScript, pruebas de software y despliegues contenerizados.',
+    tags: ['Google Cloud', 'Docker', 'Linux', 'API Security', 'Testing']
   },
   {
-    period: '2021 — 2025',
+    period: '2021 — 2026',
     title: 'Ingeniería en Sistemas Computacionales',
-    institution: 'Tecnológico Nacional de México (TecNM)',
+    institution: 'Instituto Tecnológico de Oaxaca (TecNM / ITO)',
     description:
-      'Formación universitaria con bases sólidas en estructuras de datos, diseño de algoritmos, redes de computadoras, bases de datos relacionales y principios de ingeniería de software.',
-    tags: ['Ingeniería de Software', 'Bases de Datos', 'Redes', 'Sistemas Distribuidos']
+      'Formación académica universitaria con bases rigurosas en ingeniería de software, arquitectura de sistemas, diseño de bases de datos relacionales, estructuras de datos, programación orientada a objetos y redes de telecomunicaciones.',
+    tags: ['Ingeniería de Software', 'Bases de Datos', 'Estructuras de Datos', 'Redes']
   }
 ];
 
 const coreStrengths = [
   {
     icon: <Code2 className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
-    title: 'Arquitectura & Tipado Estricto',
+    title: 'Arquitectura Backend Modular',
     description:
-      'Código estructurado y mantenible. Tipado riguroso con TypeScript sin recurrir a "any", interfaces bien definidas y separación clara de responsabilidades.'
+      'Diseño de APIs REST desacopladas por dominios de negocio con NestJS y Laravel, con controladores delgados, inyección de dependencias y tipado estricto con TypeScript.'
   },
   {
-    icon: <Cloud className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
-    title: 'Nube, Edge & Servidores',
+    icon: <Database className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
+    title: 'Bases de Datos & Rendimiento',
     description:
-      'Despliegues en contenedores Docker multi-stage, configuración de DNS, CDN y reglas de WAF en Cloudflare, y servidores web seguros con Nginx.'
+      'Transacciones atómicas ACID en PostgreSQL y MySQL, control de concurrencia optimista contra condiciones de carrera, búsqueda full-text con tsvector y caché con Redis.'
   },
   {
-    icon: <Cpu className="w-5 h-5 text-purple-600 dark:text-purple-400" />,
-    title: 'Visión Artificial Aplicada',
+    icon: <ShieldCheck className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
+    title: 'Testing Automatizado & Calidad',
     description:
-      'Integración de modelos de visión por computadora (YOLOv8 + ONNX) acelerados por GPU para tareas prácticas como identificación de productos y conteo en tiempo real.'
+      'Cultura de estabilidad validada por pruebas unitarias (998 tests en Jest) y funcionales (44 en Pest PHP), previniendo regresiones y asegurando código confiable.'
   },
   {
-    icon: <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
-    title: 'Calidad & Pruebas Automatizadas',
+    icon: <Container className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
+    title: 'Contenedores & Despliegue',
     description:
-      'Pruebas automatizadas (Jest, Pest PHP), validación exhaustiva de datos de entrada en frontend y backend, y control de errores resiliente.'
+      'Empaquetado multi-stage con Docker, reducción de superficie de ataque con imágenes Google Distroless non-root, proxies inversos Nginx y servidores Linux.'
   }
 ];
 
@@ -105,7 +105,7 @@ export const AboutSection: React.FC = () => {
             Sobre Mí
           </h2>
           <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
-            Ingeniero de software enfocado en construir sistemas confiables, desde la interfaz de usuario hasta la infraestructura y bases de datos que los respaldan.
+            Egresado de Ingeniería en Sistemas Computacionales enfocado en diseñar y construir software robusto, con énfasis en arquitecturas backend, bases de datos relacionales y soluciones full-stack.
           </p>
         </div>
 
@@ -123,28 +123,28 @@ export const AboutSection: React.FC = () => {
                     Manuel Eduardo Santiago Feria
                   </h3>
                   <span className="text-xs font-mono text-cyan-600 dark:text-cyan-400">
-                    @Nano-DevCode • México
+                    @Nano-DevCode • Oaxaca, México
                   </span>
                 </div>
               </div>
 
               <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
                 <p>
-                  Estudié Ingeniería en Sistemas Computacionales en el{' '}
+                  Egresado de Ingeniería en Sistemas Computacionales por el{' '}
                   <strong className="text-zinc-900 dark:text-white font-semibold">
-                    Tecnológico Nacional de México (TecNM)
+                    Instituto Tecnológico de Oaxaca (TecNM / ITO)
                   </strong>
-                  . Me enfoco en diseñar software bien estructurado, mantenible y seguro, cuidando tanto la experiencia del usuario como la estabilidad del servidor.
+                  , con residencia profesional concluida y titulación en trámite.
                 </p>
                 <p>
-                  He desarrollado proyectos que abarcan aplicaciones web y móviles interactivas, backends para gestión institucional, modelos de visión artificial para puntos de venta y configuraciones de infraestructura con{' '}
+                  Cuento con experiencia comprobable en el diseño de arquitecturas backend para sistemas de gestión institucional, desarrollo de aplicaciones web interactivas con{' '}
                   <strong className="text-zinc-900 dark:text-white font-semibold">
-                    Docker, Nginx, Cloudflare y Google Cloud
+                    NestJS, Laravel, TypeScript, React y Vue
                   </strong>
-                  .
+                  , persistencia relacional con PostgreSQL y MySQL, y despliegue contenerizado mediante Docker.
                 </p>
                 <p>
-                  Priorizo las buenas prácticas de ingeniería: tipado estricto con TypeScript, pruebas automatizadas para prevenir regresiones, arquitectura modular y atención al rendimiento en cada capa del sistema.
+                  Priorizo las buenas prácticas de ingeniería: tipado estricto con TypeScript, cobertura exhaustiva de pruebas unitarias y de integración para prevenir regresiones, separación clara de responsabilidades y optimización de consultas a bases de datos.
                 </p>
               </div>
 
@@ -180,10 +180,13 @@ export const AboutSection: React.FC = () => {
                     Educación Universitaria
                   </h4>
                   <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-0.5">
-                    Ingeniería en Sistemas Computacionales • TecNM
+                    Ingeniería en Sistemas Computacionales • Instituto Tecnológico de Oaxaca (TecNM / ITO)
                   </p>
-                  <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium mt-1 inline-flex items-center gap-1">
-                    <CheckCircle2 className="w-3 h-3" /> Residencia Concluida • Titulación en Trámite
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                    2021 — 2026
+                  </p>
+                  <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium mt-1.5 inline-flex items-center gap-1">
+                    <CheckCircle2 className="w-3.5 h-3.5" /> Egresado • Residencia Concluida • Titulación en Trámite
                   </p>
                 </div>
               </div>
