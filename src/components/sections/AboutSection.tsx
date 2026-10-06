@@ -28,15 +28,15 @@ const milestones: TimelineMilestone[] = [
     title: 'Backend Developer — Residencia Profesional',
     institution: 'Instituto Tecnológico de Oaxaca (TecNM / ITO)',
     description:
-      'Diseño y desarrollo de la arquitectura backend para el sistema institucional de Service Desk y Control de Activos TI del ITO. Implementado con NestJS, PostgreSQL, Redis, MinIO S3 y Docker, con 998 pruebas / 143 suites (Jest).',
+      'Diseño y desarrollo de la arquitectura backend para el sistema de soporte técnico e inventario tecnológico del ITO. Implementado con NestJS, PostgreSQL, Redis, MinIO S3 y Docker, con 998 pruebas automatizadas organizadas en 143 suites (Jest).',
     tags: ['NestJS', 'PostgreSQL', 'Redis', 'Docker', 'Jest (998 pruebas / 143 suites)']
   },
   {
     period: '2024 — Presente',
-    title: 'Desarrollo Web Full-Stack & Edge AI',
+    title: 'Desarrollador Full-Stack — Nano-DevCode',
     institution: 'Nano-DevCode • Proyectos Independientes',
     description:
-      'Desarrollo de proyectos completos de software: punto de venta inteligente con detección de productos mediante visión artificial (YOLOv8 + ONNX con DirectML; 97.1% mAP@50 en validación sobre el dataset propio del proyecto, ~21 FPS en GPU AMD Radeon RX 6600M con DirectML), gestor de contenidos en Laravel con 44 pruebas / 116 aserciones (Pest), catálogo interactivo en Vue 3 y app móvil en React Native.',
+      'Desarrollo de proyectos independientes de software: punto de venta con visión artificial (YOLOv8 + ONNX con DirectML; 97.1% mAP@50 en validación sobre el dataset propio del proyecto, ~21 FPS en GPU AMD Radeon RX 6600M con DirectML), gestor de contenidos en Laravel con 44 pruebas automatizadas y 116 aserciones (Pest), catálogo interactivo en Vue 3 y app móvil en React Native.',
     tags: ['Edge AI / YOLOv8', 'Laravel', 'Vue 3', 'React Native', 'Pest PHP']
   },
   {
@@ -44,15 +44,15 @@ const milestones: TimelineMilestone[] = [
     title: 'Especialización en Nube, Seguridad & Buenas Prácticas',
     institution: 'Google Cloud (Credly) • Udemy • INFOTEC',
     description:
-      'Certificaciones verificables de Google Cloud en fundamentos de computación en la nube, infraestructura, seguridad y operaciones. Formación continua en diseño de APIs backend escalables, tipado estricto con TypeScript, pruebas de software y despliegues contenerizados.',
-    tags: ['Google Cloud', 'Docker', 'Linux', 'API Security', 'Testing']
+      'Certificaciones verificables de Google Cloud en fundamentos de computación en la nube, infraestructura y seguridad. Formación continua en diseño de APIs backend escalables, tipado estricto con TypeScript, pruebas de software y despliegues con contenedores.',
+    tags: ['Google Cloud', 'Docker', 'Linux', 'Testing', 'TypeScript']
   },
   {
     period: '2021 — 2025',
     title: 'Ingeniería en Sistemas Computacionales',
     institution: 'Instituto Tecnológico de Oaxaca (TecNM / ITO)',
     description:
-      'Formación académica universitaria con bases rigurosas en ingeniería de software, arquitectura de sistemas, diseño de bases de datos relacionales, estructuras de datos, programación orientada a objetos y redes de telecomunicaciones.',
+      'Formación académica universitaria con bases en ingeniería de software, arquitectura de sistemas, diseño de bases de datos relacionales, estructuras de datos, programación orientada a objetos y redes de computadoras.',
     tags: ['Ingeniería de Software', 'Bases de Datos', 'Estructuras de Datos', 'Redes']
   }
 ];
@@ -62,25 +62,25 @@ const coreStrengths = [
     icon: <Code2 className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
     title: 'Arquitectura Backend Modular',
     description:
-      'Arquitectura backend modular con separación de responsabilidades. Diseño de APIs REST con NestJS y Laravel, inyección de dependencias y tipado estricto con TypeScript.'
+      'Arquitectura modular con separación de responsabilidades. Diseño de APIs REST con NestJS y Laravel, inyección de dependencias y tipado estricto con TypeScript.'
   },
   {
     icon: <Database className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
     title: 'Bases de Datos & Rendimiento',
     description:
-      'Transacciones explícitas con QueryRunner, control de concurrencia optimista para prevenir condiciones de carrera y caché con Redis.'
+      'Transacciones explícitas con QueryRunner, mecanismos para evitar conflictos en actualizaciones simultáneas y caché en memoria con Redis.'
   },
   {
     icon: <ShieldCheck className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
     title: 'Testing Automatizado & Calidad',
     description:
-      '998 pruebas / 143 suites (Jest) y 44 pruebas / 116 aserciones (Pest) para prevenir regresiones.'
+      '998 pruebas automatizadas organizadas en 143 suites (Jest) y 44 pruebas / 116 aserciones (Pest) para prevenir fallos y regresiones.'
   },
   {
     icon: <Container className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
     title: 'Contenedores & Despliegue',
     description:
-      'Empaquetado multi-stage con Docker (imagen Distroless, usuario non-root), proxy inverso Nginx y Linux como entorno de trabajo.'
+      'Empaquetado multi-stage con Docker (imagen Distroless, usuario non-root), proxy inverso Nginx y Linux como entorno de desarrollo y despliegue.'
   }
 ];
 
@@ -144,7 +144,7 @@ export const AboutSection: React.FC = () => {
                   , además de bases de datos relacionales y despliegue con Docker.
                 </p>
                 <p>
-                  Cuento con experiencia comprobada en desarrollo de sistemas modulares, bases de datos relacionales con transacciones ACID, optimización de consultas, pruebas automatizadas y control de versiones con Git/GitHub.
+                  Cuento con experiencia práctica en desarrollo de aplicaciones web, diseño de bases de datos relacionales con transacciones, pruebas automatizadas y control de versiones con Git/GitHub.
                 </p>
               </div>
 

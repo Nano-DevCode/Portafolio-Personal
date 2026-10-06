@@ -44,7 +44,7 @@ export const Hero: React.FC = () => {
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-            Construyo APIs REST y aplicaciones web con NestJS, TypeScript, PostgreSQL y React, con pruebas automatizadas y despliegue con Docker.
+            Desarrollo aplicaciones web y APIs con enfoque en código mantenible, buenas prácticas y soluciones orientadas a necesidades reales.
           </p>
 
           {/* Core Tech Quick Pills Bar in Hero */}
@@ -110,7 +110,7 @@ export const Hero: React.FC = () => {
               <Zap className="w-5 h-5 text-emerald-500 dark:text-emerald-400 mb-2" />
               <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Bases de Datos & Caché</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                Transacciones explícitas con PostgreSQL y QueryRunner, búsqueda optimizada con vectores tsvector y caché con Redis.
+                Modelado relacional con PostgreSQL y MySQL, transacciones explícitas con QueryRunner y caché en memoria con Redis.
               </p>
             </div>
 
@@ -118,7 +118,7 @@ export const Hero: React.FC = () => {
               <Container className="w-5 h-5 text-indigo-500 dark:text-indigo-400 mb-2" />
               <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Contenedores & Despliegue</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                Empaquetado Docker multi-stage con imágenes Google Distroless non-root, proxy Nginx y servidores Linux.
+                Empaquetado Docker multi-stage con imágenes Google Distroless non-root, proxy Nginx y entornos Linux.
               </p>
             </div>
 
@@ -126,7 +126,7 @@ export const Hero: React.FC = () => {
               <ShieldCheck className="w-5 h-5 text-amber-500 dark:text-amber-400 mb-2" />
               <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Testing & Control de Concurrencia</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                998 pruebas / 143 suites (Jest), 44 pruebas / 116 aserciones (Pest) y control de concurrencia optimista (@VersionColumn).
+                998 pruebas automatizadas en 143 suites (Jest), 44 pruebas (Pest) y prevención de condiciones de carrera con concurrencia optimista.
               </p>
             </div>
           </div>

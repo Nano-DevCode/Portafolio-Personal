@@ -345,22 +345,22 @@
           <span class="item-title">Backend Developer — Residencia Profesional</span>
           <span class="item-date">2025 — 2026</span>
         </div>
-        <div class="item-subtitle">Instituto Tecnológico de Oaxaca (TecNM / ITO) • Sistema de Mesa de Ayuda y Control de Activos TI</div>
+        <div class="item-subtitle">Instituto Tecnológico de Oaxaca (TecNM / ITO) • Sistema de Mesa de Ayuda e Inventario TI</div>
         <div class="tech-badges">
           NestJS <span class="dot">•</span> TypeScript <span class="dot">•</span> PostgreSQL <span class="dot">•</span> Redis <span class="dot">•</span> TypeORM <span class="dot">•</span> Docker Distroless <span class="dot">•</span> Nginx <span class="dot">•</span> Jest
         </div>
         <ul class="bullet-list">
           <li class="bullet-item">
-            <strong>Arquitectura Backend &amp; Control de Acceso:</strong> Desarrollé la API REST con arquitectura backend modular para gestionar tickets de soporte, inventario de equipos y consumibles, implementando autorización basada en roles (RBAC).
+            <strong>Arquitectura Backend &amp; Control de Acceso:</strong> Desarrollé la API REST con arquitectura backend modular en NestJS para gestionar tickets de soporte, inventario de equipos y consumibles con autorización basada en roles (RBAC).
           </li>
           <li class="bullet-item">
-            <strong>Transaccionalidad &amp; Concurrencia Optimista:</strong> Implementé transacciones atómicas con <code>QueryRunner</code> en TypeORM y control de concurrencia optimista con <code>@VersionColumn</code> para erradicar inconsistencias en inventario y asignación de tickets.
+            <strong>Transaccionalidad &amp; Concurrencia Optimista:</strong> Implementé transacciones atómicas con <code>QueryRunner</code> en TypeORM y control de concurrencia optimista con <code>@VersionColumn</code> para evitar conflictos cuando varios usuarios actualizan información simultáneamente.
           </li>
           <li class="bullet-item">
-            <strong>Optimización de Búsqueda &amp; Caching:</strong> Optimicé el motor de búsqueda mediante índices GIN y vectores <code>tsvector</code> en PostgreSQL, integrando una capa de caché en memoria con Redis para consultas frecuentes.
+            <strong>Optimización de Búsqueda &amp; Caching:</strong> Optimicé el motor de búsqueda mediante índices GIN y vectores <code>tsvector</code> en PostgreSQL, integrando una capa de caché en memoria y limitador de tasa de peticiones (rate limiting) con Redis.
           </li>
           <li class="bullet-item">
-            <strong>Testing Automatizado &amp; Despliegue Seguro:</strong> Construí una suite de <strong>998 pruebas unitarias en 143 suites con Jest</strong> y empaqueté el servicio en contenedores Docker multi-stage sobre imágenes <strong>Google Distroless</strong> non-root tras proxy inverso Nginx.
+            <strong>Testing Automatizado &amp; Despliegue en Contenedores:</strong> Construí una suite de <strong>998 pruebas automatizadas en 143 suites con Jest</strong> y empaqueté el servicio en contenedores Docker multi-stage con <strong>Google Distroless</strong> non-root tras proxy inverso Nginx.
           </li>
         </ul>
       </div>
@@ -375,16 +375,16 @@
 
       <div class="item">
         <div class="item-header">
-          <span class="item-title">Sistema de Mesa de Ayuda e Inventario TI (Service Desk)</span>
+          <span class="item-title">Sistema de Mesa de Ayuda e Inventario TI</span>
           <span class="item-date">2025</span>
         </div>
-        <div class="item-subtitle">Plataforma Web Integral (Backend + Frontend) • Instituto Tecnológico de Oaxaca</div>
+        <div class="item-subtitle">Plataforma Web Integral (Backend + Frontend) • Residencia Profesional (ITO)</div>
         <div class="tech-badges">
           React <span class="dot">•</span> NestJS <span class="dot">•</span> TanStack Query <span class="dot">•</span> Socket.io <span class="dot">•</span> PostgreSQL <span class="dot">•</span> Tailwind CSS <span class="dot">•</span> MinIO S3
         </div>
         <ul class="bullet-list">
           <li class="bullet-item">
-            Desarrollé el backend con NestJS, TypeScript, PostgreSQL, Redis y MinIO S3 para gestión de folios, auditoría y evidencias; construí el frontend con React, TanStack Query y Socket.io con sincronización en tiempo real sin sondeo periódico.
+            Desarrollé el backend con NestJS, PostgreSQL, Redis y MinIO S3 para gestión de tickets e inventario institucional; construí el cliente web en React con TanStack Query y Socket.io con sincronización en tiempo real.
           </li>
         </ul>
       </div>
@@ -394,13 +394,13 @@
           <span class="item-title">Tiendita Inteligente IA — Punto de Venta con Visión Artificial</span>
           <span class="item-date">2024 — 2025</span>
         </div>
-        <div class="item-subtitle">Edge AI POS acelerado por GPU con ONNX Runtime DirectML y ByteTrack</div>
+        <div class="item-subtitle">Punto de Venta con Detección Automática de Productos e Inferencia en GPU</div>
         <div class="tech-badges">
           Python <span class="dot">•</span> YOLOv8 <span class="dot">•</span> ONNX DirectML <span class="dot">•</span> ByteTrack <span class="dot">•</span> OpenCV <span class="dot">•</span> NumPy
         </div>
         <ul class="bullet-list">
           <li class="bullet-item">
-            Entrené un modelo YOLOv8 alcanzando <strong>97.1% mAP@50</strong> en validación sobre el dataset propio (pesos <code>MiModelo_YOLO_BEST.pt</code>), logrando <strong>~21 FPS en GPU AMD Radeon RX 6600M con DirectML</strong> y seguimiento ByteTrack para evitar cobros duplicados.
+            Entrené un modelo YOLOv8 alcanzando <strong>97.1% mAP@50</strong> en validación sobre dataset propio (pesos <code>MiModelo_YOLO_BEST.pt</code>), logrando <strong>~21 FPS en GPU AMD Radeon RX 6600M con DirectML</strong> y seguimiento ByteTrack para evitar cobros duplicados.
           </li>
         </ul>
       </div>
@@ -410,13 +410,13 @@
           <span class="item-title">Laravel CMS &amp; Blog Reactivo</span>
           <span class="item-date">2024</span>
         </div>
-        <div class="item-subtitle">Plataforma Web Full-Stack con Livewire Volt, Spatie RBAC y Pest PHP</div>
+        <div class="item-subtitle">Gestor de Contenidos con Reactividad en Servidor, Control de Roles y Pruebas Pest</div>
         <div class="tech-badges">
           Laravel <span class="dot">•</span> PHP <span class="dot">•</span> Livewire Volt <span class="dot">•</span> MySQL <span class="dot">•</span> Pest PHP (44 pruebas)
         </div>
         <ul class="bullet-list">
           <li class="bullet-item">
-            Desarrollé una plataforma de contenidos con reactividad en servidor (Livewire Volt), control de roles y permisos (Spatie RBAC), exportación CSV y suite validada de <strong>44 pruebas automatizadas con Pest PHP</strong>.
+            Desarrollé una plataforma web con reactividad en servidor (Livewire Volt), control de roles y permisos (Spatie RBAC), exportación CSV y suite validada de <strong>44 pruebas automatizadas con Pest PHP</strong>.
           </li>
         </ul>
       </div>

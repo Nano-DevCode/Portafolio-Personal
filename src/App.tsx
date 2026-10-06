@@ -26,7 +26,7 @@ export const App: React.FC = () => {
           {/* Sobre Mí — Perfil, Formación TecNM & Trayectoria */}
           <AboutSection />
 
-          {/* Ecosistema Técnico, Cloudflare, Cloud, Redes & Habilidades */}
+          {/* Habilidades Técnicas & Herramientas */}
           <SkillsSection />
 
           {/* Projects Showcase & Deep-Dive Section */}

@@ -78,7 +78,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
                 size="sm"
                 icon={<Github className="w-4 h-4" />}
               >
-                GitHub Backend
+                {project.secondaryGithubUrl ? 'GitHub Backend' : 'Código en GitHub'}
               </Button>
               {project.secondaryGithubUrl && (
                 <Button

@@ -26,78 +26,89 @@ interface SkillCategory {
 const skillCategories: SkillCategory[] = [
   {
     title: 'Backend & APIs',
-    badge: 'Servicios & Arquitectura',
+    badge: 'Servicios & Lógica',
     icon: <Server className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
     accentColor: 'from-emerald-500/10 via-transparent to-transparent',
     borderColor: 'border-emerald-200 dark:border-emerald-500/20 hover:border-emerald-400 dark:hover:border-emerald-500/40',
     description:
-      'Diseño de APIs RESTful modulares, servicios en tiempo real y lógica de negocio desacoplada con tipado estricto.',
+      'Diseño de APIs REST modulares con NestJS y Laravel, separación de responsabilidades y tipado estricto.',
     skills: [
       { name: 'NestJS', highlight: true },
-      { name: 'Node.js & Express', highlight: true },
       { name: 'Laravel (PHP)', highlight: true },
-      { name: 'APIs RESTful', highlight: true },
-      { name: 'WebSockets (Socket.io)', highlight: true },
-      { name: 'TypeORM & Eloquent' },
-      { name: 'Autenticación (JWT & RBAC)' },
-      { name: 'Python (IA & Computer Vision)' },
-      { name: 'Arquitectura backend modular' }
+      { name: 'Node.js', highlight: true },
+      { name: 'PHP', highlight: true },
+      { name: 'Python', highlight: true },
+      { name: 'APIs REST', highlight: true },
+      { name: 'TypeORM' },
+      { name: 'WebSockets (Socket.io)' }
     ]
   },
   {
-    title: 'Bases de Datos & Caché',
-    badge: 'Persistencia & Caching',
-    icon: <Database className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
-    accentColor: 'from-cyan-500/10 via-transparent to-transparent',
-    borderColor: 'border-cyan-200 dark:border-cyan-500/20 hover:border-cyan-400 dark:hover:border-cyan-500/40',
-    description:
-      'Modelado relacional, transacciones atómicas seguras, optimización de consultas e indexación en memoria.',
-    skills: [
-      { name: 'PostgreSQL', highlight: true },
-      { name: 'Full-Text Search (tsvector & GIN)', highlight: true },
-      { name: 'MySQL', highlight: true },
-      { name: 'Redis (Caché & Rate Limiting)', highlight: true },
-      { name: 'Transacciones explícitas con QueryRunner' },
-      { name: 'Concurrencia Optimista (@VersionColumn)' },
-      { name: 'SQLite (Pruebas en Memoria)' }
-    ]
-  },
-  {
-    title: 'Frontend & Mobile',
-    badge: 'UI & Reactividad',
+    title: 'Frontend & UI',
+    badge: 'Interfaces & Reactividad',
     icon: <Code2 className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
     accentColor: 'from-indigo-500/10 via-transparent to-transparent',
     borderColor: 'border-indigo-200 dark:border-indigo-500/20 hover:border-indigo-400 dark:hover:border-indigo-500/40',
     description:
-      'Interfaces de usuario reactivas, manejo eficiente del estado cliente y aplicaciones móviles multiplataforma.',
+      'Desarrollo de interfaces web reactivas, gestión de estado cliente y consumo ágil de APIs.',
     skills: [
       { name: 'React', highlight: true },
       { name: 'TypeScript', highlight: true },
-      { name: 'Vue 3 (Composition API & Pinia)', highlight: true },
-      { name: 'React Native & Expo', highlight: true },
+      { name: 'Vue', highlight: true },
+      { name: 'Tailwind CSS', highlight: true },
       { name: 'TanStack Query', highlight: true },
-      { name: 'Zustand & VueUse' },
-      { name: 'Tailwind CSS' },
+      { name: 'Pinia' },
       { name: 'Vite' }
     ]
   },
   {
-    title: 'Testing, DevOps & Cloud',
+    title: 'Bases de Datos & Caché',
+    badge: 'Persistencia & Consultas',
+    icon: <Database className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
+    accentColor: 'from-cyan-500/10 via-transparent to-transparent',
+    borderColor: 'border-cyan-200 dark:border-cyan-500/20 hover:border-cyan-400 dark:hover:border-cyan-500/40',
+    description:
+      'Modelado de datos relacionales, transacciones explícitas con QueryRunner y caché en memoria con Redis.',
+    skills: [
+      { name: 'PostgreSQL', highlight: true },
+      { name: 'MySQL', highlight: true },
+      { name: 'Redis (Caché & Rate Limiting)', highlight: true },
+      { name: 'Transacciones con QueryRunner' },
+      { name: 'Concurrencia Optimista' },
+      { name: 'SQLite' }
+    ]
+  },
+  {
+    title: 'Testing & Herramientas',
     badge: 'Calidad & Despliegue',
     icon: <Container className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
     accentColor: 'from-amber-500/10 via-transparent to-transparent',
     borderColor: 'border-amber-200 dark:border-amber-500/20 hover:border-amber-400 dark:hover:border-amber-500/40',
     description:
-      'Pruebas automatizadas continuas, empaquetado seguro en contenedores, proxies inversos y almacenamiento en la nube.',
+      'Pruebas automatizadas continuas, empaquetado en contenedores Docker, entornos Linux y control de versiones.',
     skills: [
       { name: 'Jest (998 pruebas / 143 suites)', highlight: true },
-      { name: 'Pest (44 pruebas / 116 aserciones)', highlight: true },
-      { name: 'Docker (Multi-stage / Distroless)', highlight: true },
-      { name: 'Nginx (Proxy Inverso & SSL)', highlight: true },
+      { name: 'Pest PHP (44 pruebas / 116 aserciones)', highlight: true },
+      { name: 'Docker (Distroless)', highlight: true },
+      { name: 'Nginx', highlight: true },
       { name: 'Linux', highlight: true },
-      { name: 'Git & GitHub', highlight: true },
-      { name: 'Google Cloud (GCP)', highlight: true },
-      { name: 'Almacenamiento S3 (MinIO)' }
+      { name: 'Git & GitHub', highlight: true }
+    ]
+  },
+  {
+    title: 'Computer Vision (IA)',
+    badge: 'Detección & Inferencia',
+    icon: <Sparkles className="w-5 h-5 text-sky-600 dark:text-sky-400" />,
+    accentColor: 'from-sky-500/10 via-transparent to-transparent',
+    borderColor: 'border-sky-200 dark:border-sky-500/20 hover:border-sky-400 dark:hover:border-sky-500/40',
+    description:
+      'Modelos de detección de objetos, exportación e inferencia acelerada en GPU y seguimiento visual.',
+    skills: [
+      { name: 'YOLOv8 (97.1% mAP@50)', highlight: true },
+      { name: 'ONNX Runtime (DirectML)', highlight: true },
+      { name: 'OpenCV', highlight: true },
+      { name: 'ByteTrack', highlight: true },
+      { name: 'Python', highlight: true }
     ]
   }
 ];
@@ -116,12 +127,12 @@ export const SkillsSection: React.FC = () => {
             Habilidades Técnicas
           </h2>
           <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
-            Tecnologías y herramientas aplicadas directamente en desarrollo backend, bases de datos relacionales, interfaces reactivas y despliegue contenerizado.
+            Tecnologías y herramientas aplicadas directamente en desarrollo backend, bases de datos relacionales, interfaces reactivas y pruebas automatizadas.
           </p>
         </div>
 
         {/* Categories Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category) => (
             <div
               key={category.title}

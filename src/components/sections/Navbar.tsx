@@ -11,7 +11,7 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { href: '#inicio', label: 'Inicio' },
     { href: '#sobre-mi', label: 'Sobre Mí' },
-    { href: '#habilidades', label: 'Habilidades & Redes' },
+    { href: '#habilidades', label: 'Habilidades' },
     { href: '#proyectos', label: 'Proyectos' },
     { href: '#certificaciones', label: 'Certificaciones' },
     { href: '#contacto', label: 'Contacto' }
@@ -34,7 +34,7 @@ export const Navbar: React.FC = () => {
               Nano-DevCode
             </span>
             <span className="text-[11px] text-zinc-500 dark:text-zinc-400 font-mono -mt-1 block">
-              Full-Stack & Cloud Engineer
+              Backend &amp; Full-Stack Developer
             </span>
           </div>
         </a>

@@ -378,25 +378,25 @@
           <span class="item-title">Backend Developer — Residencia Profesional</span>
           <span class="item-date">2025 — 2026</span>
         </div>
-        <div class="item-subtitle">Instituto Tecnológico de Oaxaca (TecNM / ITO) • Sistema de Mesa de Ayuda y Control de Activos TI</div>
+        <div class="item-subtitle">Instituto Tecnológico de Oaxaca (TecNM / ITO) • Sistema de Mesa de Ayuda e Inventario TI</div>
         <div class="tech-badges">
           NestJS <span class="dot">•</span> TypeScript <span class="dot">•</span> PostgreSQL <span class="dot">•</span> Redis <span class="dot">•</span> TypeORM <span class="dot">•</span> MinIO S3 <span class="dot">•</span> Docker Distroless <span class="dot">•</span> Nginx <span class="dot">•</span> Jest
         </div>
         <ul class="bullet-list">
           <li class="bullet-item">
-            <strong>Arquitectura Backend Modular & Control de Acceso:</strong> Diseñé y desarrollé la arquitectura backend del sistema institucional de Service Desk e inventario tecnológico, con arquitectura backend modular, implementando autorización basada en roles (RBAC) con 9 niveles de permisos institucionales.
+            <strong>Arquitectura Backend Modular & Control de Acceso:</strong> Diseñé y desarrollé la arquitectura backend del sistema institucional de Service Desk e inventario tecnológico, con arquitectura backend modular en NestJS, implementando autorización basada en roles (RBAC) con permisos diferenciados.
           </li>
           <li class="bullet-item">
-            <strong>Transaccionalidad Atómica & Concurrencia Optimista:</strong> Implementé transferencias de inventario multietapa protegidas con transacciones explícitas con TypeORM <code>QueryRunner</code>, y se aplicó control de concurrencia optimista con <code>@VersionColumn</code> para prevenir condiciones de carrera en la asignación simultánea de tickets.
+            <strong>Transaccionalidad & Concurrencia Optimista:</strong> Implementé transferencias de inventario multietapa protegidas con transacciones explícitas con TypeORM <code>QueryRunner</code>, y control de concurrencia optimista con <code>@VersionColumn</code> para evitar conflictos cuando varios usuarios actualizan tickets simultáneamente.
           </li>
           <li class="bullet-item">
-            <strong>Optimización de Búsqueda & Rendimiento con Redis:</strong> Diseñé un motor de búsqueda sobre miles de registros mediante vectores <code>tsvector</code> nativos e índices GIN en PostgreSQL, reduciendo tiempos de consulta en combinación con una capa de caché en memoria y limitador de tasa de peticiones (rate limiting) en Redis.
+            <strong>Optimización de Búsqueda & Rendimiento con Redis:</strong> Diseñé un motor de búsqueda sobre el catálogo de equipos y tickets mediante vectores <code>tsvector</code> nativos e índices GIN en PostgreSQL, complementado con una capa de caché en memoria y limitador de tasa de peticiones (rate limiting) en Redis.
           </li>
           <li class="bullet-item">
-            <strong>Almacenamiento S3 & Comunicación en Tiempo Real:</strong> Desarrollé el servicio de gestión de evidencias digitales compatible con S3 mediante <strong>MinIO</strong> con URLs prefirmadas seguras, e integré eventos bidireccionales en tiempo real mediante WebSockets (Socket.io) y alertas automatizadas a Telegram.
+            <strong>Almacenamiento S3 & Comunicación en Tiempo Real:</strong> Desarrollé el servicio de gestión de evidencias digitales compatible con S3 mediante <strong>MinIO</strong> con URLs prefirmadas seguras, e integré eventos bidireccionales en tiempo real mediante WebSockets (Socket.io) y alertas a Telegram.
           </li>
           <li class="bullet-item">
-            <strong>Testing Automatizado & Despliegue Seguro:</strong> Desarrollé una suite exhaustiva de <strong>998 pruebas unitarias en 143 test suites con Jest</strong>. Contenericé el servicio con Docker multi-stage sobre imágenes <strong>Google Distroless (nonroot)</strong> sin shell ni dependencias innecesarias para despliegue en servidor físico institucional tras proxy inverso Nginx.
+            <strong>Testing Automatizado & Despliegue en Contenedores:</strong> Desarrollé una suite de <strong>998 pruebas automatizadas en 143 suites con Jest</strong>. Contenericé el servicio con Docker multi-stage sobre imágenes <strong>Google Distroless (nonroot)</strong> sin shell ni dependencias innecesarias para despliegue en servidor físico institucional tras proxy inverso Nginx.
           </li>
         </ul>
       </div>
@@ -406,13 +406,13 @@
           <span class="item-title">Desarrollador Full-Stack — Nano-DevCode</span>
           <span class="item-date">2024 — Presente</span>
         </div>
-        <div class="item-subtitle">Nano-DevCode — Proyectos & Soluciones Digitales</div>
+        <div class="item-subtitle">Nano-DevCode — Proyectos Independientes de Software</div>
         <div class="tech-badges">
           React <span class="dot">•</span> Vue 3 <span class="dot">•</span> Laravel <span class="dot">•</span> TypeScript <span class="dot">•</span> Docker Compose <span class="dot">•</span> Nginx <span class="dot">•</span> Linux
         </div>
         <ul class="bullet-list">
           <li class="bullet-item">
-            <strong>Desarrollo de Soluciones Full-Stack:</strong> Construí aplicaciones web y paneles administrativos como parte de proyectos independientes con React, Vue 3 y Laravel, consumiendo APIs REST, autenticación segura y diseño de interfaces responsivas.
+            <strong>Desarrollo de Soluciones Full-Stack:</strong> Construí aplicaciones web y paneles administrativos en proyectos independientes con React, Vue 3 y Laravel, integrando APIs REST, autenticación segura y diseño de interfaces responsivas.
           </li>
           <li class="bullet-item">
             <strong>Despliegue Contenerizado & Configuración de Servidores:</strong> Configuré despliegues con Docker Compose y proxy inverso Nginx, y almacenamiento de objetos compatible con S3 para archivos multimedia.
@@ -465,7 +465,7 @@
           <span class="item-title">Tiendita Inteligente IA — Punto de Venta con Visión Artificial</span>
           <span class="item-date">2024 — 2025</span>
         </div>
-        <div class="item-subtitle">Sistema Autónomo de Cobro en Mostrador con Inferencia Edge Acelerada por GPU</div>
+        <div class="item-subtitle">Punto de Venta con Detección Automática de Productos e Inferencia en GPU</div>
         <div class="tech-badges">
           Python <span class="dot">•</span> YOLOv8 <span class="dot">•</span> ONNX Runtime DirectML <span class="dot">•</span> ByteTrack <span class="dot">•</span> OpenCV <span class="dot">•</span> NumPy
         </div>
@@ -477,7 +477,7 @@
             <strong>Seguimiento Multiobjeto & Control de Falsos Positivos:</strong> Integré el algoritmo ByteTrack para asignar IDs temporales continuos a cada artículo, complementado con filtros de confirmación temporal (confianza &ge;80% y persistencia multi-frame) para prevenir cobros duplicados u oclusiones del usuario.
           </li>
           <li class="bullet-item">
-            <strong>Integración Transaccional & Procesos Asíncronos:</strong> Conecté la detección de cámara a la actualización transaccional de stock, emitiendo alertas sonoras asíncronas en subprocesos desacoplados del ciclo de video y generando tickets de venta estructurados.
+            <strong>Integración con Inventario & Procesos Asíncronos:</strong> Conecté la detección de cámara a la actualización inmediata de existencias, emitiendo alertas sonoras asíncronas en subprocesos desacoplados del ciclo de video y generando tickets de venta estructurados.
           </li>
         </ul>
       </div>

@@ -14,18 +14,18 @@ export const projects: Project[] = [
   {
     id: 'sistema-mesa-de-ayuda-e-inventario-ti',
     title: 'Sistema de Mesa de Ayuda e Inventario TI',
-    tagline: 'Sistema institucional para gestionar soporte técnico, inventario y seguimiento de incidencias.',
+    tagline: 'Aplicación web para gestionar solicitudes de soporte técnico, inventario y seguimiento de incidencias.',
     description:
-      'Aplicación web para gestionar tickets, inventario y seguimiento de incidencias dentro del Instituto Tecnológico de Oaxaca. Permite registrar solicitudes de soporte, asignar responsabilidades, controlar accesos por roles, revisar el historial de cambios y mantener el inventario de equipos y consumibles. El sistema combina un backend con NestJS y PostgreSQL y un frontend con React, TypeScript y herramientas modernas para apoyar la operación diaria del equipo técnico.',
+      'Aplicación web desarrollada durante mi residencia profesional en el Instituto Tecnológico de Oaxaca (TecNM / ITO) para gestionar solicitudes de soporte técnico, inventario y seguimiento de incidencias. Permite registrar reportes de fallas, asignar responsabilidades al personal de soporte, consultar un historial de cambios para facilitar la auditoría de tickets y activos, y mantener el control de existencias de equipos y consumibles. Desarrollé la arquitectura backend completa con NestJS y PostgreSQL, e integré el cliente web con React para reflejar actualizaciones en tiempo real entre los usuarios.',
     highlights: [
-      'Gestión de tickets, usuarios y permisos dentro del mismo sistema',
-      'Seguimiento de inventario y control de activos tecnológicos',
-      'Historial de cambios para auditar actividades del sistema',
-      'Actualización en tiempo real para que el personal técnico vea cambios al instante',
-      'Backend con NestJS, PostgreSQL, Redis y TypeORM',
-      'Frontend con React, TanStack Query, Zustand, Socket.io y Tailwind CSS',
-      'Suite de 998 pruebas unitarias en 143 test suites con Jest',
-      'Despliegue con Docker y contenedores para un entorno institucional'
+      'Gestión de solicitudes de soporte técnico, asignación de técnicos y control de estados',
+      'Inventario de equipos de cómputo, consumibles y control de transferencias',
+      'Historial de cambios para facilitar la auditoría de tickets y movimientos de activos',
+      'Actualización en tiempo real con Socket.io para que el personal visualice cambios al instante',
+      'Mecanismos para evitar conflictos cuando varios usuarios actualizan información simultáneamente',
+      'Transacciones explícitas con TypeORM QueryRunner para asegurar la consistencia en movimientos de inventario',
+      'Suite de 998 pruebas automatizadas organizadas en 143 suites con Jest',
+      'Contenerización con Docker multi-stage y proxy Nginx para el entorno institucional'
     ],
     tags: [
       { name: 'NestJS', category: 'backend' },
@@ -65,18 +65,18 @@ export const projects: Project[] = [
     featured: true,
     technicalDetails: {
       architecturePattern:
-        'Arquitectura backend modular con separación de responsabilidades. El frontend se estructura por módulos de tickets, activos, inventario y auditoría para mantener los flujos operativos claros y reutilizables.',
+        'Arquitectura backend modular con separación de responsabilidades. El backend organiza los módulos de autenticación, tickets, activos, inventario y auditoría con inyección de dependencias. El frontend estructura vistas y componentes reutilizables por dominio operativo.',
       stateAndDataManagement:
-        'Persistencia en PostgreSQL con TypeORM para tickets, inventario y auditoría. Se aplicó control de concurrencia optimista para prevenir conflictos y transacciones explícitas con QueryRunner para movimientos de inventario. Redis se usa para caché en memoria y rate limiting, y MinIO para almacenamiento de evidencias multimedia. El frontend usa TanStack Query y Zustand para sincronización y gestión del estado de la sesión.',
+        'Base de datos relacional PostgreSQL con TypeORM. Se implementó control de concurrencia optimista para evitar conflictos en tickets simultáneos, transacciones explícitas con QueryRunner en movimientos de inventario, y caché en memoria y rate limiting con Redis. Almacenamiento de evidencias multimedia con MinIO S3. En frontend, gestión de estado y sincronización reactiva con TanStack Query y Zustand.',
       keyChallenges: [
-        'Evitar inconsistencias en transferencias de equipo y movimientos de inventario mediante transacciones atómicas y validación de cambios simultáneos.',
-        'Mantener la UI sincronizada en tiempo real para múltiples usuarios institucionales, sin sobrecargar la red ni generar estados desactualizados.',
-        'Empaquetar el backend y el frontend en un entorno institucional seguro y observable, con imágenes Docker reducidas y reglas estrictas de despliegue.'
+        'Evitar conflictos cuando varios usuarios actualizan tickets o transfieren equipos simultáneamente mediante validación de versiones y transacciones atómicas.',
+        'Mantener la interfaz sincronizada en tiempo real para el equipo de soporte técnico sin sobrecargar la red ni generar datos desactualizados.',
+        'Asegurar la confiabilidad de los flujos de negocio mediante pruebas automatizadas continuas y empaquetado reproducible en contenedores Docker.'
       ],
       engineeringDecisions: [
-        'Separación de migraciones de base de datos y procesos de arranque para evitar sincronización automática en producción.',
-        'Cobertura exhaustiva con pruebas unitarias en Jest (998 pruebas en 143 suites), aislando dependencias con mocks estructurados.',
-        'Uso de React, TanStack Query y Socket.io para mantener la experiencia del usuario fluida y con actualización inmediata de datos.'
+        'Separación de la lógica en backend (NestJS) y cliente web (React) para permitir evolución independiente de servicios y consumo ágil de la API.',
+        'Cobertura de 998 pruebas automatizadas en 143 suites con Jest, aislando componentes con dobles de prueba para prevenir fallos en cambios futuros.',
+        'Uso de WebSockets (Socket.io) combinado con TanStack Query para actualizar la información en pantalla al momento en que ocurren eventos.'
       ]
     }
   },
@@ -91,7 +91,7 @@ export const projects: Project[] = [
       '97.1% mAP@50 en validación sobre el dataset propio del proyecto (pesos MiModelo_YOLO_BEST.pt)',
       'Rastreo visual multi-objeto con ByteTrack para evitar duplicación de cobros en pantalla',
       'Filtrado por nivel de confianza y persistencia temporal para reducir falsos positivos',
-      'Actualización inmediata de inventario con bloqueo transaccional de productos agotados',
+      'Actualización inmediata de existencias y control de productos agotados',
       'Interfaz visual clara para el operador de caja con emisión automática de comprobantes de venta'
     ],
     tags: [
