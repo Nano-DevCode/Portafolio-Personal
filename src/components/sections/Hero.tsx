@@ -5,14 +5,14 @@ import { Button } from '../ui/Button';
 import { CvDownloadDropdown } from '../ui/CvDownloadDropdown';
 
 const coreTechBadges = [
-  'NestJS 11',
-  'Laravel 12',
+  'NestJS',
+  'Laravel',
   'TypeScript',
   'Node.js',
   'PostgreSQL',
   'Redis',
-  'React 19',
-  'Vue 3.5',
+  'React',
+  'Vue',
   'Docker',
   'Python (YOLOv8)',
   'Jest & Pest',
@@ -35,21 +35,16 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-zinc-900 dark:text-white tracking-tight leading-[1.1]">
-            Desarrollo backend robusto,{' '}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-zinc-900 dark:text-white tracking-tight leading-[1.1]">
+            Egresado de Ingeniería en Sistemas Computacionales{' '}
             <span className="bg-gradient-to-r from-cyan-500 via-teal-400 to-blue-600 dark:from-cyan-400 dark:via-teal-300 dark:to-blue-500 bg-clip-text text-transparent">
-              soluciones full-stack
-            </span>{' '}
-            y código mantenible.
+              enfocado en Backend y Full-Stack
+            </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-            Egresado de Ingeniería en Sistemas Computacionales. Especializado en diseño de APIs REST modulares con{' '}
-            <span className="text-zinc-900 dark:text-zinc-200 font-semibold">NestJS y Laravel</span>, 
-            modelado de datos en <span className="text-zinc-900 dark:text-zinc-200 font-semibold">PostgreSQL y MySQL</span> con transacciones ACID y caché con Redis, 
-            interfaces reactivas con <span className="text-zinc-900 dark:text-zinc-200 font-semibold">React y Vue</span>, 
-            y despliegues contenerizados con <span className="text-zinc-900 dark:text-zinc-200 font-semibold">Docker</span> sobre Linux.
+            Construyo APIs y aplicaciones web con NestJS, TypeScript, PostgreSQL y React.
           </p>
 
           {/* Core Tech Quick Pills Bar in Hero */}
@@ -107,7 +102,7 @@ export const Hero: React.FC = () => {
               <Layers className="w-5 h-5 text-cyan-500 dark:text-cyan-400 mb-2" />
               <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Arquitectura Backend Modular</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                APIs REST desacopladas por dominios con NestJS y Laravel, controladores concisos y tipado estricto.
+                APIs REST con NestJS y Laravel, arquitectura backend modular y tipado estricto con TypeScript.
               </p>
             </div>
 
@@ -129,9 +124,9 @@ export const Hero: React.FC = () => {
 
             <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-sm hover:border-amber-500/30 transition-all shadow-xs">
               <ShieldCheck className="w-5 h-5 text-amber-500 dark:text-amber-400 mb-2" />
-              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Testing & Concurrencia</h2>
+              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Testing & Control de Concurrencia</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                Suites de pruebas exhaustivas (998 en Jest, 44 en Pest) y control de concurrencia optimista contra carreras.
+                998 pruebas / 143 suites (Jest), 44 pruebas / 116 aserciones (Pest) y control de concurrencia optimista (@VersionColumn).
               </p>
             </div>
           </div>
