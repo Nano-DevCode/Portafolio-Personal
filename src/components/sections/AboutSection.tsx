@@ -28,16 +28,16 @@ const milestones: TimelineMilestone[] = [
     title: 'Backend Developer — Residencia Profesional',
     institution: 'Instituto Tecnológico de Oaxaca (TecNM / ITO)',
     description:
-      'Diseño y desarrollo de la arquitectura backend para el sistema institucional de Service Desk y Control de Activos TI del ITO. Implementado con NestJS 11, PostgreSQL 17, Redis 8, MinIO S3, contenedores Docker Distroless y una suite exhaustiva de 998 pruebas unitarias con Jest.',
-    tags: ['NestJS 11', 'PostgreSQL 17', 'Redis 8', 'Docker Distroless', 'Jest (998 Tests)']
+      'Diseño y desarrollo de la arquitectura backend para el sistema institucional de Service Desk y Control de Activos TI del ITO. Implementado con NestJS, PostgreSQL, Redis, MinIO S3 y Docker, con 998 pruebas / 143 suites (Jest).',
+    tags: ['NestJS', 'PostgreSQL', 'Redis', 'Docker', 'Jest (998 pruebas / 143 suites)']
   },
   {
     period: '2024 — Presente',
     title: 'Desarrollo Web Full-Stack & Edge AI',
     institution: 'Nano-DevCode • Proyectos Independientes',
     description:
-      'Desarrollo de proyectos completos de software: punto de venta inteligente con detección de productos mediante visión artificial (YOLOv8 + ONNX DirectML a 97.1% mAP@50), gestor de contenidos reactivo en Laravel 12 con suite de 44 pruebas automatizadas en Pest PHP, catálogo interactivo en Vue 3 y app móvil en React Native.',
-    tags: ['Edge AI / YOLOv8', 'Laravel 12', 'Vue 3', 'React Native', 'Pest PHP']
+      'Desarrollo de proyectos completos de software: punto de venta inteligente con detección de productos mediante visión artificial (YOLOv8 + ONNX con DirectML; 97.1% mAP@50 en validación sobre el dataset propio del proyecto, ~21 FPS en GPU AMD Radeon RX 6600M con DirectML), gestor de contenidos en Laravel con 44 pruebas / 116 aserciones (Pest), catálogo interactivo en Vue 3 y app móvil en React Native.',
+    tags: ['Edge AI / YOLOv8', 'Laravel', 'Vue 3', 'React Native', 'Pest PHP']
   },
   {
     period: '2024 — 2026',
@@ -62,7 +62,7 @@ const coreStrengths = [
     icon: <Code2 className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
     title: 'Arquitectura Backend Modular',
     description:
-      'Diseño de APIs REST desacopladas por dominios de negocio con NestJS y Laravel, con controladores delgados, inyección de dependencias y tipado estricto con TypeScript.'
+      'Diseño de APIs REST con NestJS y Laravel, arquitectura backend modular, inyección de dependencias y tipado estricto con TypeScript.'
   },
   {
     icon: <Database className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
@@ -74,13 +74,13 @@ const coreStrengths = [
     icon: <ShieldCheck className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
     title: 'Testing Automatizado & Calidad',
     description:
-      'Cultura de estabilidad validada por pruebas unitarias (998 tests en Jest) y funcionales (44 en Pest PHP), previniendo regresiones y asegurando código confiable.'
+      '998 pruebas / 143 suites (Jest) y 44 pruebas / 116 aserciones (Pest) para prevenir regresiones.'
   },
   {
     icon: <Container className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
     title: 'Contenedores & Despliegue',
     description:
-      'Empaquetado multi-stage con Docker, reducción de superficie de ataque con imágenes Google Distroless non-root, proxies inversos Nginx y servidores Linux.'
+      'Empaquetado multi-stage con Docker (imagen Distroless, usuario non-root), proxy inverso Nginx y Linux como entorno de trabajo.'
   }
 ];
 
@@ -144,7 +144,7 @@ export const AboutSection: React.FC = () => {
                   , persistencia relacional con PostgreSQL y MySQL, y despliegue contenerizado mediante Docker.
                 </p>
                 <p>
-                  Priorizo las buenas prácticas de ingeniería: tipado estricto con TypeScript, cobertura exhaustiva de pruebas unitarias y de integración para prevenir regresiones, separación clara de responsabilidades y optimización de consultas a bases de datos.
+                  Priorizo las buenas prácticas de ingeniería: tipado estricto con TypeScript, pruebas automatizadas para prevenir regresiones, separación clara de responsabilidades y optimización de consultas a bases de datos.
                 </p>
               </div>
 

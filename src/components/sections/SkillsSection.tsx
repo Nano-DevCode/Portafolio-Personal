@@ -33,15 +33,15 @@ const skillCategories: SkillCategory[] = [
     description:
       'Diseño de APIs RESTful modulares, servicios en tiempo real y lógica de negocio desacoplada con tipado estricto.',
     skills: [
-      { name: 'NestJS 11', highlight: true },
+      { name: 'NestJS', highlight: true },
       { name: 'Node.js & Express', highlight: true },
-      { name: 'Laravel 12 (PHP 8.3+)', highlight: true },
+      { name: 'Laravel (PHP)', highlight: true },
       { name: 'APIs RESTful', highlight: true },
       { name: 'WebSockets (Socket.io)', highlight: true },
       { name: 'TypeORM & Eloquent' },
       { name: 'Autenticación (JWT & RBAC)' },
       { name: 'Python (IA & Computer Vision)' },
-      { name: 'Arquitectura Modular & SOLID' }
+      { name: 'Arquitectura backend modular' }
     ]
   },
   {
@@ -53,9 +53,9 @@ const skillCategories: SkillCategory[] = [
     description:
       'Modelado relacional, transacciones atómicas seguras, optimización de consultas e indexación en memoria.',
     skills: [
-      { name: 'PostgreSQL 17', highlight: true },
+      { name: 'PostgreSQL', highlight: true },
       { name: 'Full-Text Search (tsvector & GIN)', highlight: true },
-      { name: 'MySQL 8.4', highlight: true },
+      { name: 'MySQL', highlight: true },
       { name: 'Redis (Caché & Rate Limiting)', highlight: true },
       { name: 'Transacciones ACID (QueryRunner)' },
       { name: 'Concurrencia Optimista (@VersionColumn)' },
@@ -71,13 +71,13 @@ const skillCategories: SkillCategory[] = [
     description:
       'Interfaces de usuario reactivas, manejo eficiente del estado cliente y aplicaciones móviles multiplataforma.',
     skills: [
-      { name: 'React 19', highlight: true },
+      { name: 'React', highlight: true },
       { name: 'TypeScript', highlight: true },
-      { name: 'Vue 3.5 (Composition API & Pinia)', highlight: true },
+      { name: 'Vue 3 (Composition API & Pinia)', highlight: true },
       { name: 'React Native & Expo', highlight: true },
-      { name: 'TanStack Query v5', highlight: true },
+      { name: 'TanStack Query', highlight: true },
       { name: 'Zustand & VueUse' },
-      { name: 'Tailwind CSS v4' },
+      { name: 'Tailwind CSS' },
       { name: 'Vite' }
     ]
   },
@@ -90,11 +90,11 @@ const skillCategories: SkillCategory[] = [
     description:
       'Pruebas automatizadas continuas, empaquetado seguro en contenedores, proxies inversos y almacenamiento en la nube.',
     skills: [
-      { name: 'Jest (998 Pruebas Unitarias)', highlight: true },
-      { name: 'Pest PHP (44 Pruebas)', highlight: true },
+      { name: 'Jest (998 pruebas / 143 suites)', highlight: true },
+      { name: 'Pest (44 pruebas / 116 aserciones)', highlight: true },
       { name: 'Docker (Multi-stage / Distroless)', highlight: true },
       { name: 'Nginx (Proxy Inverso & SSL)', highlight: true },
-      { name: 'Linux (Debian / Ubuntu)', highlight: true },
+      { name: 'Linux', highlight: true },
       { name: 'Git & GitHub', highlight: true },
       { name: 'Google Cloud (GCP)', highlight: true },
       { name: 'Almacenamiento S3 (MinIO / R2)' }

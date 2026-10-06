@@ -14,30 +14,30 @@ export const projects: Project[] = [
   {
     id: 'soporte-tecnico-backend',
     title: 'ITSM & Service Desk Backend — API Institucional',
-    tagline: 'API para Mesa de Ayuda y Gestión de Activos TI con NestJS 11, PostgreSQL 17, Redis 8, MinIO y Docker',
+    tagline: 'API para Mesa de Ayuda y Gestión de Activos TI con NestJS, PostgreSQL, Redis, MinIO y Docker',
     description:
-      'API RESTful y servicio en tiempo real para el sistema institucional de Mesa de Ayuda y Control de Inventario TI del Instituto Tecnológico de Oaxaca (ITO). Diseñado con NestJS 11 y TypeScript bajo una arquitectura modular desacoplada por dominios de negocio. Maneja control de concurrencia optimista y transacciones atómicas con TypeORM en PostgreSQL 17, optimización de búsquedas con vectores tsvector e índices GIN, almacenamiento en memoria y limitador de tasa (rate limiting) con Redis 8, almacenamiento de evidencias digitales compatible con S3 (MinIO y Cloudflare R2) y notificaciones bidireccionales mediante WebSockets y bot de Telegram. Incluye una suite exhaustiva de 998 pruebas unitarias con Jest y empaquetado en contenedores Docker Distroless.',
+      'API RESTful y servicio en tiempo real para el sistema institucional de Mesa de Ayuda y Control de Inventario TI del Instituto Tecnológico de Oaxaca (ITO). Diseñado con NestJS y TypeScript bajo una arquitectura backend modular. Maneja control de concurrencia optimista y transacciones atómicas con TypeORM en PostgreSQL, optimización de búsquedas con vectores tsvector e índices GIN, almacenamiento en memoria y limitador de tasa (rate limiting) con Redis, almacenamiento de evidencias digitales compatible con S3 (MinIO y Cloudflare R2) y notificaciones bidireccionales mediante WebSockets y bot de Telegram. Incluye una suite exhaustiva de 998 pruebas unitarias con Jest y empaquetado en contenedores Docker Distroless.',
     highlights: [
-      'Arquitectura modular por dominios con NestJS 11, TypeScript y principios SOLID',
+      'Arquitectura backend modular con NestJS y TypeScript',
       'Control de concurrencia optimista y transacciones atómicas para transferencias de inventario con TypeORM',
-      'Base de datos PostgreSQL 17 con búsqueda de texto completo (Full-Text Search con índices GIN y tsvector)',
-      'Caché en memoria y control de peticiones (rate limiting) con Redis 8',
+      'Base de datos PostgreSQL con búsqueda de texto completo (Full-Text Search con índices GIN y tsvector)',
+      'Caché en memoria y control de peticiones (rate limiting) con Redis',
       'Almacenamiento de evidencias y archivos adjuntos con MinIO y Cloudflare R2 (URLs prefirmadas)',
       'Comunicación en tiempo real con WebSockets (Socket.io) y notificaciones a través de Telegram Bot',
       'Contenedores Docker multi-stage con imágenes Google Distroless (usuario nonroot) y proxy Nginx',
-      'Suite de 998 pruebas unitarias en 143 test suites con Jest para garantizar estabilidad'
+      '998 pruebas / 143 suites (Jest)'
     ],
     tags: [
-      { name: 'NestJS 11', category: 'backend' },
+      { name: 'NestJS', category: 'backend' },
       { name: 'TypeScript', category: 'backend' },
-      { name: 'PostgreSQL 17', category: 'database' },
-      { name: 'Redis 8', category: 'database' },
+      { name: 'PostgreSQL', category: 'database' },
+      { name: 'Redis', category: 'database' },
       { name: 'Docker Distroless', category: 'devops' },
       { name: 'TypeORM', category: 'backend' },
       { name: 'MinIO S3', category: 'devops' },
       { name: 'WebSockets', category: 'backend' },
       { name: 'Nginx', category: 'devops' },
-      { name: 'Jest (998 Tests)', category: 'backend' }
+      { name: 'Jest (998 pruebas / 143 suites)', category: 'backend' }
     ],
     githubUrl: 'https://github.com/Nano-DevCode/soporte-tecnico-backend',
     liveUrl: undefined,
@@ -63,9 +63,9 @@ export const projects: Project[] = [
     featured: true,
     technicalDetails: {
       architecturePattern:
-        'Arquitectura modular por dominios de negocio (Tickets, Activos TI, Inventario, Usuarios, Auditoría). Controladores delgados, servicios de aplicación con inyección de dependencias e interfaces desacopladas.',
+        'Arquitectura backend modular (módulos de Tickets, Activos TI, Inventario, Usuarios y Auditoría). Controladores delgados, servicios de aplicación con inyección de dependencias e interfaces desacopladas.',
       stateAndDataManagement:
-        'Persistencia en PostgreSQL 17 con TypeORM. Uso de control de concurrencia optimista (@VersionColumn) para evitar sobreescritura simultánea en la asignación de tickets, y transacciones manuales con QueryRunner para movimientos de inventario. Redis 8 para caché de catálogos y rate limiting, y MinIO/R2 para evidencias multimedia.',
+        'Persistencia en PostgreSQL con TypeORM. Uso de control de concurrencia optimista (@VersionColumn) para evitar sobreescritura simultánea en la asignación de tickets, y transacciones manuales con QueryRunner para movimientos de inventario. Redis para caché de catálogos y rate limiting, y MinIO/R2 para evidencias multimedia.',
       keyChallenges: [
         'Evitar inconsistencias en transferencias de equipo entre departamentos mediante transacciones atómicas que aseguren que todo el movimiento se registre o se revierta por completo.',
         'Gestionar la comunicación WebSocket en tiempo real entre múltiples clientes administrativos mediante un adaptador de Redis para distribuir los eventos.',
@@ -81,12 +81,12 @@ export const projects: Project[] = [
   {
     id: 'soporte-tecnico-frontend',
     title: 'Soporte Técnico — Service Desk & ITSM Frontend',
-    tagline: 'Plataforma web de Service Desk, seguimiento de SLA en tiempo real e inventario con React 19, TypeScript y TanStack Query',
+    tagline: 'Plataforma web de Service Desk, seguimiento de SLA en tiempo real e inventario con React, TypeScript y TanStack Query',
     description:
-      'Plataforma web de Service Desk y gestión de activos TI desarrollada para el Instituto Tecnológico de Oaxaca (ITO). Permite administrar el ciclo de vida de incidencias técnicas, dar seguimiento a acuerdos de nivel de servicio (SLA) con alertas en tiempo real, auditar cambios en el sistema y gestionar el inventario de equipo de cómputo. Desarrollada con React 19 y TypeScript, integra WebSockets mediante Socket.io para actualización instantánea de tickets sin sondeo periódico, control de acceso basado en roles (RBAC) con 9 perfiles, visor interactivo de diferencias para auditorías, paleta de comandos por teclado (cmdk) y soporte para temas claro/oscuro e internacionalización (Español/Inglés).',
+      'Plataforma web de Service Desk y gestión de activos TI desarrollada para el Instituto Tecnológico de Oaxaca (ITO). Permite administrar el ciclo de vida de incidencias técnicas, dar seguimiento a acuerdos de nivel de servicio (SLA) con alertas en tiempo real, auditar cambios en el sistema y gestionar el inventario de equipo de cómputo. Desarrollada con React y TypeScript, integra WebSockets mediante Socket.io para actualización instantánea de tickets sin sondeo periódico, control de acceso basado en roles (RBAC) con 9 perfiles, visor interactivo de diferencias para auditorías, paleta de comandos por teclado (cmdk) y soporte para temas claro/oscuro e internacionalización (Español/Inglés).',
     highlights: [
-      'Desarrollo con React 19, TypeScript y empaquetado optimizado con Vite',
-      'Actualización en tiempo real con Socket.io e invalidación reactiva de caché con TanStack Query v5',
+      'Desarrollo con React, TypeScript y empaquetado optimizado con Vite',
+      'Actualización en tiempo real con Socket.io e invalidación reactiva de caché con TanStack Query',
       'Monitoreo de SLAs con indicadores visuales de tiempo restante y alertas tempranas',
       'Visor de diferencias (Diff Viewer) para auditar cambios realizados en tickets y activos',
       'Control de acceso granular por roles (RBAC) para 9 tipos de usuarios institucionales',
@@ -94,13 +94,13 @@ export const projects: Project[] = [
       'Diseño responsivo con Tailwind CSS y soporte para modo claro y oscuro'
     ],
     tags: [
-      { name: 'React 19', category: 'frontend' },
+      { name: 'React', category: 'frontend' },
       { name: 'TypeScript', category: 'frontend' },
-      { name: 'TanStack Query v5', category: 'frontend' },
-      { name: 'Tailwind CSS v4', category: 'frontend' },
-      { name: 'Zustand 5', category: 'frontend' },
+      { name: 'TanStack Query', category: 'frontend' },
+      { name: 'Tailwind CSS', category: 'frontend' },
+      { name: 'Zustand', category: 'frontend' },
       { name: 'Socket.io', category: 'frontend' },
-      { name: 'Vite 8', category: 'frontend' },
+      { name: 'Vite', category: 'frontend' },
       { name: 'i18next', category: 'frontend' },
       { name: 'Docker', category: 'devops' }
     ],
@@ -125,7 +125,7 @@ export const projects: Project[] = [
     featured: true,
     technicalDetails: {
       architecturePattern:
-        'Estructura modular orientada a dominios (tickets, activos, usuarios, auditoría). Separación clara entre componentes de presentación, hooks para consumo de datos con TanStack Query y estado global de sesión con Zustand.',
+        'Estructura modular (tickets, activos, usuarios, auditoría). Separación clara entre componentes de presentación, hooks para consumo de datos con TanStack Query y estado global de sesión con Zustand.',
       stateAndDataManagement:
         'TanStack Query para la sincronización y almacenamiento en caché de datos del servidor, invalidando consultas automáticamente ante eventos de Socket.io. Zustand para el estado de autenticación, perfil del usuario y preferencias de tema.',
       keyChallenges: [
@@ -134,7 +134,7 @@ export const projects: Project[] = [
         'Mantener un renderizado fluido en tablas y listas con cientos de activos tecnológicos mediante filtrado memoizado.'
       ],
       engineeringDecisions: [
-        'Uso de React 19 y Vite para obtener tiempos de recarga rápidos en desarrollo y optimizar el empaquetado final.',
+        'Uso de React y Vite para obtener tiempos de recarga rápidos en desarrollo y optimizar el empaquetado final.',
         'Implementación de interceptores en Axios para gestionar la renovación automática de tokens JWT cuando expira la sesión.',
         'Integración de la paleta de comandos cmdk para permitir a los técnicos navegar y buscar tickets rápidamente mediante atajos de teclado.'
       ]
@@ -143,12 +143,12 @@ export const projects: Project[] = [
   {
     id: 'tiendita-ia-pos',
     title: 'Tiendita Inteligente IA — Punto de Venta con Visión Artificial',
-    tagline: 'Punto de venta y control de inventario con YOLOv8 (97.1% mAP@50), ONNX DirectML y ByteTrack',
+    tagline: 'Punto de venta y control de inventario con YOLOv8, ONNX DirectML y ByteTrack',
     description:
-      'Sistema de punto de venta y control de inventario que utiliza visión por computadora para identificar productos automáticamente a través de una cámara web. Emplea un modelo YOLOv8 entrenado específicamente para la detección de productos de abarrotes (97.1% mAP@50), exportado a formato ONNX y acelerado por hardware mediante DirectML (~21 FPS / ~48 ms sobre GPU AMD Radeon RX 6600M). Combina seguimiento de objetos con ByteTrack para rastrear artículos en movimiento y evitar cobros duplicados. Cuenta con control de existencias en tiempo real, alertas sonoras asíncronas, interfaz para el cajero y emisión de tickets de compra estructurados.',
+      'Sistema de punto de venta y control de inventario que utiliza visión por computadora para identificar productos automáticamente a través de una cámara web. Emplea un modelo YOLOv8 entrenado para detectar productos de abarrotes (97.1% mAP@50 en validación sobre el dataset propio del proyecto, pesos MiModelo_YOLO_BEST.pt), exportado a ONNX y acelerado con DirectML (~21 FPS en GPU AMD Radeon RX 6600M con DirectML). Combina seguimiento de objetos con ByteTrack para rastrear artículos en movimiento y evitar cobros duplicados. Cuenta con control de existencias en tiempo real, alertas sonoras asíncronas, interfaz para el cajero y emisión de tickets de compra estructurados.',
     highlights: [
-      'Inferencia de visión artificial acelerada por GPU mediante ONNX Runtime y DirectML (~21 FPS / ~48 ms)',
-      'Modelo YOLOv8 personalizado con precisión de 97.1% mAP@50 para productos de abarrotes',
+      'Inferencia de visión artificial acelerada por GPU mediante ONNX Runtime y DirectML (~21 FPS en GPU AMD Radeon RX 6600M con DirectML)',
+      '97.1% mAP@50 en validación sobre el dataset propio del proyecto (pesos MiModelo_YOLO_BEST.pt)',
       'Rastreo visual multi-objeto con ByteTrack para evitar duplicación de cobros en pantalla',
       'Filtrado por nivel de confianza y persistencia temporal para erradicar falsos positivos',
       'Actualización inmediata de inventario con bloqueo transaccional de productos agotados',
@@ -158,7 +158,7 @@ export const projects: Project[] = [
       { name: 'YOLOv8', category: 'ai' },
       { name: 'Computer Vision', category: 'ai' },
       { name: 'ONNX DirectML', category: 'ai' },
-      { name: 'Python 3.12', category: 'backend' },
+      { name: 'Python', category: 'backend' },
       { name: 'OpenCV', category: 'ai' },
       { name: 'ByteTrack', category: 'ai' },
       { name: 'NumPy', category: 'ai' },
@@ -191,7 +191,7 @@ export const projects: Project[] = [
         'Control de inventario en archivo estructurado JSON con actualización inmediata al registrar cobros. Cola de alertas de audio en hilos secundarios desacoplados para no interrumpir el bucle de procesamiento de video.',
       keyChallenges: [
         'Reducir detecciones erróneas ocasionadas por sombras o iluminación variable combinando umbrales de confianza con validación durante varios fotogramas consecutivos.',
-        'Lograr una tasa de fotogramas fluida (~21 FPS) en computadoras con tarjetas gráficas dedicadas sin depender de instalaciones pesadas de PyTorch en producción.',
+        'Lograr ~21 FPS en GPU AMD Radeon RX 6600M con DirectML sin depender de instalaciones pesadas de PyTorch en producción.',
         'Manejar oclusiones momentáneas cuando la mano del cliente o cajero cubre parcialmente el producto mediante el seguimiento continuo de IDs con ByteTrack.'
       ],
       engineeringDecisions: [
@@ -203,25 +203,25 @@ export const projects: Project[] = [
   },
   {
     id: 'laravel-12-blog-cms',
-    title: 'Laravel 12 CMS & Blog Reactivo',
-    tagline: 'Sistema de gestión de contenidos y blog interactivo con Livewire 3 Volt y Pest Tests',
+    title: 'Laravel CMS & Blog Reactivo',
+    tagline: 'Sistema de gestión de contenidos y blog interactivo con Livewire Volt y Pest Tests',
     description:
-      'Sistema de gestión de contenidos (CMS) y blog interactivo construido con Laravel 12 y PHP 8.3. Incorpora reactividad en el servidor sin necesidad de un framework SPA independiente gracias a Livewire 3 Volt y Alpine.js: búsqueda instantánea con debounce, sistema de comentarios, me gusta y guardado de artículos. Incluye panel de administración con control de acceso por roles y permisos (Spatie RBAC), estadísticas de publicaciones, exportación de reportes a CSV y una suite de 44 pruebas automatizadas con Pest PHP.',
+      'Sistema de gestión de contenidos (CMS) y blog interactivo construido con Laravel y PHP. Incorpora reactividad en el servidor sin necesidad de un framework SPA independiente gracias a Livewire Volt y Alpine.js: búsqueda instantánea con debounce, sistema de comentarios, me gusta y guardado de artículos. Incluye panel de administración con control de acceso por roles y permisos (Spatie RBAC), estadísticas de publicaciones, exportación de reportes a CSV y una suite de 44 pruebas automatizadas con Pest PHP.',
     highlights: [
-      'Desarrollo con Laravel 12, PHP 8.3 con tipado estricto y base de datos MySQL 8.4',
-      'Reactividad en el servidor con Livewire 3 Volt y Alpine.js para interacciones fluidas',
+      'Desarrollo con Laravel, PHP con tipado estricto y base de datos MySQL',
+      'Reactividad en el servidor con Livewire Volt y Alpine.js para interacciones fluidas',
       'Control de acceso por roles y permisos con Spatie Permission (Administrador, Redactor y Lector)',
       'Panel de administración con métricas, gestión de artículos, usuarios y categorías',
       'Búsqueda en tiempo real, guardado de artículos en lectura privada y sistema de comentarios',
       'Exportación de reportes a CSV compatibles con Excel (UTF-8 con BOM)',
-      'Suite de 44 pruebas automatizadas con Pest PHP (116 aserciones aprobadas)'
+      '44 pruebas / 116 aserciones (Pest)'
     ],
     tags: [
-      { name: 'Laravel 12', category: 'backend' },
-      { name: 'PHP 8.3', category: 'backend' },
-      { name: 'Livewire 3 Volt', category: 'frontend' },
-      { name: 'MySQL 8.4', category: 'database' },
-      { name: 'Tailwind CSS v4', category: 'frontend' },
+      { name: 'Laravel', category: 'backend' },
+      { name: 'PHP', category: 'backend' },
+      { name: 'Livewire Volt', category: 'frontend' },
+      { name: 'MySQL', category: 'database' },
+      { name: 'Tailwind CSS', category: 'frontend' },
       { name: 'Pest PHP', category: 'backend' },
       { name: 'Spatie RBAC', category: 'backend' },
       { name: 'Alpine.js', category: 'frontend' }
@@ -252,7 +252,7 @@ export const projects: Project[] = [
       architecturePattern:
         'Arquitectura MVC de Laravel complementada con componentes Livewire Volt. Controladores administrativos independientes para el panel de gestión y modelos Eloquent con relaciones bien definidas.',
       stateAndDataManagement:
-        'Base de datos relacional MySQL 8.4 con migraciones y seeders estructurados. Livewire gestiona el estado reactivo entre cliente y servidor, con SQLite en memoria para la ejecución rápida de pruebas unitarias.',
+        'Base de datos relacional MySQL con migraciones y seeders estructurados. Livewire gestiona el estado reactivo entre cliente y servidor, con SQLite en memoria para la ejecución rápida de pruebas unitarias.',
       keyChallenges: [
         'Implementar búsqueda y filtros reactivos con debounce para evitar consultas excesivas a la base de datos mientras el usuario escribe.',
         'Garantizar el aislamiento de permisos para que los redactores únicamente puedan editar y publicar sus propios contenidos sin acceder a la administración global.',
@@ -268,11 +268,11 @@ export const projects: Project[] = [
   {
     id: 'vue-3-ecommerce',
     title: 'TechStore — Vue 3 E-Commerce',
-    tagline: 'Tienda en línea interactiva con Vue 3.5, TypeScript, Pinia y Vuetify 3',
+    tagline: 'Tienda en línea interactiva con Vue 3, TypeScript, Pinia y Vuetify 3',
     description:
       'Tienda en línea desarrollada con Vue 3 y TypeScript enfocada en la venta de periféricos y accesorios de tecnología. Cuenta con un catálogo interactivo con filtros combinados por categoría y rango de precio, carrito de compras persistente con cálculo automático de impuestos y cupones, lista de deseos y una pasarela de pago simulada (tarjeta interactiva, transferencia bancaria y pago en tienda) con generación de comprobantes de compra descargables.',
     highlights: [
-      'Desarrollo con Vue 3.5 Composition API (<script setup>) y Vite',
+      'Desarrollo con Vue 3 Composition API (<script setup>) y Vite',
       'Gestión de estado global con Pinia y persistencia en LocalStorage',
       'Diseño responsivo con Vuetify 3 y soporte para modo claro y oscuro',
       'Filtros en tiempo real por precio, categorías y ordenamiento',
@@ -280,11 +280,11 @@ export const projects: Project[] = [
       'Cálculo dinámico de cupones de descuento, impuestos y generación de comprobantes'
     ],
     tags: [
-      { name: 'Vue 3.5', category: 'frontend' },
+      { name: 'Vue 3', category: 'frontend' },
       { name: 'TypeScript', category: 'frontend' },
-      { name: 'Pinia 3.0', category: 'frontend' },
+      { name: 'Pinia', category: 'frontend' },
       { name: 'Vuetify 3', category: 'frontend' },
-      { name: 'Vite 7', category: 'frontend' },
+      { name: 'Vite', category: 'frontend' },
       { name: 'Vue Router', category: 'frontend' },
       { name: 'VueUse', category: 'frontend' },
       { name: 'LocalStorage', category: 'database' }
