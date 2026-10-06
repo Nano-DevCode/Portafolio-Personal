@@ -86,7 +86,7 @@ export const ContactSection: React.FC = () => {
 
             {/* Descripción */}
             <p className="mt-4 text-zinc-600 dark:text-zinc-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-              Estoy disponible para incorporarme a equipos de tecnología o colaborar en el desarrollo de aplicaciones web, móviles, servicios backend o configuración de infraestructura en la nube.
+              Estoy disponible para incorporarme a equipos de tecnología o colaborar en el desarrollo de APIs REST, servicios backend y aplicaciones full-stack.
             </p>
           </div>
 

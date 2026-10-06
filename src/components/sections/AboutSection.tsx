@@ -62,7 +62,7 @@ const coreStrengths = [
     icon: <Code2 className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
     title: 'Arquitectura Backend Modular',
     description:
-      'Arquitectura backend modular, separación de responsabilidades y principios SOLID. Diseño de APIs REST con NestJS y Laravel, inyección de dependencias y tipado estricto con TypeScript.'
+      'Arquitectura backend modular con separación de responsabilidades. Diseño de APIs REST con NestJS y Laravel, inyección de dependencias y tipado estricto con TypeScript.'
   },
   {
     icon: <Database className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
@@ -105,7 +105,7 @@ export const AboutSection: React.FC = () => {
             Sobre Mí
           </h2>
           <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
-            Egresado de Ingeniería en Sistemas Computacionales con enfoque principal en Backend y desarrollo Full-Stack. He trabajado en sistemas web institucionales y proyectos independientes con foco en soluciones prácticas, ordenadas y fáciles de mantener.
+            Egresado de Ingeniería en Sistemas Computacionales enfocado en Backend y Full-Stack. Construyo APIs REST y aplicaciones web con NestJS, TypeScript, PostgreSQL y React, con pruebas automatizadas y despliegue con Docker.
           </p>
         </div>
 
@@ -144,7 +144,7 @@ export const AboutSection: React.FC = () => {
                   , además de bases de datos relacionales y despliegue con Docker.
                 </p>
                 <p>
-                  Me interesa crear software útil, ordenado y comprobable, con buenas prácticas, pruebas automatizadas y una estructura clara para mantenerlo a largo plazo.
+                  Cuento con experiencia comprobada en desarrollo de sistemas modulares, bases de datos relacionales con transacciones ACID, optimización de consultas, pruebas automatizadas y control de versiones con Git/GitHub.
                 </p>
               </div>
 

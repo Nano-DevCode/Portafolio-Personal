@@ -44,7 +44,7 @@ export const Hero: React.FC = () => {
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-            Desarrollo aplicaciones web y APIs con enfoque en soluciones útiles, mantenibles y orientadas a necesidades reales.
+            Construyo APIs REST y aplicaciones web con NestJS, TypeScript, PostgreSQL y React, con pruebas automatizadas y despliegue con Docker.
           </p>
 
           {/* Core Tech Quick Pills Bar in Hero */}

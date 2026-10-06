@@ -24,7 +24,7 @@ export const projects: Project[] = [
       'Actualización en tiempo real para que el personal técnico vea cambios al instante',
       'Backend con NestJS, PostgreSQL, Redis y TypeORM',
       'Frontend con React, TanStack Query, Zustand, Socket.io y Tailwind CSS',
-      '998 pruebas automatizadas organizadas en 143 suites',
+      'Suite de 998 pruebas unitarias en 143 test suites con Jest',
       'Despliegue con Docker y contenedores para un entorno institucional'
     ],
     tags: [
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     featured: true,
     technicalDetails: {
       architecturePattern:
-        'Arquitectura backend modular organizada por dominios, con separación de responsabilidades y principios SOLID. El frontend se estructura por módulos de tickets, activos, inventario y auditoría para mantener los flujos operativos claros y reutilizables.',
+        'Arquitectura backend modular con separación de responsabilidades. El frontend se estructura por módulos de tickets, activos, inventario y auditoría para mantener los flujos operativos claros y reutilizables.',
       stateAndDataManagement:
         'Persistencia en PostgreSQL con TypeORM para tickets, inventario y auditoría. Se aplicó control de concurrencia optimista para prevenir conflictos y transacciones explícitas con QueryRunner para movimientos de inventario. Redis se usa para caché en memoria y rate limiting, y MinIO para almacenamiento de evidencias multimedia. El frontend usa TanStack Query y Zustand para sincronización y gestión del estado de la sesión.',
       keyChallenges: [
@@ -154,7 +154,7 @@ export const projects: Project[] = [
       'Panel de administración con métricas, gestión de artículos, usuarios y categorías',
       'Búsqueda en tiempo real, guardado de artículos en lectura privada y sistema de comentarios',
       'Exportación de reportes a CSV compatibles con Excel (UTF-8 con BOM)',
-      '44 pruebas / 116 aserciones (Pest)'
+      'Suite de 44 pruebas automatizadas y 116 aserciones con Pest PHP'
     ],
     tags: [
       { name: 'Laravel', category: 'backend' },
