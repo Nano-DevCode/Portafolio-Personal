@@ -136,7 +136,7 @@ export const CvDownloadDropdown: React.FC<CvDownloadDropdownProps> = ({
                 </span>
               </div>
               <p className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5 leading-snug">
-                Incluye arquitectura profunda, Cloudflare R2, MinIO S3 y todos los proyectos.
+                Incluye arquitectura profunda, MinIO S3 y todos los proyectos.
               </p>
             </div>
           </a>

@@ -90,10 +90,21 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
               target="_blank"
               rel="noopener noreferrer"
               className="p-1.5 rounded-lg text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-800 transition-colors"
-              aria-label={`Ver código de ${project.title} en GitHub`}
+              aria-label={`Ver código principal de ${project.title} en GitHub`}
             >
               <Github className="w-5 h-5" />
             </a>
+            {project.secondaryGithubUrl && (
+              <a
+                href={project.secondaryGithubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 rounded-lg text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-800 transition-colors"
+                aria-label={`Ver repositorio frontend de ${project.title} en GitHub`}
+              >
+                <Github className="w-4 h-4" />
+              </a>
+            )}
             {project.liveUrl && (
               <a
                 href={project.liveUrl}

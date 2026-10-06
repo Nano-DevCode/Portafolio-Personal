@@ -12,34 +12,38 @@ const SOPORTE_FRONTEND_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/sop
 
 export const projects: Project[] = [
   {
-    id: 'soporte-tecnico-backend',
-    title: 'ITSM & Service Desk Backend — API Institucional',
-    tagline: 'API para Mesa de Ayuda y Gestión de Activos TI con NestJS, PostgreSQL, Redis, MinIO y Docker',
+    id: 'sistema-mesa-de-ayuda-e-inventario-ti',
+    title: 'Sistema de Mesa de Ayuda e Inventario TI',
+    tagline: 'Sistema institucional full-stack para soporte técnico, inventario y SLA con NestJS, PostgreSQL, Redis, React y TypeScript',
     description:
-      'API RESTful y servicio en tiempo real para el sistema institucional de Mesa de Ayuda y Control de Inventario TI del Instituto Tecnológico de Oaxaca (ITO). Diseñado con NestJS y TypeScript bajo una arquitectura backend modular. Maneja control de concurrencia optimista y transacciones atómicas con TypeORM en PostgreSQL, optimización de búsquedas con vectores tsvector e índices GIN, almacenamiento en memoria y limitador de tasa (rate limiting) con Redis, almacenamiento de evidencias digitales compatible con S3 (MinIO y Cloudflare R2) y notificaciones bidireccionales mediante WebSockets y bot de Telegram. Incluye una suite exhaustiva de 998 pruebas unitarias con Jest y empaquetado en contenedores Docker Distroless.',
+      'Sistema institucional de Mesa de Ayuda e Inventario TI desarrollado para el Instituto Tecnológico de Oaxaca (ITO). Combina un backend NestJS con PostgreSQL, Redis, TypeORM, MinIO/S3 y WebSockets para gestionar tickets, inventario, activos, reportes y auditoría; y un frontend React con TypeScript, TanStack Query, Zustand, Socket.io y Tailwind para la operación diaria del equipo técnico. El proyecto cubre control de acceso por roles, SLA, transferencias de inventario, almacenamiento de evidencias digitales y seguimiento en tiempo real del estado del servicio.',
     highlights: [
-      'Arquitectura backend modular con NestJS y TypeScript',
-      'Control de concurrencia optimista y transacciones atómicas para transferencias de inventario con TypeORM',
-      'Base de datos PostgreSQL con búsqueda de texto completo (Full-Text Search con índices GIN y tsvector)',
-      'Caché en memoria y control de peticiones (rate limiting) con Redis',
-      'Almacenamiento de evidencias y archivos adjuntos con MinIO y Cloudflare R2 (URLs prefirmadas)',
-      'Comunicación en tiempo real con WebSockets (Socket.io) y notificaciones a través de Telegram Bot',
-      'Contenedores Docker multi-stage con imágenes Google Distroless (usuario nonroot) y proxy Nginx',
-      '998 pruebas / 143 suites (Jest)'
+      'Backend NestJS con TypeScript, PostgreSQL, Redis, TypeORM y MinIO/S3',
+      'Frontend React con TypeScript, TanStack Query, Zustand, Socket.io y Tailwind CSS',
+      'Control de acceso por roles, tickets, inventario, SLA y auditoría institucional',
+      'Transacciones atómicas y concurrencia optimista para evitar inconsistencias en transferencias y asignaciones',
+      'Búsqueda con PostgreSQL Full-Text Search e índices GIN, plus caché con Redis',
+      'WebSockets para actualización en tiempo real y alertas de servicio',
+      'Testing automatizado con Jest (998 pruebas / 143 suites) y despliegue con Docker',
+      'Repositorio backend + repositorio frontend dentro de un mismo proyecto institucional'
     ],
     tags: [
       { name: 'NestJS', category: 'backend' },
       { name: 'TypeScript', category: 'backend' },
       { name: 'PostgreSQL', category: 'database' },
       { name: 'Redis', category: 'database' },
-      { name: 'Docker Distroless', category: 'devops' },
       { name: 'TypeORM', category: 'backend' },
       { name: 'MinIO S3', category: 'devops' },
-      { name: 'WebSockets', category: 'backend' },
-      { name: 'Nginx', category: 'devops' },
-      { name: 'Jest (998 pruebas / 143 suites)', category: 'backend' }
+      { name: 'React', category: 'frontend' },
+      { name: 'TanStack Query', category: 'frontend' },
+      { name: 'Zustand', category: 'frontend' },
+      { name: 'Socket.io', category: 'frontend' },
+      { name: 'Tailwind CSS', category: 'frontend' },
+      { name: 'Jest (998 pruebas / 143 suites)', category: 'backend' },
+      { name: 'Docker', category: 'devops' }
     ],
     githubUrl: 'https://github.com/Nano-DevCode/soporte-tecnico-backend',
+    secondaryGithubUrl: 'https://github.com/Nano-DevCode/soporte-tecnico-frontend',
     liveUrl: undefined,
     images: {
       thumbnail: `${SOPORTE_BACKEND_RAW}/00-system-architecture-overview.png`,
@@ -49,94 +53,30 @@ export const projects: Project[] = [
         `${SOPORTE_BACKEND_RAW}/08-data-storage-concurrency.png`,
         `${SOPORTE_BACKEND_RAW}/07-async-queues-workers.png`,
         `${SOPORTE_BACKEND_RAW}/06-telegram-bot.png`,
-        `${SOPORTE_BACKEND_RAW}/1.1.png`,
-        `${SOPORTE_BACKEND_RAW}/1.2.png`,
-        `${SOPORTE_BACKEND_RAW}/1.3.png`,
-        `${SOPORTE_BACKEND_RAW}/1.4.png`,
-        `${SOPORTE_BACKEND_RAW}/2.1.png`,
-        `${SOPORTE_BACKEND_RAW}/2.2.png`,
-        `${SOPORTE_BACKEND_RAW}/2.3.png`,
-        `${SOPORTE_BACKEND_RAW}/4.1.png`,
-        `${SOPORTE_BACKEND_RAW}/5.1.png`
-      ]
-    },
-    featured: true,
-    technicalDetails: {
-      architecturePattern:
-        'Arquitectura backend modular (módulos de Tickets, Activos TI, Inventario, Usuarios y Auditoría). Controladores delgados, servicios de aplicación con inyección de dependencias e interfaces desacopladas.',
-      stateAndDataManagement:
-        'Persistencia en PostgreSQL con TypeORM. Uso de control de concurrencia optimista (@VersionColumn) para evitar sobreescritura simultánea en la asignación de tickets, y transacciones manuales con QueryRunner para movimientos de inventario. Redis para caché de catálogos y rate limiting, y MinIO/R2 para evidencias multimedia.',
-      keyChallenges: [
-        'Evitar inconsistencias en transferencias de equipo entre departamentos mediante transacciones atómicas que aseguren que todo el movimiento se registre o se revierta por completo.',
-        'Gestionar la comunicación WebSocket en tiempo real entre múltiples clientes administrativos mediante un adaptador de Redis para distribuir los eventos.',
-        'Empaquetar la aplicación en imágenes Docker seguras y reducidas utilizando Google Distroless, ejecutando el proceso sin privilegios de root ni herramientas de shell innecesarias.'
-      ],
-      engineeringDecisions: [
-        'Separación de las migraciones de base de datos en un contenedor migrator previo al inicio del API, evitando ejecutar synchronize en producción.',
-        'Cobertura exhaustiva mediante pruebas unitarias en Jest (998 pruebas en 143 suites) aislando dependencias con mocks estructurados.',
-        'Validación rigurosa de variables de entorno al arranque de la aplicación usando Joi en NestJS ConfigModule.'
-      ]
-    }
-  },
-  {
-    id: 'soporte-tecnico-frontend',
-    title: 'Soporte Técnico — Service Desk & ITSM Frontend',
-    tagline: 'Plataforma web de Service Desk, seguimiento de SLA en tiempo real e inventario con React, TypeScript y TanStack Query',
-    description:
-      'Plataforma web de Service Desk y gestión de activos TI desarrollada para el Instituto Tecnológico de Oaxaca (ITO). Permite administrar el ciclo de vida de incidencias técnicas, dar seguimiento a acuerdos de nivel de servicio (SLA) con alertas en tiempo real, auditar cambios en el sistema y gestionar el inventario de equipo de cómputo. Desarrollada con React y TypeScript, integra WebSockets mediante Socket.io para actualización instantánea de tickets sin sondeo periódico, control de acceso basado en roles (RBAC) con 9 perfiles, visor interactivo de diferencias para auditorías, paleta de comandos por teclado (cmdk) y soporte para temas claro/oscuro e internacionalización (Español/Inglés).',
-    highlights: [
-      'Desarrollo con React, TypeScript y empaquetado optimizado con Vite',
-      'Actualización en tiempo real con Socket.io e invalidación reactiva de caché con TanStack Query',
-      'Monitoreo de SLAs con indicadores visuales de tiempo restante y alertas tempranas',
-      'Visor de diferencias (Diff Viewer) para auditar cambios realizados en tickets y activos',
-      'Control de acceso granular por roles (RBAC) para 9 tipos de usuarios institucionales',
-      'Navegación rápida con paleta de comandos (Ctrl+K) y soporte bilingüe con i18next',
-      'Diseño responsivo con Tailwind CSS y soporte para modo claro y oscuro'
-    ],
-    tags: [
-      { name: 'React', category: 'frontend' },
-      { name: 'TypeScript', category: 'frontend' },
-      { name: 'TanStack Query', category: 'frontend' },
-      { name: 'Tailwind CSS', category: 'frontend' },
-      { name: 'Zustand', category: 'frontend' },
-      { name: 'Socket.io', category: 'frontend' },
-      { name: 'Vite', category: 'frontend' },
-      { name: 'i18next', category: 'frontend' },
-      { name: 'Docker', category: 'devops' }
-    ],
-    githubUrl: 'https://github.com/Nano-DevCode/soporte-tecnico-frontend',
-    liveUrl: undefined,
-    images: {
-      thumbnail: `${SOPORTE_FRONTEND_RAW}/02-dashboard/01-dashboard-overview.png`,
-      gallery: [
         `${SOPORTE_FRONTEND_RAW}/02-dashboard/01-dashboard-overview.png`,
         `${SOPORTE_FRONTEND_RAW}/03-tickets/01-current-tickets-list.png`,
         `${SOPORTE_FRONTEND_RAW}/03-tickets/06-ticket-detail-view.png`,
-        `${SOPORTE_FRONTEND_RAW}/03-tickets/07-ticket-stepper-timeline.png`,
         `${SOPORTE_FRONTEND_RAW}/04-sla/01-sla-dashboard-view.png`,
         `${SOPORTE_FRONTEND_RAW}/05-audit/02-audit-diff-dialog.png`,
         `${SOPORTE_FRONTEND_RAW}/06-equipments/01-equipments-catalog.png`,
-        `${SOPORTE_FRONTEND_RAW}/07-consumables/01-consumables-stock-list.png`,
-        `${SOPORTE_FRONTEND_RAW}/09-reports-folios/01-technical-reports-list.png`,
-        `${SOPORTE_FRONTEND_RAW}/11-ui-features/01-dark-mode-theme.png`,
-        `${SOPORTE_FRONTEND_RAW}/11-ui-features/02-language-switcher.png`
+        `${SOPORTE_FRONTEND_RAW}/11-ui-features/01-dark-mode-theme.png`
       ]
     },
     featured: true,
     technicalDetails: {
       architecturePattern:
-        'Estructura modular (tickets, activos, usuarios, auditoría). Separación clara entre componentes de presentación, hooks para consumo de datos con TanStack Query y estado global de sesión con Zustand.',
+        'Arquitectura backend modular organizada por dominios, con separación de responsabilidades y principios SOLID. El frontend se estructura por módulos de tickets, activos, inventario y SLA para mantener los flujos operativos claros y reutilizables.',
       stateAndDataManagement:
-        'TanStack Query para la sincronización y almacenamiento en caché de datos del servidor, invalidando consultas automáticamente ante eventos de Socket.io. Zustand para el estado de autenticación, perfil del usuario y preferencias de tema.',
+        'Persistencia en PostgreSQL con TypeORM para tickets, inventario y auditoría. Control de concurrencia optimista (@VersionColumn) y transacciones explícitas con TypeORM QueryRunner para transferencias y ajustes de inventario. Redis para caché en memoria y rate limiting, y MinIO para evidencias multimedia. El frontend usa TanStack Query y Zustand para sincronización, caché reactiva y gestión local del estado de sesión.',
       keyChallenges: [
-        'Sincronizar en tiempo real el estado de los tickets entre múltiples usuarios concurrentes sin sobrecargar la red ni provocar parpadeos en la interfaz.',
-        'Construir un visor visual de diferencias (Diff Viewer) capaz de comparar estructuras JSON anidadas para el historial de auditoría de forma rápida y legible.',
-        'Mantener un renderizado fluido en tablas y listas con cientos de activos tecnológicos mediante filtrado memoizado.'
+        'Evitar inconsistencias en transferencias de equipo y movimientos de inventario mediante transacciones atómicas y validación de cambios simultáneos.',
+        'Mantener la UI sincronizada en tiempo real para múltiples usuarios institucionales, sin sobrecargar la red ni generar estados desactualizados.',
+        'Empaquetar el backend y el frontend en un entorno institucional seguro y observable, con imágenes Docker reducidas y reglas estrictas de despliegue.'
       ],
       engineeringDecisions: [
-        'Uso de React y Vite para obtener tiempos de recarga rápidos en desarrollo y optimizar el empaquetado final.',
-        'Implementación de interceptores en Axios para gestionar la renovación automática de tokens JWT cuando expira la sesión.',
-        'Integración de la paleta de comandos cmdk para permitir a los técnicos navegar y buscar tickets rápidamente mediante atajos de teclado.'
+        'Separación de migraciones de base de datos y procesos de arranque para evitar sincronización automática en producción.',
+        'Cobertura exhaustiva con pruebas unitarias en Jest (998 pruebas en 143 suites), aislando dependencias con mocks estructurados.',
+        'Uso de React, TanStack Query y Socket.io para mantener la experiencia del usuario fluida y con actualización inmediata de datos.'
       ]
     }
   },

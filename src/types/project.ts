@@ -20,6 +20,7 @@ export interface Project {
   highlights: string[];
   tags: TechTag[];
   githubUrl: string;
+  secondaryGithubUrl?: string;
   liveUrl?: string;
   images: {
     thumbnail: string;

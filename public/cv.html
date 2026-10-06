@@ -21,7 +21,7 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       color: #1e293b;
       background-color: #ffffff;
-      font-size: 8.1pt;
+      font-size: 8.9pt;
       line-height: 1.28;
       -webkit-font-smoothing: antialiased;
     }
@@ -328,7 +328,7 @@
         <h2 class="section-title">Perfil Profesional</h2>
       </div>
       <p class="summary-text">
-        <strong>Egresado de Ingeniería en Sistemas Computacionales</strong> con sólida formación técnica y enfoque en desarrollo de software, especializado en arquitecturas backend y soluciones full-stack. Experiencia comprobada diseñando e implementando APIs REST modulares con <strong>NestJS</strong> (Node.js/TypeScript) y <strong>Laravel</strong> (PHP), modelado de datos relacionales en <strong>PostgreSQL</strong> y <strong>MySQL</strong> con transacciones ACID, control de concurrencia optimista y capas de caché distribuida en <strong>Redis</strong>. Implementación rigurosa de pruebas automatizadas (<strong>998 tests unitarios en Jest</strong> y pruebas funcionales en <strong>Pest PHP</strong>) y despliegue contenerizado mediante <strong>Docker</strong> sobre entornos Linux. Enfocado en construir software mantenible, seguro y de alto rendimiento.
+        <strong>Egresado de Ingeniería en Sistemas Computacionales</strong> con sólida formación técnica y enfoque en desarrollo de software, especializado en arquitecturas backend y soluciones full-stack. Experiencia comprobada diseñando e implementando APIs REST modulares con <strong>NestJS</strong> (Node.js/TypeScript) y <strong>Laravel</strong> (PHP), modelado de datos relacionales en <strong>PostgreSQL</strong> y <strong>MySQL</strong> con transacciones ACID, control de concurrencia optimista y caché en memoria y rate limiting con <strong>Redis</strong>. Implementación rigurosa de pruebas automatizadas (<strong>998 tests unitarios en Jest</strong> y pruebas funcionales en <strong>Pest PHP</strong>) y despliegue contenerizado mediante <strong>Docker</strong> sobre entornos Linux. Enfocado en construir software mantenible, seguro y respaldado por pruebas automatizadas.
       </p>
     </section>
 
@@ -361,7 +361,7 @@
         </div>
         <div class="skill-card">
           <span class="skill-title">DevOps, Herramientas & Cloud:</span>
-          <span class="skill-content"> Docker (Multi-stage / Google Distroless non-root), Linux, Nginx (Proxy inverso), Git, GitHub, MinIO S3, Cloudflare R2.</span>
+          <span class="skill-content"> Docker (Multi-stage / Google Distroless non-root), Linux, Nginx (Proxy inverso), Git, GitHub, MinIO S3.</span>
         </div>
       </div>
     </section>
@@ -376,24 +376,24 @@
       <div class="item">
         <div class="item-header">
           <span class="item-title">Backend Developer — Residencia Profesional</span>
-          <span class="item-date">Ene 2025 — Presente</span>
+          <span class="item-date">2025 — 2026</span>
         </div>
         <div class="item-subtitle">Instituto Tecnológico de Oaxaca (TecNM / ITO) • Sistema de Mesa de Ayuda y Control de Activos TI</div>
         <div class="tech-badges">
-          NestJS <span class="dot">•</span> TypeScript <span class="dot">•</span> PostgreSQL <span class="dot">•</span> Redis <span class="dot">•</span> TypeORM <span class="dot">•</span> MinIO / R2 S3 <span class="dot">•</span> Docker Distroless <span class="dot">•</span> Nginx <span class="dot">•</span> Jest
+          NestJS <span class="dot">•</span> TypeScript <span class="dot">•</span> PostgreSQL <span class="dot">•</span> Redis <span class="dot">•</span> TypeORM <span class="dot">•</span> MinIO S3 <span class="dot">•</span> Docker Distroless <span class="dot">•</span> Nginx <span class="dot">•</span> Jest
         </div>
         <ul class="bullet-list">
           <li class="bullet-item">
             <strong>Arquitectura Backend Modular & Control de Acceso:</strong> Diseñé y desarrollé la arquitectura backend del sistema institucional de Service Desk e inventario tecnológico, con arquitectura backend modular, implementando autorización basada en roles (RBAC) con 9 niveles de permisos institucionales.
           </li>
           <li class="bullet-item">
-            <strong>Transaccionalidad Atómica & Concurrencia Optimista:</strong> Implementé transferencias de inventario multietapa protegidas con transacciones ACID manuales mediante <code>QueryRunner</code> en TypeORM, e introduje control de concurrencia optimista con <code>@VersionColumn</code> para erradicar condiciones de carrera en la asignación simultánea de tickets.
+            <strong>Transaccionalidad Atómica & Concurrencia Optimista:</strong> Implementé transferencias de inventario multietapa protegidas con transacciones explícitas con TypeORM <code>QueryRunner</code>, y se aplicó control de concurrencia optimista con <code>@VersionColumn</code> para prevenir condiciones de carrera en la asignación simultánea de tickets.
           </li>
           <li class="bullet-item">
             <strong>Optimización de Búsqueda & Rendimiento con Redis:</strong> Diseñé un motor de búsqueda sobre miles de registros mediante vectores <code>tsvector</code> nativos e índices GIN en PostgreSQL, reduciendo tiempos de consulta en combinación con una capa de caché en memoria y limitador de tasa de peticiones (rate limiting) en Redis.
           </li>
           <li class="bullet-item">
-            <strong>Almacenamiento S3 & Comunicación en Tiempo Real:</strong> Desarrollé el servicio de gestión de evidencias digitales compatible con S3 utilizando <strong>MinIO</strong> y <strong>Cloudflare R2</strong> con URLs prefirmadas seguras, e integré eventos bidireccionales en tiempo real mediante WebSockets (Socket.io) y alertas automatizadas a Telegram.
+            <strong>Almacenamiento S3 & Comunicación en Tiempo Real:</strong> Desarrollé el servicio de gestión de evidencias digitales compatible con S3 mediante <strong>MinIO</strong> con URLs prefirmadas seguras, e integré eventos bidireccionales en tiempo real mediante WebSockets (Socket.io) y alertas automatizadas a Telegram.
           </li>
           <li class="bullet-item">
             <strong>Testing Automatizado & Despliegue Seguro:</strong> Desarrollé una suite exhaustiva de <strong>998 pruebas unitarias en 143 test suites con Jest</strong>. Contenericé el servicio con Docker multi-stage sobre imágenes <strong>Google Distroless (nonroot)</strong> sin shell ni dependencias innecesarias para despliegue en servidor físico institucional tras proxy inverso Nginx.
@@ -403,7 +403,7 @@
 
       <div class="item">
         <div class="item-header">
-          <span class="item-title">Desarrollador Web Independiente</span>
+          <span class="item-title">Desarrollador Full-Stack — Nano-DevCode</span>
           <span class="item-date">2024 — Presente</span>
         </div>
         <div class="item-subtitle">Nano-DevCode — Proyectos & Soluciones Digitales</div>
@@ -412,7 +412,7 @@
         </div>
         <ul class="bullet-list">
           <li class="bullet-item">
-            <strong>Desarrollo de Soluciones Full-Stack:</strong> Construí aplicaciones web y paneles administrativos a medida con React, Vue 3 y Laravel, consumiendo APIs REST, autenticación segura y diseño de interfaces responsivas.
+            <strong>Desarrollo de Soluciones Full-Stack:</strong> Construí aplicaciones web y paneles administrativos como parte de proyectos independientes con React, Vue 3 y Laravel, consumiendo APIs REST, autenticación segura y diseño de interfaces responsivas.
           </li>
           <li class="bullet-item">
             <strong>Despliegue Contenerizado & Configuración de Servidores:</strong> Configuré despliegues con Docker Compose y proxy inverso Nginx, y almacenamiento de objetos compatible con S3 para archivos multimedia.
@@ -439,7 +439,7 @@
       <!-- PROYECTO 1: FRONTEND SERVICE DESK -->
       <div class="item">
         <div class="item-header">
-          <span class="item-title">Service Desk & ITSM Frontend — Plataforma de Gestión Institucional</span>
+          <span class="item-title">Sistema de Mesa de Ayuda e Inventario TI — Frontend</span>
           <span class="item-date">2025</span>
         </div>
         <div class="item-subtitle">Cliente Web en Tiempo Real para Monitoreo de Incidencias Técnicas e Inventario TI (ITO)</div>
@@ -451,10 +451,10 @@
             <strong>Sincronización Reactiva en Tiempo Real:</strong> Diseñé la arquitectura cliente conectada por WebSockets con Socket.io e invalidación reactiva de caché con TanStack Query, reflejando actualizaciones de tickets y asignaciones al instante sin sobrecarga de peticiones continuas (cero-polling).
           </li>
           <li class="bullet-item">
-            <strong>Visor Interactivo de Auditoría (Diff Viewer):</strong> Desarrollé un módulo visual para auditar historiales de cambios (Change Data Capture), procesando y coloreando diferencias estructurales entre objetos JSON de tickets y activos de forma eficiente en el hilo de renderizado.
+            <strong>Visor Interactivo de Auditoría (Diff Viewer):</strong> Desarrollé un visor de auditoría para comparar cambios registrados en tickets y activos mediante diferencias estructurales entre objetos JSON.
           </li>
           <li class="bullet-item">
-            <strong>Seguridad de Sesión & Experiencia de Usuario:</strong> Implementé interceptores Axios con encolamiento de peticiones concurrentes y rotación automática de tokens, paleta de comandos interactiva con atajos de teclado (Ctrl+K) e internacionalización bilingüe (i18next).
+            <strong>Seguridad de Sesión & Experiencia de Usuario:</strong> Implementé interceptores Axios para gestión de errores de autenticación y peticiones concurrentes, paleta de comandos interactiva con atajos de teclado (Ctrl+K) e internacionalización bilingüe (i18next).
           </li>
         </ul>
       </div>
@@ -537,7 +537,7 @@
         <div class="edu-item">
           <div class="edu-degree">Ingeniería en Sistemas Computacionales</div>
           <div class="edu-school">Instituto Tecnológico de Oaxaca (TecNM / ITO)</div>
-          <div class="item-date">2021 — 2026 • Egresado (Titulación en trámite • Residencia concluida)</div>
+          <div class="item-date">2021 — 2025 • Egresado (Titulación en trámite • Residencia concluida)</div>
           <p class="edu-details">
             Formación académica sólida en ingeniería de software, arquitectura de sistemas, bases de datos relacionales, estructuras de datos, programación orientada a objetos y redes de computadoras.
           </p>

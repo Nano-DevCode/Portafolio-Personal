@@ -78,8 +78,21 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
                 size="sm"
                 icon={<Github className="w-4 h-4" />}
               >
-                Ver Repositorio
+                GitHub Backend
               </Button>
+              {project.secondaryGithubUrl && (
+                <Button
+                  asAnchor
+                  href={project.secondaryGithubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outline"
+                  size="sm"
+                  icon={<Github className="w-4 h-4" />}
+                >
+                  GitHub Frontend
+                </Button>
+              )}
               {project.liveUrl && (
                 <Button
                   asAnchor

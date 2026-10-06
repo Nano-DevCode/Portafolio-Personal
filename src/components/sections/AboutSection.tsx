@@ -24,7 +24,7 @@ interface TimelineMilestone {
 
 const milestones: TimelineMilestone[] = [
   {
-    period: '2025 — Presente',
+    period: '2025 — 2026',
     title: 'Backend Developer — Residencia Profesional',
     institution: 'Instituto Tecnológico de Oaxaca (TecNM / ITO)',
     description:
@@ -48,7 +48,7 @@ const milestones: TimelineMilestone[] = [
     tags: ['Google Cloud', 'Docker', 'Linux', 'API Security', 'Testing']
   },
   {
-    period: '2021 — 2026',
+    period: '2021 — 2025',
     title: 'Ingeniería en Sistemas Computacionales',
     institution: 'Instituto Tecnológico de Oaxaca (TecNM / ITO)',
     description:
@@ -62,13 +62,13 @@ const coreStrengths = [
     icon: <Code2 className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
     title: 'Arquitectura Backend Modular',
     description:
-      'Diseño de APIs REST con NestJS y Laravel, arquitectura backend modular, inyección de dependencias y tipado estricto con TypeScript.'
+      'Arquitectura backend modular, separación de responsabilidades y principios SOLID. Diseño de APIs REST con NestJS y Laravel, inyección de dependencias y tipado estricto con TypeScript.'
   },
   {
     icon: <Database className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
     title: 'Bases de Datos & Rendimiento',
     description:
-      'Transacciones atómicas ACID en PostgreSQL y MySQL, control de concurrencia optimista contra condiciones de carrera, búsqueda full-text con tsvector y caché con Redis.'
+      'Transacciones atómicas ACID en PostgreSQL y MySQL, control de concurrencia optimista para prevenir condiciones de carrera, búsqueda full-text con tsvector y caché con Redis.'
   },
   {
     icon: <ShieldCheck className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
@@ -183,7 +183,7 @@ export const AboutSection: React.FC = () => {
                     Ingeniería en Sistemas Computacionales • Instituto Tecnológico de Oaxaca (TecNM / ITO)
                   </p>
                   <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
-                    2021 — 2026
+                    2021 — 2025
                   </p>
                   <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium mt-1.5 inline-flex items-center gap-1">
                     <CheckCircle2 className="w-3.5 h-3.5" /> Egresado • Residencia Concluida • Titulación en Trámite
