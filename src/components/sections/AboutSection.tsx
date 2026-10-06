@@ -40,7 +40,7 @@ const milestones: TimelineMilestone[] = [
     tags: ['Edge AI / YOLOv8', 'Laravel', 'Vue 3', 'React Native', 'Pest PHP']
   },
   {
-    period: '2024 — 2026',
+    period: '2024 — Presente',
     title: 'Especialización en Nube, Seguridad & Buenas Prácticas',
     institution: 'Google Cloud (Credly) • Udemy • INFOTEC',
     description:
