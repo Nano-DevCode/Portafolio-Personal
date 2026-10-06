@@ -2,11 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Manuel Eduardo Santiago Feria — Software Engineer | Backend & Full-Stack Developer</title>
+  <title>CV - Manuel Eduardo Santiago Feria | Software Engineer</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
     @page {
       size: letter;
-      margin: 12mm 12mm 12mm 12mm;
+      margin: 8mm 10mm 8mm 10mm;
     }
 
     * {
@@ -16,79 +18,148 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #1f2937;
-      background: #ffffff;
-      font-size: 9.5pt;
-      line-height: 1.3;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      font-size: 8.3pt;
+      line-height: 1.28;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      width: 100%;
+      box-sizing: border-box;
     }
 
     a {
-      color: #0b5cad;
+      color: #0284c7;
       text-decoration: none;
     }
 
+    /* HEADER */
     .header {
       padding-bottom: 5px;
-      border-bottom: 2px solid #0b5cad;
-      margin-bottom: 7px;
+      border-bottom: 2.5px solid #0284c7;
+      margin-bottom: 6px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
     }
 
     .name {
-      font-size: 19pt;
-      font-weight: 700;
-      color: #111827;
-      letter-spacing: -0.01em;
+      font-size: 18pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    .location {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #64748b;
     }
 
     .title {
-      font-size: 11pt;
+      font-size: 9.8pt;
       font-weight: 700;
-      color: #0b5cad;
-      margin: 1px 0 3px 0;
+      color: #0284c7;
+      margin-top: 1px;
+      margin-bottom: 3px;
     }
 
-    .contact {
-      font-size: 8.8pt;
-      color: #374151;
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 7.8pt;
+      color: #475569;
     }
 
-    .contact span + span::before {
-      content: "  |  ";
-      color: #9ca3af;
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
     }
 
+    .contact-item strong {
+      color: #0f172a;
+    }
+
+    /* SECTION STYLES */
     .section {
-      margin-bottom: 7px;
+      margin-bottom: 6px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 3px;
+    }
+
+    .section-icon {
+      display: inline-block;
+      width: 7.5px;
+      height: 7.5px;
+      background-color: #0284c7;
+      border-radius: 1.5px;
+      vertical-align: middle;
     }
 
     .section-title {
-      font-size: 9.5pt;
-      font-weight: 700;
-      color: #111827;
+      font-size: 8.6pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      border-bottom: 1px solid #d1d5db;
-      padding-bottom: 1px;
-      margin-bottom: 4px;
     }
 
-    .summary {
-      font-size: 9.5pt;
-      color: #1f2937;
+    .summary-text {
+      font-size: 8.1pt;
+      color: #334155;
+      text-align: justify;
+      line-height: 1.3;
     }
 
-    .skill-row {
-      font-size: 9.2pt;
-      margin-bottom: 1.5px;
+    /* SKILLS GRID */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5px;
     }
 
-    .skill-row strong {
-      color: #111827;
+    .skill-card {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 3px 6px;
+      font-size: 7.6pt;
+      line-height: 1.25;
     }
 
+    .skill-title {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .skill-content {
+      color: #334155;
+    }
+
+    /* EXPERIENCE & PROJECTS */
     .item {
-      margin-bottom: 5px;
+      margin-bottom: 4.5px;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
     }
 
     .item-header {
@@ -98,143 +169,294 @@
     }
 
     .item-title {
-      font-size: 9.8pt;
+      font-size: 8.5pt;
       font-weight: 700;
-      color: #111827;
+      color: #0f172a;
     }
 
     .item-date {
-      font-size: 8.8pt;
-      color: #4b5563;
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: #64748b;
       white-space: nowrap;
     }
 
-    .item-sub {
-      font-size: 9pt;
-      color: #0b5cad;
+    .item-subtitle {
+      font-size: 7.8pt;
       font-weight: 600;
+      color: #0284c7;
+      margin-top: 0.5px;
     }
 
-    ul {
-      list-style: none;
+    .tech-badges {
+      font-size: 7.1pt;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: #475569;
       margin-top: 1px;
+      margin-bottom: 2.5px;
     }
 
-    li {
+    .tech-badges .dot {
+      color: #0284c7;
+      font-weight: bold;
+      margin: 0 3px;
+    }
+
+    .bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .bullet-item {
       position: relative;
-      padding-left: 11px;
-      margin-bottom: 1.5px;
-      font-size: 9.2pt;
+      padding-left: 10px;
+      margin-bottom: 2px;
+      font-size: 7.8pt;
+      color: #334155;
+      text-align: justify;
+      line-height: 1.25;
     }
 
-    li::before {
+    .bullet-item::before {
       content: "•";
       position: absolute;
       left: 1px;
-      color: #0b5cad;
+      top: -1px;
+      color: #0284c7;
+      font-weight: bold;
+      font-size: 8.5pt;
+    }
+
+    .bullet-item strong {
+      color: #0f172a;
       font-weight: 700;
     }
 
-    .small {
-      font-size: 9pt;
-      color: #374151;
+    /* 2 COLUMNS BOTTOM LAYOUT */
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 3px;
+    }
+
+    .edu-item, .cert-item {
+      margin-bottom: 2px;
+    }
+
+    .edu-degree {
+      font-size: 8.2pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .edu-school {
+      font-size: 7.6pt;
+      color: #0284c7;
+      font-weight: 600;
+    }
+
+    .edu-details {
+      font-size: 7.3pt;
+      color: #475569;
+      margin-top: 1px;
+      line-height: 1.22;
+    }
+
+    .cert-title {
+      font-size: 7.7pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .cert-issuer {
+      font-size: 7.2pt;
+      color: #64748b;
     }
   </style>
 </head>
 <body>
 
-  <header class="header">
-    <h1 class="name">Manuel Eduardo Santiago Feria</h1>
-    <div class="title">Software Engineer | Backend &amp; Full-Stack Developer</div>
-    <div class="contact">
-      <span>Oaxaca, México</span>
-      <span><a href="mailto:mayka708.ms@gmail.com">mayka708.ms@gmail.com</a></span>
-      <span><a href="https://www.linkedin.com/in/manuel-eduardo-santiago-feria-a04b5a332/">LinkedIn</a></span>
-      <span><a href="https://github.com/Nano-DevCode">github.com/Nano-DevCode</a></span>
-      <span><a href="https://portfolio.nano-service.com/">portfolio.nano-service.com</a></span>
-    </div>
-  </header>
-
-  <section class="section">
-    <h2 class="section-title">Perfil</h2>
-    <p class="summary">Egresado de Ingeniería en Sistemas Computacionales enfocado en Backend y Full-Stack. Construyo APIs y aplicaciones web con NestJS, TypeScript, PostgreSQL y React, con pruebas automatizadas y despliegue con Docker.</p>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Habilidades</h2>
-    <div class="skill-row"><strong>Backend:</strong> NestJS, Node.js, Laravel, PHP, Python, REST APIs, WebSockets</div>
-    <div class="skill-row"><strong>Bases de datos:</strong> PostgreSQL, MySQL, Redis</div>
-    <div class="skill-row"><strong>Frontend:</strong> React, TypeScript, Vue, Tailwind CSS</div>
-    <div class="skill-row"><strong>Testing y herramientas:</strong> Jest, Pest PHP, Git, GitHub, Linux, Docker, Nginx</div>
-    <div class="skill-row"><strong>IA / Visión:</strong> YOLOv8, ONNX, OpenCV</div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Experiencia</h2>
-    <div class="item">
-      <div class="item-header">
-        <span class="item-title">Backend Developer — Residencia Profesional</span>
-        <span class="item-date">2025 — 2026</span>
+  <div class="page">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-top">
+        <h1 class="name">Manuel Eduardo Santiago Feria</h1>
+        <span class="location">Oaxaca, México • Disponible Remoto / Reubicación</span>
       </div>
-      <div class="item-sub">Sistema de Mesa de Ayuda y Control de Activos TI · Instituto Tecnológico de Oaxaca (TecNM)</div>
-      <ul>
-        <li>Desarrollé la API REST (NestJS, TypeScript, PostgreSQL) para gestionar tickets de soporte, inventario de equipos y consumibles, con control de acceso por roles.</li>
-        <li>Implementé transacciones y control de concurrencia optimista (TypeORM) para evitar inconsistencias en transferencias de inventario y asignación de tickets.</li>
-        <li>Optimicé búsquedas con índices GIN y full-text search en PostgreSQL, y agregué caché con Redis para consultas frecuentes.</li>
-        <li>Escribí 998 pruebas unitarias con Jest (143 suites) y empaqueté la aplicación con Docker (multi-stage, imagen Distroless, usuario non-root).</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Proyectos</h2>
-    <div class="item">
-      <div class="item-header">
-        <span class="item-title">Sistema de Mesa de Ayuda e Inventario TI</span>
-        <span class="item-date">2025</span>
+      <div class="title">Software Engineer | Backend &amp; Full-Stack Developer</div>
+      <div class="contact-row">
+        <span class="contact-item"><strong>Email:</strong> <a href="mailto:mayka708.ms@gmail.com">mayka708.ms@gmail.com</a></span>
+        <span class="contact-item"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/manuel-eduardo-santiago-feria-a04b5a332/">in/manuel-eduardo-santiago-feria</a></span>
+        <span class="contact-item"><strong>GitHub:</strong> <a href="https://github.com/Nano-DevCode">github.com/Nano-DevCode</a></span>
+        <span class="contact-item"><strong>Portafolio:</strong> <a href="https://portfolio.nano-service.com/">portfolio.nano-service.com</a></span>
       </div>
-      <div class="item-sub">Backend + Frontend · Instituto Tecnológico de Oaxaca (TecNM)</div>
-      <ul>
-        <li>Desarrollé el backend con NestJS, TypeScript, PostgreSQL, Redis, TypeORM y MinIO/S3 para tickets, inventario, control de acceso y auditoría institucional.</li>
-        <li>Construí el frontend con React, TypeScript, TanStack Query, Zustand, Socket.io y Tailwind para la operación diaria del equipo técnico.</li>
-      </ul>
-    </div>
-    <div class="item">
-      <div class="item-header">
-        <span class="item-title">Tiendita Inteligente IA — Punto de venta con visión por computadora</span>
-        <span class="item-date">2024 — 2025</span>
-      </div>
-      <ul>
-        <li>Desarrollé un punto de venta en Python que detecta productos por cámara con YOLOv8 (ONNX Runtime, OpenCV) y evita cobros duplicados con seguimiento ByteTrack.</li>
-        <li>97.1% mAP@50 en validación sobre el dataset propio del proyecto (pesos MiModelo_YOLO_BEST.pt); ~21 FPS en GPU AMD Radeon RX 6600M con DirectML.</li>
-      </ul>
-    </div>
-    <div class="item">
-      <div class="item-header">
-        <span class="item-title">CMS y Blog con Laravel</span>
-        <span class="item-date">2024</span>
-      </div>
-      <ul>
-        <li>Desarrollé un CMS con Laravel, Livewire y MySQL: roles y permisos (Spatie), búsqueda en tiempo real, exportación de reportes a CSV y 44 pruebas con Pest PHP.</li>
-      </ul>
-    </div>
-  </section>
+    </header>
 
-  <section class="section">
-    <h2 class="section-title">Educación</h2>
-    <div class="item-header">
-      <span class="item-title">Ingeniería en Sistemas Computacionales — Instituto Tecnológico de Oaxaca (TecNM)</span>
-      <span class="item-date">2021 — 2025</span>
-    </div>
-    <div class="small">Egresado — titulación en trámite</div>
-    <div class="small"><strong>Inglés —</strong> B1/B2 | Lectura y documentación técnica</div>
-  </section>
+    <!-- PERFIL PROFESIONAL -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon"></span>
+        <h2 class="section-title">Perfil Profesional</h2>
+      </div>
+      <p class="summary-text">
+        <strong>Egresado de Ingeniería en Sistemas Computacionales</strong> enfocado en Backend y Full-Stack. Construyo APIs REST y aplicaciones web con NestJS, TypeScript, PostgreSQL y React, con pruebas automatizadas y despliegue con Docker. Experiencia comprobada en desarrollo de sistemas modulares, bases de datos relacionales con transacciones ACID, optimización de consultas y control de versiones con Git/GitHub.
+      </p>
+    </section>
 
-  <section class="section">
-    <h2 class="section-title">Certificaciones</h2>
-    <div class="small"><a href="https://www.credly.com/badges/afaf62b7-8fc9-4cda-9aad-3985f43ceedf">Google Cloud Computing Foundations</a> — Google Cloud / Credly, 2026</div>
-    <div class="small"><a href="https://www.credly.com/badges/88ab965e-b827-4dca-8677-2348e83fc7a3">Cloud Security and Operations</a> — Google Cloud / Credly, 2026</div>
-  </section>
+    <!-- HABILIDADES TÉCNICAS -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon"></span>
+        <h2 class="section-title">Habilidades Técnicas Clave</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <span class="skill-title">Backend &amp; APIs:</span>
+          <span class="skill-content"> NestJS, Node.js, Laravel, PHP, Python, REST APIs, WebSockets, TypeORM, JWT.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-title">Bases de Datos &amp; Caché:</span>
+          <span class="skill-content"> PostgreSQL (Full-Text Search / GIN), MySQL, Redis (caching en memoria), SQLite.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-title">Frontend &amp; UI:</span>
+          <span class="skill-content"> React, TypeScript, Vue 3, TanStack Query, Tailwind CSS, Vite.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-title">Testing, DevOps &amp; Cloud:</span>
+          <span class="skill-content"> Jest (998 pruebas / 143 suites), Pest PHP (44 pruebas), Docker Distroless, Linux, Nginx, Git, GitHub.</span>
+        </div>
+        <div class="skill-card" style="grid-column: span 2;">
+          <span class="skill-title">IA / Visión Artificial:</span>
+          <span class="skill-content"> YOLOv8 (97.1% mAP@50 en validación), ONNX Runtime DirectML (~21 FPS en GPU), ByteTrack, OpenCV.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA LABORAL -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon"></span>
+        <h2 class="section-title">Experiencia Profesional</h2>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Backend Developer — Residencia Profesional</span>
+          <span class="item-date">2025 — 2026</span>
+        </div>
+        <div class="item-subtitle">Instituto Tecnológico de Oaxaca (TecNM / ITO) • Sistema de Mesa de Ayuda y Control de Activos TI</div>
+        <div class="tech-badges">
+          NestJS <span class="dot">•</span> TypeScript <span class="dot">•</span> PostgreSQL <span class="dot">•</span> Redis <span class="dot">•</span> TypeORM <span class="dot">•</span> Docker Distroless <span class="dot">•</span> Nginx <span class="dot">•</span> Jest
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Arquitectura Backend &amp; Control de Acceso:</strong> Desarrollé la API REST con arquitectura backend modular para gestionar tickets de soporte, inventario de equipos y consumibles, implementando autorización basada en roles (RBAC).
+          </li>
+          <li class="bullet-item">
+            <strong>Transaccionalidad &amp; Concurrencia Optimista:</strong> Implementé transacciones atómicas con <code>QueryRunner</code> en TypeORM y control de concurrencia optimista con <code>@VersionColumn</code> para erradicar inconsistencias en inventario y asignación de tickets.
+          </li>
+          <li class="bullet-item">
+            <strong>Optimización de Búsqueda &amp; Caching:</strong> Optimicé el motor de búsqueda mediante índices GIN y vectores <code>tsvector</code> en PostgreSQL, integrando una capa de caché en memoria con Redis para consultas frecuentes.
+          </li>
+          <li class="bullet-item">
+            <strong>Testing Automatizado &amp; Despliegue Seguro:</strong> Construí una suite de <strong>998 pruebas unitarias en 143 suites con Jest</strong> y empaqueté el servicio en contenedores Docker multi-stage sobre imágenes <strong>Google Distroless</strong> non-root tras proxy inverso Nginx.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROYECTOS PRINCIPALES -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon"></span>
+        <h2 class="section-title">Proyectos Principales de Ingeniería</h2>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Sistema de Mesa de Ayuda e Inventario TI (Service Desk)</span>
+          <span class="item-date">2025</span>
+        </div>
+        <div class="item-subtitle">Plataforma Web Integral (Backend + Frontend) • Instituto Tecnológico de Oaxaca</div>
+        <div class="tech-badges">
+          React <span class="dot">•</span> NestJS <span class="dot">•</span> TanStack Query <span class="dot">•</span> Socket.io <span class="dot">•</span> PostgreSQL <span class="dot">•</span> Tailwind CSS <span class="dot">•</span> MinIO S3
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            Desarrollé el backend con NestJS, TypeScript, PostgreSQL, Redis y MinIO S3 para gestión de folios, auditoría y evidencias; construí el frontend con React, TanStack Query y Socket.io con sincronización en tiempo real sin sondeo periódico.
+          </li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Tiendita Inteligente IA — Punto de Venta con Visión Artificial</span>
+          <span class="item-date">2024 — 2025</span>
+        </div>
+        <div class="item-subtitle">Edge AI POS acelerado por GPU con ONNX Runtime DirectML y ByteTrack</div>
+        <div class="tech-badges">
+          Python <span class="dot">•</span> YOLOv8 <span class="dot">•</span> ONNX DirectML <span class="dot">•</span> ByteTrack <span class="dot">•</span> OpenCV <span class="dot">•</span> NumPy
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            Entrené un modelo YOLOv8 alcanzando <strong>97.1% mAP@50</strong> en validación sobre el dataset propio (pesos <code>MiModelo_YOLO_BEST.pt</code>), logrando <strong>~21 FPS en GPU AMD Radeon RX 6600M con DirectML</strong> y seguimiento ByteTrack para evitar cobros duplicados.
+          </li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Laravel CMS &amp; Blog Reactivo</span>
+          <span class="item-date">2024</span>
+        </div>
+        <div class="item-subtitle">Plataforma Web Full-Stack con Livewire Volt, Spatie RBAC y Pest PHP</div>
+        <div class="tech-badges">
+          Laravel <span class="dot">•</span> PHP <span class="dot">•</span> Livewire Volt <span class="dot">•</span> MySQL <span class="dot">•</span> Pest PHP (44 pruebas)
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            Desarrollé una plataforma de contenidos con reactividad en servidor (Livewire Volt), control de roles y permisos (Spatie RBAC), exportación CSV y suite validada de <strong>44 pruebas automatizadas con Pest PHP</strong>.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- GRID INFERIOR: EDUCACIÓN & CERTIFICACIONES -->
+    <div class="two-cols">
+      <!-- EDUCACIÓN -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-icon"></span>
+          <h2 class="section-title">Educación</h2>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Ingeniería en Sistemas Computacionales</div>
+          <div class="edu-school">Instituto Tecnológico de Oaxaca (TecNM / ITO)</div>
+          <div class="item-date">2021 — 2025 • Egresado (Titulación en trámite • Residencia concluida)</div>
+          <p class="edu-details" style="margin-top: 2px;">
+            <strong>Idiomas:</strong> Español (Nativo) <span style="color:#0284c7;">•</span> Inglés — B1/B2 | Lectura y documentación técnica.
+          </p>
+        </div>
+      </section>
+
+      <!-- CERTIFICACIONES -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-icon"></span>
+          <h2 class="section-title">Certificaciones Verificables</h2>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Google Cloud Computing Foundations</div>
+          <div class="cert-issuer">Google Cloud • <a href="https://www.credly.com/badges/afaf62b7-8fc9-4cda-9aad-3985f43ceedf" target="_blank">Credly: afaf62b7</a> • 2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Cloud Security and Operations</div>
+          <div class="cert-issuer">Google Cloud • <a href="https://www.credly.com/badges/88ab965e-b827-4dca-8677-2348e83fc7a3" target="_blank">Credly: 88ab965e</a> • 2026</div>
+        </div>
+      </section>
+    </div>
+  </div>
 
 </body>
 </html>
