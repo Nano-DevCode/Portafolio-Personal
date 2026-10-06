@@ -68,7 +68,7 @@ const coreStrengths = [
     icon: <Database className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
     title: 'Bases de Datos & Rendimiento',
     description:
-      'Transacciones atómicas ACID en PostgreSQL y MySQL, control de concurrencia optimista para prevenir condiciones de carrera, búsqueda full-text con tsvector y caché con Redis.'
+      'Transacciones explícitas con QueryRunner, control de concurrencia optimista para prevenir condiciones de carrera y caché con Redis.'
   },
   {
     icon: <ShieldCheck className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
@@ -105,7 +105,7 @@ export const AboutSection: React.FC = () => {
             Sobre Mí
           </h2>
           <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
-            Egresado de Ingeniería en Sistemas Computacionales enfocado en diseñar y construir software robusto, con énfasis en arquitecturas backend, bases de datos relacionales y soluciones full-stack.
+            Egresado de Ingeniería en Sistemas Computacionales con enfoque principal en Backend y desarrollo Full-Stack. He trabajado en sistemas web institucionales y proyectos independientes con foco en soluciones prácticas, ordenadas y fáciles de mantener.
           </p>
         </div>
 
@@ -137,14 +137,14 @@ export const AboutSection: React.FC = () => {
                   , con residencia profesional concluida y titulación en trámite.
                 </p>
                 <p>
-                  Cuento con experiencia comprobable en el diseño de arquitecturas backend para sistemas de gestión institucional, desarrollo de aplicaciones web interactivas con{' '}
+                  Tengo experiencia en sistemas web institucionales y proyectos independientes, con enfoque principal en backend y desarrollo full-stack usando{' '}
                   <strong className="text-zinc-900 dark:text-white font-semibold">
                     NestJS, Laravel, TypeScript, React y Vue
                   </strong>
-                  , persistencia relacional con PostgreSQL y MySQL, y despliegue contenerizado mediante Docker.
+                  , además de bases de datos relacionales y despliegue con Docker.
                 </p>
                 <p>
-                  Priorizo las buenas prácticas de ingeniería: tipado estricto con TypeScript, pruebas automatizadas para prevenir regresiones, separación clara de responsabilidades y optimización de consultas a bases de datos.
+                  Me interesa crear software útil, ordenado y comprobable, con buenas prácticas, pruebas automatizadas y una estructura clara para mantenerlo a largo plazo.
                 </p>
               </div>
 

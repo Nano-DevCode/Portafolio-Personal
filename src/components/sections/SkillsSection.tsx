@@ -57,7 +57,7 @@ const skillCategories: SkillCategory[] = [
       { name: 'Full-Text Search (tsvector & GIN)', highlight: true },
       { name: 'MySQL', highlight: true },
       { name: 'Redis (Caché & Rate Limiting)', highlight: true },
-      { name: 'Transacciones ACID (QueryRunner)' },
+      { name: 'Transacciones explícitas con QueryRunner' },
       { name: 'Concurrencia Optimista (@VersionColumn)' },
       { name: 'SQLite (Pruebas en Memoria)' }
     ]
@@ -97,7 +97,7 @@ const skillCategories: SkillCategory[] = [
       { name: 'Linux', highlight: true },
       { name: 'Git & GitHub', highlight: true },
       { name: 'Google Cloud (GCP)', highlight: true },
-      { name: 'Almacenamiento S3 (MinIO / R2)' }
+      { name: 'Almacenamiento S3 (MinIO)' }
     ]
   }
 ];

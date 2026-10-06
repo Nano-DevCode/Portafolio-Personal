@@ -67,8 +67,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
             Proyectos de Software Destacados
           </h2>
           <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
-            Aplicaciones construidas con principios de arquitectura limpia, tipado estricto, 
-            rendimiento optimizado y componentes desacoplados.
+            Proyectos desarrollados para resolver necesidades reales, con interfaces claras, lógica ordenada y un enfoque práctico en la funcionalidad.
           </p>
         </div>
 

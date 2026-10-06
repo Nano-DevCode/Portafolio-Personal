@@ -44,7 +44,7 @@ export const Hero: React.FC = () => {
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-            Construyo APIs y aplicaciones web con NestJS, TypeScript, PostgreSQL y React.
+            Desarrollo aplicaciones web y APIs con enfoque en soluciones útiles, mantenibles y orientadas a necesidades reales.
           </p>
 
           {/* Core Tech Quick Pills Bar in Hero */}
@@ -110,7 +110,7 @@ export const Hero: React.FC = () => {
               <Zap className="w-5 h-5 text-emerald-500 dark:text-emerald-400 mb-2" />
               <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Bases de Datos & Caché</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                Transacciones atómicas ACID en PostgreSQL, búsqueda optimizada con vectores tsvector y caché con Redis.
+                Transacciones explícitas con PostgreSQL y QueryRunner, búsqueda optimizada con vectores tsvector y caché con Redis.
               </p>
             </div>
 

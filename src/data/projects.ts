@@ -14,18 +14,18 @@ export const projects: Project[] = [
   {
     id: 'sistema-mesa-de-ayuda-e-inventario-ti',
     title: 'Sistema de Mesa de Ayuda e Inventario TI',
-    tagline: 'Sistema institucional full-stack para soporte técnico, inventario y SLA con NestJS, PostgreSQL, Redis, React y TypeScript',
+    tagline: 'Sistema institucional para gestionar soporte técnico, inventario y seguimiento de incidencias.',
     description:
-      'Sistema institucional de Mesa de Ayuda e Inventario TI desarrollado para el Instituto Tecnológico de Oaxaca (ITO). Combina un backend NestJS con PostgreSQL, Redis, TypeORM, MinIO/S3 y WebSockets para gestionar tickets, inventario, activos, reportes y auditoría; y un frontend React con TypeScript, TanStack Query, Zustand, Socket.io y Tailwind para la operación diaria del equipo técnico. El proyecto cubre control de acceso por roles, SLA, transferencias de inventario, almacenamiento de evidencias digitales y seguimiento en tiempo real del estado del servicio.',
+      'Aplicación web para gestionar tickets, inventario y seguimiento de incidencias dentro del Instituto Tecnológico de Oaxaca. Permite registrar solicitudes de soporte, asignar responsabilidades, controlar accesos por roles, revisar el historial de cambios y mantener el inventario de equipos y consumibles. El sistema combina un backend con NestJS y PostgreSQL y un frontend con React, TypeScript y herramientas modernas para apoyar la operación diaria del equipo técnico.',
     highlights: [
-      'Backend NestJS con TypeScript, PostgreSQL, Redis, TypeORM y MinIO/S3',
-      'Frontend React con TypeScript, TanStack Query, Zustand, Socket.io y Tailwind CSS',
-      'Control de acceso por roles, tickets, inventario, SLA y auditoría institucional',
-      'Transacciones atómicas y concurrencia optimista para evitar inconsistencias en transferencias y asignaciones',
-      'Búsqueda con PostgreSQL Full-Text Search e índices GIN, plus caché con Redis',
-      'WebSockets para actualización en tiempo real y alertas de servicio',
-      'Testing automatizado con Jest (998 pruebas / 143 suites) y despliegue con Docker',
-      'Repositorio backend + repositorio frontend dentro de un mismo proyecto institucional'
+      'Gestión de tickets, usuarios y permisos dentro del mismo sistema',
+      'Seguimiento de inventario y control de activos tecnológicos',
+      'Historial de cambios para auditar actividades del sistema',
+      'Actualización en tiempo real para que el personal técnico vea cambios al instante',
+      'Backend con NestJS, PostgreSQL, Redis y TypeORM',
+      'Frontend con React, TanStack Query, Zustand, Socket.io y Tailwind CSS',
+      '998 pruebas automatizadas organizadas en 143 suites',
+      'Despliegue con Docker y contenedores para un entorno institucional'
     ],
     tags: [
       { name: 'NestJS', category: 'backend' },
@@ -65,9 +65,9 @@ export const projects: Project[] = [
     featured: true,
     technicalDetails: {
       architecturePattern:
-        'Arquitectura backend modular organizada por dominios, con separación de responsabilidades y principios SOLID. El frontend se estructura por módulos de tickets, activos, inventario y SLA para mantener los flujos operativos claros y reutilizables.',
+        'Arquitectura backend modular organizada por dominios, con separación de responsabilidades y principios SOLID. El frontend se estructura por módulos de tickets, activos, inventario y auditoría para mantener los flujos operativos claros y reutilizables.',
       stateAndDataManagement:
-        'Persistencia en PostgreSQL con TypeORM para tickets, inventario y auditoría. Control de concurrencia optimista (@VersionColumn) y transacciones explícitas con TypeORM QueryRunner para transferencias y ajustes de inventario. Redis para caché en memoria y rate limiting, y MinIO para evidencias multimedia. El frontend usa TanStack Query y Zustand para sincronización, caché reactiva y gestión local del estado de sesión.',
+        'Persistencia en PostgreSQL con TypeORM para tickets, inventario y auditoría. Se aplicó control de concurrencia optimista para prevenir conflictos y transacciones explícitas con QueryRunner para movimientos de inventario. Redis se usa para caché en memoria y rate limiting, y MinIO para almacenamiento de evidencias multimedia. El frontend usa TanStack Query y Zustand para sincronización y gestión del estado de la sesión.',
       keyChallenges: [
         'Evitar inconsistencias en transferencias de equipo y movimientos de inventario mediante transacciones atómicas y validación de cambios simultáneos.',
         'Mantener la UI sincronizada en tiempo real para múltiples usuarios institucionales, sin sobrecargar la red ni generar estados desactualizados.',
@@ -90,7 +90,7 @@ export const projects: Project[] = [
       'Inferencia de visión artificial acelerada por GPU mediante ONNX Runtime y DirectML (~21 FPS en GPU AMD Radeon RX 6600M con DirectML)',
       '97.1% mAP@50 en validación sobre el dataset propio del proyecto (pesos MiModelo_YOLO_BEST.pt)',
       'Rastreo visual multi-objeto con ByteTrack para evitar duplicación de cobros en pantalla',
-      'Filtrado por nivel de confianza y persistencia temporal para erradicar falsos positivos',
+      'Filtrado por nivel de confianza y persistencia temporal para reducir falsos positivos',
       'Actualización inmediata de inventario con bloqueo transaccional de productos agotados',
       'Interfaz visual clara para el operador de caja con emisión automática de comprobantes de venta'
     ],
