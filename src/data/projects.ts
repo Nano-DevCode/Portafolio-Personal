@@ -78,6 +78,122 @@ export const projects: Project[] = [
     }
   },
   {
+    id: 'sistema-saas-enterprise-frontend',
+    title: 'Sistema SaaS Enterprise — Panel Administrativo & Dashboard Web',
+    tagline: 'Cliente web empresarial moderno construido con React 19, Tailwind CSS v4, Zustand y TanStack',
+    description:
+      'Cliente web empresarial de grado SaaS premium desarrollado para conectarse con el core backend de NestJS. Implementa paneles de control interactivos con Bento Grid y gráficos con Recharts, gestión de usuarios y roles RBAC, visor de archivos en S3 con análisis antivirus ClamAV, trazabilidad y auditoría con visor interactivo JSON Diff, autenticación en dos pasos (2FA/TOTP) completamente desacoplada con InputOTP, feature flags en caliente propagados por WebSockets y observabilidad de infraestructura en tiempo real. Construido con arquitectura de actions desacopladas, tablas virtualizadas con TanStack Table + Virtual a 60 FPS, microinteracciones con Framer Motion y notificaciones toast con Sonner.',
+    highlights: [
+      'Tablas interactivas virtualizadas con TanStack Table v8 y TanStack Virtual v3 para renderizado fluido de miles de registros',
+      'Autenticación segura con cookies HttpOnly, renovación automática de tokens con Axios y clave de idempotencia UUIDv4 en mutaciones',
+      'Flujo 2FA/TOTP desacoplado con modal accesible de 6 dígitos (InputOTP), regeneración de secretos y códigos de respaldo',
+      'Explorador de archivos en la nube (S3/SeaweedFS) con subida asistida, validación de tipos y visor de estado antivirus',
+      'Trazabilidad de auditoría inmutable con comparador visual de diferencias de estado (JSON Diff Inspector)',
+      'Panel de telemetría y salud del sistema con gráficos interactivos Recharts y estado de conexión WebSocket',
+      'Tema oscuro y claro dinámico con persistencia local y protección contra traductores automáticos de navegador',
+      'Contenerización con Dockerfile multi-etapa y servidor Nginx Alpine optimizado con compresión Gzip'
+    ],
+    tags: [
+      { name: 'React 19', category: 'frontend' },
+      { name: 'TypeScript', category: 'frontend' },
+      { name: 'Tailwind CSS v4', category: 'frontend' },
+      { name: 'TanStack Query v5', category: 'frontend' },
+      { name: 'TanStack Table v8', category: 'frontend' },
+      { name: 'TanStack Virtual', category: 'frontend' },
+      { name: 'Zustand', category: 'frontend' },
+      { name: 'Socket.io Client', category: 'frontend' },
+      { name: 'Recharts', category: 'frontend' },
+      { name: 'Framer Motion', category: 'frontend' },
+      { name: 'Docker / Nginx', category: 'devops' },
+      { name: 'NestJS REST API', category: 'backend' }
+    ],
+    githubUrl: 'https://github.com/Nano-DevCode/react-frontend-core',
+    secondaryGithubUrl: 'https://github.com/Nano-DevCode/nestjs-backend-core',
+    liveUrl: 'https://sistema.nano-service.com',
+    images: {
+      thumbnail: '/projects/sistema-front/01-dashboard-logs-view.png',
+      gallery: [
+        '/projects/sistema-front/01-dashboard-logs-view.png',
+        '/projects/sistema-front/02-system-logs-monitoring.png',
+        '/projects/sistema-front/03-two-factor-auth-dialog.png',
+        '/projects/sistema-front/04-discord-bot-player.png'
+      ]
+    },
+    featured: true,
+    technicalDetails: {
+      architecturePattern:
+        'Arquitectura frontend orientada a features modulares (auth, two-factor, audit, files, users, dashboard, etc.) con separación estricta entre capa de presentación (shadcn/ui, Tailwind v4), lógica de estado (Zustand + TanStack Query) y clientes de transporte de red.',
+      stateAndDataManagement:
+        'Gestión de caché de servidor y revalidación en segundo plano con TanStack Query v5. Estado global persistente con Zustand (stores para tema, autenticación, filtros y preferencias). Sincronización bidireccional en tiempo real con Socket.io para Feature Flags y eventos.',
+      keyChallenges: [
+        'Mantener un scroll fluido a 60 FPS en tablas con miles de registros de auditoría y logs mediante virtualización con @tanstack/react-virtual.',
+        'Manejar el ciclo de vida de autenticación 2FA independiente sin filtrar tokens privilegiados y renovando cookies HttpOnly de forma transparente ante errores 401.',
+        'Garantizar la consistencia visual e integridad del DOM ante traductores de navegador que suelen romper componentes de React.'
+      ],
+      engineeringDecisions: [
+        'Adopción de React 19 y Tailwind CSS v4 para aprovechar el nuevo compilador y rendimiento optimizado de estilos atómicos.',
+        'Uso de Zod en cliente alineado con los esquemas de validación class-validator del backend para validación preventiva de formularios sin latencia de red.',
+        'Empaquetado ligero en contenedor Docker con Nginx Alpine (~25MB), cabeceras de seguridad estrictas y caché inmutable de assets Vite.'
+      ]
+    }
+  },
+  {
+    id: 'sistema-saas-enterprise-mobile',
+    title: 'Sistema Enterprise Mobile — App Móvil con React Native & Expo',
+    tagline: 'Aplicación móvil multiplataforma para gestión de incidencias, archivos y 2FA con Expo SDK 57 y NativeWind',
+    description:
+      'Aplicación móvil empresarial multiplataforma (iOS y Android) diseñada para la operación en campo y administración ágil del sistema SaaS. Diseñada para tolerar condiciones de red inestables y desconexiones momentáneas gracias a sincronización reactiva y persistencia offline con TanStack Query y AsyncStorage. Cuenta con arquitectura de navegación híbrida con Drawer y Tabs mediante Expo Router, listados de alto rendimiento a 60 FPS con Shopify FlashList, autenticación biométrica y almacenamiento seguro de tokens con Expo SecureStore, flujo nativo de verificación 2FA/TOTP, monitoreo de estado de red en tiempo real (NetInfo), y carga directa de evidencias binarias a S3 mediante URLs prefirmadas.',
+    highlights: [
+      'Navegación híbrida fluida combinando Drawer interactivo y Bottom Tabs con Expo Router',
+      'Persistencia y caché offline inteligente con @tanstack/react-query y async-storage-persister para operar sin conexión',
+      'Listados de tickets y archivos de alta concurrencia con Shopify FlashList evitando degradación de memoria',
+      'Almacenamiento seguro de credenciales y tokens JWT mediante hardware de dispositivo con Expo SecureStore',
+      'Modal nativo de desafío 2FA/TOTP integrado con teclado numérico optimizado y reintentos',
+      'Detección reactiva de estado de conectividad (NetInfo) con badge visual y sincronización automática al reanudar conexión',
+      'Carga de archivos y fotos directo a S3/SeaweedFS usando URLs prefirmadas para reducir consumo de ancho de banda',
+      'Diseño responsivo y soporte para modo oscuro nativo con NativeWind v4 (Tailwind CSS)'
+    ],
+    tags: [
+      { name: 'React Native', category: 'mobile' },
+      { name: 'Expo SDK 57', category: 'mobile' },
+      { name: 'Expo Router', category: 'mobile' },
+      { name: 'TypeScript', category: 'frontend' },
+      { name: 'NativeWind v4', category: 'frontend' },
+      { name: 'TanStack Query (Offline)', category: 'mobile' },
+      { name: 'Shopify FlashList', category: 'mobile' },
+      { name: 'Expo SecureStore', category: 'mobile' },
+      { name: 'NestJS Mobile API', category: 'backend' },
+      { name: 'S3 Presigned URLs', category: 'devops' }
+    ],
+    githubUrl: 'https://github.com/Nano-DevCode/react-native-mobile-core',
+    secondaryGithubUrl: 'https://github.com/Nano-DevCode/nestjs-backend-core',
+    images: {
+      thumbnail: '/projects/sistema-mobile/01-mobile-app-icon.png',
+      gallery: [
+        '/projects/sistema-mobile/01-mobile-app-icon.png',
+        '/projects/sistema-mobile/02-expo-architecture.png',
+        '/projects/sistema-mobile/03-mobile-glow.png'
+      ]
+    },
+    featured: true,
+    technicalDetails: {
+      architecturePattern:
+        'Estructura basada en File-based Routing con Expo Router, separando rutas por grupos (drawer)/(tabs) y pantallas modulares con hooks desacoplados para lógica de negocio y llamadas a la API.',
+      stateAndDataManagement:
+        'Capa de datos con TanStack Query respaldada por persistencia en AsyncStorage para lectura inmediata sin conexión. Tokens y credenciales críticas resguardados en el enclave seguro del dispositivo mediante Expo SecureStore.',
+      keyChallenges: [
+        'Tolerancia a fallos de red en movilidad (cambio continuo entre Wi-Fi y datos móviles) manteniendo la integridad de las peticiones mediante cabeceras de idempotencia.',
+        'Evitar saltos y elementos duplicados en scroll infinito al consultar tickets en tiempo real mediante paginación por cursor en lugar de offset tradicional.',
+        'Optimizar el renderizado en dispositivos de gama media/baja sustituyendo FlatList tradicional por Shopify FlashList.'
+      ],
+      engineeringDecisions: [
+        'Adopción de Expo SDK 57 con arquitectura unificada de React 19 y Reanimated 4 para transiciones y animaciones a 60 FPS nativas.',
+        'Uso de NativeWind v4 para reutilizar el sistema de diseño utilitario Tailwind del cliente web en el entorno nativo de iOS y Android.',
+        'Carga directa de adjuntos hacia el bucket S3 usando Presigned PUT URLs provistas por el backend, minimizando la carga en el servidor de aplicaciones.'
+      ]
+    }
+  },
+  {
     id: 'sistema-mesa-de-ayuda-e-inventario-ti',
     title: 'Sistema de Mesa de Ayuda e Inventario TI',
     tagline: 'Aplicación web para gestionar solicitudes de soporte técnico, inventario y seguimiento de incidencias.',
