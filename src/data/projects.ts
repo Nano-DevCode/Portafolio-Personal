@@ -12,6 +12,72 @@ const SOPORTE_FRONTEND_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/sop
 
 export const projects: Project[] = [
   {
+    id: 'sistema-saas-enterprise-backend',
+    title: 'Sistema SaaS Enterprise — Plataforma Administrativa & Core Backend',
+    tagline: 'Arquitectura SaaS modular con NestJS, Prisma 7, PostgreSQL, Redis, BullMQ y cliente React 19',
+    description:
+      'Plataforma integral SaaS empresarial y administrativa diseñada para alta concurrencia, seguridad bancaria y observabilidad total. Incorpora autenticación multifactor (JWT con rotación de cookies HttpOnly, OAuth2 Google/Facebook y 2FA/TOTP independiente), control de acceso granular RBAC con guardias dinámicos, explorador de archivos en S3/SeaweedFS con escaneo antivirus en streaming mediante ClamAV y optimización WebP con Sharp, sistema de auditoría inmutable con visor JSON Diff, y comunicación bidireccional en tiempo real con WebSockets (Socket.io). Además, integra procesamiento asíncrono con BullMQ para generación de reportes PDF, ingestión masiva de logs, motor de webhooks salientes con firmas HMAC-SHA256 y un exportador masivo asíncrono (CSV/JSON/TSV).',
+    highlights: [
+      'Autenticación robusta con JWT, rotación de refresh tokens en cookies HttpOnly y OAuth2 (Google y Facebook)',
+      'Doble factor de autenticación (2FA/TOTP) desacoplado con códigos de respaldo encriptados y rotación de claves',
+      'Gestor de sesiones activas y dispositivos en Redis con capacidad de revocación remota instantánea',
+      'Almacenamiento de archivos en S3/SeaweedFS con análisis antivirus en tiempo real mediante ClamAV y compresión WebP',
+      'Procesamiento en segundo plano con BullMQ y Redis para reportes PDF, logs, webhooks y exportaciones masivas',
+      'Motor de webhooks salientes B2B con reintentos exponenciales y firma criptográfica HMAC-SHA256',
+      'Alertas automáticas ante incidentes operacionales a canales de Discord y Slack (memoria RSS y saturación de DB pool)',
+      'Notificaciones y propagación de Feature Flags en tiempo real a clientes conectados mediante WebSockets (Socket.io)',
+      'Auditoría inmutable de operaciones críticas con captura de estado previo y posterior (JSON Diff)',
+      'Cobertura de pruebas unitarias exhaustiva con Jest garantizando el 100% de éxito en servicios, procesadores y controladores'
+    ],
+    tags: [
+      { name: 'NestJS', category: 'backend' },
+      { name: 'TypeScript', category: 'backend' },
+      { name: 'Prisma ORM 7', category: 'backend' },
+      { name: 'PostgreSQL', category: 'database' },
+      { name: 'Redis', category: 'database' },
+      { name: 'BullMQ', category: 'backend' },
+      { name: 'Socket.io', category: 'backend' },
+      { name: 'S3 / SeaweedFS', category: 'devops' },
+      { name: 'ClamAV Antivirus', category: 'devops' },
+      { name: 'HMAC Webhooks', category: 'backend' },
+      { name: 'Docker', category: 'devops' },
+      { name: 'Jest (100% cobertura)', category: 'backend' },
+      { name: 'React 19', category: 'frontend' },
+      { name: 'Tailwind CSS', category: 'frontend' }
+    ],
+    githubUrl: 'https://github.com/Nano-DevCode/nestjs-backend-core',
+    secondaryGithubUrl: 'https://github.com/Nano-DevCode/react-frontend-core',
+    liveUrl: 'https://sistema.nano-service.com',
+    images: {
+      thumbnail: '/projects/sistema-saas/01-two-factor-auth-ui.png',
+      gallery: [
+        '/projects/sistema-saas/01-two-factor-auth-ui.png',
+        '/projects/sistema-saas/02-discord-bot-panel.png',
+        '/projects/sistema-saas/03-backend-services-logs.png',
+        '/projects/sistema-saas/04-api-login-2fa-tokens.png',
+        '/projects/sistema-saas/05-realtime-notifications-api.png',
+        '/projects/sistema-saas/06-api-2fa-validation.png'
+      ]
+    },
+    featured: true,
+    technicalDetails: {
+      architecturePattern:
+        'Arquitectura modular hexagonal orientada a eventos e inyección de dependencias en NestJS. Desacoplamiento de tareas intensivas de CPU e I/O hacia trabajadores asíncronos en BullMQ sobre Redis. Cliente frontend modular con consumo reactivo mediante TanStack Query y Zustand.',
+      stateAndDataManagement:
+        'Persistencia relacional en PostgreSQL orquestada con Prisma ORM 7, utilizando el adaptador nativo @prisma/adapter-pg y soporte para réplicas de lectura. Redis como memoria compartida para sesiones activas, rate limiting con Throttler y colas BullMQ. Almacenamiento de objetos no estructurados en S3 / SeaweedFS.',
+      keyChallenges: [
+        'Prevenir el bloqueo del event loop de Node.js durante tareas intensivas como conversión de imágenes a WebP, escaneo antivirus con ClamAV, renderizado de PDFs y exportaciones masivas mediante workers independientes.',
+        'Implementar autenticación multifactor 2FA/TOTP completamente desacoplada con tokens temporales de vida corta, cifrado seguro de secretos y capacidad de revocar sesiones de dispositivos remotos al instante.',
+        'Garantizar la entrega confiable y la integridad criptográfica de webhooks salientes B2B mediante HMAC-SHA256 y políticas de reintento con backoff exponencial.'
+      ],
+      engineeringDecisions: [
+        'Separación limpia entre el núcleo de servicios backend (nestjs-backend-core) y la interfaz de usuario (react-frontend-core), permitiendo escalabilidad y despliegues independientes.',
+        'Uso de esquemas particionados por dominio en Prisma ORM para mantener claridad y desacoplamiento en un modelo de datos en constante crecimiento.',
+        'Implementación de alertas operacionales proactivas vinculadas a Discord y Slack que monitorean en caliente el consumo de memoria RSS y el agotamiento del pool de conexiones a la base de datos.'
+      ]
+    }
+  },
+  {
     id: 'sistema-mesa-de-ayuda-e-inventario-ti',
     title: 'Sistema de Mesa de Ayuda e Inventario TI',
     tagline: 'Aplicación web para gestionar solicitudes de soporte técnico, inventario y seguimiento de incidencias.',
