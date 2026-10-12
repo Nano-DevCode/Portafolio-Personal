@@ -9,6 +9,8 @@ const TIENDITA_ASSETS_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Tien
 const TIENDITA_INFO_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/Tiendita/main/info';
 const SOPORTE_BACKEND_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/soporte-tecnico-backend/master/docs/images';
 const SOPORTE_FRONTEND_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/soporte-tecnico-frontend/main/docs/screenshots';
+const CORE_BACKEND_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/nestjs-backend-core/main/docs/screenshots';
+const CORE_FRONTEND_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/react-frontend-core/main/docs/screenshots';
 
 export const projects: Project[] = [
   {
@@ -118,20 +120,20 @@ export const projects: Project[] = [
     secondaryGithubUrl: 'https://github.com/Nano-DevCode/react-frontend-core',
     liveUrl: undefined,
     images: {
-      thumbnail: '/projects/core/dashboard-dark.png',
+      thumbnail: `${CORE_FRONTEND_RAW}/1.1.png`,
       gallery: [
-        '/projects/core/dashboard-dark.png',
-        '/projects/core/dashboard-light.png',
-        '/projects/core/2fa-totp-qr.png',
-        '/projects/core/users-table.png',
-        '/projects/core/rbac-matrix.png',
-        '/projects/core/s3-clamav-storage.png',
-        '/projects/core/diff-viewer.png',
-        '/projects/core/observability-health.png',
-        '/projects/core/feature-flags.png',
-        '/projects/core/scalar-api-docs.png',
-        '/projects/core/jest-627-tests-passed.png',
-        '/projects/core/docker-compose-13-services.png'
+        `${CORE_FRONTEND_RAW}/1.1.png`,
+        `${CORE_FRONTEND_RAW}/8.1.png`,
+        `${CORE_FRONTEND_RAW}/6.1.png`,
+        `${CORE_FRONTEND_RAW}/2.1.png`,
+        `${CORE_FRONTEND_RAW}/3.1.png`,
+        `${CORE_FRONTEND_RAW}/4.1.png`,
+        `${CORE_FRONTEND_RAW}/5.2.png`,
+        `${CORE_FRONTEND_RAW}/7.1.png`,
+        `${CORE_FRONTEND_RAW}/9.1.png`,
+        `${CORE_BACKEND_RAW}/1.1.png`,
+        `${CORE_BACKEND_RAW}/2.8.png`,
+        `${CORE_BACKEND_RAW}/3.1.png`
       ]
     },
     featured: true,
