@@ -345,11 +345,11 @@
         </div>
         <div class="skill-card">
           <span class="skill-title">Backend & APIs:</span>
-          <span class="skill-content"> NestJS, Node.js, Express, Laravel, APIs RESTful, WebSockets (Socket.io), TypeORM, Eloquent ORM, JWT, RBAC.</span>
+          <span class="skill-content"> NestJS, Node.js, Express, Laravel, Prisma ORM, BullMQ, APIs RESTful, WebSockets (Socket.io), TypeORM, Eloquent ORM, JWT, RBAC.</span>
         </div>
         <div class="skill-card">
           <span class="skill-title">Bases de Datos & Caché:</span>
-          <span class="skill-content"> PostgreSQL (Full-Text Search / tsvector / índices GIN), MySQL, Redis (caching en memoria y rate limiting), SQLite.</span>
+          <span class="skill-content"> PostgreSQL (Full-Text Search / tsvector / índices GIN / Réplicas), MySQL, Redis (caching en memoria, colas BullMQ, rate limiting), SQLite.</span>
         </div>
         <div class="skill-card">
           <span class="skill-title">Frontend & Mobile:</span>
@@ -357,11 +357,11 @@
         </div>
         <div class="skill-card">
           <span class="skill-title">Testing & Calidad de Código:</span>
-          <span class="skill-content"> Jest (998 pruebas unitarias en 143 test suites), Pest PHP (44 pruebas / 116 aserciones), depuración, tipado estricto.</span>
+          <span class="skill-content"> Jest (998 pruebas Service Desk / 627 pruebas Core), Pest PHP (44 pruebas / 116 aserciones), depuración, tipado estricto.</span>
         </div>
         <div class="skill-card">
           <span class="skill-title">DevOps, Herramientas & Cloud:</span>
-          <span class="skill-content"> Docker (Multi-stage / Google Distroless non-root), Linux, Nginx (Proxy inverso), Git, GitHub, MinIO S3.</span>
+          <span class="skill-content"> Docker (Multi-stage / Google Distroless non-root), Linux, Nginx (Proxy inverso), Git, GitHub, MinIO / SeaweedFS S3, ClamAV.</span>
         </div>
       </div>
     </section>
@@ -434,6 +434,26 @@
       <div class="section-header">
         <span class="section-icon"></span>
         <h2 class="section-title">Proyectos Principales de Ingeniería de Software</h2>
+      </div>
+
+      <!-- PROYECTO CORE EMPRESARIAL -->
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Plataforma Core Empresarial — Backend &amp; Frontend Web</span>
+          <span class="item-date">2025 — 2026</span>
+        </div>
+        <div class="item-subtitle">Plataforma SaaS Modular de Alto Rendimiento • NestJS Core &amp; React 19 Client (En Construcción)</div>
+        <div class="tech-badges">
+          NestJS <span class="dot">•</span> React 19 <span class="dot">•</span> TypeScript <span class="dot">•</span> Prisma ORM 7 <span class="dot">•</span> PostgreSQL <span class="dot">•</span> Redis <span class="dot">•</span> BullMQ <span class="dot">•</span> ClamAV <span class="dot">•</span> Jest (627 tests)
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Arquitectura Backend &amp; Réplicas de Lectura:</strong> Diseñé la API REST modular en NestJS con Prisma ORM 7 soportando réplicas de lectura en PostgreSQL 16, autenticación 2FA/TOTP independiente, RBAC jerárquico y almacenamiento S3 con análisis antivirus ClamAV.
+          </li>
+          <li class="bullet-item">
+            <strong>Frontend Web &amp; Procesamiento Asíncrono:</strong> Desarrollé el cliente web en React 19 con Tailwind CSS v4, tablas virtualizadas con TanStack Table/Virtual, visor de auditoría JSON Diff, colas BullMQ con Redis y suite de <strong>627 pruebas en 119 suites con Jest</strong>.
+          </li>
+        </ul>
       </div>
 
       <!-- PROYECTO 1: FRONTEND SERVICE DESK -->
