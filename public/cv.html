@@ -328,7 +328,7 @@
         <h2 class="section-title">Perfil Profesional</h2>
       </div>
       <p class="summary-text">
-        <strong>Egresado de Ingeniería en Sistemas Computacionales</strong> con sólida formación técnica y enfoque en desarrollo de software, especializado en arquitecturas backend y soluciones full-stack. Experiencia comprobada diseñando e implementando APIs REST modulares con <strong>NestJS</strong> (Node.js/TypeScript) y <strong>Laravel</strong> (PHP), modelado de datos relacionales en <strong>PostgreSQL</strong> y <strong>MySQL</strong> con transacciones explícitas mediante <strong>TypeORM QueryRunner</strong>, control de concurrencia optimista y caché en memoria y rate limiting con <strong>Redis</strong>. Implementación rigurosa de pruebas automatizadas (<strong>998 tests unitarios en Jest</strong> y pruebas funcionales en <strong>Pest PHP</strong>) y despliegue contenerizado mediante <strong>Docker</strong> sobre entornos Linux. Enfocado en construir software mantenible, seguro y respaldado por pruebas automatizadas.
+        <strong>Egresado de Ingeniería en Sistemas Computacionales</strong> con sólida formación técnica y enfoque en desarrollo de software, especializado en arquitecturas backend y soluciones full-stack. Experiencia comprobada diseñando e implementando APIs REST modulares con <strong>NestJS</strong> y <strong>Laravel</strong>, modelado de datos relacionales en <strong>PostgreSQL</strong> y <strong>MySQL</strong> con transacciones explícitas, control de concurrencia optimista y caché en memoria con <strong>Redis</strong>. Implementación rigurosa de pruebas automatizadas (<strong>998 tests en Jest</strong> y pruebas funcionales en <strong>Pest PHP</strong>) y despliegue contenerizado mediante <strong>Docker</strong> sobre Linux. Orientado a código limpio, prevención de pérdida de datos y rápida integración a equipos de desarrollo.
       </p>
     </section>
 
@@ -384,19 +384,19 @@
         </div>
         <ul class="bullet-list">
           <li class="bullet-item">
-            <strong>Arquitectura Backend Modular & Control de Acceso:</strong> Diseñé y desarrollé la arquitectura backend del sistema institucional de Service Desk e inventario tecnológico, con arquitectura backend modular en NestJS, implementando autorización basada en roles (RBAC) con permisos diferenciados.
+            <strong>Arquitectura Backend & Centralización de Soporte:</strong> Diseñé y desarrollé la API REST modular en NestJS para centralizar la atención de solicitudes de soporte técnico y el inventario de activos del ITO, con autorización por roles diferenciados (RBAC).
           </li>
           <li class="bullet-item">
-            <strong>Transaccionalidad & Concurrencia Optimista:</strong> Implementé transferencias de inventario multietapa protegidas con transacciones explícitas con TypeORM <code>QueryRunner</code>, y control de concurrencia optimista con <code>@VersionColumn</code> para evitar conflictos cuando varios usuarios actualizan tickets simultáneamente.
+            <strong>Integridad Transaccional & Concurrencia:</strong> Implementé transferencias de inventario multietapa protegidas con transacciones explícitas (TypeORM <code>QueryRunner</code>) y control de concurrencia optimista con <code>@VersionColumn</code>, asegurando consistencia sin pérdida de información cuando múltiples técnicos operan en simultáneo.
           </li>
           <li class="bullet-item">
-            <strong>Optimización de Búsqueda & Rendimiento con Redis:</strong> Diseñé un motor de búsqueda sobre el catálogo de equipos y tickets mediante vectores <code>tsvector</code> nativos e índices GIN en PostgreSQL, complementado con una capa de caché en memoria y limitador de tasa de peticiones (rate limiting) en Redis.
+            <strong>Optimización de Búsqueda & Caché de Alto Rendimiento:</strong> Diseñé un motor de búsqueda sobre el catálogo de equipos y tickets mediante vectores <code>tsvector</code> nativos e índices GIN en PostgreSQL, complementado con caché en memoria y limitador de tasa (rate limiting) en Redis para acelerar tiempos de respuesta.
           </li>
           <li class="bullet-item">
-            <strong>Almacenamiento S3 & Comunicación en Tiempo Real:</strong> Desarrollé el servicio de gestión de evidencias digitales compatible con S3 mediante <strong>MinIO</strong> con URLs prefirmadas seguras, e integré eventos bidireccionales en tiempo real mediante WebSockets (Socket.io) y alertas a Telegram.
+            <strong>Almacenamiento Seguro S3 & Notificaciones en Vivo:</strong> Desarrollé el servicio de evidencias digitales compatible con S3 (<strong>MinIO</strong>) mediante URLs prefirmadas seguras para proteger archivos adjuntos, e integré eventos en tiempo real con Socket.io y alertas a Telegram ante fallas críticas.
           </li>
           <li class="bullet-item">
-            <strong>Testing Automatizado & Despliegue en Contenedores:</strong> Desarrollé una suite de <strong>998 pruebas automatizadas en 143 suites con Jest</strong>. Contenericé el servicio con Docker multi-stage sobre imágenes <strong>Google Distroless (nonroot)</strong> sin shell ni dependencias innecesarias para despliegue en servidor físico institucional tras proxy inverso Nginx.
+            <strong>Testing Automatizado & Despliegue en Servidores:</strong> Aseguré la estabilidad integral del sistema mediante una suite de <strong>998 pruebas automatizadas en 143 suites con Jest</strong>. Contenericé el servicio con Docker multi-stage sobre imágenes <strong>Google Distroless (nonroot)</strong> sin dependencias innecesarias, desplegado tras proxy inverso Nginx.
           </li>
         </ul>
       </div>
