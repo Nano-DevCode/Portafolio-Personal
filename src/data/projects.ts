@@ -12,188 +12,6 @@ const SOPORTE_FRONTEND_RAW = 'https://raw.githubusercontent.com/Nano-DevCode/sop
 
 export const projects: Project[] = [
   {
-    id: 'sistema-saas-enterprise-backend',
-    title: 'Sistema SaaS Enterprise — Plataforma Administrativa & Core Backend',
-    tagline: 'Arquitectura SaaS modular con NestJS, Prisma 7, PostgreSQL, Redis, BullMQ y cliente React 19',
-    description:
-      'Plataforma integral SaaS empresarial y administrativa diseñada para alta concurrencia, seguridad bancaria y observabilidad total. Incorpora autenticación multifactor (JWT con rotación de cookies HttpOnly, OAuth2 Google/Facebook y 2FA/TOTP independiente), control de acceso granular RBAC con guardias dinámicos, explorador de archivos en S3/SeaweedFS con escaneo antivirus en streaming mediante ClamAV y optimización WebP con Sharp, sistema de auditoría inmutable con visor JSON Diff, y comunicación bidireccional en tiempo real con WebSockets (Socket.io). Además, integra procesamiento asíncrono con BullMQ para generación de reportes PDF, ingestión masiva de logs, motor de webhooks salientes con firmas HMAC-SHA256 y un exportador masivo asíncrono (CSV/JSON/TSV).',
-    highlights: [
-      'Autenticación robusta con JWT, rotación de refresh tokens en cookies HttpOnly y OAuth2 (Google y Facebook)',
-      'Doble factor de autenticación (2FA/TOTP) desacoplado con códigos de respaldo encriptados y rotación de claves',
-      'Gestor de sesiones activas y dispositivos en Redis con capacidad de revocación remota instantánea',
-      'Almacenamiento de archivos en S3/SeaweedFS con análisis antivirus en tiempo real mediante ClamAV y compresión WebP',
-      'Procesamiento en segundo plano con BullMQ y Redis para reportes PDF, logs, webhooks y exportaciones masivas',
-      'Motor de webhooks salientes B2B con reintentos exponenciales y firma criptográfica HMAC-SHA256',
-      'Alertas automáticas ante incidentes operacionales a canales de Discord y Slack (memoria RSS y saturación de DB pool)',
-      'Notificaciones y propagación de Feature Flags en tiempo real a clientes conectados mediante WebSockets (Socket.io)',
-      'Auditoría inmutable de operaciones críticas con captura de estado previo y posterior (JSON Diff)',
-      'Cobertura de pruebas unitarias exhaustiva con Jest garantizando el 100% de éxito en servicios, procesadores y controladores'
-    ],
-    tags: [
-      { name: 'NestJS', category: 'backend' },
-      { name: 'TypeScript', category: 'backend' },
-      { name: 'Prisma ORM 7', category: 'backend' },
-      { name: 'PostgreSQL', category: 'database' },
-      { name: 'Redis', category: 'database' },
-      { name: 'BullMQ', category: 'backend' },
-      { name: 'Socket.io', category: 'backend' },
-      { name: 'S3 / SeaweedFS', category: 'devops' },
-      { name: 'ClamAV Antivirus', category: 'devops' },
-      { name: 'HMAC Webhooks', category: 'backend' },
-      { name: 'Docker', category: 'devops' },
-      { name: 'Jest (100% cobertura)', category: 'backend' },
-      { name: 'React 19', category: 'frontend' },
-      { name: 'Tailwind CSS', category: 'frontend' }
-    ],
-    githubUrl: 'https://github.com/Nano-DevCode/nestjs-backend-core',
-    secondaryGithubUrl: 'https://github.com/Nano-DevCode/react-frontend-core',
-    liveUrl: 'https://sistema.nano-service.com',
-    images: {
-      thumbnail: '/projects/sistema-saas/01-two-factor-auth-ui.png',
-      gallery: [
-        '/projects/sistema-saas/01-two-factor-auth-ui.png',
-        '/projects/sistema-saas/02-discord-bot-panel.png',
-        '/projects/sistema-saas/03-backend-services-logs.png',
-        '/projects/sistema-saas/04-api-login-2fa-tokens.png',
-        '/projects/sistema-saas/05-realtime-notifications-api.png',
-        '/projects/sistema-saas/06-api-2fa-validation.png'
-      ]
-    },
-    featured: true,
-    technicalDetails: {
-      architecturePattern:
-        'Arquitectura modular hexagonal orientada a eventos e inyección de dependencias en NestJS. Desacoplamiento de tareas intensivas de CPU e I/O hacia trabajadores asíncronos en BullMQ sobre Redis. Cliente frontend modular con consumo reactivo mediante TanStack Query y Zustand.',
-      stateAndDataManagement:
-        'Persistencia relacional en PostgreSQL orquestada con Prisma ORM 7, utilizando el adaptador nativo @prisma/adapter-pg y soporte para réplicas de lectura. Redis como memoria compartida para sesiones activas, rate limiting con Throttler y colas BullMQ. Almacenamiento de objetos no estructurados en S3 / SeaweedFS.',
-      keyChallenges: [
-        'Prevenir el bloqueo del event loop de Node.js durante tareas intensivas como conversión de imágenes a WebP, escaneo antivirus con ClamAV, renderizado de PDFs y exportaciones masivas mediante workers independientes.',
-        'Implementar autenticación multifactor 2FA/TOTP completamente desacoplada con tokens temporales de vida corta, cifrado seguro de secretos y capacidad de revocar sesiones de dispositivos remotos al instante.',
-        'Garantizar la entrega confiable y la integridad criptográfica de webhooks salientes B2B mediante HMAC-SHA256 y políticas de reintento con backoff exponencial.'
-      ],
-      engineeringDecisions: [
-        'Separación limpia entre el núcleo de servicios backend (nestjs-backend-core) y la interfaz de usuario (react-frontend-core), permitiendo escalabilidad y despliegues independientes.',
-        'Uso de esquemas particionados por dominio en Prisma ORM para mantener claridad y desacoplamiento en un modelo de datos en constante crecimiento.',
-        'Implementación de alertas operacionales proactivas vinculadas a Discord y Slack que monitorean en caliente el consumo de memoria RSS y el agotamiento del pool de conexiones a la base de datos.'
-      ]
-    }
-  },
-  {
-    id: 'sistema-saas-enterprise-frontend',
-    title: 'Sistema SaaS Enterprise — Panel Administrativo & Dashboard Web',
-    tagline: 'Cliente web empresarial moderno construido con React 19, Tailwind CSS v4, Zustand y TanStack',
-    description:
-      'Cliente web empresarial de grado SaaS premium desarrollado para conectarse con el core backend de NestJS. Implementa paneles de control interactivos con Bento Grid y gráficos con Recharts, gestión de usuarios y roles RBAC, visor de archivos en S3 con análisis antivirus ClamAV, trazabilidad y auditoría con visor interactivo JSON Diff, autenticación en dos pasos (2FA/TOTP) completamente desacoplada con InputOTP, feature flags en caliente propagados por WebSockets y observabilidad de infraestructura en tiempo real. Construido con arquitectura de actions desacopladas, tablas virtualizadas con TanStack Table + Virtual a 60 FPS, microinteracciones con Framer Motion y notificaciones toast con Sonner.',
-    highlights: [
-      'Tablas interactivas virtualizadas con TanStack Table v8 y TanStack Virtual v3 para renderizado fluido de miles de registros',
-      'Autenticación segura con cookies HttpOnly, renovación automática de tokens con Axios y clave de idempotencia UUIDv4 en mutaciones',
-      'Flujo 2FA/TOTP desacoplado con modal accesible de 6 dígitos (InputOTP), regeneración de secretos y códigos de respaldo',
-      'Explorador de archivos en la nube (S3/SeaweedFS) con subida asistida, validación de tipos y visor de estado antivirus',
-      'Trazabilidad de auditoría inmutable con comparador visual de diferencias de estado (JSON Diff Inspector)',
-      'Panel de telemetría y salud del sistema con gráficos interactivos Recharts y estado de conexión WebSocket',
-      'Tema oscuro y claro dinámico con persistencia local y protección contra traductores automáticos de navegador',
-      'Contenerización con Dockerfile multi-etapa y servidor Nginx Alpine optimizado con compresión Gzip'
-    ],
-    tags: [
-      { name: 'React 19', category: 'frontend' },
-      { name: 'TypeScript', category: 'frontend' },
-      { name: 'Tailwind CSS v4', category: 'frontend' },
-      { name: 'TanStack Query v5', category: 'frontend' },
-      { name: 'TanStack Table v8', category: 'frontend' },
-      { name: 'TanStack Virtual', category: 'frontend' },
-      { name: 'Zustand', category: 'frontend' },
-      { name: 'Socket.io Client', category: 'frontend' },
-      { name: 'Recharts', category: 'frontend' },
-      { name: 'Framer Motion', category: 'frontend' },
-      { name: 'Docker / Nginx', category: 'devops' },
-      { name: 'NestJS REST API', category: 'backend' }
-    ],
-    githubUrl: 'https://github.com/Nano-DevCode/react-frontend-core',
-    secondaryGithubUrl: 'https://github.com/Nano-DevCode/nestjs-backend-core',
-    liveUrl: 'https://sistema.nano-service.com',
-    images: {
-      thumbnail: '/projects/sistema-front/01-dashboard-logs-view.png',
-      gallery: [
-        '/projects/sistema-front/01-dashboard-logs-view.png',
-        '/projects/sistema-front/02-system-logs-monitoring.png',
-        '/projects/sistema-front/03-two-factor-auth-dialog.png',
-        '/projects/sistema-front/04-discord-bot-player.png'
-      ]
-    },
-    featured: true,
-    technicalDetails: {
-      architecturePattern:
-        'Arquitectura frontend orientada a features modulares (auth, two-factor, audit, files, users, dashboard, etc.) con separación estricta entre capa de presentación (shadcn/ui, Tailwind v4), lógica de estado (Zustand + TanStack Query) y clientes de transporte de red.',
-      stateAndDataManagement:
-        'Gestión de caché de servidor y revalidación en segundo plano con TanStack Query v5. Estado global persistente con Zustand (stores para tema, autenticación, filtros y preferencias). Sincronización bidireccional en tiempo real con Socket.io para Feature Flags y eventos.',
-      keyChallenges: [
-        'Mantener un scroll fluido a 60 FPS en tablas con miles de registros de auditoría y logs mediante virtualización con @tanstack/react-virtual.',
-        'Manejar el ciclo de vida de autenticación 2FA independiente sin filtrar tokens privilegiados y renovando cookies HttpOnly de forma transparente ante errores 401.',
-        'Garantizar la consistencia visual e integridad del DOM ante traductores de navegador que suelen romper componentes de React.'
-      ],
-      engineeringDecisions: [
-        'Adopción de React 19 y Tailwind CSS v4 para aprovechar el nuevo compilador y rendimiento optimizado de estilos atómicos.',
-        'Uso de Zod en cliente alineado con los esquemas de validación class-validator del backend para validación preventiva de formularios sin latencia de red.',
-        'Empaquetado ligero en contenedor Docker con Nginx Alpine (~25MB), cabeceras de seguridad estrictas y caché inmutable de assets Vite.'
-      ]
-    }
-  },
-  {
-    id: 'sistema-saas-enterprise-mobile',
-    title: 'Sistema Enterprise Mobile — App Móvil con React Native & Expo',
-    tagline: 'Aplicación móvil multiplataforma para gestión de incidencias, archivos y 2FA con Expo SDK 57 y NativeWind',
-    description:
-      'Aplicación móvil empresarial multiplataforma (iOS y Android) diseñada para la operación en campo y administración ágil del sistema SaaS. Diseñada para tolerar condiciones de red inestables y desconexiones momentáneas gracias a sincronización reactiva y persistencia offline con TanStack Query y AsyncStorage. Cuenta con arquitectura de navegación híbrida con Drawer y Tabs mediante Expo Router, listados de alto rendimiento a 60 FPS con Shopify FlashList, autenticación biométrica y almacenamiento seguro de tokens con Expo SecureStore, flujo nativo de verificación 2FA/TOTP, monitoreo de estado de red en tiempo real (NetInfo), y carga directa de evidencias binarias a S3 mediante URLs prefirmadas.',
-    highlights: [
-      'Navegación híbrida fluida combinando Drawer interactivo y Bottom Tabs con Expo Router',
-      'Persistencia y caché offline inteligente con @tanstack/react-query y async-storage-persister para operar sin conexión',
-      'Listados de tickets y archivos de alta concurrencia con Shopify FlashList evitando degradación de memoria',
-      'Almacenamiento seguro de credenciales y tokens JWT mediante hardware de dispositivo con Expo SecureStore',
-      'Modal nativo de desafío 2FA/TOTP integrado con teclado numérico optimizado y reintentos',
-      'Detección reactiva de estado de conectividad (NetInfo) con badge visual y sincronización automática al reanudar conexión',
-      'Carga de archivos y fotos directo a S3/SeaweedFS usando URLs prefirmadas para reducir consumo de ancho de banda',
-      'Diseño responsivo y soporte para modo oscuro nativo con NativeWind v4 (Tailwind CSS)'
-    ],
-    tags: [
-      { name: 'React Native', category: 'mobile' },
-      { name: 'Expo SDK 57', category: 'mobile' },
-      { name: 'Expo Router', category: 'mobile' },
-      { name: 'TypeScript', category: 'frontend' },
-      { name: 'NativeWind v4', category: 'frontend' },
-      { name: 'TanStack Query (Offline)', category: 'mobile' },
-      { name: 'Shopify FlashList', category: 'mobile' },
-      { name: 'Expo SecureStore', category: 'mobile' },
-      { name: 'NestJS Mobile API', category: 'backend' },
-      { name: 'S3 Presigned URLs', category: 'devops' }
-    ],
-    githubUrl: 'https://github.com/Nano-DevCode/react-native-mobile-core',
-    secondaryGithubUrl: 'https://github.com/Nano-DevCode/nestjs-backend-core',
-    images: {
-      thumbnail: '/projects/sistema-mobile/01-mobile-app-icon.png',
-      gallery: [
-        '/projects/sistema-mobile/01-mobile-app-icon.png',
-        '/projects/sistema-mobile/02-expo-architecture.png',
-        '/projects/sistema-mobile/03-mobile-glow.png'
-      ]
-    },
-    featured: true,
-    technicalDetails: {
-      architecturePattern:
-        'Estructura basada en File-based Routing con Expo Router, separando rutas por grupos (drawer)/(tabs) y pantallas modulares con hooks desacoplados para lógica de negocio y llamadas a la API.',
-      stateAndDataManagement:
-        'Capa de datos con TanStack Query respaldada por persistencia en AsyncStorage para lectura inmediata sin conexión. Tokens y credenciales críticas resguardados en el enclave seguro del dispositivo mediante Expo SecureStore.',
-      keyChallenges: [
-        'Tolerancia a fallos de red en movilidad (cambio continuo entre Wi-Fi y datos móviles) manteniendo la integridad de las peticiones mediante cabeceras de idempotencia.',
-        'Evitar saltos y elementos duplicados en scroll infinito al consultar tickets en tiempo real mediante paginación por cursor en lugar de offset tradicional.',
-        'Optimizar el renderizado en dispositivos de gama media/baja sustituyendo FlatList tradicional por Shopify FlashList.'
-      ],
-      engineeringDecisions: [
-        'Adopción de Expo SDK 57 con arquitectura unificada de React 19 y Reanimated 4 para transiciones y animaciones a 60 FPS nativas.',
-        'Uso de NativeWind v4 para reutilizar el sistema de diseño utilitario Tailwind del cliente web en el entorno nativo de iOS y Android.',
-        'Carga directa de adjuntos hacia el bucket S3 usando Presigned PUT URLs provistas por el backend, minimizando la carga en el servidor de aplicaciones.'
-      ]
-    }
-  },
-  {
     id: 'sistema-mesa-de-ayuda-e-inventario-ti',
     title: 'Sistema de Mesa de Ayuda e Inventario TI',
     tagline: 'Aplicación web para gestionar solicitudes de soporte técnico, inventario y seguimiento de incidencias.',
@@ -259,6 +77,78 @@ export const projects: Project[] = [
         'Separación de la lógica en backend (NestJS) y cliente web (React) para permitir evolución independiente de servicios y consumo ágil de la API.',
         'Cobertura de 998 pruebas automatizadas en 143 suites con Jest, aislando componentes con dobles de prueba para prevenir fallos en cambios futuros.',
         'Uso de WebSockets (Socket.io) combinado con TanStack Query para actualizar la información en pantalla al momento en que ocurren eventos.'
+      ]
+    }
+  },
+  {
+    id: 'plataforma-core-empresarial',
+    title: 'Plataforma Core Empresarial — Backend & Frontend Web',
+    tagline: 'Plataforma SaaS empresarial modular con NestJS, Prisma 7, PostgreSQL, Redis, BullMQ y React 19',
+    status: 'in_progress',
+    statusLabel: 'En Construcción',
+    description:
+      'Plataforma integral empresarial en construcción activa debido a su alta envergadura y alcance arquitectónico. El backend modular (NestJS) y el frontend web (React) se encuentran plenamente estructurados y operativos, respaldados por una suite de 627 pruebas automatizadas en 119 suites (Jest). Incluye autenticación multifactor (2FA/TOTP), control de acceso jerárquico RBAC, explorador de archivos S3 con escaneo antivirus ClamAV en tiempo real, auditoría inmutable con visor JSON Diff, procesamiento asíncrono con BullMQ y WebSockets. La aplicación móvil complementaria (sistema-phone) se encuentra en etapa preliminar de desarrollo.',
+    highlights: [
+      'Backend modular en NestJS con Prisma ORM 7, réplicas de lectura en PostgreSQL y Redis',
+      'Frontend web moderno en React 19 con Tailwind CSS v4, Zustand y TanStack Query / Table',
+      'Suite de 627 pruebas automatizadas en 119 suites con Jest (100% de éxito en servicios críticos)',
+      'Doble factor de autenticación (2FA/TOTP) desacoplado con InputOTP y códigos de respaldo cifrados',
+      'Control de acceso basado en roles jerárquicos (RBAC) con guardias y directivas dinámicas',
+      'Almacenamiento de archivos en S3 con análisis antivirus en tiempo real mediante ClamAV',
+      'Trazabilidad y auditoría inmutable con visor interactivo de diferencias de estado (JSON Diff)',
+      'Procesamiento en segundo plano con BullMQ y notificaciones en tiempo real vía WebSockets',
+      'Orquestación de infraestructura local con Docker Compose (13 servicios interconectados)',
+      'Cliente móvil complementario (sistema-phone con Expo) en etapa preliminar de desarrollo'
+    ],
+    tags: [
+      { name: 'NestJS', category: 'backend' },
+      { name: 'TypeScript', category: 'backend' },
+      { name: 'React 19', category: 'frontend' },
+      { name: 'Tailwind CSS v4', category: 'frontend' },
+      { name: 'Prisma ORM 7', category: 'backend' },
+      { name: 'PostgreSQL', category: 'database' },
+      { name: 'Redis', category: 'database' },
+      { name: 'BullMQ', category: 'backend' },
+      { name: 'Jest (627 pruebas / 119 suites)', category: 'backend' },
+      { name: 'S3 / ClamAV Antivirus', category: 'devops' },
+      { name: 'Docker Compose', category: 'devops' },
+      { name: 'Socket.io', category: 'backend' }
+    ],
+    githubUrl: 'https://github.com/Nano-DevCode/nestjs-backend-core',
+    secondaryGithubUrl: 'https://github.com/Nano-DevCode/react-frontend-core',
+    liveUrl: undefined,
+    images: {
+      thumbnail: '/projects/core/dashboard-dark.png',
+      gallery: [
+        '/projects/core/dashboard-dark.png',
+        '/projects/core/dashboard-light.png',
+        '/projects/core/2fa-totp-qr.png',
+        '/projects/core/users-table.png',
+        '/projects/core/rbac-matrix.png',
+        '/projects/core/s3-clamav-storage.png',
+        '/projects/core/diff-viewer.png',
+        '/projects/core/observability-health.png',
+        '/projects/core/feature-flags.png',
+        '/projects/core/scalar-api-docs.png',
+        '/projects/core/jest-627-tests-passed.png',
+        '/projects/core/docker-compose-13-services.png'
+      ]
+    },
+    featured: true,
+    technicalDetails: {
+      architecturePattern:
+        'Arquitectura modular limpia en NestJS e interfaz React 19 con separación estricta entre capas de presentación, lógica de estado y transporte de red. Tareas intensivas desacopladas hacia workers BullMQ sobre Redis. Comunicación bidireccional en tiempo real con WebSockets.',
+      stateAndDataManagement:
+        'Persistencia en PostgreSQL con Prisma ORM 7 y soporte de réplicas de lectura. Redis como memoria compartida para sesiones activas, rate limiting y colas de trabajo. En frontend, TanStack Query v5 para sincronización de servidor y Zustand para estado local.',
+      keyChallenges: [
+        'Gestionar la complejidad de una plataforma de gran escala manteniendo módulos independientes y fácilmente mantenibles.',
+        'Garantizar la estabilidad de flujos críticos mediante 627 pruebas automatizadas en Jest previniendo regresiones.',
+        'Integrar escaneo antivirus en streaming con ClamAV en almacenamiento S3 sin comprometer la latencia de la aplicación.'
+      ],
+      engineeringDecisions: [
+        'Separación limpia entre el backend (nestjs-backend-core) y el cliente web (react-frontend-core) para desarrollo y despliegues independientes.',
+        'Implementación de doble factor de autenticación (2FA/TOTP) completamente desacoplado con códigos de respaldo cifrados.',
+        'Desarrollo priorizado del core backend y panel web administrativo antes de culminar el cliente móvil (sistema-phone, actualmente en fase inicial).'
       ]
     }
   },

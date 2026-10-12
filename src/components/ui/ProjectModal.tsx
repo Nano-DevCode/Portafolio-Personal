@@ -42,13 +42,19 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
       >
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 sticky top-0 z-20">
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2.5">
             <h2 id="modal-title" className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
               {project.title}
             </h2>
             {project.featured && (
               <span className="text-[11px] font-semibold uppercase px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30">
                 Destacado
+              </span>
+            )}
+            {project.status === 'in_progress' && (
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                {project.statusLabel || 'En Construcción'}
               </span>
             )}
           </div>
@@ -63,6 +69,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
 
         {/* Content Body */}
         <div className="p-6 overflow-y-auto space-y-8 flex-1">
+          {project.status === 'in_progress' && (
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-900 dark:text-amber-200 text-xs sm:text-sm">
+              <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+              <div className="space-y-1">
+                <p className="font-semibold text-amber-950 dark:text-amber-100">
+                  Proyecto en Construcción Activa
+                </p>
+                <p className="text-amber-800 dark:text-amber-300/90 leading-relaxed text-xs">
+                  Plataforma empresarial de gran envergadura en desarrollo activo. El backend modular (NestJS) y el frontend web (React) disponen de arquitectura robusta, suite de pruebas automatizadas y documentación viva. El cliente móvil complementario se encuentra en etapa preliminar de desarrollo.
+                </p>
+              </div>
+            </div>
+          )}
+
           {/* Tagline & Links */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <p className="text-zinc-600 dark:text-zinc-300 text-base leading-relaxed max-w-xl">

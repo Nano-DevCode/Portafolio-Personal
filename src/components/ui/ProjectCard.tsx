@@ -57,14 +57,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
           </div>
         )}
 
-        {/* Featured Tag si aplica */}
-        {project.featured && (
-          <div className="absolute top-3 left-3 z-10">
+        {/* Badges superiores: Status / Destacado */}
+        <div className="absolute top-3 left-3 z-10 flex flex-wrap items-center gap-1.5">
+          {project.status === 'in_progress' && (
+            <span className="inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30 backdrop-blur-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+              {project.statusLabel || 'En Construcción'}
+            </span>
+          )}
+          {project.featured && (
             <span className="inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30 backdrop-blur-md">
               <Layers className="w-3 h-3" /> Destacado
             </span>
-          </div>
-        )}
+          )}
+        </div>
 
         {/* Zoom & View Hint on hover */}
         <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">

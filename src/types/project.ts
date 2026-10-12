@@ -27,5 +27,7 @@ export interface Project {
     gallery: string[];
   };
   featured: boolean;
+  status?: 'completed' | 'in_progress';
+  statusLabel?: string;
   technicalDetails?: TechnicalArchitecture;
 }
