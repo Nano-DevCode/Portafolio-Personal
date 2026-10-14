@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - Manuel Eduardo Santiago Feria | Backend & Software Engineer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    @page {
+      size: letter;
+      margin: 8mm 10mm 8mm 10mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      font-size: 8.4pt;
+      line-height: 1.3;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    a {
+      color: #0284c7;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+    .header {
+      padding-bottom: 5px;
+      border-bottom: 2.5px solid #0284c7;
+      margin-bottom: 7px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .name {
+      font-size: 18pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    .location {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #64748b;
+    }
+
+    .title {
+      font-size: 9.8pt;
+      font-weight: 700;
+      color: #0284c7;
+      margin-top: 1px;
+      margin-bottom: 4px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      font-size: 7.8pt;
+      color: #475569;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .contact-item strong {
+      color: #0f172a;
+    }
+
+    /* SECTION STYLES */
+    .section {
+      margin-bottom: 7px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 3.5px;
+    }
+
+    .section-icon {
+      display: inline-block;
+      width: 7.5px;
+      height: 7.5px;
+      background-color: #0284c7;
+      border-radius: 1.5px;
+      vertical-align: middle;
+    }
+
+    .section-title {
+      font-size: 8.6pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .summary-text {
+      font-size: 8.1pt;
+      color: #334155;
+      text-align: justify;
+      line-height: 1.32;
+    }
+
+    /* SKILLS GRID */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+
+    .skill-card {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 3.5px 6px;
+      font-size: 7.7pt;
+      line-height: 1.28;
+    }
+
+    .skill-title {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .skill-content {
+      color: #334155;
+    }
+
+    /* EXPERIENCE & PROJECTS */
+    .item {
+      margin-bottom: 5.5px;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .item-title {
+      font-size: 8.6pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .item-date {
+      font-size: 7.6pt;
+      font-weight: 600;
+      color: #64748b;
+      white-space: nowrap;
+    }
+
+    .item-subtitle {
+      font-size: 7.9pt;
+      font-weight: 600;
+      color: #0284c7;
+      margin-top: 0.5px;
+    }
+
+    .tech-badges {
+      font-size: 7.2pt;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: #475569;
+      margin-top: 1px;
+      margin-bottom: 2.5px;
+    }
+
+    .tech-badges .dot {
+      color: #0284c7;
+      font-weight: bold;
+      margin: 0 3px;
+    }
+
+    .bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .bullet-item {
+      position: relative;
+      padding-left: 10px;
+      margin-bottom: 2.2px;
+      font-size: 7.9pt;
+      color: #334155;
+      text-align: justify;
+      line-height: 1.28;
+    }
+
+    .bullet-item::before {
+      content: "•";
+      position: absolute;
+      left: 1px;
+      top: -1px;
+      color: #0284c7;
+      font-weight: bold;
+      font-size: 8.5pt;
+    }
+
+    .bullet-item strong {
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    /* 2 COLUMNS BOTTOM LAYOUT */
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .edu-item, .cert-item {
+      margin-bottom: 3px;
+    }
+
+    .edu-degree {
+      font-size: 8.2pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .edu-school {
+      font-size: 7.7pt;
+      color: #0284c7;
+      font-weight: 600;
+    }
+
+    .edu-details {
+      font-size: 7.4pt;
+      color: #475569;
+      margin-top: 2px;
+      line-height: 1.25;
+    }
+
+    .cert-title {
+      font-size: 7.8pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .cert-issuer {
+      font-size: 7.3pt;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-top">
+        <h1 class="name">Manuel Eduardo Santiago Feria</h1>
+        <span class="location">Oaxaca, Mexico • Open to Remote / Relocation</span>
+      </div>
+      <div class="title">Backend Developer | Software Engineer (Node.js / NestJS / TypeScript / PostgreSQL)</div>
+      <div class="contact-row">
+        <span class="contact-item"><strong>Email:</strong> <a href="mailto:mayka708.ms@gmail.com">mayka708.ms@gmail.com</a></span>
+        <span class="contact-item"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/manuel-eduardo-santiago-feria-a04b5a332/">in/manuel-eduardo-santiago-feria</a></span>
+        <span class="contact-item"><strong>GitHub:</strong> <a href="https://github.com/Nano-DevCode">github.com/Nano-DevCode</a></span>
+        <span class="contact-item"><strong>Portfolio:</strong> <a href="https://portfolio.nano-service.com/">portfolio.nano-service.com</a></span>
+      </div>
+    </header>
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon"></span>
+        <h2 class="section-title">Professional Summary</h2>
+      </div>
+      <p class="summary-text">
+        <strong>Computer Systems Engineering Graduate</strong> specializing in Backend Architecture and Full-Stack Development. Proven track record of building production-ready, scalable RESTful APIs and real-time web applications using <strong>NestJS, Node.js, TypeScript, PostgreSQL, and Redis</strong>. Strongly focused on data integrity, concurrency control, automated testing (<strong>1,600+ unit &amp; integration tests across projects</strong>), and secure containerization with Docker.
+      </p>
+    </section>
+
+    <!-- TECHNICAL SKILLS -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon"></span>
+        <h2 class="section-title">Technical Skills</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <span class="skill-title">Backend &amp; Architecture:</span>
+          <span class="skill-content"> Node.js, NestJS, TypeScript, Go, PHP (Laravel), Python, RESTful APIs, WebSockets (Socket.io), Microservices, BullMQ, JWT / 2FA.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-title">Databases, ORM &amp; Storage:</span>
+          <span class="skill-content"> PostgreSQL (GIN Indexes / Full-Text Search), Redis (Cache &amp; Queues), MySQL, TypeORM, Prisma ORM, MinIO / S3 Object Storage.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-title">Testing, DevOps &amp; Cloud:</span>
+          <span class="skill-content"> Jest (Unit &amp; E2E Testing), Pest PHP, Docker (Distroless / Compose), Google Cloud Platform (GCP), Nginx, Linux, Git, CI/CD.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-title">Frontend &amp; AI Integration:</span>
+          <span class="skill-content"> React 19, TanStack Query, Vue 3, Tailwind CSS, Vite, YOLOv8, ONNX Runtime DirectML, OpenCV.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROFESSIONAL EXPERIENCE -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon"></span>
+        <h2 class="section-title">Professional Experience</h2>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Backend &amp; Full-Stack Developer — Professional Residency</span>
+          <span class="item-date">Dec 2025 — Aug 2026</span>
+        </div>
+        <div class="item-subtitle">Instituto Tecnológico de Oaxaca (TecNM / ITO) • IT Helpdesk, Asset Inventory &amp; Real-Time Support System</div>
+        <div class="tech-badges">
+          NestJS <span class="dot">•</span> TypeScript <span class="dot">•</span> PostgreSQL <span class="dot">•</span> Redis <span class="dot">•</span> TypeORM <span class="dot">•</span> Socket.io <span class="dot">•</span> MinIO S3 <span class="dot">•</span> React <span class="dot">•</span> Docker <span class="dot">•</span> Jest
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Modular Backend &amp; Real-Time Architecture:</strong> Engineered a modular REST API in NestJS and real-time bidirectional communication via WebSockets (Socket.io) to centralize IT support tickets, chatbot workflows, and hardware asset tracking with Role-Based Access Control (RBAC).
+          </li>
+          <li class="bullet-item">
+            <strong>Data Integrity &amp; Concurrency Control:</strong> Implemented atomic database transactions (TypeORM <code>QueryRunner</code>) and optimistic locking (<code>@VersionColumn</code>) to prevent race conditions and data loss when multiple technicians update tickets and inventory simultaneously.
+          </li>
+          <li class="bullet-item">
+            <strong>High-Performance Search &amp; Caching:</strong> Optimized hardware and ticket lookups using PostgreSQL Full-Text Search (<code>tsvector</code> and GIN indexes), paired with Redis in-memory caching, rate limiting, and S3-compatible object storage (MinIO) for ticket attachments.
+          </li>
+          <li class="bullet-item">
+            <strong>Software Quality &amp; Hardened Deployment:</strong> Guaranteed production stability by writing <strong>998 automated unit and integration tests across 143 test suites using Jest</strong>, deploying the application in non-root Docker Distroless containers behind an Nginx reverse proxy.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- KEY ENGINEERING PROJECTS -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon"></span>
+        <h2 class="section-title">Key Engineering Projects</h2>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Enterprise Core SaaS Platform — Backend &amp; Web Architecture</span>
+          <span class="item-date">2025 — 2026</span>
+        </div>
+        <div class="item-subtitle">High-Security Modular SaaS with Asynchronous Task Processing &amp; Automated Testing</div>
+        <div class="tech-badges">
+          NestJS <span class="dot">•</span> TypeScript <span class="dot">•</span> Prisma 7 <span class="dot">•</span> PostgreSQL <span class="dot">•</span> Redis <span class="dot">•</span> BullMQ <span class="dot">•</span> React 19 <span class="dot">•</span> ClamAV <span class="dot">•</span> Jest (627 tests)
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Security &amp; Background Processing:</strong> Designed a multi-tenant SaaS backend featuring decoupled 2FA/TOTP authentication, granular RBAC permissions, asynchronous background job queues with BullMQ/Redis, S3 file storage with automated ClamAV antivirus scanning, and a test suite of <strong>627 automated tests across 119 suites in Jest</strong>.
+          </li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">AI Smart POS — Computer Vision Point of Sale System</span>
+          <span class="item-date">2024 — 2025</span>
+        </div>
+        <div class="item-subtitle">Automated Product Detection, Multi-Object Tracking &amp; GPU-Accelerated Inference</div>
+        <div class="tech-badges">
+          Python <span class="dot">•</span> YOLOv8 <span class="dot">•</span> ONNX Runtime DirectML <span class="dot">•</span> ByteTrack <span class="dot">•</span> OpenCV <span class="dot">•</span> NumPy
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Real-Time Inference Pipeline:</strong> Built an automated checkout system by training a custom YOLOv8 model achieving <strong>97.1% mAP@50</strong> on validation datasets; exported to ONNX Runtime with DirectML GPU acceleration (~21 FPS) and integrated ByteTrack object tracking to prevent duplicate billing in real time.
+          </li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Reactive CMS &amp; Role-Based Publishing Platform</span>
+          <span class="item-date">2024</span>
+        </div>
+        <div class="item-subtitle">Full-Stack Content Management System with Server-Side Reactivity &amp; Automated Testing</div>
+        <div class="tech-badges">
+          Laravel <span class="dot">•</span> PHP <span class="dot">•</span> Livewire Volt <span class="dot">•</span> MySQL <span class="dot">•</span> Spatie RBAC <span class="dot">•</span> Pest PHP (44 tests)
+        </div>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Backend &amp; Automated QA:</strong> Developed a content management platform featuring server-driven reactivity (Livewire Volt), fine-grained role/permission control (Spatie RBAC), automated CSV report generation, and <strong>44 automated feature tests using Pest PHP</strong>.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- BOTTOM GRID: EDUCATION & CERTIFICATIONS -->
+    <div class="two-cols">
+      <!-- EDUCATION -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-icon"></span>
+          <h2 class="section-title">Education</h2>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">B.S. in Computer Systems Engineering</div>
+          <div class="edu-school">Instituto Tecnológico de Oaxaca (TecNM / ITO)</div>
+          <div class="item-date">2021 — 2026 • Graduated (Residency Completed)</div>
+          <p class="edu-details">
+            <strong>Languages:</strong> Spanish (Native) <span style="color:#0284c7;">•</span> English (B1/B2 — Technical Reading, Documentation &amp; Professional Communication).
+          </p>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-icon"></span>
+          <h2 class="section-title">Verified Certifications</h2>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Google Cloud Computing Foundations</div>
+          <div class="cert-issuer">Google Cloud • <a href="https://www.credly.com/badges/afaf62b7-8fc9-4cda-9aad-3985f43ceedf" target="_blank">Credly Badge: afaf62b7</a> • 2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Cloud Security and Operations</div>
+          <div class="cert-issuer">Google Cloud • <a href="https://www.credly.com/badges/88ab965e-b827-4dca-8677-2348e83fc7a3" target="_blank">Credly Badge: 88ab965e</a> • 2026</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>
