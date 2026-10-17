@@ -1,6 +1,7 @@
 import type { Certification } from '../types/certification';
 
 export const certifications: Certification[] = [
+  // --- Google Cloud Computing Foundations (Acreditaciones Principales) ---
   {
     id: 'google-cloud-foundations',
     title: 'Google Cloud Computing Foundations Certificate',
@@ -41,6 +42,109 @@ export const certifications: Certification[] = [
     category: 'ai',
     importance: 4,
   },
+
+  // --- Google Cloud Skill Badges Oficiales (Credly) ---
+  {
+    id: 'gcp-skill-terraform-iac',
+    title: 'Build Infrastructure with Terraform on Google Cloud Skill Badge',
+    issuer: 'Google Cloud (Insignia Credly)',
+    issueDate: '2026',
+    credentialUrl: 'https://www.credly.com/org/google-cloud/badge/build-infrastructure-with-terraform-on-google-cloud',
+    credentialId: '6d5df55b-5709-4733-a948-18db97ec47c6',
+    category: 'devops',
+    importance: 5,
+  },
+  {
+    id: 'gcp-skill-network-setup',
+    title: 'Set Up a Google Cloud Network Skill Badge',
+    issuer: 'Google Cloud (Insignia Credly)',
+    issueDate: '2026',
+    credentialUrl: 'https://www.credly.com/org/google-cloud/badge/set-up-a-google-cloud-network-skill-badge',
+    credentialId: '3c3d114a-6f52-4527-a284-1b43ea8a7560',
+    category: 'cloud',
+    importance: 6,
+  },
+  {
+    id: 'gcp-skill-network-develop',
+    title: 'Develop Your Google Cloud Network Skill Badge',
+    issuer: 'Google Cloud (Insignia Credly)',
+    issueDate: '2026',
+    credentialUrl: 'https://www.credly.com/org/google-cloud/badge/develop-your-google-cloud-network-skill-badge',
+    credentialId: '321d2a02-feb5-4bb4-9508-579fe7846f53',
+    category: 'cloud',
+    importance: 7,
+  },
+  {
+    id: 'gcp-skill-compute-basics',
+    title: 'The Basics of Google Cloud Compute Skill Badge',
+    issuer: 'Google Cloud (Insignia Credly)',
+    issueDate: '2026',
+    credentialUrl: 'https://www.credly.com/org/google-cloud/badge/the-basics-of-google-cloud-compute-skill-badge',
+    credentialId: 'eb1e782e-ae9f-4612-acfe-1b2d86d23db4',
+    category: 'cloud',
+    importance: 8,
+  },
+  {
+    id: 'gcp-skill-storage-dataprotection',
+    title: 'Implement Cloud Storage and Data Protection Solutions Skill Badge',
+    issuer: 'Google Cloud (Insignia Credly)',
+    issueDate: '2026',
+    credentialUrl: 'https://www.credly.com/org/google-cloud/badge/implement-cloud-storage-and-data-protection-solutio',
+    credentialId: '5af92388-f6a1-42ae-97a1-c2e683bbc7ca',
+    category: 'security',
+    importance: 9,
+  },
+  {
+    id: 'gcp-skill-dataplex',
+    title: 'Get Started with Dataplex Skill Badge',
+    issuer: 'Google Cloud (Insignia Credly)',
+    issueDate: '2026',
+    credentialUrl: 'https://www.credly.com/org/google-cloud/badge/get-started-with-dataplex-skill-badge',
+    credentialId: 'ef92f788-5fd7-4006-b0b3-1e6a68535678',
+    category: 'cloud',
+    importance: 10,
+  },
+  {
+    id: 'gcp-skill-genai-streamlit',
+    title: 'Develop GenAI Apps with Gemini and Streamlit Skill Badge',
+    issuer: 'Google Cloud (Insignia Credly)',
+    issueDate: '2026',
+    credentialUrl: 'https://www.credly.com/org/google-cloud/badge/develop-genai-apps-with-gemini-and-streamlit-skill-',
+    credentialId: 'b7365648-cf86-45ff-8f1f-b73482eb89f3',
+    category: 'ai',
+    importance: 11,
+  },
+  {
+    id: 'gcp-skill-gemini-multimodality-rag',
+    title: 'Inspect Rich Documents with Gemini Multimodality and Multimodal RAG Skill Badge',
+    issuer: 'Google Cloud (Insignia Credly)',
+    issueDate: '2026',
+    credentialUrl: 'https://www.credly.com/org/google-cloud/badge/inspect-rich-documents-with-gemini-multimodality-an',
+    credentialId: '8c4cf69f-27ad-4062-80b0-79d71929bcd5',
+    category: 'ai',
+    importance: 12,
+  },
+  {
+    id: 'gcp-skill-ml-apis',
+    title: 'Use Machine Learning APIs on Google Cloud Skill Badge',
+    issuer: 'Google Cloud (Insignia Credly)',
+    issueDate: '2026',
+    credentialUrl: 'https://www.credly.com/org/google-cloud/badge/use-machine-learning-apis-on-google-cloud-skill-bad',
+    credentialId: '5c0ca7ed-cbf8-4a90-b94f-9a3dff3ef207',
+    category: 'ai',
+    importance: 13,
+  },
+  {
+    id: 'gcp-skill-speech-language-apis',
+    title: 'Analyze Speech and Language with Google APIs Skill Badge',
+    issuer: 'Google Cloud (Insignia Credly)',
+    issueDate: '2026',
+    credentialUrl: 'https://www.credly.com/org/google-cloud/badge/analyze-speech-and-language-with-google-apis-skill-',
+    credentialId: 'b682f3a8-93d8-44da-97c0-047cc8f78bc6',
+    category: 'ai',
+    importance: 14,
+  },
+
   // --- Certificaciones de Udemy (Desarrollo Frontend, Backend & Frameworks) ---
   {
     id: 'udemy-react-cero-experto',
@@ -50,7 +154,7 @@ export const certifications: Certification[] = [
     credentialId: 'UC-105c0c43-d68e-4981-b0cc-89e19e037ed2',
     credentialUrl: 'https://www.udemy.com/certificate/UC-105c0c43-d68e-4981-b0cc-89e19e037ed2/',
     category: 'frontend',
-    importance: 5,
+    importance: 15,
   },
   {
     id: 'udemy-nest-backend-escalable',
@@ -60,7 +164,7 @@ export const certifications: Certification[] = [
     credentialId: 'UC-f5b147e8-2355-4307-9916-f95c9646e879',
     credentialUrl: 'https://www.udemy.com/certificate/UC-f5b147e8-2355-4307-9916-f95c9646e879/',
     category: 'backend',
-    importance: 6,
+    importance: 16,
   },
   {
     id: 'udemy-nestjs-reportes-pdf',
@@ -70,7 +174,7 @@ export const certifications: Certification[] = [
     credentialId: 'UC-aa92ccef-55d9-4e2f-9d78-52553d18548f',
     credentialUrl: 'https://www.udemy.com/certificate/UC-aa92ccef-55d9-4e2f-9d78-52553d18548f/',
     category: 'backend',
-    importance: 7,
+    importance: 17,
   },
   {
     id: 'udemy-laravel-12-experto',
@@ -80,7 +184,7 @@ export const certifications: Certification[] = [
     credentialId: 'UC-a8648b6a-b0ee-47a1-9e7f-41f2988d7375',
     credentialUrl: 'https://www.udemy.com/certificate/UC-a8648b6a-b0ee-47a1-9e7f-41f2988d7375/',
     category: 'backend',
-    importance: 8,
+    importance: 18,
   },
   {
     id: 'udemy-vue3-vite-pinia-ts',
@@ -90,8 +194,9 @@ export const certifications: Certification[] = [
     credentialId: 'UC-234e0d27-f8fa-4f89-b2ac-cfcf1b302cb0',
     credentialUrl: 'https://www.udemy.com/certificate/UC-234e0d27-f8fa-4f89-b2ac-cfcf1b302cb0/',
     category: 'frontend',
-    importance: 9,
+    importance: 19,
   },
+
   // --- Formación Académica & IA ---
   {
     id: 'tecnm-infotec-ia',
@@ -101,6 +206,6 @@ export const certifications: Certification[] = [
     credentialId: 'cc5ec5ddddbb4c1d9fd2cdb3fcfa48b3',
     credentialUrl: 'https://mooc.tecnm.mx/portal',
     category: 'academic',
-    importance: 10,
+    importance: 20,
   }
 ];
