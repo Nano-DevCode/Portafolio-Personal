@@ -18,6 +18,7 @@ import {
 import type { Certification } from '../../types/certification';
 import { certifications } from '../../data/certifications';
 import { Button } from '../ui/Button';
+import { Pagination } from '../ui/Pagination';
 
 type FilterType = 'all' | 'cloud' | 'udemy' | 'academic';
 
@@ -69,8 +70,11 @@ const categoryBadges: Record<Certification['category'], { label: string; classNa
   },
 };
 
+const ITEMS_PER_PAGE = 6;
+
 export const CertificationsSection: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Ordenar automáticamente de menor a mayor 'importance' (1 = más relevante)
   const sortedCertifications = useMemo(() => {
@@ -87,8 +91,22 @@ export const CertificationsSection: React.FC = () => {
     return list;
   }, [activeFilter]);
 
+  // Total pages
+  const totalPages = Math.ceil(sortedCertifications.length / ITEMS_PER_PAGE);
+
+  // Paginated items
+  const paginatedCertifications = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return sortedCertifications.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [sortedCertifications, currentPage]);
+
+  const handleFilterChange = (filter: FilterType) => {
+    setActiveFilter(filter);
+    setCurrentPage(1);
+  };
+
   return (
-    <section id="certificaciones" className="py-20 relative border-t border-zinc-200 dark:border-zinc-900 bg-white/40 dark:bg-zinc-950/40 transition-colors">
+    <section id="certificaciones" className="py-20 relative border-t border-zinc-200 dark:border-zinc-900 bg-white/40 dark:bg-zinc-950/40 transition-colors scroll-mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
@@ -112,7 +130,7 @@ export const CertificationsSection: React.FC = () => {
             Filtrar:
           </span>
           <button
-            onClick={() => setActiveFilter('all')}
+            onClick={() => handleFilterChange('all')}
             className={`text-xs px-3.5 py-1.5 rounded-full font-medium transition-colors cursor-pointer shrink-0 ${
               activeFilter === 'all'
                 ? 'bg-cyan-500 text-zinc-950 font-semibold shadow-sm'
@@ -122,7 +140,7 @@ export const CertificationsSection: React.FC = () => {
             Todas ({certifications.length})
           </button>
           <button
-            onClick={() => setActiveFilter('cloud')}
+            onClick={() => handleFilterChange('cloud')}
             className={`text-xs px-3.5 py-1.5 rounded-full font-medium transition-colors cursor-pointer shrink-0 ${
               activeFilter === 'cloud'
                 ? 'bg-cyan-500 text-zinc-950 font-semibold shadow-sm'
@@ -132,7 +150,7 @@ export const CertificationsSection: React.FC = () => {
             Google Cloud (Credly)
           </button>
           <button
-            onClick={() => setActiveFilter('udemy')}
+            onClick={() => handleFilterChange('udemy')}
             className={`text-xs px-3.5 py-1.5 rounded-full font-medium transition-colors cursor-pointer shrink-0 ${
               activeFilter === 'udemy'
                 ? 'bg-cyan-500 text-zinc-950 font-semibold shadow-sm'
@@ -142,7 +160,7 @@ export const CertificationsSection: React.FC = () => {
             Especializaciones Udemy
           </button>
           <button
-            onClick={() => setActiveFilter('academic')}
+            onClick={() => handleFilterChange('academic')}
             className={`text-xs px-3.5 py-1.5 rounded-full font-medium transition-colors cursor-pointer shrink-0 ${
               activeFilter === 'academic'
                 ? 'bg-cyan-500 text-zinc-950 font-semibold shadow-sm'
@@ -155,7 +173,7 @@ export const CertificationsSection: React.FC = () => {
 
         {/* Certifications Grid */}
         <div className="grid md:grid-cols-2 gap-6">
-          {sortedCertifications.map((cert) => {
+          {paginatedCertifications.map((cert) => {
             const cat = categoryBadges[cert.category] || categoryBadges.other;
             const isTopRanked = cert.importance === 1;
 
@@ -232,6 +250,17 @@ export const CertificationsSection: React.FC = () => {
             );
           })}
         </div>
+
+        {/* Pagination Component */}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          totalItems={sortedCertifications.length}
+          itemsPerPage={ITEMS_PER_PAGE}
+          onPageChange={setCurrentPage}
+          itemLabel="certificaciones"
+          scrollToId="certificaciones"
+        />
       </div>
     </section>
   );

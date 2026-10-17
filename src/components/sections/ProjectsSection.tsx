@@ -3,6 +3,7 @@ import { Filter, Search, Code2, Sparkles } from 'lucide-react';
 import type { Project, TechCategory } from '../../types/project';
 import { ProjectCard } from '../ui/ProjectCard';
 import { ProjectModal } from '../ui/ProjectModal';
+import { Pagination } from '../ui/Pagination';
 
 interface ProjectsSectionProps {
   projects: Project[];
@@ -20,10 +21,13 @@ const categoryLabels: Record<FilterCategory, string> = {
   ai: 'IA & Computer Vision',
 };
 
+const ITEMS_PER_PAGE = 3;
+
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
   const [selectedCategory, setSelectedCategory] = useState<FilterCategory>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Available categories present in existing project tags
   const availableCategories = useMemo(() => {
@@ -54,8 +58,27 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
     });
   }, [projects, selectedCategory, searchQuery]);
 
+  // Total pages
+  const totalPages = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE);
+
+  // Paginated subset of projects
+  const paginatedProjects = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filteredProjects.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [filteredProjects, currentPage]);
+
+  const handleCategoryChange = (cat: FilterCategory) => {
+    setSelectedCategory(cat);
+    setCurrentPage(1);
+  };
+
+  const handleSearchChange = (query: string) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
+  };
+
   return (
-    <section id="proyectos" className="py-20 relative transition-colors">
+    <section id="proyectos" className="py-20 relative transition-colors scroll-mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
@@ -80,7 +103,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
               Filtrar:
             </span>
             <button
-              onClick={() => setSelectedCategory('all')}
+              onClick={() => handleCategoryChange('all')}
               className={`text-xs px-3.5 py-1.5 rounded-full font-medium transition-colors cursor-pointer shrink-0 ${
                 selectedCategory === 'all'
                   ? 'bg-cyan-500 text-zinc-950 font-semibold shadow-sm'
@@ -96,7 +119,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
               return (
                 <button
                   key={category}
-                  onClick={() => setSelectedCategory(category)}
+                  onClick={() => handleCategoryChange(category)}
                   className={`text-xs px-3.5 py-1.5 rounded-full font-medium transition-colors cursor-pointer shrink-0 capitalize ${
                     selectedCategory === category
                       ? 'bg-cyan-500 text-zinc-950 font-semibold shadow-sm'
@@ -115,24 +138,36 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
             <input
               type="text"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => handleSearchChange(e.target.value)}
               placeholder="Buscar por tecnología o nombre..."
               className="w-full pl-9 pr-4 py-2 bg-white dark:bg-zinc-900/90 border border-zinc-300 dark:border-zinc-800 rounded-xl text-xs text-zinc-900 dark:text-zinc-200 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-cyan-500/50 transition-colors shadow-xs"
             />
           </div>
         </div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid with Pagination */}
         {filteredProjects.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                onSelect={(proj) => setSelectedProject(proj)}
-              />
-            ))}
-          </div>
+          <>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {paginatedProjects.map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  onSelect={(proj) => setSelectedProject(proj)}
+                />
+              ))}
+            </div>
+
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              totalItems={filteredProjects.length}
+              itemsPerPage={ITEMS_PER_PAGE}
+              onPageChange={setCurrentPage}
+              itemLabel="proyectos"
+              scrollToId="proyectos"
+            />
+          </>
         ) : (
           <div className="text-center py-16 px-4 bg-zinc-100/60 dark:bg-zinc-900/30 rounded-2xl border border-zinc-200 dark:border-zinc-800">
             <Code2 className="w-12 h-12 text-zinc-400 dark:text-zinc-600 mx-auto mb-3" />
