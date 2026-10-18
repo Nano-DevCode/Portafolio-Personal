@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FileText, ChevronDown, Download, Check, Sparkles } from 'lucide-react';
+import { FileText, ChevronDown, Download, Check, Sparkles, Globe } from 'lucide-react';
 
 interface CvDownloadDropdownProps {
   size?: 'sm' | 'md' | 'lg';
@@ -102,7 +102,7 @@ export const CvDownloadDropdown: React.FC<CvDownloadDropdownProps> = ({
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between gap-1.5">
                 <span className="text-xs font-bold text-zinc-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                  CV Resumido
+                  CV Resumido (ES)
                 </span>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 font-medium">
                   1 Página
@@ -129,14 +129,41 @@ export const CvDownloadDropdown: React.FC<CvDownloadDropdownProps> = ({
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between gap-1.5">
                 <span className="text-xs font-bold text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                  CV Extendido
+                  CV Extendido (ES)
                 </span>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-medium border border-indigo-500/20">
                   2 Páginas
                 </span>
               </div>
               <p className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5 leading-snug">
-                Incluye arquitectura profunda, MinIO S3 y todos los proyectos.
+                Incluye arquitectura detallada, MinIO S3 y todos los proyectos.
+              </p>
+            </div>
+          </a>
+
+          {/* Opción 3: Versión en Inglés (1 Página) */}
+          <a
+            href="/cv-corto-ingles.pdf"
+            target="_blank"
+            download="Resume_Manuel_Santiago_EN.pdf"
+            onClick={() => setIsOpen(false)}
+            className="flex items-start gap-3 px-3.5 py-2.5 mx-1.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800/60 transition-colors group text-left mt-1"
+            role="menuitem"
+          >
+            <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 group-hover:scale-105 transition-transform mt-0.5 shrink-0">
+              <Globe className="w-4 h-4" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between gap-1.5">
+                <span className="text-xs font-bold text-zinc-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  Resume in English (EN)
+                </span>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 font-medium border border-emerald-500/20">
+                  1 Page
+                </span>
+              </div>
+              <p className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5 leading-snug">
+                Versión en inglés optimizada para vacantes internacionales o remotas.
               </p>
             </div>
           </a>

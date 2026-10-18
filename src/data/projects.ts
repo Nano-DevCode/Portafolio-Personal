@@ -139,7 +139,7 @@ export const projects: Project[] = [
     featured: true,
     technicalDetails: {
       architecturePattern:
-        'Arquitectura modular limpia en NestJS e interfaz React 19 con separación estricta entre capas de presentación, lógica de estado y transporte de red. Tareas intensivas desacopladas hacia workers BullMQ sobre Redis. Comunicación bidireccional en tiempo real con WebSockets.',
+        'Arquitectura modular en NestJS e interfaz React 19 con separación estricta entre capas de presentación, lógica de estado y transporte de red. Tareas intensivas desacopladas hacia workers BullMQ sobre Redis. Comunicación bidireccional en tiempo real con WebSockets.',
       stateAndDataManagement:
         'Persistencia en PostgreSQL con Prisma ORM 7 y soporte de réplicas de lectura. Redis como memoria compartida para sesiones activas, rate limiting y colas de trabajo. En frontend, TanStack Query v5 para sincronización de servidor y Zustand para estado local.',
       keyChallenges: [

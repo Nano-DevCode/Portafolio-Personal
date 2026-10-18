@@ -239,7 +239,7 @@ export const ContactSection: React.FC = () => {
           <div className="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800/80 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs text-zinc-600 dark:text-zinc-400">
             <div className="inline-flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
-              <span>México (CST / UTC-6) • Remoto o Presencial</span>
+              <span>Oaxaca, México (CST / UTC-6) • 100% Remoto / Presencial solo en Oaxaca</span>
             </div>
 
             <div className="inline-flex items-center gap-1.5">

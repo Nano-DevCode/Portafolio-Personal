@@ -130,7 +130,7 @@ export const AboutSection: React.FC = () => {
               {/* Badge de Disponibilidad */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 text-xs font-medium mb-5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Disponible para contratación • 100% Remoto / Presencial en Oaxaca</span>
+                <span>Disponible • Oaxaca, México • 100% Remoto / Presencial solo en Oaxaca</span>
               </div>
 
               {/* Nombre y Cargo */}
