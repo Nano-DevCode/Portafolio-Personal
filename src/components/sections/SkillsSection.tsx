@@ -110,6 +110,7 @@ const skillCategories: SkillCategory[] = [
     practicalFocus: 'Docker multi-stage Distroless non-root e IaC con Terraform',
     skills: [
       { name: 'Docker (Multi-stage)', isPrimary: true },
+      { name: 'AWS (Cloud Practitioner)', isPrimary: true },
       { name: 'Google Cloud (14 Badges)', isPrimary: true },
       { name: 'Terraform (IaC)', isPrimary: true },
       { name: 'Nginx (Reverse Proxy)', isPrimary: true },

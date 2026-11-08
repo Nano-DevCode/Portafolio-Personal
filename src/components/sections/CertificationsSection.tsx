@@ -80,7 +80,12 @@ export const CertificationsSection: React.FC = () => {
   const sortedCertifications = useMemo(() => {
     const list = [...certifications].sort((a, b) => a.importance - b.importance);
     if (activeFilter === 'cloud') {
-      return list.filter((c) => c.issuer.toLowerCase().includes('google'));
+      return list.filter(
+        (c) =>
+          c.issuer.toLowerCase().includes('google') ||
+          c.issuer.toLowerCase().includes('aws') ||
+          c.issuer.toLowerCase().includes('credly')
+      );
     }
     if (activeFilter === 'udemy') {
       return list.filter((c) => c.issuer.toLowerCase().includes('udemy'));
@@ -118,7 +123,7 @@ export const CertificationsSection: React.FC = () => {
             Certificaciones Oficiales & Especializaciones
           </h2>
           <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
-            Acreditaciones internacionales de <strong className="text-zinc-900 dark:text-white font-semibold">Google Cloud (Credly)</strong>, 
+            Acreditaciones internacionales de <strong className="text-zinc-900 dark:text-white font-semibold">Google Cloud y AWS (Credly)</strong>, 
             cursos especializados de <strong className="text-zinc-900 dark:text-white font-semibold">Udemy</strong> y formación académica del <strong className="text-zinc-900 dark:text-white font-semibold">TecNM / INFOTEC</strong>.
           </p>
         </div>
@@ -147,7 +152,7 @@ export const CertificationsSection: React.FC = () => {
                 : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-zinc-800'
             }`}
           >
-            Google Cloud (Credly)
+            AWS & Google Cloud (Credly)
           </button>
           <button
             onClick={() => handleFilterChange('udemy')}
