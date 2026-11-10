@@ -51,7 +51,7 @@ const milestones: TimelineMilestone[] = [
     institution: 'AWS & Google Cloud (Credly) • Udemy • INFOTEC',
     icon: <Layers className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
     description:
-      '15 acreditaciones oficiales en la nube (AWS Cloud Quest: Cloud Practitioner y 14 insignias de Google Cloud) en fundamentos de computación, redes, infraestructura con Terraform, seguridad y modelos GenAI. Formación continua en APIs backend modulares, tipado estricto con TypeScript y contenedores Docker.',
+      '16 acreditaciones oficiales en la nube (AWS Cloud Quest: Solutions Architect, AWS Cloud Practitioner y 14 insignias de Google Cloud) en arquitectura de soluciones, redes, infraestructura con Terraform, seguridad y modelos GenAI. Formación continua en APIs backend modulares, tipado estricto con TypeScript y contenedores Docker.',
     tags: ['AWS', 'Google Cloud', 'Terraform', 'Docker', 'Linux', 'Testing']
   },
   {
@@ -180,7 +180,7 @@ export const AboutSection: React.FC = () => {
                   <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Pruebas Automatizadas</span>
                 </div>
                 <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200/60 dark:border-zinc-800">
-                  <span className="block text-base font-bold text-indigo-600 dark:text-indigo-400 font-mono">15</span>
+                  <span className="block text-base font-bold text-indigo-600 dark:text-indigo-400 font-mono">16</span>
                   <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Insignias Cloud (AWS & GCP)</span>
                 </div>
                 <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200/60 dark:border-zinc-800">

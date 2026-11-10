@@ -13,6 +13,16 @@ export const certifications: Certification[] = [
     importance: 1,
   },
   {
+    id: 'aws-cloud-quest-solutions-architect',
+    title: 'AWS Cloud Quest: Solutions Architect',
+    issuer: 'Amazon Web Services (AWS) • Verificado en Credly',
+    issueDate: '2026',
+    credentialUrl: 'https://www.credly.com/badges/9af9ebae-f80f-4715-b45c-fe28959f5d5b',
+    credentialId: '9af9ebae-f80f-4715-b45c-fe28959f5d5b',
+    category: 'cloud',
+    importance: 2,
+  },
+  {
     id: 'aws-cloud-quest-practitioner',
     title: 'AWS Cloud Quest: Cloud Practitioner',
     issuer: 'Amazon Web Services (AWS) • Verificado en Credly',
@@ -20,7 +30,7 @@ export const certifications: Certification[] = [
     credentialUrl: 'https://www.credly.com/badges/701bebc0-59c0-41dd-859f-31cba8bda9d3',
     credentialId: '701bebc0-59c0-41dd-859f-31cba8bda9d3',
     category: 'cloud',
-    importance: 2,
+    importance: 3,
   },
   {
     id: 'google-cloud-security-operations',
@@ -30,7 +40,7 @@ export const certifications: Certification[] = [
     credentialUrl: 'https://www.credly.com/badges/88ab965e-b827-4dca-8677-2348e83fc7a3',
     credentialId: '88ab965e-b827-4dca-8677-2348e83fc7a3',
     category: 'security',
-    importance: 3,
+    importance: 4,
   },
   {
     id: 'google-cloud-infrastructure',
@@ -40,7 +50,7 @@ export const certifications: Certification[] = [
     credentialUrl: 'https://www.credly.com/badges/57991d00-75e9-4186-88bc-c7c9762812dc',
     credentialId: '57991d00-75e9-4186-88bc-c7c9762812dc',
     category: 'cloud',
-    importance: 4,
+    importance: 5,
   },
   {
     id: 'google-cloud-data-ml-ai',
@@ -50,7 +60,7 @@ export const certifications: Certification[] = [
     credentialUrl: 'https://www.credly.com/badges/27ff4f8b-150c-4153-a2bb-36c2cb18d2c5',
     credentialId: '27ff4f8b-150c-4153-a2bb-36c2cb18d2c5',
     category: 'ai',
-    importance: 5,
+    importance: 6,
   },
 
   // --- Google Cloud Skill Badges Oficiales (Credly) ---
@@ -62,7 +72,7 @@ export const certifications: Certification[] = [
     credentialUrl: 'https://www.credly.com/org/google-cloud/badge/build-infrastructure-with-terraform-on-google-cloud',
     credentialId: '6d5df55b-5709-4733-a948-18db97ec47c6',
     category: 'devops',
-    importance: 6,
+    importance: 7,
   },
   {
     id: 'gcp-skill-network-setup',
@@ -72,7 +82,7 @@ export const certifications: Certification[] = [
     credentialUrl: 'https://www.credly.com/org/google-cloud/badge/set-up-a-google-cloud-network-skill-badge',
     credentialId: '3c3d114a-6f52-4527-a284-1b43ea8a7560',
     category: 'cloud',
-    importance: 7,
+    importance: 8,
   },
   {
     id: 'gcp-skill-network-develop',
@@ -82,7 +92,7 @@ export const certifications: Certification[] = [
     credentialUrl: 'https://www.credly.com/org/google-cloud/badge/develop-your-google-cloud-network-skill-badge',
     credentialId: '321d2a02-feb5-4bb4-9508-579fe7846f53',
     category: 'cloud',
-    importance: 8,
+    importance: 9,
   },
   {
     id: 'gcp-skill-compute-basics',
@@ -92,7 +102,7 @@ export const certifications: Certification[] = [
     credentialUrl: 'https://www.credly.com/org/google-cloud/badge/the-basics-of-google-cloud-compute-skill-badge',
     credentialId: 'eb1e782e-ae9f-4612-acfe-1b2d86d23db4',
     category: 'cloud',
-    importance: 9,
+    importance: 10,
   },
   {
     id: 'gcp-skill-storage-dataprotection',
@@ -102,7 +112,7 @@ export const certifications: Certification[] = [
     credentialUrl: 'https://www.credly.com/org/google-cloud/badge/implement-cloud-storage-and-data-protection-solutio',
     credentialId: '5af92388-f6a1-42ae-97a1-c2e683bbc7ca',
     category: 'security',
-    importance: 10,
+    importance: 11,
   },
   {
     id: 'gcp-skill-dataplex',
@@ -112,7 +122,7 @@ export const certifications: Certification[] = [
     credentialUrl: 'https://www.credly.com/org/google-cloud/badge/get-started-with-dataplex-skill-badge',
     credentialId: 'ef92f788-5fd7-4006-b0b3-1e6a68535678',
     category: 'cloud',
-    importance: 11,
+    importance: 12,
   },
   {
     id: 'gcp-skill-genai-streamlit',
@@ -122,7 +132,7 @@ export const certifications: Certification[] = [
     credentialUrl: 'https://www.credly.com/org/google-cloud/badge/develop-genai-apps-with-gemini-and-streamlit-skill-',
     credentialId: 'b7365648-cf86-45ff-8f1f-b73482eb89f3',
     category: 'ai',
-    importance: 12,
+    importance: 13,
   },
   {
     id: 'gcp-skill-gemini-multimodality-rag',
@@ -132,7 +142,7 @@ export const certifications: Certification[] = [
     credentialUrl: 'https://www.credly.com/org/google-cloud/badge/inspect-rich-documents-with-gemini-multimodality-an',
     credentialId: '8c4cf69f-27ad-4062-80b0-79d71929bcd5',
     category: 'ai',
-    importance: 13,
+    importance: 14,
   },
   {
     id: 'gcp-skill-ml-apis',
@@ -142,7 +152,7 @@ export const certifications: Certification[] = [
     credentialUrl: 'https://www.credly.com/org/google-cloud/badge/use-machine-learning-apis-on-google-cloud-skill-bad',
     credentialId: '5c0ca7ed-cbf8-4a90-b94f-9a3dff3ef207',
     category: 'ai',
-    importance: 14,
+    importance: 15,
   },
   {
     id: 'gcp-skill-speech-language-apis',
@@ -152,7 +162,7 @@ export const certifications: Certification[] = [
     credentialUrl: 'https://www.credly.com/org/google-cloud/badge/analyze-speech-and-language-with-google-apis-skill-',
     credentialId: 'b682f3a8-93d8-44da-97c0-047cc8f78bc6',
     category: 'ai',
-    importance: 15,
+    importance: 16,
   },
 
   // --- Certificaciones de Udemy (Desarrollo Frontend, Backend & Frameworks) ---
@@ -164,7 +174,7 @@ export const certifications: Certification[] = [
     credentialId: 'UC-105c0c43-d68e-4981-b0cc-89e19e037ed2',
     credentialUrl: 'https://www.udemy.com/certificate/UC-105c0c43-d68e-4981-b0cc-89e19e037ed2/',
     category: 'frontend',
-    importance: 16,
+    importance: 17,
   },
   {
     id: 'udemy-nest-backend-escalable',
@@ -174,7 +184,7 @@ export const certifications: Certification[] = [
     credentialId: 'UC-f5b147e8-2355-4307-9916-f95c9646e879',
     credentialUrl: 'https://www.udemy.com/certificate/UC-f5b147e8-2355-4307-9916-f95c9646e879/',
     category: 'backend',
-    importance: 17,
+    importance: 18,
   },
   {
     id: 'udemy-nestjs-reportes-pdf',
@@ -184,7 +194,7 @@ export const certifications: Certification[] = [
     credentialId: 'UC-aa92ccef-55d9-4e2f-9d78-52553d18548f',
     credentialUrl: 'https://www.udemy.com/certificate/UC-aa92ccef-55d9-4e2f-9d78-52553d18548f/',
     category: 'backend',
-    importance: 18,
+    importance: 19,
   },
   {
     id: 'udemy-laravel-12-experto',
@@ -194,7 +204,7 @@ export const certifications: Certification[] = [
     credentialId: 'UC-a8648b6a-b0ee-47a1-9e7f-41f2988d7375',
     credentialUrl: 'https://www.udemy.com/certificate/UC-a8648b6a-b0ee-47a1-9e7f-41f2988d7375/',
     category: 'backend',
-    importance: 19,
+    importance: 20,
   },
   {
     id: 'udemy-vue3-vite-pinia-ts',
@@ -204,7 +214,7 @@ export const certifications: Certification[] = [
     credentialId: 'UC-234e0d27-f8fa-4f89-b2ac-cfcf1b302cb0',
     credentialUrl: 'https://www.udemy.com/certificate/UC-234e0d27-f8fa-4f89-b2ac-cfcf1b302cb0/',
     category: 'frontend',
-    importance: 20,
+    importance: 21,
   },
 
   // --- Formación Académica & IA ---
@@ -216,6 +226,6 @@ export const certifications: Certification[] = [
     credentialId: 'cc5ec5ddddbb4c1d9fd2cdb3fcfa48b3',
     credentialUrl: 'https://mooc.tecnm.mx/portal',
     category: 'academic',
-    importance: 21,
+    importance: 22,
   }
 ];
