@@ -44,15 +44,15 @@ const skillCategories: SkillCategory[] = [
     practicalFocus: 'Arquitectura modular, DTOs validados y servicios desacoplados',
     skills: [
       { name: 'NestJS', isPrimary: true },
+      { name: 'Java & Spring Boot', isPrimary: true },
       { name: 'TypeScript', isPrimary: true },
       { name: 'Node.js', isPrimary: true },
       { name: 'Laravel (PHP)', isPrimary: true },
-      { name: 'PHP', isPrimary: true },
       { name: 'Python', isPrimary: true },
-      { name: 'APIs REST', isPrimary: true },
-      { name: 'TypeORM' },
-      { name: 'WebSockets (Socket.io)' },
-      { name: 'Livewire Volt' }
+      { name: 'APIs REST (JSON / XML)', isPrimary: true },
+      { name: 'Arquitectura APX / ASO' },
+      { name: 'TypeORM / Prisma / JDBC' },
+      { name: 'WebSockets (Socket.io)' }
     ]
   },
   {
@@ -129,14 +129,14 @@ const skillCategories: SkillCategory[] = [
     iconColor: 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20',
     description:
       'Pruebas unitarias y de integración para garantizar que las reglas de negocio, endpoints y transacciones funcionen sin regresiones.',
-    practicalFocus: '998 pruebas Jest en NestJS y 44 pruebas Pest PHP en Laravel',
+    practicalFocus: '998+ pruebas Jest en NestJS, JUnit 5 / JaCoCo en Java y Pest PHP en Laravel',
     skills: [
-      { name: 'Jest (998 pruebas / 143 suites)', isPrimary: true },
+      { name: 'Jest (1,625 pruebas en NestJS)', isPrimary: true },
+      { name: 'JUnit 5 & JaCoCo (Java)', isPrimary: true },
       { name: 'Pest PHP (44 pruebas / 116 aserciones)', isPrimary: true },
-      { name: 'Pruebas Unitarias', isPrimary: true },
-      { name: 'Pruebas de Integración', isPrimary: true },
-      { name: 'Supertest', isPrimary: true },
-      { name: 'Mocks & Spies' }
+      { name: 'Pruebas Unitarias & E2E', isPrimary: true },
+      { name: 'SonarQube Quality Gate', isPrimary: true },
+      { name: 'Mocks & Reflexión Arquitectónica' }
     ]
   },
   {

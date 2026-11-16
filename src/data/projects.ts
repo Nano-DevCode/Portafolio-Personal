@@ -155,6 +155,60 @@ export const projects: Project[] = [
     }
   },
   {
+    id: 'nexus-bank-apx-java',
+    title: 'NexusBank APX Core — Motor Transaccional Bancario (Java & Spring Boot)',
+    tagline: 'Simulador bancario con arquitectura en capas ASO/APX, transferencias SPEI con bloqueo pesimista, CEP XML, batch Control-M y 27 pruebas en JUnit 5.',
+    description:
+      'Motor transaccional bancario inspirado en la arquitectura corporativa BBVA APX + ASO, desarrollado con Java 25 (Virtual Threads) y Spring Boot 4. Implementa una separación estricta de capas gobernada por pruebas automatizadas de reflexión: capa de exposición REST/XML (ASO), interceptor AOP de ciclo de vida y manejo de errores mediante ThreadLocal Advices (APX Context), orquestadores transaccionales (@Transactional APX Trx) y librerías de acceso a datos con SQL explícito vía JdbcTemplate (APX Lib). Incluye transferencias SPEI protegidas contra doble gasto mediante bloqueo pesimista (SELECT ... FOR UPDATE) e Idempotency-Key, emisión de Comprobantes Electrónicos de Pago (CEP Banxico en XML), ejecución de procesos batch nocturnos estilo Control-M, publicación de eventos hacia Kafka con enmascaramiento de datos sensibles (PII) y pipeline CI/CD para Jenkins, SonarQube y Red Hat OpenShift.',
+    highlights: [
+      'Separación estricta de capas ASO (REST Controller + Java Records @Valid) y APX (Transacciones @Transactional y Librerías JdbcTemplate)',
+      'Motor AOP (@Around ApxExecutionAspect) que administra ThreadLocal<List<Advice>>, audita tiempos de ejecución y dispara Rollback automático ante errores de negocio (BBE001–BBE006)',
+      'Transferencias SPEI con bloqueo pesimista en base de datos (SELECT ... FOR UPDATE) y validación de cabecera X-Idempotency-Key para prevenir cobros duplicados',
+      'Generación de Comprobantes Electrónicos de Pago (CEP Banxico) en formato XML y proceso batch nocturno de cálculo de intereses (Control-M NightlyBatchTrx)',
+      'Publicación de eventos de movimientos SPEI (KafkaEventLib) con enmascaramiento automático de cuentas bancarias (PII Masking) en logs y payloads',
+      'Suite de 27 pruebas automatizadas en 7 clases de prueba con JUnit 5, cobertura JaCoCo y pruebas de gobierno arquitectónico por reflexión (ArchitectureGovernanceTest)',
+      'Pipeline declarativo Jenkinsfile con Quality Gate en SonarQube, Dockerfile multi-stage con ZGC non-root y manifiestos para Red Hat OpenShift'
+    ],
+    tags: [
+      { name: 'Java 25 (Virtual Threads)', category: 'backend' },
+      { name: 'Spring Boot 4', category: 'backend' },
+      { name: 'Arquitectura BBVA APX / ASO', category: 'backend' },
+      { name: 'Spring JDBC / SQL (Modo Oracle)', category: 'database' },
+      { name: 'Spring AOP / ThreadLocal Advices', category: 'backend' },
+      { name: 'REST JSON & CEP XML', category: 'backend' },
+      { name: 'JUnit 5 & JaCoCo (27 pruebas)', category: 'backend' },
+      { name: 'Maven', category: 'devops' },
+      { name: 'Jenkins & SonarQube', category: 'devops' },
+      { name: 'OpenShift & Docker', category: 'devops' }
+    ],
+    githubUrl: 'https://github.com/Nano-DevCode/nexus-bank-apx-java',
+    liveUrl: undefined,
+    images: {
+      thumbnail: '/nexus-bank-apx-preview.svg',
+      gallery: [
+        '/nexus-bank-apx-preview.svg',
+        '/nexus-bank-apx-architecture.svg'
+      ]
+    },
+    featured: true,
+    technicalDetails: {
+      architecturePattern:
+        'Arquitectura bancaria multicapa ASO + APX. La capa ASO expone endpoints REST JSON y XML validando contratos con Java Records (@Valid), delegando exclusivamente a la capa de Transacciones APX (SpeiTransferTrx, AccountQueryTrx, NightlyBatchTrx), las cuales consumen interfaces de Librerías APX (AccountLib, KafkaEventLib) sin acoplarse a la implementación ni a JdbcTemplate.',
+      stateAndDataManagement:
+        'Persistencia relacional mediante SQL explícito con Spring JdbcTemplate (jdbcUtils) sobre esquema compatible con modo Oracle. Control de concurrencia pesimista (SELECT balance FROM accounts WHERE account_number = ? FOR UPDATE) y tabla de claves de idempotencia (idempotency_keys) para garantizar atomicidad ACID y evitar condiciones de carrera en transferencias simultáneas.',
+      keyChallenges: [
+        'Garantizar que ninguna capa superior (ASO o Transacciones) viole las reglas de arquitectura inyectando directamente JdbcTemplate o implementaciones concretas de librerías.',
+        'Manejar errores de negocio bancario sin ensuciar la lógica con excepciones manuales, recolectando códigos BBE001–BBE006 en un contexto ThreadLocal que dispara Rollback transaccional automático vía Spring AOP.',
+        'Prevenir el doble gasto en transferencias SPEI concurrentes y proteger la privacidad de los números de cuenta en bitácoras y eventos asíncronos.'
+      ],
+      engineeringDecisions: [
+        'Implementación de ArchitectureGovernanceTest con reflexión en JUnit 5 para fallar el build automáticamente si un controlador o transacción viola el aislamiento de capas ASO/APX.',
+        'Uso de Virtual Threads de Java y recolector ZGC en contenedor Alpine JRE non-root junto con manifiestos Deployment, Service y Route para Red Hat OpenShift.',
+        'Integración de consola web interactiva de diagnóstico ASO/APX y documentación OpenAPI/Swagger para facilitar pruebas de transferencia, batch Control-M y consulta de CEP XML.'
+      ]
+    }
+  },
+  {
     id: 'tiendita-ia-pos',
     title: 'Tiendita Inteligente IA — Punto de Venta con Visión Artificial',
     tagline: 'Punto de venta y control de inventario con YOLOv8, ONNX DirectML y ByteTrack',

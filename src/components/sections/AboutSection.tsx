@@ -38,12 +38,12 @@ const milestones: TimelineMilestone[] = [
   },
   {
     period: '2024 — Presente',
-    title: 'Desarrollador Full-Stack — Proyectos de Software',
-    institution: 'Nano-DevCode • Proyectos Independientes',
+    title: 'Desarrollador Backend & Full-Stack — Proyectos de Ingeniería',
+    institution: 'Nano-DevCode • Proyectos de Código Abierto',
     icon: <Code2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />,
     description:
-      'Desarrollo de soluciones de software de código abierto: punto de venta asistido por visión artificial (YOLOv8 + ONNX DirectML; 97.1% mAP@50 en dataset propio), gestor de contenidos en Laravel con 44 pruebas automatizadas (Pest), ecommerce con Vue 3 / Pinia y app móvil en React Native.',
-    tags: ['Edge AI / YOLOv8', 'Laravel', 'Vue 3', 'React Native', 'Pest PHP']
+      'Desarrollo de sistemas backend y full-stack: motor transaccional bancario con Java 25 y Spring Boot bajo arquitectura BBVA APX/ASO (SPEI con bloqueo FOR UPDATE, CEP XML, batch Control-M y 27 pruebas JUnit 5), plataforma SaaS empresarial con NestJS/Prisma (627 pruebas Jest), punto de venta con visión artificial (YOLOv8 97.1% mAP@50) y CMS en Laravel (44 pruebas Pest).',
+    tags: ['Java / Spring Boot', 'Arquitectura APX/ASO', 'NestJS', 'YOLOv8', 'Laravel']
   },
   {
     period: '2024 — Presente',

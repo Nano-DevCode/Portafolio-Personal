@@ -328,7 +328,7 @@
         <h2 class="section-title">Perfil Profesional</h2>
       </div>
       <p class="summary-text">
-        <strong>Egresado de Ingeniería en Sistemas Computacionales</strong> con sólida formación técnica y enfoque en desarrollo de software, especializado en arquitecturas backend y soluciones full-stack. Experiencia comprobada diseñando e implementando APIs REST modulares con <strong>NestJS</strong> y <strong>Laravel</strong>, modelado de datos relacionales en <strong>PostgreSQL</strong> y <strong>MySQL</strong> con transacciones explícitas, control de concurrencia optimista y caché en memoria con <strong>Redis</strong>. Implementación rigurosa de pruebas automatizadas (<strong>998 tests en Jest</strong> y pruebas funcionales en <strong>Pest PHP</strong>) y despliegue contenerizado mediante <strong>Docker</strong> sobre Linux. Orientado a código limpio, prevención de pérdida de datos y rápida integración a equipos de desarrollo.
+        <strong>Egresado de Ingeniería en Sistemas Computacionales</strong> con sólida formación técnica y enfoque en desarrollo de software, especializado en arquitecturas backend y soluciones full-stack. Experiencia comprobada diseñando e implementando APIs REST y motores transaccionales con <strong>NestJS, Java (Spring Boot / Arquitectura APX-ASO) y Laravel</strong>, modelado de datos relacionales en <strong>PostgreSQL, SQL (Modo Oracle) y MySQL</strong> con transacciones explícitas, bloqueo pesimista/optimista y caché en memoria con <strong>Redis</strong>. Implementación rigurosa de pruebas automatizadas (<strong>1,625 tests en Jest, 27 tests en JUnit 5 / JaCoCo y 44 tests en Pest PHP</strong>) y despliegue contenerizado con <strong>Docker y OpenShift</strong>.
       </p>
     </section>
 
@@ -341,15 +341,15 @@
       <div class="skills-grid">
         <div class="skill-card">
           <span class="skill-title">Lenguajes de Programación:</span>
-          <span class="skill-content"> TypeScript, JavaScript, PHP, Python 3, SQL, HTML5, CSS3.</span>
+          <span class="skill-content"> Java, TypeScript, JavaScript, PHP, Python 3, SQL, XML, HTML5, CSS3.</span>
         </div>
         <div class="skill-card">
           <span class="skill-title">Backend &amp; APIs:</span>
-          <span class="skill-content"> NestJS, Node.js, Express, Laravel, Prisma ORM, BullMQ, APIs RESTful, WebSockets (Socket.io), TypeORM, Eloquent ORM, JWT, RBAC.</span>
+          <span class="skill-content"> NestJS, Spring Boot (APX / ASO, Spring AOP, Spring JDBC), Node.js, Laravel, Prisma ORM, TypeORM, BullMQ, REST (JSON/XML), WebSockets.</span>
         </div>
         <div class="skill-card">
           <span class="skill-title">Bases de Datos &amp; Caché:</span>
-          <span class="skill-content"> PostgreSQL (Full-Text Search / tsvector / índices GIN / Réplicas), MySQL, Redis (caching en memoria, colas BullMQ, rate limiting), SQLite.</span>
+          <span class="skill-content"> PostgreSQL (Full-Text Search / GIN / Réplicas), SQL (Modo Oracle / SELECT FOR UPDATE), MySQL, Redis (caché, colas, rate limiting), H2.</span>
         </div>
         <div class="skill-card">
           <span class="skill-title">Frontend &amp; Mobile:</span>
@@ -357,11 +357,11 @@
         </div>
         <div class="skill-card">
           <span class="skill-title">Testing &amp; Calidad de Código:</span>
-          <span class="skill-content"> Jest (998 pruebas Service Desk / 627 pruebas Core), Pest PHP (44 pruebas / 116 aserciones), depuración, tipado estricto.</span>
+          <span class="skill-content"> Jest (998 pruebas Service Desk / 627 pruebas Core), JUnit 5 &amp; JaCoCo (27 pruebas APX), Pest PHP (44 pruebas), SonarQube.</span>
         </div>
         <div class="skill-card">
           <span class="skill-title">DevOps, Herramientas &amp; Cloud:</span>
-          <span class="skill-content"> Docker (Multi-stage / Google Distroless non-root), AWS (Solutions Architect &amp; Cloud Practitioner), Google Cloud (14 insignias Credly), Terraform (IaC), Linux, Nginx, Git, MinIO S3, ClamAV.</span>
+          <span class="skill-content"> Docker (Distroless / ZGC), AWS (2 insignias Credly), Google Cloud (14 insignias Credly), Terraform, Jenkins, OpenShift, Maven, Linux, Git.</span>
         </div>
       </div>
     </section>
@@ -456,25 +456,25 @@
         </ul>
       </div>
 
-      <!-- PROYECTO 1: FRONTEND SERVICE DESK -->
+      <!-- PROYECTO 1: NEXUSBANK APX CORE (JAVA & SPRING BOOT) -->
       <div class="item">
         <div class="item-header">
-          <span class="item-title">Sistema de Mesa de Ayuda e Inventario TI — Frontend</span>
-          <span class="item-date">2025</span>
+          <span class="item-title">NexusBank APX Core — Motor Transaccional Bancario (Java &amp; Spring Boot)</span>
+          <span class="item-date">2025 — 2026</span>
         </div>
-        <div class="item-subtitle">Cliente Web en Tiempo Real para Monitoreo de Incidencias Técnicas e Inventario TI (ITO)</div>
+        <div class="item-subtitle">Simulador Bancario con Arquitectura Corporativa BBVA APX + ASO, SPEI, CEP XML y Batch Control-M</div>
         <div class="tech-badges">
-          React <span class="dot">•</span> TypeScript <span class="dot">•</span> TanStack Query <span class="dot">•</span> Socket.io <span class="dot">•</span> Tailwind CSS <span class="dot">•</span> Zustand <span class="dot">•</span> Vite
+          Java 25 <span class="dot">•</span> Spring Boot 4 <span class="dot">•</span> Spring AOP / JDBC <span class="dot">•</span> SQL (Modo Oracle / FOR UPDATE) <span class="dot">•</span> XML / JSON <span class="dot">•</span> Kafka <span class="dot">•</span> JUnit 5 &amp; JaCoCo (27 tests)
         </div>
         <ul class="bullet-list">
           <li class="bullet-item">
-            <strong>Sincronización Reactiva en Tiempo Real:</strong> Diseñé la arquitectura cliente conectada por WebSockets con Socket.io e invalidación reactiva de caché con TanStack Query, reflejando actualizaciones de tickets y asignaciones al instante sin sobrecarga de peticiones continuas (<em>zero-polling</em>).
+            <strong>Gobierno Arquitectónico Multicapa (ASO vs. APX):</strong> Implementé el aislamiento estricto entre exposición REST/XML (<code>AsoSpeiController</code>), transacciones (<code>@Transactional SpeiTransferTrx</code>) y librerías SQL (<code>AccountLibImpl</code> con <code>JdbcTemplate</code>), verificado con pruebas de reflexión en JUnit 5 (<code>ArchitectureGovernanceTest</code>).
           </li>
           <li class="bullet-item">
-            <strong>Visor Interactivo de Auditoría (Diff Viewer):</strong> Desarrollé un visor de auditoría para comparar cambios registrados en tickets y activos mediante diferencias estructurales entre objetos JSON.
+            <strong>Motor AOP, Advices &amp; Concurrencia Pesimista:</strong> Desarrollé el aspecto <code>ApxExecutionAspect</code> (<code>@Around</code>) que administra errores de negocio en <code>ThreadLocal&lt;List&lt;Advice&gt;&gt;</code> (<code>BBE001</code>–<code>BBE006</code>) disparando rollback automático, combinado con bloqueo pesimista <code>SELECT ... FOR UPDATE</code> e <code>Idempotency-Key</code> para evitar doble gasto.
           </li>
           <li class="bullet-item">
-            <strong>Seguridad de Sesión &amp; Experiencia de Usuario:</strong> Implementé interceptores Axios para gestión de errores de autenticación y peticiones concurrentes, paleta de comandos interactiva con atajos de teclado (<code>Ctrl+K</code>) e internacionalización bilingüe (<code>i18next</code>).
+            <strong>Operaciones Bancarias &amp; Pipeline DevSecOps:</strong> Integré emisión de comprobantes CEP Banxico en XML, proceso batch nocturno Control-M, publicación de eventos Kafka con enmascaramiento PII, <strong>27 pruebas en JUnit 5 con cobertura JaCoCo</strong>, <code>Jenkinsfile</code> con SonarQube y manifiestos para Red Hat OpenShift.
           </li>
         </ul>
       </div>
