@@ -17,8 +17,10 @@ import {
   launchSecureMail,
   copySecureEmailToClipboard
 } from '../../utils/security';
+import { useLanguage } from '../../context/language-context';
 
 export const ContactSection: React.FC = () => {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
   const emailDisplay = 'mayka708.ms@gmail.com';
   const linkedinUrl = 'https://www.linkedin.com/in/manuel-eduardo-santiago-feria-a04b5a332/';
@@ -35,7 +37,7 @@ export const ContactSection: React.FC = () => {
 
   const handleSendMail = (e: React.MouseEvent) => {
     e.preventDefault();
-    launchSecureMail('Contacto Profesional - Portafolio de Software Engineer');
+    launchSecureMail(t.contact.mailSubject);
   };
 
   return (
@@ -72,21 +74,21 @@ export const ContactSection: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
               </span>
-              <span>Disponible para Nuevas Oportunidades & Proyectos</span>
+              <span>{t.contact.availabilityBadge}</span>
             </div>
 
             {/* Título Principal */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-900 dark:text-white tracking-tight leading-[1.15]">
-              ¿Tienes algún proyecto o{' '}
+              {t.contact.titlePrefix}
               <span className="bg-gradient-to-r from-cyan-600 via-teal-500 to-blue-600 dark:from-cyan-400 dark:via-teal-300 dark:to-blue-400 bg-clip-text text-transparent">
-                oportunidad en mente
+                {t.contact.titleHighlight}
               </span>
-              ?
+              {t.contact.titleSuffix}
             </h2>
 
             {/* Descripción */}
             <p className="mt-4 text-zinc-600 dark:text-zinc-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-              Estoy disponible para incorporarme a equipos de tecnología o colaborar en el desarrollo de APIs REST, servicios backend y aplicaciones full-stack.
+              {t.contact.subtitle}
             </p>
           </div>
 
@@ -114,7 +116,7 @@ export const ContactSection: React.FC = () => {
                 </p>
               </div>
               <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 mt-5 inline-flex items-center gap-1">
-                Conectar perfil profesional →
+                {t.contact.linkedinCta}
               </span>
             </a>
 
@@ -140,7 +142,7 @@ export const ContactSection: React.FC = () => {
                 </p>
               </div>
               <span className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mt-5 inline-flex items-center gap-1">
-                Ver repositorios & proyectos →
+                {t.contact.githubCta}
               </span>
             </a>
 
@@ -155,8 +157,8 @@ export const ContactSection: React.FC = () => {
                     type="button"
                     onClick={handleCopyEmail}
                     className="p-1.5 rounded-lg text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors cursor-pointer"
-                    title="Copiar correo al portapapeles"
-                    aria-label="Copiar correo al portapapeles"
+                    title={t.contact.copyEmailAria}
+                    aria-label={t.contact.copyEmailAria}
                   >
                     {copied ? (
                       <Check className="w-4 h-4 text-emerald-500" />
@@ -167,9 +169,9 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <h3 className="text-base font-bold text-zinc-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                    Correo Electrónico
+                    {t.contact.emailTitle}
                   </h3>
-                  <span title="Protegido con ofuscación anti-bot" className="inline-flex text-emerald-600 dark:text-emerald-400">
+                  <span title={t.contact.emailProtectedTooltip} className="inline-flex text-emerald-600 dark:text-emerald-400">
                     <Lock className="w-3 h-3" />
                   </span>
                 </div>
@@ -188,14 +190,14 @@ export const ContactSection: React.FC = () => {
                   onClick={handleSendMail}
                   className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline inline-flex items-center gap-1 cursor-pointer bg-transparent border-none p-0"
                 >
-                  Enviar mensaje →
+                  {t.contact.sendMessage}
                 </button>
                 <button
                   type="button"
                   onClick={handleCopyEmail}
                   className="text-[11px] font-medium px-2 py-1 rounded bg-zinc-200/70 dark:bg-zinc-700/60 text-zinc-700 dark:text-zinc-300 hover:bg-emerald-500/15 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors cursor-pointer"
                 >
-                  {copied ? '¡Copiado!' : 'Copiar'}
+                  {copied ? t.contact.copied : t.contact.copy}
                 </button>
               </div>
             </div>
@@ -209,7 +211,7 @@ export const ContactSection: React.FC = () => {
               size="lg"
               icon={<Send className="w-4 h-4" />}
             >
-              Enviar Mensaje Directo
+              {t.contact.sendDirectButton}
             </Button>
             <Button
               asAnchor
@@ -220,7 +222,7 @@ export const ContactSection: React.FC = () => {
               size="lg"
               icon={<Linkedin className="w-4 h-4 text-blue-500" />}
             >
-              Conectar en LinkedIn
+              {t.contact.connectLinkedinButton}
             </Button>
             <Button
               asAnchor
@@ -231,7 +233,7 @@ export const ContactSection: React.FC = () => {
               size="lg"
               icon={<Github className="w-4 h-4" />}
             >
-              Explorar GitHub
+              {t.contact.exploreGithubButton}
             </Button>
           </div>
 
@@ -239,22 +241,22 @@ export const ContactSection: React.FC = () => {
           <div className="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800/80 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs text-zinc-600 dark:text-zinc-400">
             <div className="inline-flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
-              <span>Oaxaca, México (CST / UTC-6) • 100% Remoto / Presencial solo en Oaxaca</span>
+              <span>{t.contact.metaLocation}</span>
             </div>
 
             <div className="inline-flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-              <span>Respuesta habitual en menos de 24 horas</span>
+              <span>{t.contact.metaResponse}</span>
             </div>
 
             <div className="inline-flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400 font-medium">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Contacto directo vía correo o LinkedIn</span>
+              <span>{t.contact.metaContact}</span>
             </div>
 
             <div className="inline-flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-              <span>Código limpio, pruebas y buenas prácticas</span>
+              <span>{t.contact.metaQuality}</span>
             </div>
           </div>
         </div>

@@ -3,9 +3,11 @@ import { ArrowRight, Layers, Zap, Container, ShieldCheck } from 'lucide-react';
 import { Github } from '../ui/icons/GithubIcon';
 import { Button } from '../ui/Button';
 import { CvDownloadDropdown } from '../ui/CvDownloadDropdown';
+import { useLanguage } from '../../context/language-context';
 
 const coreTechBadges = [
   'NestJS',
+  'Java (Spring Boot)',
   'Laravel',
   'TypeScript',
   'Node.js',
@@ -15,12 +17,13 @@ const coreTechBadges = [
   'Vue',
   'Docker',
   'Python (YOLOv8)',
-  'Jest & Pest',
-  'Nginx',
+  'Jest & JUnit 5',
   'Git'
 ];
 
 export const Hero: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="inicio" className="relative pt-24 pb-20 overflow-hidden">
       {/* Background ambient glow effect */}
@@ -31,20 +34,20 @@ export const Hero: React.FC = () => {
           {/* Top pill badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-700 dark:text-zinc-300 font-mono shadow-sm">
             <span className="w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 animate-pulse" />
-            Software Engineer | Backend & Full-Stack Developer
+            {t.hero.badge}
           </div>
 
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-zinc-900 dark:text-white tracking-tight leading-[1.1]">
-            Egresado de Ingeniería en Sistemas Computacionales{' '}
+            {t.hero.headlinePrefix}{' '}
             <span className="bg-gradient-to-r from-cyan-500 via-teal-400 to-blue-600 dark:from-cyan-400 dark:via-teal-300 dark:to-blue-500 bg-clip-text text-transparent">
-              enfocado en Backend y Full-Stack
+              {t.hero.headlineHighlight}
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-            Desarrollo aplicaciones web y APIs con enfoque en código mantenible, buenas prácticas y soluciones orientadas a necesidades reales.
+            {t.hero.subtitle}
           </p>
 
           {/* Core Tech Quick Pills Bar in Hero */}
@@ -68,12 +71,12 @@ export const Hero: React.FC = () => {
               size="lg"
               icon={<ArrowRight className="w-4 h-4" />}
             >
-              Explorar Proyectos
+              {t.hero.exploreProjects}
             </Button>
             <CvDownloadDropdown
               size="lg"
               variant="secondary"
-              label="Descargar CV"
+              label={t.cv.downloadLabel}
             />
             <Button
               asAnchor
@@ -81,7 +84,7 @@ export const Hero: React.FC = () => {
               variant="outline"
               size="lg"
             >
-              Sobre Mí
+              {t.hero.aboutMe}
             </Button>
             <Button
               asAnchor
@@ -100,33 +103,33 @@ export const Hero: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-16 text-left">
             <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-sm hover:border-cyan-500/30 transition-all shadow-xs">
               <Layers className="w-5 h-5 text-cyan-500 dark:text-cyan-400 mb-2" />
-              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Arquitectura Backend Modular</h2>
+              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">{t.hero.cards.architectureTitle}</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                APIs REST con NestJS y Laravel, arquitectura backend modular y tipado estricto con TypeScript.
+                {t.hero.cards.architectureDesc}
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-sm hover:border-emerald-500/30 transition-all shadow-xs">
               <Zap className="w-5 h-5 text-emerald-500 dark:text-emerald-400 mb-2" />
-              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Bases de Datos & Caché</h2>
+              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">{t.hero.cards.databaseTitle}</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                Modelado relacional con PostgreSQL y MySQL, transacciones explícitas con QueryRunner y caché en memoria con Redis.
+                {t.hero.cards.databaseDesc}
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-sm hover:border-indigo-500/30 transition-all shadow-xs">
               <Container className="w-5 h-5 text-indigo-500 dark:text-indigo-400 mb-2" />
-              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Contenedores & Despliegue</h2>
+              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">{t.hero.cards.containersTitle}</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                Empaquetado Docker multi-stage con imágenes Google Distroless non-root, proxy Nginx y entornos Linux.
+                {t.hero.cards.containersDesc}
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-sm hover:border-amber-500/30 transition-all shadow-xs">
               <ShieldCheck className="w-5 h-5 text-amber-500 dark:text-amber-400 mb-2" />
-              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">Testing & Control de Concurrencia</h2>
+              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-200">{t.hero.cards.testingTitle}</h2>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-                998 pruebas automatizadas en 143 suites (Jest), 44 pruebas (Pest) y prevención de condiciones de carrera con concurrencia optimista.
+                {t.hero.cards.testingDesc}
               </p>
             </div>
           </div>

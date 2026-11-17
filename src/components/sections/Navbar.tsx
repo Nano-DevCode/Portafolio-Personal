@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
-import { Terminal, Sun, Moon, Menu, X, FileText } from 'lucide-react';
+import { Terminal, Sun, Moon, Menu, X, FileText, Globe } from 'lucide-react';
 import { Github } from '../ui/icons/GithubIcon';
 import { useTheme } from '../../context/theme-context';
+import { useLanguage } from '../../context/language-context';
 import { CvDownloadDropdown } from '../ui/CvDownloadDropdown';
 
 export const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage, t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: '#inicio', label: 'Inicio' },
-    { href: '#sobre-mi', label: 'Sobre Mí' },
-    { href: '#habilidades', label: 'Habilidades' },
-    { href: '#proyectos', label: 'Proyectos' },
-    { href: '#certificaciones', label: 'Certificaciones' },
-    { href: '#contacto', label: 'Contacto' }
+    { href: '#inicio', label: t.nav.links.home },
+    { href: '#sobre-mi', label: t.nav.links.about },
+    { href: '#habilidades', label: t.nav.links.skills },
+    { href: '#proyectos', label: t.nav.links.projects },
+    { href: '#certificaciones', label: t.nav.links.certifications },
+    { href: '#contacto', label: t.nav.links.contact }
   ];
 
   const handleLinkClick = () => {
@@ -34,7 +36,7 @@ export const Navbar: React.FC = () => {
               Nano-DevCode
             </span>
             <span className="text-[11px] text-zinc-500 dark:text-zinc-400 font-mono -mt-1 block">
-              Backend &amp; Full-Stack Developer
+              {t.nav.roleSubtitle}
             </span>
           </div>
         </a>
@@ -52,12 +54,12 @@ export const Navbar: React.FC = () => {
           ))}
         </nav>
 
-        {/* Right CTA, Theme Toggle, CV & GitHub */}
+        {/* Right CTA, Language Toggle, Theme Toggle, CV & GitHub */}
         <div className="flex items-center gap-2 sm:gap-2.5">
           {/* Badge Disponible */}
           <div className="hidden lg:inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
             <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
-            Disponible
+            {t.nav.available}
           </div>
 
           {/* Botón Descargar CV con Dropdown (1 Pág vs 2 Págs) */}
@@ -69,11 +71,23 @@ export const Navbar: React.FC = () => {
             />
           </div>
 
+          {/* Language Toggle Button (ES / EN) */}
+          <button
+            type="button"
+            onClick={toggleLanguage}
+            aria-label={t.nav.switchLangAria}
+            title={t.nav.switchLangTitle}
+            className="inline-flex items-center gap-1.5 px-2.5 py-2 rounded-xl text-xs font-mono font-bold text-zinc-700 hover:text-cyan-600 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:text-cyan-400 dark:hover:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-all cursor-pointer"
+          >
+            <Globe className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
+            <span>{language.toUpperCase()}</span>
+          </button>
+
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
-            title={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+            aria-label={theme === 'dark' ? t.nav.switchToLight : t.nav.switchToDark}
+            title={theme === 'dark' ? t.nav.switchToLight : t.nav.switchToDark}
             className="p-2 rounded-xl text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-all cursor-pointer"
           >
             {theme === 'dark' ? (
@@ -89,7 +103,7 @@ export const Navbar: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-xl text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-colors"
-            aria-label="Perfil de GitHub"
+            aria-label={t.nav.githubAria}
           >
             <Github className="w-5 h-5" />
           </a>
@@ -97,7 +111,7 @@ export const Navbar: React.FC = () => {
           {/* Mobile Menu Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+            aria-label={mobileMenuOpen ? t.nav.closeMenuAria : t.nav.openMenuAria}
             className="md:hidden p-2 rounded-xl text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-colors cursor-pointer"
           >
             {mobileMenuOpen ? (
@@ -125,22 +139,22 @@ export const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          <div className="pt-3 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between gap-3">
+          <div className="pt-3 border-t border-zinc-200 dark:border-zinc-800 flex flex-wrap items-center justify-between gap-3">
             <div className="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
               <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
-              Disponible para proyectos
+              {t.nav.availableMobile}
             </div>
 
             <div className="flex items-center gap-2">
               <a
-                href="/cv-corto.pdf"
+                href={language === 'en' ? '/cv-corto-ingles.pdf' : '/cv-corto.pdf'}
                 target="_blank"
-                download="CV_Manuel_Santiago_1Pag.pdf"
+                download={language === 'en' ? 'Resume_Manuel_Santiago_EN.pdf' : 'CV_Manuel_Santiago_1Pag.pdf'}
                 onClick={handleLinkClick}
                 className="inline-flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-200 transition-colors shadow-xs"
               >
                 <FileText className="w-3 h-3 text-cyan-500" />
-                <span>CV (1 Pág)</span>
+                <span>{t.nav.cvShortMobile}</span>
               </a>
               <a
                 href="/cv-extendido.pdf"
@@ -150,7 +164,7 @@ export const Navbar: React.FC = () => {
                 className="inline-flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1.5 rounded-xl bg-cyan-500 text-zinc-950 hover:bg-cyan-400 transition-colors shadow-xs"
               >
                 <FileText className="w-3 h-3" />
-                <span>CV (2 Págs)</span>
+                <span>{t.nav.cvExtendedMobile}</span>
               </a>
             </div>
           </div>

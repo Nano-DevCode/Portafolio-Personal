@@ -6,6 +6,7 @@ import { TechBadge } from './TechBadge';
 import { ImagePreview } from './ImagePreview';
 import { ImageLightbox } from './ImageLightbox';
 import { Button } from './Button';
+import { useLanguage } from '../../context/language-context';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -14,6 +15,7 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose }) => {
+  const { t } = useLanguage();
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
@@ -48,20 +50,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
             </h2>
             {project.featured && (
               <span className="text-[11px] font-semibold uppercase px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30">
-                Destacado
+                {t.projects.card.featured}
               </span>
             )}
             {project.status === 'in_progress' && (
               <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-                {project.statusLabel || 'En Construcción'}
+                {project.statusLabel || t.projects.card.inProgressFallback}
               </span>
             )}
           </div>
           <button
             onClick={onClose}
             className="p-2 rounded-lg text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-800 transition-colors cursor-pointer"
-            aria-label="Cerrar modal de proyecto"
+            aria-label={t.projects.modal.closeAria}
           >
             <X className="w-5 h-5" />
           </button>
@@ -74,10 +76,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
               <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
               <div className="space-y-1">
                 <p className="font-semibold text-amber-950 dark:text-amber-100">
-                  Proyecto en Construcción Activa
+                  {t.projects.modal.inProgressTitle}
                 </p>
                 <p className="text-amber-800 dark:text-amber-300/90 leading-relaxed text-xs">
-                  Plataforma empresarial de gran envergadura en desarrollo activo. El backend modular (NestJS) y el frontend web (React) disponen de arquitectura robusta, suite de pruebas automatizadas y documentación viva. El cliente móvil complementario se encuentra en etapa preliminar de desarrollo.
+                  {t.projects.modal.inProgressDesc}
                 </p>
               </div>
             </div>
@@ -98,7 +100,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
                 size="sm"
                 icon={<Github className="w-4 h-4" />}
               >
-                {project.secondaryGithubUrl ? 'GitHub Backend' : 'Código en GitHub'}
+                {project.secondaryGithubUrl ? t.projects.modal.githubBackend : t.projects.modal.githubMain}
               </Button>
               {project.secondaryGithubUrl && (
                 <Button
@@ -110,7 +112,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
                   size="sm"
                   icon={<Github className="w-4 h-4" />}
                 >
-                  GitHub Frontend
+                  {t.projects.modal.githubFrontend}
                 </Button>
               )}
               {project.liveUrl && (
@@ -123,7 +125,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
                   size="sm"
                   icon={<ExternalLink className="w-4 h-4" />}
                 >
-                  Demo en vivo
+                  {t.projects.modal.liveDemo}
                 </Button>
               )}
             </div>
@@ -134,10 +136,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
             <div className="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400">
               <span className="flex items-center gap-1.5 font-medium">
                 <ImageIcon className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
-                Capturas directas del repositorio
+                {t.projects.modal.repoScreenshots}
               </span>
               <span>
-                {selectedImageIndex + 1} de {project.images.gallery.length}
+                {selectedImageIndex + 1} {t.projects.modal.of} {project.images.gallery.length}
               </span>
             </div>
 
@@ -146,14 +148,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
               <div
                 className="w-full h-full flex items-center justify-center cursor-zoom-in"
                 onClick={() => setIsLightboxOpen(true)}
-                title="Haz clic para ampliar la imagen y hacer zoom interactivo"
+                title={t.projects.modal.zoomTooltip}
               >
                 <ImagePreview
                   src={currentImage}
-                  alt={`${project.title} captura grande ${selectedImageIndex + 1}`}
+                  alt={`${project.title} ${selectedImageIndex + 1}`}
                   fit="contain"
                   className="w-full h-full"
-                  fallbackText="Error al cargar captura desde GitHub Raw"
+                  fallbackText={t.projects.modal.fallbackError}
                 />
               </div>
 
@@ -162,11 +164,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
                 type="button"
                 onClick={() => setIsLightboxOpen(true)}
                 className="absolute bottom-4 right-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900/85 hover:bg-cyan-500 hover:text-zinc-950 text-white text-xs font-semibold border border-zinc-700/80 shadow-lg backdrop-blur-md transition-all cursor-pointer hover:scale-105"
-                title="Ampliar captura y hacer zoom"
-                aria-label="Ampliar captura y hacer zoom"
+                title={t.projects.modal.zoomTooltip}
+                aria-label={t.projects.modal.zoomButton}
               >
                 <ZoomIn className="w-3.5 h-3.5" />
-                <span>Hacer Zoom</span>
+                <span>{t.projects.modal.zoomButton}</span>
               </button>
             </div>
 
@@ -182,11 +184,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
                         ? 'border-cyan-500 ring-2 ring-cyan-500/20 shadow-md'
                         : 'border-zinc-200 dark:border-zinc-800 opacity-60 hover:opacity-100 hover:border-zinc-300 dark:hover:border-zinc-700'
                     }`}
-                    aria-label={`Seleccionar captura ${idx + 1}`}
+                    aria-label={`${t.projects.modal.selectScreenshotAria} ${idx + 1}`}
                   >
                     <img
                       src={imgUrl}
-                      alt={`Miniatura ${idx + 1}`}
+                      alt={`${idx + 1}`}
                       className="w-full h-full object-contain"
                       loading="lazy"
                     />
@@ -199,7 +201,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
           {/* Detailed Description */}
           <div className="bg-zinc-100/70 dark:bg-zinc-950/60 rounded-xl p-5 border border-zinc-200 dark:border-zinc-800/80">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-cyan-700 dark:text-cyan-400 mb-2">
-              Resumen del Proyecto
+              {t.projects.modal.summaryTitle}
             </h3>
             <p className="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed">{project.description}</p>
           </div>
@@ -208,7 +210,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-3 flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              Aspectos Destacados de Implementación
+              {t.projects.modal.highlightsTitle}
             </h3>
             <ul className="grid sm:grid-cols-2 gap-2.5">
               {project.highlights.map((highlight, index) => (
@@ -230,15 +232,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
               <div className="p-4 rounded-xl bg-zinc-100/60 dark:bg-zinc-950/50 border border-zinc-200 dark:border-zinc-800 space-y-3">
                 <div className="flex items-center gap-2 text-cyan-700 dark:text-cyan-400 font-semibold text-sm">
                   <Cpu className="w-4 h-4" />
-                  <span>Arquitectura y Patrones</span>
+                  <span>{t.projects.modal.architectureTitle}</span>
                 </div>
                 <div className="space-y-2 text-xs text-zinc-700 dark:text-zinc-300">
                   <p>
-                    <strong className="text-zinc-900 dark:text-zinc-200">Patrón:</strong>{' '}
+                    <strong className="text-zinc-900 dark:text-zinc-200">{t.projects.modal.patternLabel}</strong>{' '}
                     {project.technicalDetails.architecturePattern}
                   </p>
                   <p>
-                    <strong className="text-zinc-900 dark:text-zinc-200">Estado y Datos:</strong>{' '}
+                    <strong className="text-zinc-900 dark:text-zinc-200">{t.projects.modal.stateDataLabel}</strong>{' '}
                     {project.technicalDetails.stateAndDataManagement}
                   </p>
                 </div>
@@ -248,7 +250,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
               <div className="p-4 rounded-xl bg-zinc-100/60 dark:bg-zinc-950/50 border border-zinc-200 dark:border-zinc-800 space-y-3">
                 <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 font-semibold text-sm">
                   <AlertTriangle className="w-4 h-4" />
-                  <span>Retos Técnicos Superados</span>
+                  <span>{t.projects.modal.challengesTitle}</span>
                 </div>
                 <ul className="space-y-1.5 text-xs text-zinc-700 dark:text-zinc-300 list-disc list-inside">
                   {project.technicalDetails.keyChallenges.map((challenge, i) => (
@@ -262,7 +264,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
                 <div className="md:col-span-2 p-4 rounded-xl bg-zinc-100/60 dark:bg-zinc-950/50 border border-zinc-200 dark:border-zinc-800 space-y-2">
                   <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-semibold text-sm">
                     <Lightbulb className="w-4 h-4" />
-                    <span>Decisiones Clave de Ingeniería</span>
+                    <span>{t.projects.modal.decisionsTitle}</span>
                   </div>
                   <ul className="grid sm:grid-cols-3 gap-2 text-xs text-zinc-700 dark:text-zinc-300 pt-1">
                     {project.technicalDetails.engineeringDecisions.map((decision, i) => (
@@ -279,7 +281,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
           {/* Tech Stack Tags */}
           <div className="pt-2">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">
-              Stack Tecnológico Completo
+              {t.projects.modal.fullStackTitle}
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
@@ -292,7 +294,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
         {/* Footer */}
         <div className="px-6 py-4 border-t border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 flex justify-end gap-3">
           <Button variant="secondary" size="md" onClick={onClose}>
-            Cerrar
+            {t.projects.modal.close}
           </Button>
           <Button
             asAnchor
@@ -303,7 +305,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
             size="md"
             icon={<Github className="w-4 h-4" />}
           >
-            Explorar Código
+            {t.projects.modal.exploreCode}
           </Button>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { ExternalLink, ImageOff, Layers, Loader2, ZoomIn } from 'lucide-react';
 import { Github } from './icons/GithubIcon';
 import type { Project } from '../../types/project';
 import { TechBadge } from './TechBadge';
+import { useLanguage } from '../../context/language-context';
 
 interface ProjectCardProps {
   project: Project;
@@ -10,6 +11,7 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
+  const { t } = useLanguage();
   const [imageError, setImageError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,7 +23,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
         className="relative h-64 sm:h-72 w-full bg-zinc-100 dark:bg-zinc-950/90 p-4 flex items-center justify-center overflow-hidden cursor-pointer select-none border-b border-zinc-200 dark:border-zinc-800/60"
         role="button"
         tabIndex={0}
-        aria-label={`Ver detalles técnicos de ${project.title}`}
+        aria-label={`${t.projects.card.viewDetailsAria} ${project.title}`}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -39,7 +41,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
         {!imageError ? (
           <img
             src={project.images.thumbnail}
-            alt={`Captura del proyecto ${project.title}`}
+            alt={`${t.projects.card.screenshotAlt} ${project.title}`}
             onLoad={() => setIsLoading(false)}
             onError={() => {
               setIsLoading(false);
@@ -53,7 +55,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-600 gap-2 p-4">
             <ImageOff className="w-8 h-8" />
-            <span className="text-xs">Preview no disponible</span>
+            <span className="text-xs">{t.projects.card.previewUnavailable}</span>
           </div>
         )}
 
@@ -62,12 +64,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
           {project.status === 'in_progress' && (
             <span className="inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30 backdrop-blur-md">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-              {project.statusLabel || 'En Construcción'}
+              {project.statusLabel || t.projects.card.inProgressFallback}
             </span>
           )}
           {project.featured && (
             <span className="inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30 backdrop-blur-md">
-              <Layers className="w-3 h-3" /> Destacado
+              <Layers className="w-3 h-3" /> {t.projects.card.featured}
             </span>
           )}
         </div>
@@ -76,7 +78,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
         <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
           <span className="inline-flex items-center gap-1 text-[11px] font-medium px-2 py-1 rounded-md bg-zinc-900/85 text-white border border-zinc-700/80 shadow-md backdrop-blur-sm">
             <ZoomIn className="w-3 h-3 text-cyan-400" />
-            <span>Ver con Zoom</span>
+            <span>{t.projects.card.zoomHint}</span>
           </span>
         </div>
       </div>
@@ -135,7 +137,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
             onClick={() => onSelect(project)}
             className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 flex items-center gap-1 group/btn cursor-pointer"
           >
-            Explorar arquitectura y retos
+            {t.projects.card.exploreButton}
             <span className="transition-transform group-hover/btn:translate-x-1">→</span>
           </button>
         </div>

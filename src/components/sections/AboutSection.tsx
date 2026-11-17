@@ -16,87 +16,25 @@ import {
 } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { CvDownloadDropdown } from '../ui/CvDownloadDropdown';
+import { useLanguage } from '../../context/language-context';
 
-interface TimelineMilestone {
-  period: string;
-  title: string;
-  institution: string;
-  icon: React.ReactNode;
-  description: string;
-  tags: string[];
-}
-
-const milestones: TimelineMilestone[] = [
-  {
-    period: '2025 — 2026',
-    title: 'Backend Developer — Residencia Profesional',
-    institution: 'Instituto Tecnológico de Oaxaca (TecNM / ITO)',
-    icon: <Briefcase className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />,
-    description:
-      'Diseño y desarrollo de la arquitectura backend para el sistema de soporte técnico e inventario tecnológico del ITO. Implementado con NestJS, PostgreSQL, Redis, MinIO S3 y Docker, respaldado por una suite de 998 pruebas automatizadas organizadas en 143 suites (Jest).',
-    tags: ['NestJS', 'PostgreSQL', 'Redis', 'Docker', 'Jest (998 pruebas / 143 suites)']
-  },
-  {
-    period: '2024 — Presente',
-    title: 'Desarrollador Backend & Full-Stack — Proyectos de Ingeniería',
-    institution: 'Nano-DevCode • Proyectos de Código Abierto',
-    icon: <Code2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />,
-    description:
-      'Desarrollo de sistemas backend y full-stack: motor transaccional bancario con Java 25 y Spring Boot bajo arquitectura BBVA APX/ASO (SPEI con bloqueo FOR UPDATE, CEP XML, batch Control-M y 27 pruebas JUnit 5), plataforma SaaS empresarial con NestJS/Prisma (627 pruebas Jest), punto de venta con visión artificial (YOLOv8 97.1% mAP@50) y CMS en Laravel (44 pruebas Pest).',
-    tags: ['Java / Spring Boot', 'Arquitectura APX/ASO', 'NestJS', 'YOLOv8', 'Laravel']
-  },
-  {
-    period: '2024 — Presente',
-    title: 'Especialización en Nube, Seguridad & DevOps',
-    institution: 'AWS & Google Cloud (Credly) • Udemy • INFOTEC',
-    icon: <Layers className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
-    description:
-      '16 acreditaciones oficiales en la nube (AWS Cloud Quest: Solutions Architect, AWS Cloud Practitioner y 14 insignias de Google Cloud) en arquitectura de soluciones, redes, infraestructura con Terraform, seguridad y modelos GenAI. Formación continua en APIs backend modulares, tipado estricto con TypeScript y contenedores Docker.',
-    tags: ['AWS', 'Google Cloud', 'Terraform', 'Docker', 'Linux', 'Testing']
-  },
-  {
-    period: '2021 — 2025',
-    title: 'Ingeniería en Sistemas Computacionales',
-    institution: 'Instituto Tecnológico de Oaxaca (TecNM / ITO)',
-    icon: <GraduationCap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
-    description:
-      'Formación académica universitaria con bases en ingeniería de software, arquitectura de sistemas, diseño y normalización de bases de datos relacionales, estructuras de datos, programación orientada a objetos y redes de computadoras.',
-    tags: ['Ingeniería de Software', 'Bases de Datos', 'Estructuras de Datos', 'Redes']
-  }
+const milestoneIcons = [
+  <Briefcase key="briefcase" className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />,
+  <Code2 key="code" className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />,
+  <Layers key="layers" className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
+  <GraduationCap key="grad" className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
 ];
 
-const coreStrengths = [
-  {
-    icon: <Code2 className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
-    title: 'Arquitectura Backend Modular',
-    badge: 'NestJS · Laravel · Node',
-    description:
-      'Módulos desacoplados con inyección de dependencias, tipado estricto de extremo a extremo con TypeScript, validación de DTOs y estructuración ordenada de servicios.'
-  },
-  {
-    icon: <Database className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
-    title: 'Bases de Datos & Consistencia',
-    badge: 'PostgreSQL · Redis · ACID',
-    description:
-      'Transacciones explícitas con TypeORM QueryRunner en operaciones críticas, mecanismos de concurrencia optimista para evitar conflictos y caché en memoria con Redis.'
-  },
-  {
-    icon: <ShieldCheck className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
-    title: 'Testing Automatizado & Calidad',
-    badge: '1,000+ Pruebas Verificadas',
-    description:
-      '998 pruebas automatizadas organizadas en 143 suites con Jest y 44 pruebas con 116 aserciones en Pest PHP. Código comprobado para evitar regresiones en despliegues.'
-  },
-  {
-    icon: <Container className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
-    title: 'Contenedores & Despliegue',
-    badge: 'Docker · Nginx · Linux',
-    description:
-      'Empaquetado multi-stage con Docker (imágenes Distroless y ejecución non-root para seguridad), proxy inverso con Nginx y despliegues estables en servidores Linux.'
-  }
+const pillarIcons = [
+  <Code2 key="p-code" className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
+  <Database key="p-db" className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
+  <ShieldCheck key="p-shield" className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
+  <Container key="p-container" className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
 ];
 
 export const AboutSection: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section
       id="sobre-mi"
@@ -111,13 +49,13 @@ export const AboutSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 text-xs font-medium mb-3">
             <User className="w-3.5 h-3.5" />
-            <span>Perfil Profesional & Trayectoria</span>
+            <span>{t.about.badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-            Sobre Mí
+            {t.about.title}
           </h2>
           <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
-            Egresado de Ingeniería en Sistemas Computacionales enfocado en Backend y Full-Stack. Construyo software funcional con APIs REST, bases de datos relacionales, pruebas automatizadas y despliegue con Docker.
+            {t.about.subtitle}
           </p>
         </div>
 
@@ -130,7 +68,7 @@ export const AboutSection: React.FC = () => {
               {/* Badge de Disponibilidad */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 text-xs font-medium mb-5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Disponible • Oaxaca, México • 100% Remoto / Presencial solo en Oaxaca</span>
+                <span>{t.about.availabilityBadge}</span>
               </div>
 
               {/* Nombre y Cargo */}
@@ -151,41 +89,40 @@ export const AboutSection: React.FC = () => {
               {/* Bio redactada para reclutadores */}
               <div className="space-y-3.5 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
                 <p>
-                  Egresado de Ingeniería en Sistemas Computacionales por el{' '}
+                  {t.about.bio1Part1}
                   <strong className="text-zinc-900 dark:text-white font-semibold">
-                    Instituto Tecnológico de Oaxaca (TecNM / ITO)
+                    {t.about.bio1School}
                   </strong>
-                  , con residencia profesional concluida y titulación en trámite.
+                  {t.about.bio1Part2}
                 </p>
                 <p>
-                  Cuento con experiencia comprobable desarrollando sistemas web institucionales y proyectos independientes, especializándome en backend con{' '}
+                  {t.about.bio2Part1}
                   <strong className="text-zinc-900 dark:text-white font-semibold">
-                    NestJS, Node.js y Laravel
+                    {t.about.bio2Bold1}
                   </strong>
-                  , junto a interfaces reactivas en <strong className="text-zinc-900 dark:text-white font-semibold">React y Vue 3</strong>.
+                  {t.about.bio2Part2}
+                  <strong className="text-zinc-900 dark:text-white font-semibold">{t.about.bio2Bold2}</strong>.
                 </p>
-                <p>
-                  Mi forma de trabajo prioriza la estabilidad: diseño bases de datos relacionales con transacciones explícitas, aplico tipado estricto con TypeScript, escribo pruebas automatizadas y despliego servicios mediante contenedores Docker.
-                </p>
+                <p>{t.about.bio3}</p>
               </div>
 
               {/* Mini métricas comprobables */}
               <div className="grid grid-cols-2 gap-2.5 pt-5 mt-5 border-t border-zinc-100 dark:border-zinc-800/80">
                 <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200/60 dark:border-zinc-800">
                   <span className="block text-base font-bold text-cyan-600 dark:text-cyan-400 font-mono">2025 — 2026</span>
-                  <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Residencia Profesional ITO</span>
+                  <span className="text-[11px] text-zinc-500 dark:text-zinc-400">{t.about.metrics.residency}</span>
                 </div>
                 <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200/60 dark:border-zinc-800">
-                  <span className="block text-base font-bold text-emerald-600 dark:text-emerald-400 font-mono">1,000+</span>
-                  <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Pruebas Automatizadas</span>
+                  <span className="block text-base font-bold text-emerald-600 dark:text-emerald-400 font-mono">1,650+</span>
+                  <span className="text-[11px] text-zinc-500 dark:text-zinc-400">{t.about.metrics.tests}</span>
                 </div>
                 <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200/60 dark:border-zinc-800">
                   <span className="block text-base font-bold text-indigo-600 dark:text-indigo-400 font-mono">16</span>
-                  <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Insignias Cloud (AWS & GCP)</span>
+                  <span className="text-[11px] text-zinc-500 dark:text-zinc-400">{t.about.metrics.cloudBadges}</span>
                 </div>
                 <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200/60 dark:border-zinc-800">
                   <span className="block text-base font-bold text-amber-600 dark:text-amber-400 font-mono">2021 — 2025</span>
-                  <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Ingeniería TecNM / ITO</span>
+                  <span className="text-[11px] text-zinc-500 dark:text-zinc-400">{t.about.metrics.degree}</span>
                 </div>
               </div>
 
@@ -194,7 +131,7 @@ export const AboutSection: React.FC = () => {
                 <CvDownloadDropdown
                   variant="primary"
                   size="md"
-                  label="Descargar CV (PDF)"
+                  label={t.cv.downloadPdfLabel}
                 />
                 <Button
                   asAnchor
@@ -219,24 +156,24 @@ export const AboutSection: React.FC = () => {
                 <div>
                   <div className="flex items-center justify-between gap-2">
                     <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
-                      Ingeniería en Sistemas Computacionales
+                      {t.about.education.degree}
                     </h4>
                     <span className="text-[11px] font-mono font-semibold text-zinc-500 dark:text-zinc-400">
                       2021 — 2025
                     </span>
                   </div>
                   <p className="text-xs text-cyan-700 dark:text-cyan-400 font-medium mt-0.5">
-                    Instituto Tecnológico de Oaxaca (TecNM / ITO)
+                    {t.about.education.school}
                   </p>
                   <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
-                    Formación universitaria en arquitectura de software, bases de datos relacionales, estructuras de datos, POO y redes.
+                    {t.about.education.description}
                   </p>
                   <div className="mt-3 pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex flex-wrap items-center justify-between gap-2 text-xs">
                     <span className="text-emerald-700 dark:text-emerald-400 font-semibold inline-flex items-center gap-1">
-                      <CheckCircle2 className="w-3.5 h-3.5" /> Egresado • Titulación en trámite
+                      <CheckCircle2 className="w-3.5 h-3.5" /> {t.about.education.status}
                     </span>
                     <span className="text-zinc-500 dark:text-zinc-400">
-                      Inglés: <strong>B1/B2</strong> (Documentación técnica)
+                      {t.about.education.languagesLabel} <strong>{t.about.education.languagesValue}</strong>
                     </span>
                   </div>
                 </div>
@@ -249,16 +186,16 @@ export const AboutSection: React.FC = () => {
             <div className="flex items-center justify-between mb-2">
               <h3 className="text-xl font-bold text-zinc-900 dark:text-white flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-cyan-500" />
-                <span>Trayectoria & Hitos Clave</span>
+                <span>{t.about.timelineTitle}</span>
               </h3>
               <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400">
-                Experiencia Verificable
+                {t.about.timelineBadge}
               </span>
             </div>
 
             <div className="relative border-l-2 border-zinc-200 dark:border-zinc-800 pl-6 sm:pl-8 space-y-7">
-              {milestones.map((item, idx) => (
-                <div key={item.period} className="relative group">
+              {t.about.milestones.map((item, idx) => (
+                <div key={item.title} className="relative group">
                   {/* Punto del timeline con ícono */}
                   <div
                     className={`absolute -left-[35px] sm:-left-[43px] top-1.5 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-transform group-hover:scale-110 shadow-xs ${
@@ -267,7 +204,7 @@ export const AboutSection: React.FC = () => {
                         : 'bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 border-zinc-300 dark:border-zinc-700'
                     }`}
                   >
-                    {item.icon}
+                    {milestoneIcons[idx]}
                   </div>
 
                   {/* Tarjeta del hito */}
@@ -310,18 +247,18 @@ export const AboutSection: React.FC = () => {
         <div className="mt-16 pt-12 border-t border-zinc-200 dark:border-zinc-800/80">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
-              Criterio Profesional
+              {t.about.pillarsEyebrow}
             </span>
             <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mt-1">
-              Pilares de Calidad & Prácticas de Ingeniería
+              {t.about.pillarsTitle}
             </h3>
             <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-2">
-              Principios que aplico en cada repositorio para garantizar código mantenible, confiable y listo para integrarse en equipo.
+              {t.about.pillarsSubtitle}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {coreStrengths.map((strength) => (
+            {t.about.pillars.map((strength, idx) => (
               <div
                 key={strength.title}
                 className="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/50 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 shadow-2xs flex flex-col justify-between"
@@ -329,7 +266,7 @@ export const AboutSection: React.FC = () => {
                 <div>
                   <div className="flex items-center justify-between mb-3.5">
                     <div className="p-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200/80 dark:border-zinc-700">
-                      {strength.icon}
+                      {pillarIcons[idx]}
                     </div>
                     <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700">
                       {strength.badge}

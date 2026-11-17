@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FileText, ChevronDown, Download, Check, Sparkles, Globe } from 'lucide-react';
+import { useLanguage } from '../../context/language-context';
 
 interface CvDownloadDropdownProps {
   size?: 'sm' | 'md' | 'lg';
@@ -12,10 +13,12 @@ export const CvDownloadDropdown: React.FC<CvDownloadDropdownProps> = ({
   size = 'md',
   variant = 'secondary',
   className = '',
-  label = 'Descargar CV'
+  label
 }) => {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const buttonLabel = label ?? t.cv.downloadLabel;
 
   // Close when clicking outside
   useEffect(() => {
@@ -67,7 +70,7 @@ export const CvDownloadDropdown: React.FC<CvDownloadDropdownProps> = ({
         aria-expanded={isOpen}
       >
         <FileText className={`${size === 'sm' ? 'w-3.5 h-3.5' : 'w-4 h-4'} text-cyan-500 shrink-0`} />
-        <span>{label}</span>
+        <span>{buttonLabel}</span>
         <ChevronDown
           className={`${size === 'sm' ? 'w-3.5 h-3.5' : 'w-4 h-4'} text-zinc-400 transition-transform duration-200 ${
             isOpen ? 'rotate-180' : ''
@@ -83,7 +86,7 @@ export const CvDownloadDropdown: React.FC<CvDownloadDropdownProps> = ({
         >
           <div className="px-3.5 pb-2 mb-1.5 border-b border-zinc-100 dark:border-zinc-800/80">
             <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
-              Selecciona una versión
+              {t.cv.selectVersion}
             </span>
           </div>
 
@@ -102,14 +105,14 @@ export const CvDownloadDropdown: React.FC<CvDownloadDropdownProps> = ({
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between gap-1.5">
                 <span className="text-xs font-bold text-zinc-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                  CV Resumido (ES)
+                  {t.cv.shortTitle}
                 </span>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 font-medium">
-                  1 Página
+                  {t.cv.shortBadge}
                 </span>
               </div>
               <p className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5 leading-snug">
-                Ideal para lectura rápida de reclutadores y procesos con filtros ATS.
+                {t.cv.shortDesc}
               </p>
             </div>
           </a>
@@ -129,14 +132,14 @@ export const CvDownloadDropdown: React.FC<CvDownloadDropdownProps> = ({
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between gap-1.5">
                 <span className="text-xs font-bold text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                  CV Extendido (ES)
+                  {t.cv.extendedTitle}
                 </span>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-medium border border-indigo-500/20">
-                  2 Páginas
+                  {t.cv.extendedBadge}
                 </span>
               </div>
               <p className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5 leading-snug">
-                Incluye arquitectura detallada, MinIO S3 y todos los proyectos.
+                {t.cv.extendedDesc}
               </p>
             </div>
           </a>
@@ -156,22 +159,22 @@ export const CvDownloadDropdown: React.FC<CvDownloadDropdownProps> = ({
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between gap-1.5">
                 <span className="text-xs font-bold text-zinc-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                  Resume in English (EN)
+                  {t.cv.englishTitle}
                 </span>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 font-medium border border-emerald-500/20">
-                  1 Page
+                  {t.cv.englishBadge}
                 </span>
               </div>
               <p className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5 leading-snug">
-                Versión en inglés optimizada para vacantes internacionales o remotas.
+                {t.cv.englishDesc}
               </p>
             </div>
           </a>
 
           <div className="mt-2 pt-2 px-3.5 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-[11px] text-zinc-400 dark:text-zinc-500">
-            <span>Formato PDF optimizado</span>
+            <span>{t.cv.footerFormat}</span>
             <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium">
-              <Check className="w-3 h-3" /> Verificado 2026
+              <Check className="w-3 h-3" /> {t.cv.footerVerified}
             </span>
           </div>
         </div>

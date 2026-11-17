@@ -4,6 +4,8 @@ import type { Project, TechCategory } from '../../types/project';
 import { ProjectCard } from '../ui/ProjectCard';
 import { ProjectModal } from '../ui/ProjectModal';
 import { Pagination } from '../ui/Pagination';
+import { useLanguage } from '../../context/language-context';
+import { getLocalizedProject } from '../../i18n/dataTranslations';
 
 interface ProjectsSectionProps {
   projects: Project[];
@@ -11,36 +13,37 @@ interface ProjectsSectionProps {
 
 type FilterCategory = 'all' | TechCategory;
 
-const categoryLabels: Record<FilterCategory, string> = {
-  all: 'Todos',
-  mobile: 'Mobile (React Native)',
-  frontend: 'Frontend (Vue / React)',
-  backend: 'Backend & APIs',
-  database: 'Bases de Datos & Caché',
-  devops: 'DevOps & Cloud',
-  ai: 'IA & Computer Vision',
-};
-
 const ITEMS_PER_PAGE = 3;
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
+  const { language, t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<FilterCategory>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
+
+  const localizedProjects = useMemo(
+    () => projects.map((p) => getLocalizedProject(p, language)),
+    [projects, language]
+  );
+
+  const selectedProject = useMemo(
+    () => localizedProjects.find((p) => p.id === selectedProjectId) ?? null,
+    [localizedProjects, selectedProjectId]
+  );
 
   // Available categories present in existing project tags
   const availableCategories = useMemo(() => {
     const categoriesSet = new Set<TechCategory>();
-    projects.forEach((p) => {
+    localizedProjects.forEach((p) => {
       p.tags.forEach((t) => categoriesSet.add(t.category));
     });
     return Array.from(categoriesSet);
-  }, [projects]);
+  }, [localizedProjects]);
 
   // Filtered projects
   const filteredProjects = useMemo(() => {
-    return projects.filter((project) => {
+    return localizedProjects.filter((project) => {
       const matchesCategory =
         selectedCategory === 'all' ||
         project.tags.some((tag) => tag.category === selectedCategory);
@@ -56,7 +59,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
 
       return matchesCategory && matchesSearch;
     });
-  }, [projects, selectedCategory, searchQuery]);
+  }, [localizedProjects, selectedCategory, searchQuery]);
 
   // Total pages
   const totalPages = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE);
@@ -84,13 +87,13 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 text-xs font-medium mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Casos de Estudio & Código Real</span>
+            <span>{t.projects.badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-            Proyectos de Software Destacados
+            {t.projects.title}
           </h2>
           <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
-            Proyectos desarrollados para resolver necesidades reales, con interfaces claras, lógica ordenada y un enfoque práctico en la funcionalidad.
+            {t.projects.subtitle}
           </p>
         </div>
 
@@ -100,7 +103,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
           <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
             <span className="text-xs text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5 shrink-0 mr-1">
               <Filter className="w-3.5 h-3.5" />
-              Filtrar:
+              {t.projects.filterLabel}
             </span>
             <button
               onClick={() => handleCategoryChange('all')}
@@ -110,23 +113,23 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
                   : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-zinc-800'
               }`}
             >
-              Todos ({projects.length})
+              {t.projects.filterAll} ({localizedProjects.length})
             </button>
             {availableCategories.map((category) => {
-              const count = projects.filter((p) =>
-                p.tags.some((t) => t.category === category)
+              const count = localizedProjects.filter((p) =>
+                p.tags.some((tag) => tag.category === category)
               ).length;
               return (
                 <button
                   key={category}
                   onClick={() => handleCategoryChange(category)}
-                  className={`text-xs px-3.5 py-1.5 rounded-full font-medium transition-colors cursor-pointer shrink-0 capitalize ${
+                  className={`text-xs px-3.5 py-1.5 rounded-full font-medium transition-colors cursor-pointer shrink-0 ${
                     selectedCategory === category
                       ? 'bg-cyan-500 text-zinc-950 font-semibold shadow-sm'
                       : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-zinc-800'
                   }`}
                 >
-                  {categoryLabels[category].split(' ')[0]} ({count})
+                  {t.projects.categoryLabels[category]} ({count})
                 </button>
               );
             })}
@@ -139,7 +142,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
               type="text"
               value={searchQuery}
               onChange={(e) => handleSearchChange(e.target.value)}
-              placeholder="Buscar por tecnología o nombre..."
+              placeholder={t.projects.searchPlaceholder}
               className="w-full pl-9 pr-4 py-2 bg-white dark:bg-zinc-900/90 border border-zinc-300 dark:border-zinc-800 rounded-xl text-xs text-zinc-900 dark:text-zinc-200 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-cyan-500/50 transition-colors shadow-xs"
             />
           </div>
@@ -153,7 +156,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
                 <ProjectCard
                   key={project.id}
                   project={project}
-                  onSelect={(proj) => setSelectedProject(proj)}
+                  onSelect={(proj) => setSelectedProjectId(proj.id)}
                 />
               ))}
             </div>
@@ -164,16 +167,16 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
               totalItems={filteredProjects.length}
               itemsPerPage={ITEMS_PER_PAGE}
               onPageChange={setCurrentPage}
-              itemLabel="proyectos"
+              itemLabel={t.projects.itemLabel}
               scrollToId="proyectos"
             />
           </>
         ) : (
           <div className="text-center py-16 px-4 bg-zinc-100/60 dark:bg-zinc-900/30 rounded-2xl border border-zinc-200 dark:border-zinc-800">
             <Code2 className="w-12 h-12 text-zinc-400 dark:text-zinc-600 mx-auto mb-3" />
-            <p className="text-zinc-800 dark:text-zinc-300 font-medium">No se encontraron proyectos</p>
+            <p className="text-zinc-800 dark:text-zinc-300 font-medium">{t.projects.emptyTitle}</p>
             <p className="text-zinc-500 text-xs mt-1">
-              Prueba cambiando la categoría seleccionada o el término de búsqueda.
+              {t.projects.emptySubtitle}
             </p>
           </div>
         )}
@@ -183,7 +186,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
       <ProjectModal
         project={selectedProject}
         isOpen={Boolean(selectedProject)}
-        onClose={() => setSelectedProject(null)}
+        onClose={() => setSelectedProjectId(null)}
       />
     </section>
   );

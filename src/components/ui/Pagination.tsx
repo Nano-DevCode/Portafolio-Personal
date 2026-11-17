@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '../../context/language-context';
 
 interface PaginationProps {
   currentPage: number;
@@ -20,6 +21,8 @@ export const Pagination: React.FC<PaginationProps> = ({
   itemLabel = 'elementos',
   scrollToId,
 }) => {
+  const { t } = useLanguage();
+
   if (totalPages <= 1) {
     return null;
   }
@@ -65,12 +68,12 @@ export const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <nav
-      aria-label={`Paginación de ${itemLabel}`}
+      aria-label={`${t.pagination.ariaPrefix} ${itemLabel}`}
       className="mt-12 pt-6 border-t border-zinc-200 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4"
     >
       {/* Resumen de elementos */}
       <p className="text-xs text-zinc-500 dark:text-zinc-400 order-2 sm:order-1 font-mono">
-        Mostrando <span className="font-semibold text-zinc-800 dark:text-zinc-200">{startItem}–{endItem}</span> de{' '}
+        {t.pagination.showing} <span className="font-semibold text-zinc-800 dark:text-zinc-200">{startItem}–{endItem}</span> {t.pagination.of}{' '}
         <span className="font-semibold text-zinc-800 dark:text-zinc-200">{totalItems}</span> {itemLabel}
       </p>
 
@@ -80,11 +83,11 @@ export const Pagination: React.FC<PaginationProps> = ({
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          aria-label="Página anterior"
+          aria-label={t.pagination.previousAria}
           className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 shadow-2xs"
         >
           <ChevronLeft className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">Anterior</span>
+          <span className="hidden sm:inline">{t.pagination.previous}</span>
         </button>
 
         {/* Botones numéricos */}
@@ -125,10 +128,10 @@ export const Pagination: React.FC<PaginationProps> = ({
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          aria-label="Página siguiente"
+          aria-label={t.pagination.nextAria}
           className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 shadow-2xs"
         >
-          <span className="hidden sm:inline">Siguiente</span>
+          <span className="hidden sm:inline">{t.pagination.next}</span>
           <ChevronRight className="w-3.5 h-3.5" />
         </button>
       </div>

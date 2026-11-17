@@ -19,52 +19,45 @@ import type { Certification } from '../../types/certification';
 import { certifications } from '../../data/certifications';
 import { Button } from '../ui/Button';
 import { Pagination } from '../ui/Pagination';
+import { useLanguage } from '../../context/language-context';
+import { getLocalizedCertification } from '../../i18n/dataTranslations';
 
 type FilterType = 'all' | 'cloud' | 'udemy' | 'academic';
 
-const categoryBadges: Record<Certification['category'], { label: string; className: string; icon: React.ReactNode }> = {
+const categoryStyles: Record<Certification['category'], { className: string; icon: React.ReactNode }> = {
   cloud: {
-    label: 'Cloud & Architecture',
     className: 'bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border-indigo-500/30',
     icon: <Cloud className="w-3.5 h-3.5" />,
   },
   security: {
-    label: 'Cloud Security / DevOps',
     className: 'bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/30',
     icon: <Lock className="w-3.5 h-3.5" />,
   },
   ai: {
-    label: 'Data, ML & AI',
     className: 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border-cyan-500/30',
     icon: <Sparkles className="w-3.5 h-3.5" />,
   },
   backend: {
-    label: 'Backend & APIs',
     className: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/30',
     icon: <Server className="w-3.5 h-3.5" />,
   },
   frontend: {
-    label: 'Frontend & Web Development',
     className: 'bg-sky-500/10 text-sky-700 dark:text-sky-400 border-sky-500/30',
     icon: <Code2 className="w-3.5 h-3.5" />,
   },
   mobile: {
-    label: 'Mobile & Cross-Platform',
     className: 'bg-violet-500/10 text-violet-700 dark:text-violet-400 border-violet-500/30',
     icon: <Smartphone className="w-3.5 h-3.5" />,
   },
   devops: {
-    label: 'DevOps & Herramientas',
     className: 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/30',
     icon: <Database className="w-3.5 h-3.5" />,
   },
   academic: {
-    label: 'Formación Oficial / TecNM',
     className: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/30',
     icon: <GraduationCap className="w-3.5 h-3.5" />,
   },
   other: {
-    label: 'Especialización',
     className: 'bg-zinc-500/10 text-zinc-700 dark:text-zinc-400 border-zinc-500/30',
     icon: <ShieldCheck className="w-3.5 h-3.5" />,
   },
@@ -73,12 +66,15 @@ const categoryBadges: Record<Certification['category'], { label: string; classNa
 const ITEMS_PER_PAGE = 6;
 
 export const CertificationsSection: React.FC = () => {
+  const { language, t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
   const [currentPage, setCurrentPage] = useState(1);
 
   // Ordenar automáticamente de menor a mayor 'importance' (1 = más relevante)
   const sortedCertifications = useMemo(() => {
-    const list = [...certifications].sort((a, b) => a.importance - b.importance);
+    const list = [...certifications]
+      .sort((a, b) => a.importance - b.importance)
+      .map((c) => getLocalizedCertification(c, language));
     if (activeFilter === 'cloud') {
       return list.filter(
         (c) =>
@@ -94,7 +90,7 @@ export const CertificationsSection: React.FC = () => {
       return list.filter((c) => c.category === 'academic');
     }
     return list;
-  }, [activeFilter]);
+  }, [activeFilter, language]);
 
   // Total pages
   const totalPages = Math.ceil(sortedCertifications.length / ITEMS_PER_PAGE);
@@ -117,14 +113,18 @@ export const CertificationsSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20 text-xs font-medium mb-3">
             <Award className="w-3.5 h-3.5" />
-            <span>Validación & Formación Continua</span>
+            <span>{t.certifications.badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-            Certificaciones Oficiales & Especializaciones
+            {t.certifications.title}
           </h2>
           <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
-            Acreditaciones internacionales de <strong className="text-zinc-900 dark:text-white font-semibold">Google Cloud y AWS (Credly)</strong>, 
-            cursos especializados de <strong className="text-zinc-900 dark:text-white font-semibold">Udemy</strong> y formación académica del <strong className="text-zinc-900 dark:text-white font-semibold">TecNM / INFOTEC</strong>.
+            {t.certifications.subtitlePart1}
+            <strong className="text-zinc-900 dark:text-white font-semibold">{t.certifications.subtitleCloud}</strong>
+            {t.certifications.subtitlePart2}
+            <strong className="text-zinc-900 dark:text-white font-semibold">{t.certifications.subtitleUdemy}</strong>
+            {t.certifications.subtitlePart3}
+            <strong className="text-zinc-900 dark:text-white font-semibold">{t.certifications.subtitleTecNM}</strong>.
           </p>
         </div>
 
@@ -132,7 +132,7 @@ export const CertificationsSection: React.FC = () => {
         <div className="flex items-center justify-center gap-2 mb-10 overflow-x-auto pb-2 scrollbar-none">
           <span className="text-xs text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5 shrink-0 mr-1">
             <Filter className="w-3.5 h-3.5" />
-            Filtrar:
+            {t.certifications.filterLabel}
           </span>
           <button
             onClick={() => handleFilterChange('all')}
@@ -142,7 +142,7 @@ export const CertificationsSection: React.FC = () => {
                 : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-zinc-800'
             }`}
           >
-            Todas ({certifications.length})
+            {t.certifications.filterAll} ({certifications.length})
           </button>
           <button
             onClick={() => handleFilterChange('cloud')}
@@ -152,7 +152,7 @@ export const CertificationsSection: React.FC = () => {
                 : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-zinc-800'
             }`}
           >
-            AWS & Google Cloud (Credly)
+            {t.certifications.filterCloud}
           </button>
           <button
             onClick={() => handleFilterChange('udemy')}
@@ -162,7 +162,7 @@ export const CertificationsSection: React.FC = () => {
                 : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-zinc-800'
             }`}
           >
-            Especializaciones Udemy
+            {t.certifications.filterUdemy}
           </button>
           <button
             onClick={() => handleFilterChange('academic')}
@@ -172,14 +172,15 @@ export const CertificationsSection: React.FC = () => {
                 : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-zinc-800'
             }`}
           >
-            Académicas / TecNM
+            {t.certifications.filterAcademic}
           </button>
         </div>
 
         {/* Certifications Grid */}
         <div className="grid md:grid-cols-2 gap-6">
           {paginatedCertifications.map((cert) => {
-            const cat = categoryBadges[cert.category] || categoryBadges.other;
+            const catStyle = categoryStyles[cert.category] || categoryStyles.other;
+            const catLabel = t.certifications.categoryLabels[cert.category] || t.certifications.categoryLabels.other;
             const isTopRanked = cert.importance === 1;
 
             return (
@@ -195,7 +196,7 @@ export const CertificationsSection: React.FC = () => {
                 {isTopRanked && (
                   <div className="absolute -top-3 right-6">
                     <span className="inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider px-3 py-0.5 rounded-full bg-cyan-500 text-zinc-950 shadow-sm">
-                      <CheckCircle2 className="w-3 h-3" /> Principal Acreditación
+                      <CheckCircle2 className="w-3 h-3" /> {t.certifications.topBadge}
                     </span>
                   </div>
                 )}
@@ -204,13 +205,13 @@ export const CertificationsSection: React.FC = () => {
                   {/* Category Badge & Priority */}
                   <div className="flex items-center justify-between gap-2 mb-4">
                     <span
-                      className={`inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full font-medium border ${cat.className}`}
+                      className={`inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full font-medium border ${catStyle.className}`}
                     >
-                      {cat.icon}
-                      {cat.label}
+                      {catStyle.icon}
+                      {catLabel}
                     </span>
                     <span className="text-[11px] font-mono text-zinc-400 dark:text-zinc-500">
-                      Prioridad #{cert.importance}
+                      {t.certifications.priorityPrefix}{cert.importance}
                     </span>
                   </div>
 
@@ -247,7 +248,7 @@ export const CertificationsSection: React.FC = () => {
                       size="sm"
                       icon={<ExternalLink className="w-3.5 h-3.5" />}
                     >
-                      Verificar credencial
+                      {t.certifications.verifyButton}
                     </Button>
                   )}
                 </div>
@@ -263,7 +264,7 @@ export const CertificationsSection: React.FC = () => {
           totalItems={sortedCertifications.length}
           itemsPerPage={ITEMS_PER_PAGE}
           onPageChange={setCurrentPage}
-          itemLabel="certificaciones"
+          itemLabel={t.certifications.itemLabel}
           scrollToId="certificaciones"
         />
       </div>

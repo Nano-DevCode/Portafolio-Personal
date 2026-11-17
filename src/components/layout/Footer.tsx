@@ -1,7 +1,9 @@
 import React from 'react';
 import { Heart, Terminal } from 'lucide-react';
+import { useLanguage } from '../../context/language-context';
 
 export const Footer: React.FC = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -10,13 +12,13 @@ export const Footer: React.FC = () => {
         <div className="flex items-center gap-2">
           <Terminal className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
           <span className="text-zinc-700 dark:text-zinc-400 font-medium">Nano-DevCode</span>
-          <span>• Portafolio de Ingeniería de Software</span>
+          <span>{t.footer.portfolioTagline}</span>
         </div>
 
         <div className="flex items-center gap-1">
-          <span>Construido con</span>
+          <span>{t.footer.builtWith}</span>
           <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline mx-0.5" />
-          <span>usando React, Vite, TypeScript & Tailwind CSS.</span>
+          <span>{t.footer.usingTech}</span>
         </div>
 
         <div className="flex items-center gap-4">

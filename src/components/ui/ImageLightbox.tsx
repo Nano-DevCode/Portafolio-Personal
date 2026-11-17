@@ -8,6 +8,7 @@ import {
   ChevronRight,
   Maximize2
 } from 'lucide-react';
+import { useLanguage } from '../../context/language-context';
 
 interface ImageLightboxProps {
   isOpen: boolean;
@@ -24,8 +25,10 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
   images,
   currentIndex,
   onNavigate,
-  title = 'Captura de pantalla'
+  title
 }) => {
+  const { t } = useLanguage();
+  const resolvedTitle = title ?? t.lightbox.defaultTitle;
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -120,7 +123,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={`Visor con zoom: ${title}`}
+      aria-label={`${t.lightbox.ariaPrefix} ${resolvedTitle}`}
       className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl select-none"
       onClick={onClose}
     >
@@ -132,7 +135,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
         <div className="flex items-center gap-3 text-white">
           <Maximize2 className="w-4 h-4 text-cyan-400" />
           <span className="text-sm font-semibold truncate max-w-[200px] sm:max-w-md">
-            {title}
+            {resolvedTitle}
           </span>
           <span className="text-xs text-zinc-400 font-mono">
             ({currentIndex + 1} / {images.length})
@@ -149,8 +152,8 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
           <button
             onClick={handleZoomIn}
             className="p-2 rounded-lg bg-zinc-800/80 hover:bg-zinc-700 text-white border border-zinc-700/80 transition-colors cursor-pointer"
-            title="Acercar (+)"
-            aria-label="Acercar zoom"
+            title={t.lightbox.zoomInTitle}
+            aria-label={t.lightbox.zoomInTitle}
           >
             <ZoomIn className="w-4 h-4" />
           </button>
@@ -159,8 +162,8 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
             onClick={handleZoomOut}
             disabled={scale <= 1}
             className="p-2 rounded-lg bg-zinc-800/80 hover:bg-zinc-700 text-white border border-zinc-700/80 transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
-            title="Alejar (-)"
-            aria-label="Alejar zoom"
+            title={t.lightbox.zoomOutTitle}
+            aria-label={t.lightbox.zoomOutTitle}
           >
             <ZoomOut className="w-4 h-4" />
           </button>
@@ -169,8 +172,8 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
             onClick={resetZoom}
             disabled={scale === 1}
             className="p-2 rounded-lg bg-zinc-800/80 hover:bg-zinc-700 text-white border border-zinc-700/80 transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
-            title="Restablecer (100%)"
-            aria-label="Restablecer zoom original"
+            title={t.lightbox.resetTitle}
+            aria-label={t.lightbox.resetTitle}
           >
             <RotateCcw className="w-4 h-4" />
           </button>
@@ -180,8 +183,8 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
           <button
             onClick={onClose}
             className="p-2 rounded-lg bg-zinc-800/80 hover:bg-rose-600 text-white border border-zinc-700/80 hover:border-rose-500 transition-colors cursor-pointer"
-            title="Cerrar (Esc)"
-            aria-label="Cerrar visor"
+            title={t.lightbox.closeTitle}
+            aria-label={t.lightbox.closeTitle}
           >
             <X className="w-4 h-4" />
           </button>
@@ -208,7 +211,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
         >
           <img
             src={currentImage}
-            alt={`${title} - captura ${currentIndex + 1}`}
+            alt={`${resolvedTitle} - ${currentIndex + 1}`}
             className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg shadow-2xl pointer-events-none"
             draggable={false}
           />
@@ -224,8 +227,8 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
               onNavigate((currentIndex - 1 + images.length) % images.length);
             }}
             className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-zinc-900/80 hover:bg-cyan-500 hover:text-zinc-950 text-white border border-zinc-700 transition-all cursor-pointer shadow-lg"
-            title="Captura anterior (Flecha Izquierda)"
-            aria-label="Captura anterior"
+            title={t.lightbox.prevTitle}
+            aria-label={t.lightbox.prevTitle}
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
@@ -236,8 +239,8 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
               onNavigate((currentIndex + 1) % images.length);
             }}
             className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-zinc-900/80 hover:bg-cyan-500 hover:text-zinc-950 text-white border border-zinc-700 transition-all cursor-pointer shadow-lg"
-            title="Siguiente captura (Flecha Derecha)"
-            aria-label="Siguiente captura"
+            title={t.lightbox.nextTitle}
+            aria-label={t.lightbox.nextTitle}
           >
             <ChevronRight className="w-6 h-6" />
           </button>
@@ -247,11 +250,11 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
       {/* Bottom Hint */}
       <div className="absolute bottom-4 inset-x-0 text-center pointer-events-none">
         <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900/80 border border-zinc-800 text-xs text-zinc-400 font-medium backdrop-blur-md">
-          <span>💡 Clic para hacer zoom ({scale > 1 ? 'Alejar' : 'Acercar'})</span>
+          <span>💡 {t.lightbox.hintClick} ({scale > 1 ? t.lightbox.hintZoomOut : t.lightbox.hintZoomIn})</span>
           <span>•</span>
-          <span>Arrastra para desplazar</span>
+          <span>{t.lightbox.hintDrag}</span>
           <span>•</span>
-          <span>Flechas para navegar</span>
+          <span>{t.lightbox.hintArrows}</span>
         </span>
       </div>
     </div>
